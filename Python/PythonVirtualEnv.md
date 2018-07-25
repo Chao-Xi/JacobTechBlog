@@ -1,4 +1,4 @@
-![Alt Image Text](headline.jpg "Headline image")
+![Alt Image Text](../images/headline.jpg "Headline image")
 # Python 虚拟环境学习
 对于每个python项目依赖的库版本都有可能不一样，如果将依赖包都安装到公共环境的话显然是没法进行区分的，甚至是不同的项目使用的python版本都不尽相同，有的用python2.7，有的用python3.6，所以对于python项目的环境进行隔离管理就成为一个必然的需求了。
 
