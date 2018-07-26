@@ -1,8 +1,9 @@
 ![Alt Image Text](https://github.com/Chao-Xi/TechBlog/blob/master/Python/images/hoboken5.jpg "Headline image")
 
- #Python类变量和实例变量
+#Python类变量和实例变量
 
 ##大纲：
+
 ![Alt Image Text](https://github.com/Chao-Xi/TechBlog/blob/master/Python/images/ClsorInsVar.jpg "ABs image")
 
 ##1. 类变量和实例变量(Class and Instance Variables)
