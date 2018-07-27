@@ -1,3 +1,4 @@
+![Alt Image Text](https://github.com/Chao-Xi/TechBlog/blob/master/Python/images/hoboken2.jpg "Headline image")
 # python中的静态方法和类方法
 
 Though `classmethod` and `staticmethod` are quite similar, there's a slight difference in usage for both entities: `classmethod` must have a reference to a class object as the first parameter, whereas `staticmethod` can have no parameters at all.
