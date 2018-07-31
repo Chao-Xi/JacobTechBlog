@@ -1,3 +1,4 @@
+![Alt Image Text](images/headline6.jpg "headline")
 # Nginx Practice #2: Nginx reverse proxy based on request urls
 
 ## Reference:

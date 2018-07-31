@@ -1,3 +1,4 @@
+![Alt Image Text](images/headline2.jpg "headline")
 # Nginx Tutorial #1: Basic Concepts
 
 ## Introduction
