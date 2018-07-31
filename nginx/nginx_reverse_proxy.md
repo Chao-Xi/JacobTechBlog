@@ -4,13 +4,13 @@
 
 A proxy server is a go‑between or intermediary server that forwards requests for content from ***multiple clients*** to **different servers** across the Internet.
 
-![Alt Image Text](proxy_server.jpg "proxy server")
+![Alt Image Text](https://github.com/Chao-Xi/TechBlog/blob/master/nginx/images/proxy_server.jpg "proxy server")
 
 A **reverse proxy server** is a type of **proxy server** that typically sits behind the firewall in a private network and directs client requests to the appropriate backend server. 
 
 A reverse proxy provides an additional level of abstraction and control to ensure the smooth flow of network traffic between clients and servers.
 
-![Alt Image Text](reverse_proxy.jpg "reverse server")
+![Alt Image Text](https://github.com/Chao-Xi/TechBlog/blob/master/nginx/images/reverse_proxy.jpg "reverse server")
 
 Common uses for a **[reverse proxy server](https://www.nginx.com/resources/admin-guide/reverse-proxy/)** include:
 
