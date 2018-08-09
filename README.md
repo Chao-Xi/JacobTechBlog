@@ -1,4 +1,3 @@
-# Jacob Tech Blog
 
 <img alt="ALT test" src="images/newyorkheadline.jpg">
 
