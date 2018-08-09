@@ -15,7 +15,7 @@
 8. [Docker安装和使用BusyBox、Alphine、Ubuntu/Debian、CentOS/Fedora等操作系统(docker box)
 ](8docker_box.md)
 9. [远程(SSH)连接Docker容器(Docker ssh)](9docker_ssh.md)
-
+10. [Docker 的多阶段构建(Docker mulitple stages)](10docer_stages.md)
 
 ## Docker basic tutorial [En]
 
