@@ -1,6 +1,6 @@
 # Jacob Tech Blog
 
-![Alt Image Text](https://github.com/Chao-Xi/TechBlog/blob/master/images/newyorkheadline.jpg "Headline image")
+<img alt="ALT test" src="images/newyorkheadline.jpg">
 
 ### Veni Vidi Vici 
 
