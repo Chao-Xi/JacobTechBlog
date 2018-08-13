@@ -5,7 +5,7 @@
 ## Python Install and Env
 
 1. [Python 虚拟环境学习](PythonVirtualEnv.md)
-2. [Python Package Manager(pip)](packagemanagerpip.md)
+
 
 ## Python Tutorial for Beginners
 
@@ -34,6 +34,9 @@
 
 ## Python OOP Tutorial
 
+1. [Class Introduction](python_oop1.md)
 2. [Python类变量和实例变量](ClsorInsVar.md)
 3. [python中的静态方法和类方法](Methods.md)
 4. [Python中的类的继承](Inheritance.md)
+5. [Magic Methods inside Class](python_oop2.md)
+6. [Class Function Decorators](python_oop3.md)
