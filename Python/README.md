@@ -5,7 +5,7 @@
 ## Python Install and Env
 
 1. [Python 虚拟环境学习](PythonVirtualEnv.md)
-2. [Python Packager Manager(pip)](packagemanagerpip.md)
+2. [Python Package Manager(pip)](packagemanagerpip.md)
 
 ## Python Tutorial for Beginners
 
