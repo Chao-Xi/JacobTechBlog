@@ -1,4 +1,4 @@
-# 受摸手动搭建高可用的kubernetes集群（1.8.2）
+# 受摸手搭建高可用的kubernetes集群（1.8.2）
 ![Alt Image Text](images//readme-01.jpg "Headline image")
 
 ## Done Part:
