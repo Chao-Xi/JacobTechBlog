@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: harbor-jobservice-config
+data:
+  UI_SECRET: "doO9XNKVPZoWV9ht"
+  JOBSERVICE_SECRET: "P5Mta2YhFqhMHCLg"
+  SECRET_KEY: "HCzG7cE7HgSsZrM0"
+  MAX_JOB_WORKERS: "10"
+  LOG_LEVEL: debug
+  GODEBUG: netdns=cgo
+  CONFIG_PATH: /etc/jobservice/app.conf
+  config: |
+    appname = jobservice
+    runmode = dev
+    [dev]
+    httpport = 80

@@ -17,8 +17,8 @@
 12. [部署Heapster插件](11-部署Heapster插件.md)
 13. [安装Ingress](12-安装Ingress.md)
 14. [问题汇总](13-问题汇总.md)
+15. [私有仓库harbor搭建](14-k8s上搭建harbor.md) 
 
 ## TODOs:
 
 1. 日志收集
-2. 私有仓库harbor 搭建

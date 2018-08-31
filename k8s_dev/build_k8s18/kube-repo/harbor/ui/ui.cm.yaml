@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: harbor-ui-config
+data:
+  CONFIG_PATH: /etc/ui/app.conf
+  LOG_LEVEL: debug
+  UI_SECRET: "doO9XNKVPZoWV9ht"
+  JOBSERVICE_SECRET: "P5Mta2YhFqhMHCLg"
+  GODEBUG: netdns=cgo
+  SECRET_KEY: "HCzG7cE7HgSsZrM0"
+  config: |
+    appname = registry
+    runmode = dev
+    [lang]
+    types = en-US|zh-CN
+    names = en-US|zh-CN
+    [dev]
+    httpport = 80
+    [mail]
+    host = smtp.mydomain.com
+    port = 25
+    username = sample_admin@mydomain.com
+    password = abc
+    from = admin <sample_admin@mydomain.com>
+    ssl = false
+  pkey: |
