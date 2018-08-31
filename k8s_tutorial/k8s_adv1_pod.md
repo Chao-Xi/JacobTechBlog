@@ -1,4 +1,4 @@
-[Alt Image Text](images/adv/adv1_0.jpg "Headline image")
+![Alt Image Text](images/adv/adv1_0.jpg "Headline image")
 
 # Kubernetes Pod 工作流
 
