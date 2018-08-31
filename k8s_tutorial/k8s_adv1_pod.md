@@ -1,3 +1,5 @@
+[Alt Image Text](images/adv/adv1_0.jpg "Headline image")
+
 # Kubernetes Pod 工作流
 
 我们知道`Pod`是`Kubernetes`中最小的调度单元，平时我们操作`Pod`的时间也是最多的，那么你知道`Pod`是怎样被创建出来的吗？知道他的工作流程吗？
