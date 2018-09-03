@@ -1,3 +1,5 @@
+![Alt Image Text](images/adv/adv0_1.jpg "Headline image")
+
 # 使用YAML 文件创建 Kubernetes Deployment
 
 在之前的文章中，我们一直在讨论如何使用kubernetes，很多时候我们知道怎么使用`kubectl`命令行工具来启动一个`POD`，也看到我们在安装kubernetes 过程中使用了一些 `YAML` 文件来创建，但是发现很多朋友对 YAML 文件来创建一个 `POD` 还是非常陌生。所以我们来简单看看 `YAML` 文件是如何工作的，并使用 `YAML` 文件来定义一个 `kubernetes pod`，然后再来定义一个 `kubernetes deployment` 吧。
