@@ -87,14 +87,13 @@ kubectl rollout undo deployment/nginx-deployment
      在创建出新的Pod之前会先杀掉所有已存在的Pod。
    * `.spec.strategy.type==RollingUpdate`
    
-   ```
-   1.可以指定maxUnavailable 和 maxSurge 来控制 rolling update 进程。
-   2.Max Unavailable
-   .spec.strategy.rollingUpdate.maxUnavailable 是可选配置项，用来指定在升级过程中不可用Pod的最大 数量。该值可以是一个绝对值(例如5)，也可以是期望Pod数量的百分比(例如10%)。
-   3.Max Surge
-   .spec.strategy.rollingUpdate.maxSurge 是可选配置项，用来指定可以超过期望的Pod数量的最大个数。
+1. 可以指定maxUnavailable 和 maxSurge 来控制 rolling update 进程。
+2. Max Unavailable
+   `.spec.strategy.rollingUpdate.maxUnavailable `是可选配置项，用来指定在升级过程中不可用Pod的最大 数量。该值可以是一个绝对值(例如5)，也可以是期望Pod数量的百分比(例如10%)。
+3. Max Surge
+   `.spec.strategy.rollingUpdate.maxSurge` 是可选配置项，用来指定可以超过期望的Pod数量的最大个数。
 该值可以是一个绝对值(例如5)或者是期望的Pod数量的百分比(例如10%)。
-   ```
+
 
 * Progress Deadline Seconds
 * Min Ready Seconds
