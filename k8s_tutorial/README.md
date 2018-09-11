@@ -18,7 +18,7 @@
 3. [Kubernetes基本对象 (K8S Basic object: Container, Pod, Node, Namespace, Service, Label, Annotations)] (k8s_basic5.md)
 
 
-![Alt Image Text](images/readme2.jpg "headline image")
+
 
 
 ## Kubernetes对象详解(K8S Objects Analysis)
@@ -38,7 +38,7 @@
 13. [Resource Quotas, LimitRange, Horizontal Pod Autoscaling](k8s_basic18.md)
 14. [Network Policy, Namespace & Pod Isolation, Ingress, PodPreset, ThirdPartyResources](k8s_basic19.md)
 
-![Alt Image Text](images/readme3.jpg "headline image")
+
 
 ## Kubernetes高阶,设计和实现(K8S Advanced Design)
 
@@ -52,7 +52,7 @@
 8. [监控和日志(Log system and Monitoring system)](k8s_basic27.md)
 9. [建立持续交付的服务体系 (Continuous Delivery System)](k8s_basic28.md)
 
-![Alt Image Text](images/readme4.jpg "headline image")
+
 
 ## Kubernetes案例分析(K8S Case Analysis)
 
@@ -62,7 +62,7 @@
 4. [网络分析](k8s_ins4_net.md)
 5. [Ingress实践](k8s_ins5_ingress.md)
 
-![Alt Image Text](images/readme5.jpg "headline image")
+
 
 ## K8S进阶课程(K8S Adv. Tutorial)
 
