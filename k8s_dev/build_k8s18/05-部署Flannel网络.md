@@ -147,11 +147,11 @@ flannel.1 Link encap:Ethernet  HWaddr 66:4a:88:e0:75:32
 $ # 查看集群 Pod 网段(/16)
 
 $ etcdctl \
->   --endpoints=${ETCD_ENDPOINTS} \
->   --ca-file=/etc/kubernetes/ssl/ca.pem \
->   --cert-file=/etc/flanneld/ssl/flanneld.pem \
->   --key-file=/etc/flanneld/ssl/flanneld-key.pem \
->   get ${FLANNEL_ETCD_PREFIX}/config
+   --endpoints=${ETCD_ENDPOINTS} \
+   --ca-file=/etc/kubernetes/ssl/ca.pem \
+   --cert-file=/etc/flanneld/ssl/flanneld.pem \
+   --key-file=/etc/flanneld/ssl/flanneld-key.pem \
+   get ${FLANNEL_ETCD_PREFIX}/config
 {"Network":"172.30.0.0/16", "SubnetLen": 24, "Backend": {"Type": "vxlan"}}
 
 $ # 查看已分配的 Pod 子网段列表(/24)
