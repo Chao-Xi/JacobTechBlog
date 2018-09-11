@@ -122,6 +122,12 @@ $ pwd
 $ ls *.yaml
 dashboard-controller.yaml  dashboard-rbac.yaml  dashboard-service.yaml
 $ kubectl create -f  .
+
+deployment "kubernetes-dashboard" created
+serviceaccount "dashboard" created
+clusterrolebinding "dashboard" created
+service "kubernetes-dashboard" created
+
 ```
 
 ## 检查执行结果

@@ -348,7 +348,7 @@ deployment "my-nginx" created
 
 ```
 $ kubectl expose deploy my-nginx
-Error from server (AlreadyExists): services "my-nginx" already exists
+service "my-nginx" exposed
 ```
 ```
 $ kubectl get services

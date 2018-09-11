@@ -21,6 +21,19 @@ heapster-rbac.yaml
 
 为方便测试访问，将`grafana.yaml`下面的服务类型设置为`type=NodePort`
 
+```
+$ vi grafana.yaml
+
+type: NodePort
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    k8s-app: grafana
+
+```
+
+
 ## 执行所有文件
 
 ```
