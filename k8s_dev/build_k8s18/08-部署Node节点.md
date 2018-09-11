@@ -33,6 +33,7 @@ net.bridge.bridge-nf-call-ip6tables=1
 
 ```
 $ sudo modprobe ip_vs
+$ sudo modprobe br_netfilter
 ```
 执行下面的命令立即生效：
 ```
