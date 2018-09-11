@@ -98,7 +98,7 @@ $  diff kubedns-svc.yaml.base kubedns-svc.yaml
 >   clusterIP: 10.254.0.2
 ```
 
-需要将 spec.clusterIP 设置为集群环境变量中变量 `CLUSTER_DNS_SVC_IP` 值，这个IP 需要和 kubelet 的 `—cluster-dns` 参数值一致
+需要将 spec.clusterIP 设置为集群环境变量中变量 `CLUSTER_DNS_SVC_IP` 值，这个IP 需要和 kubelet 的 `-—cluster-dns` 参数值一致,写在env.sh内
 
 ## 配置kube-dns Deployment
 
@@ -308,6 +308,14 @@ $ ls *.yaml
 kubedns-cm.yaml  kubedns-controller.yaml  kubedns-sa.yaml  kubedns-svc.yaml
 $ kubectl create -f .
 ```
+
+```
+configmap "kube-dns" created
+deployment "kube-dns" created
+serviceaccount "kube-dns" created
+service "kube-dns" created
+```
+
 
 ## 检查kubedns 功能
 
