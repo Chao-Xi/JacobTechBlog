@@ -24,7 +24,7 @@ heapster-rbac.yaml
 ```
 $ vi grafana.yaml
 
-type: NodePort
+  type: NodePort
   ports:
   - port: 80
     targetPort: 3000
