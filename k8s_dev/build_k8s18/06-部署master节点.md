@@ -77,7 +77,7 @@ EOF
 生成kubernetes 证书和私钥：
 
 ```
-$ cfssl gencert -ca=/etc/kubernetes/ssl/ca.pem \
+$ sudo cfssl gencert -ca=/etc/kubernetes/ssl/ca.pem \
   -ca-key=/etc/kubernetes/ssl/ca-key.pem \
   -config=/etc/kubernetes/ssl/ca-config.json \
   -profile=kubernetes kubernetes-csr.json | cfssljson -bare kubernetes
