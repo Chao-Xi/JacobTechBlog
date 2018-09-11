@@ -168,6 +168,13 @@ kubelet 启动时向`kube-apiserver` 发送`TLS bootstrapping` 请求，需要�
 
 ### 注意： `/etc/kubernetes/token.csv` 的存在
 
+```
+$ kubectl create clusterrolebinding kubelet-bootstrap --clusterrole=system:node-bootstrapper --user=kubelet-bootstrap
+```
+
+`--user=kubelet-bootstrap` 是文件 `/etc/kubernetes/token.csv` 中指定的用户名，同时也写入了文件 `/etc/kubernetes/bootstrap.kubeconfig`
+
+
 另外1.8 版本中还需要为Node 请求创建一个RBAC 授权规则：
 
 ```
