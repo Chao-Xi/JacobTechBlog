@@ -15,7 +15,7 @@
 
 1. [kubernetes介绍以及核心组件 (K8S Introduction and Core Components)](k8s_basic3.md)
 2. [kubernetes基础架构和设计理念 （K8S Basic Structure and Design Concept)](k8s_basic4.md)
-3. [Kubernetes基本对象 (K8S Basic object: Container, Pod, Node, Namespace, Service, Label, Annotations)] (k8s_basic5.md)
+3. [Kubernetes基本对象 (K8S Basic object: Container, Pod, Node, Namespace, Service, Label, Annotations)](k8s_basic5.md)
 
 
 
