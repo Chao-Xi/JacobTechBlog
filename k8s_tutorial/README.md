@@ -1,6 +1,6 @@
 # K8S Tutorial from Basic to Adv. to Real World Analysis
 
-![Alt Image Text](images/readme1.jpg "headline image")
+![Alt Image Text](images/readme2.jpg "headline image")
 
 ## K8S基础(K8S Basic Tutorial)
 
@@ -16,9 +16,6 @@
 1. [kubernetes介绍以及核心组件 (K8S Introduction and Core Components)](k8s_basic3.md)
 2. [kubernetes基础架构和设计理念 （K8S Basic Structure and Design Concept)](k8s_basic4.md)
 3. [Kubernetes基本对象 (K8S Basic object: Container, Pod, Node, Namespace, Service, Label, Annotations)](k8s_basic5.md)
-
-
-
 
 
 ## Kubernetes对象详解(K8S Objects Analysis)
@@ -69,3 +66,4 @@
 1. [使用YAML文件创建Kubernetes Deployment](k8s_adv0_yaml.md)
 2. [Kubernetes Pod 工作流](k8s_adv1_pod.md)
 3. [学习使用 Kubernetes 中的 Service 对象](k8s_adv2_service.md)
+4. [Kubernetes Deployment滚动升级](k8s_adv3_Deployment.md)
