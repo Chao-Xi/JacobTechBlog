@@ -67,3 +67,7 @@
 2. [Kubernetes Pod 工作流](k8s_adv1_pod.md)
 3. [学习使用 Kubernetes 中的 Service 对象](k8s_adv2_service.md)
 4. [Kubernetes Deployment滚动升级](k8s_adv3_Deployment.md)
+5. [kubernetes PodPreset 的使用](k8s_adv4_PodPreset.md)
+6. [kubernetes ConfigMap 和 Secrets](k8s_adv5_ConfigMap_Secrets.md)
+7. [Kubernetes Downward API 基本用法](k8s_adv6_Downward_API.md)
+8. [理解 Kubernetes 的亲和性调度](k8s_adv7_Affinity_Selector.md)
