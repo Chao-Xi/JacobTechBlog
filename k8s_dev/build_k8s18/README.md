@@ -18,6 +18,7 @@
 13. [安装Ingress](12-安装Ingress.md)
 14. [问题汇总](13-问题汇总.md)
 15. [私有仓库harbor搭建](14-k8s上搭建harbor.md) 
+16. [部署master02为node](15-部署master02为node.md)
 
 ## TODOs:
 
