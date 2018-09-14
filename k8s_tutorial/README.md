@@ -71,3 +71,7 @@
 6. [kubernetes ConfigMap 和 Secrets](k8s_adv5_ConfigMap_Secrets.md)
 7. [Kubernetes Downward API 基本用法](k8s_adv6_Downward_API.md)
 8. [理解 Kubernetes 的亲和性调度](k8s_adv7_Affinity_Selector.md)
+9. [kubernetes 的资源配额控制器](k8s_adv8_resource_quotation.md)
+10. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
+11. [用Replication Controller、Replica Set 管理Pod](k8s_adv10_RC_RS.md)
+12. [Job和CronJob 的使用方法](k8s_adv11_job_cronjob.md)
