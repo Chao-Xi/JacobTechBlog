@@ -75,3 +75,6 @@
 10. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
 11. [用Replication Controller、Replica Set 管理Pod](k8s_adv10_RC_RS.md)
 12. [Job和CronJob 的使用方法](k8s_adv11_job_cronjob.md)
+13. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
+14. [kubernetes 持久化存储(一)](k8s_adv14_pv1.md)
+15. [kubernetes 持久化存储(二)](k8s_adv14_pv2.md)
