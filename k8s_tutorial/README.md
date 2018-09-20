@@ -78,3 +78,4 @@
 13. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
 14. [kubernetes 持久化存储(一)](k8s_adv14_pv1.md)
 15. [kubernetes 持久化存储(二)](k8s_adv14_pv2.md)
+16. [Pod 中挂载单个文件的方法 subpath](k8s_adv15_subpath.md)
