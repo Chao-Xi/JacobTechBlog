@@ -22,7 +22,7 @@
 
 `kubernetes url`: `https://kubernetes.default.svc.cluster.local`
 
-注意 `namespace`，我们这里填 `kube-ops`，然后点击`Test Connection`，如果出现 `Connection test successful` 的提示信息证明 `Jenkins` 已经可以和 `Kubernetes` 系统正常通信了，然后下方的 `Jenkins URL` 地址：`http://jenkins2.kube-ops.svc.cluster.local:8080`，这里的格式为：`服务名.namespace.svc.cluster.local:8080`，
+注意 `namespace`，我们这里填 `kube-ops`，然后点击`Test Connection`，如果出现 `Connection test successful` 的提示信息证明 `Jenkins` 已经可以和 `Kubernetes` 系统正常通信了，然后下方的 `Jenkins URL` 地址：`http://jenkins2.kube-ops.svc.cluster.local:8080`，这里的格式为：`服务名.namespace.svc.cluster.local:8080`，
 
 
 ### BugFix
@@ -50,7 +50,7 @@ $ vi jenkins.yaml
 ```
 
 
-3.另外需要注意，如果这里 `Test Connection` 失败的话，很有可能是权限问题，这里就需要把我们创建的 `jenkins` 的 `serviceAccount` 对应的 `secret` 添加到这里的 `Credentials` 里面。
+3.另外需要注意，如果这里 `Test Connection` 失败的话，很有可能是权限问题，这里就需要把我们创建的 `jenkins` 的 `serviceAccount` 对应的 `secret` 添加到这里的 `Credentials` 里面。
 
 ```
 $ kubectl get secret -n=kube-ops
@@ -76,7 +76,7 @@ namespace:  8 bytes
 token:      eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWN ...
 ```
 
-第3步. 配置 `Pod Template`，其实就是配置 `Jenkins Slave` 运行的 `Pod` 模板，命名空间我们同样是用 `kube-ops`，`Labels` 这里也非常重要，对于后面执行 `Job` 的时候需要用到该值。 `Labels`:`nyjxi-jnlp`
+第3步. 配置 `Pod Template`，其实就是配置 `Jenkins Slave` 运行的 `Pod` 模板，命名空间我们同样是用 `kube-ops`，`Labels` 这里也非常重要，对于后面执行 `Job` 的时候需要用到该值。 `Labels`:`nyjxi-jnlp`
 
 为了快速尝试动态建立一个slave，先可以尝试空的 `Container Template`，写一个简答的`jenkins freestyle job` 去测试它。
 
@@ -87,12 +87,12 @@ token:      eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZ
 ![Alt Image Text](images/jk2/jk2_4.jpg "Body image")
 
 
-另外需要注意我们这里需要在下面挂载两个主机目录，一个是 `/var/run/docker.sock`，该文件是用于 `Pod` 中的容器能够共享宿主机的 `Docker`，这就是大家说的 `docker in docker` 的方式，`Docker` 二进制文件我们已经打包到上面的镜像中了，另外一个目录下 `/root/.kube` 目录，我们将这个目录挂载到容器的 `/home/jenkins/.kube` 目录下面这是为了让我们能够在 `Pod` 的容器中能够使用 `kubectl` 工具来访问我们的 `Kubernetes` 集群，方便我们后面在 `Slave Pod` 部署 `Kubernetes` 应用。
+另外需要注意我们这里需要在下面挂载两个主机目录，一个是 `/var/run/docker.sock`，该文件是用于 `Pod` 中的容器能够共享宿主机的 `Docker`，这就是大家说的 `docker in docker` 的方式，`Docker` 二进制文件我们已经打包到上面的镜像中了，另外一个目录下 `/root/.kube` 目录，我们将这个目录挂载到容器的 `/home/jenkins/.kube` 目录下面这是为了让我们能够在 `Pod` 的容器中能够使用 `kubectl` 工具来访问我们的 `Kubernetes` 集群，方便我们后面在 `Slave Pod` 部署 `Kubernetes` 应用。
 
 
 ![Alt Image Text](images/jk2/jk2_5.jpg "Body image")
 
-另外还有几个参数需要注意，如下图中的`Time in minutes to retain slave when idle`，这个参数表示的意思是当处于空闲状态的时候保留 `Slave Pod` 多长时间，这个参数最好我们保存默认就行了，如果你设置过大的话，`Job` 任务执行完成后，对应的 `Slave Pod` 就不会立即被销毁删除。
+另外还有几个参数需要注意，如下图中的`Time in minutes to retain slave when idle`，这个参数表示的意思是当处于空闲状态的时候保留 `Slave Pod` 多长时间，这个参数最好我们保存默认就行了，如果你设置过大的话，`Job` 任务执行完成后，对应的 `Slave Pod` 就不会立即被销毁删除。
 
 
 ![Alt Image Text](images/jk2/jk2_6.jpg "Body image")
@@ -123,24 +123,24 @@ Specify which nodes the pod should operate on by providing a comma separated lis
 labels: `label1=value1,label2=value2`.
 ```
 
-到这里我们的 `Kubernetes Plugin` 插件就算配置完成了。
+到这里我们的 `Kubernetes Plugin` 插件就算配置完成了。
 
 
 ## 测试 1
 
-`Kubernetes` 插件的配置工作完成了，接下来我们就来添加一个 `Job` 任务，看是否能够在 `Slave Pod` 中执行，任务执行完成后看 `Pod` 是否会被销毁。
+`Kubernetes` 插件的配置工作完成了，接下来我们就来添加一个 `Job` 任务，看是否能够在 `Slave Pod` 中执行，任务执行完成后看 `Pod` 是否会被销毁。
 
 在 `Jenkins` 首页点击`create new jobs`，创建一个测试的任务，输入任务名称，然后我们选择 `Freestyle project` 类型的任务：
 
 ![Alt Image Text](images/jk2/jk2_9.jpg "Body image")
 
 
-注意在下面的 `Label Expression` 这里要填入`nyjxi-jnlp`，就是前面我们配置的 `Slave Pod` 中的 `Label`，这两个地方必须保持一致 `config`
+注意在下面的 `Label Expression` 这里要填入`nyjxi-jnlp`，就是前面我们配置的 `Slave Pod` 中的 `Label`，这两个地方必须保持一致 `config`
 
 ![Alt Image Text](images/jk2/jk2_10.jpg "Body image")
 
 
-然后往下拉，在 `Build` 区域选择`Execute shell`
+然后往下拉，在 `Build` 区域选择`Execute shell`
 
 ![Alt Image Text](images/jk2/jk2_11.jpg "Body image")
 
@@ -159,7 +159,7 @@ env
 
 ![Alt Image Text](images/jk2/jk2_12.jpg "Body image")
 
-现在我们直接在页面点击做成的 `Build now` 触发构建即可，然后观察 `Kubernetes` 集群中 `Pod` 的变化
+现在我们直接在页面点击做成的 `Build now` 触发构建即可，然后观察 `Kubernetes` 集群中 `Pod` 的变化
 
 ```
 $ kubectl get pods -n kube-ops
