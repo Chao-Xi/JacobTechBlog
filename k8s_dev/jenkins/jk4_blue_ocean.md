@@ -99,7 +99,7 @@ $ git push origin dev
 ![Alt Image Text](images/jk4/jk4_7.jpg "Body image")
 
 
-然后将生成的 `token` 填入下面的创建 `Pipeline` 的流程中，然后我们就有权限选择自己的仓库，包括下面需要构建的仓库，比如我们这里需要构建的是 `jenkins-demo` 这个仓库，然后创建 `Pipeline` 即可：
+然后将生成的 `token` 填入下面的创建 `Pipeline` 的流程中，然后我们就有权限选择自己的仓库，包括下面需要构建的仓库，比如我们这里需要构建的是 `jenkins-demo` 这个仓库，然后创建 `Pipeline` 即可：
 
 ![Alt Image Text](images/jk4/jk4_8.jpg "Body image")
 
@@ -111,7 +111,7 @@ $ git push origin dev
 
 ![Alt Image Text](images/jk4/jk4_10.jpg "Body image")
 
-在上面的图中每个阶段我们都可以点击进去查看对应的构建结果，比如我们可以查看 Push 阶段下面的日志信息：
+在上面的图中每个阶段我们都可以点击进去查看对应的构建结果，比如我们可以查看 Push 阶段下面的日志信息：
 
 ```
 ...
@@ -119,9 +119,11 @@ $ git push origin dev
 
 + docker push ****/jenkins-demo:dev-361c24b
 
-The push refers to repository [docker.io/****/jenkins-demo]...
+The push refers to repository [docker.io/****/jenkins-demo]
+
+...
 ```
-我们可以看到本次构建的 `Docker` 镜像的 `Tag` 为`dev-361c24b`，是符合我们在 `Jenkinsfile` 中的定义的吧
+我们可以看到本次构建的 `Docker` 镜像的 `Tag` 为`dev-361c24b`，是符合我们在 `Jenkinsfile` 中的定义的吧
 
 ![Alt Image Text](images/jk4/jk4_11.jpg "Body image")
 
@@ -132,7 +134,7 @@ $ kubectl logs jenkins-demo-589f9bd645-gxctj  -n=kube-ops
 Hello, Kubernetes！I'm from Jenkins CI！
 BRANCH_NAME: dev
 ```
-我们可以看到打印了一句 `BRANCH: dev` ，证明我本次 `CI/CD` 是正常的。
+我们可以看到打印了一句 `BRANCH: dev` ，证明我本次 `CI/CD` 是正常的。
 
 现在我们来把 `dev` 分支的代码合并到 `master `分支，然后来触发一次自动构建：
 
@@ -167,11 +169,11 @@ To git@github.com:cnych/jenkins-demo.git
 ...
 ```
 
-我们可以查看到此处推送的镜像 `TAG` 为 `ee90aa5`，没有分支的前缀，是不是和我们前面在 `Jenkinsfile` 中的定义是一致的，镜像推送完成后，进入 `Deplo`y 阶段的时候我们可以看到出现了一个暂停的操作，让我们选择是否需要部署到线上，我们前面是不是定义的如果是 `master` 分支的话，在部署的阶段需要我们人工确认：
+我们可以查看到此处推送的镜像 `TAG` 为 `ee90aa5`，没有分支的前缀，是不是和我们前面在 `Jenkinsfile` 中的定义是一致的，镜像推送完成后，进入 `Deploy` 阶段的时候我们可以看到出现了一个暂停的操作，让我们选择是否需要部署到线上，我们前面是不是定义的如果是 `master` 分支的话，在部署的阶段需要我们人工确认：
 
 ![Alt Image Text](images/jk4/jk4_12.jpg "Body image")
 
-然后我们点击`Proceed`才会继续后面的部署工作，确认后，我们同样可以去 Kubernetes 环境中查看下部署的结果：
+然后我们点击`Proceed`才会继续后面的部署工作，确认后，我们同样可以去 Kubernetes 环境中查看下部署的结果：
 
 ```
 $ kubectl get pods
@@ -185,8 +187,8 @@ BRANCH: master
 ```
 
 
-到这里我们就实现了多分支代码仓库的完整的 `CI/CD` 流程。
+到这里我们就实现了多分支代码仓库的完整的 `CI/CD` 流程。
 
 当然我们这里的示例还是太简单，只是单纯为了说明 `CI/CD` 的步骤，在后面的课程中，我们会结合其他的工具进一步对我们现有的方式进行改造，比如使用 `Helm`、`Gitlab` 等等。
 
-另外如果你对声明式的 `Pipeline` 比较熟悉的话，我们推荐使用这种方式来编写 `Jenkinsfile` 文件，因为使用声明式的方式编写的 `Jenkinsfile` 文件在 `Blue Ocean` 中不但支持得非常好，我们还可以直接在 `Blue Ocean Editor` 中可视化的对我们的 `Pipeline` 进行编辑操作，非常方便。
+另外如果你对声明式的 `Pipeline` 比较熟悉的话，我们推荐使用这种方式来编写 `Jenkinsfile` 文件，因为使用声明式的方式编写的 `Jenkinsfile` 文件在 `Blue Ocean` 中不但支持得非常好，我们还可以直接在 `Blue Ocean Editor` 中可视化的对我们的 `Pipeline` 进行编辑操作，非常方便。
