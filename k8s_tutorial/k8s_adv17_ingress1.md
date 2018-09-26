@@ -230,9 +230,9 @@ $ kubectl create -f ingress.yaml
 ingress.extensions "traefik-web-ui" created
 ```
 
-要注意上面的 `ingress` 对象的规则，特别是 `rules` 区域，我们这里是要为 `traefik` 的 `dashboard` 建立一个 `ingress` 对象，所以这里的 `serviceName` 对应的是上面我们创建的 `traefik-ingress-service`，端口也要注意对应 `8080` 端口，为了避免端口更改，这里的 `servicePort` 的值也可以替换成上面定义的 `port` 的名字：**admin**
+要注意上面的 `ingress` 对象的规则，特别是 `rules` 区域，我们这里是要为 `traefik` 的 `dashboard` 建立一个 `ingress` 对象，所以这里的 `serviceName` 对应的是上面我们创建的 `traefik-ingress-service`，端口也要注意对应 `8080` 端口，为了避免端口更改，这里的 `servicePort` 的值也可以替换成上面定义的 `port` 的名字：**admin**
 
-创建完成后，我们应该怎么来测试呢？
+创建完成后，我们应该怎么来测试呢？
 
 * 第一步，在本地的`/etc/hosts`里面添加上 `traefik.haimaxy.com` 与 `master` 节点外网 `IP` 的映射关系
 
