@@ -184,7 +184,7 @@ nodeSelector:
 ```
 由于我们这里的特殊性，只有 `master` 节点有外网访问权限，所以我们使用`nodeSelector`标签将`traefik`的固定调度到`master`这个节点上，那么上面的`tolerations`是干什么的呢？这个是因为我们集群使用的 `kubeadm` 安装的，`master` 节点默认是不能被普通应用调度的，要被调度的话就需要添加这里的 `tolerations` 属性，当然如果你的集群和我们的不太一样，直接去掉这里的调度策略就行。
 
-### `traefik` 还提供了一个 `web ui` 工具，就是上面的 `8080` 端口对应的服务，为了能够访问到该服务，我们这里将服务设置成的 `NodePort`：
+### `traefik` 还提供了一个 `web ui` 工具，就是上面的 `8080` 端口对应的服务，为了能够访问到该服务，我们这里将服务设置成的 `NodePort`：
 
 ```
 $ kubectl get pods -n kube-system -l k8s-app=traefik-ingress-lb -o wide
@@ -248,7 +248,7 @@ $ sudo vi /etc/hosts
 
 ![Alt Image Text](images/adv/adv17_3.jpg "Body image")
 
-加上端口后我们发现可以访问到 `dashboard` 了，而且在 `dashboard `当中多了一条记录，正是上面我们创建的 `ingress` 对象的数据，我们还可以切换到 `HEALTH` 界面中，可以查看当前 `traefik` 代理的服务的整体的健康状态
+加上端口后我们发现可以访问到 `dashboard` 了，而且在 `dashboard `当中多了一条记录，正是上面我们创建的 `ingress` 对象的数据，我们还可以切换到 `HEALTH` 界面中，可以查看当前 `traefik` 代理的服务的整体的健康状态
 
 ![Alt Image Text](images/adv/adv17_4.jpg "Body image")
 
