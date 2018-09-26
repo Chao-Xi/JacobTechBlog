@@ -203,7 +203,7 @@ traefik-ingress-service   NodePort    10.254.236.84    <none>        80:31712/TC
 
 ## Ingress 对象
 
-现在我们是通过 `NodePort` 来访问 `traefik` 的 `Dashboard` 的，那怎样通过 `ingress` 来访问呢？ 首先，需要创建一个 `ingress` 对象：(`ingress.yaml`)
+现在我们是通过 `NodePort` 来访问 `traefik` 的 `Dashboard` 的，那怎样通过 `ingress` 来访问呢？ 首先，需要创建一个 `ingress` 对象：(`ingress.yaml`)
 
 ```
 apiVersion: extensions/v1beta1
@@ -252,7 +252,7 @@ $ sudo vi /etc/hosts
 
 ![Alt Image Text](images/adv/adv17_4.jpg "Body image")
 
-* 第三步，上面我们可以通过自定义域名加上端口可以访问我们的服务了，但是我们平时服务别人的服务是不是都是直接用的域名啊，`http` 或者 `https` 的，几乎很少有在域名后面加上端口访问的吧？为什么？太麻烦啊，端口也记不住，要解决这个问题，怎么办，我们只需要把我们上面的 `traefik` 的核心应用的端口隐射到 `master` 节点上的 `80` 端口，是不是就可以了，因为 `http` 默认就是访问 `80` 端口，但是我们在 `Service` 里面是添加的一个 `NodePort` 类型的服务，没办法隐射 `80` 端口，怎么办？
+* 第三步，上面我们可以通过自定义域名加上端口可以访问我们的服务了，但是我们平时服务别人的服务是不是都是直接用的域名啊，`http` 或者 `https` 的，几乎很少有在域名后面加上端口访问的吧？为什么？太麻烦啊，端口也记不住，要解决这个问题，怎么办，我们只需要把我们上面的 `traefik` 的核心应用的端口隐射到 `master` 节点上的 `80` 端口，是不是就可以了，因为 `http` 默认就是访问 `80` 端口，但是我们在 `Service` 里面是添加的一个 `NodePort` 类型的服务，没办法隐射 `80` 端口，怎么办？
 
 ### 这里就可以直接在 `Pod` 中指定一个 `hostPort` 即可，更改上面的 `traefik.yaml` 文件中的容器端口：
 
