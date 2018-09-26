@@ -80,3 +80,6 @@
 15. [kubernetes 持久化存储(二)](k8s_adv14_pv2.md)
 16. [Pod 中挂载单个文件的方法 subpath](k8s_adv15_subpath.md)
 17. [集群内部服务发现之 DNS](k8s_adv16_dns.md)
+18. [外部服务发现之 ingress(一): traefik 的安装使用](k8s_adv17_ingress1.md)
+19. [外部服务发现之 ingress(二): Ingress TLS 和 PATH 的使用](k8s_adv18_ingress2.md)
+20. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
