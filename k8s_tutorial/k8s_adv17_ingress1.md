@@ -184,7 +184,7 @@ nodeSelector:
 ```
 由于我们这里的特殊性，只有 `master` 节点有外网访问权限，所以我们使用`nodeSelector`标签将`traefik`的固定调度到`master`这个节点上，那么上面的`tolerations`是干什么的呢？这个是因为我们集群使用的 `kubeadm` 安装的，`master` 节点默认是不能被普通应用调度的，要被调度的话就需要添加这里的 `tolerations` 属性，当然如果你的集群和我们的不太一样，直接去掉这里的调度策略就行。
 
-### `traefik` 还提供了一个 `web ui` 工具，就是上面的 `8080` 端口对应的服务，为了能够访问到该服务，我们这里将服务设置成的 `NodePort`：
+### `traefik` 还提供了一个 `web ui` 工具，就是上面的 `8080` 端口对应的服务，为了能够访问到该服务，我们这里将服务设置成的 `NodePort`：
 
 ```
 $ kubectl get pods -n kube-system -l k8s-app=traefik-ingress-lb -o wide
@@ -203,7 +203,7 @@ traefik-ingress-service   NodePort    10.254.236.84    <none>        80:31712/TC
 
 ## Ingress 对象
 
-现在我们是通过 `NodePort` 来访问 `traefik` 的 `Dashboard` 的，那怎样通过 `ingress` 来访问呢？ 首先，需要创建一个 `ingress` 对象：(`ingress.yaml`)
+现在我们是通过 `NodePort` 来访问 `traefik` 的 `Dashboard` 的，那怎样通过 `ingress` 来访问呢？ 首先，需要创建一个 `ingress` 对象：(`ingress.yaml`)
 
 ```
 apiVersion: extensions/v1beta1
@@ -230,9 +230,9 @@ $ kubectl create -f ingress.yaml
 ingress.extensions "traefik-web-ui" created
 ```
 
-要注意上面的 `ingress` 对象的规则，特别是 `rules` 区域，我们这里是要为 `traefik` 的 `dashboard` 建立一个 `ingress` 对象，所以这里的 `serviceName` 对应的是上面我们创建的 `traefik-ingress-service`，端口也要注意对应 `8080` 端口，为了避免端口更改，这里的 `servicePort` 的值也可以替换成上面定义的 `port` 的名字：**admin**
+要注意上面的 `ingress` 对象的规则，特别是 `rules` 区域，我们这里是要为 `traefik` 的 `dashboard` 建立一个 `ingress` 对象，所以这里的 `serviceName` 对应的是上面我们创建的 `traefik-ingress-service`，端口也要注意对应 `8080` 端口，为了避免端口更改，这里的 `servicePort` 的值也可以替换成上面定义的 `port` 的名字：**admin**
 
-创建完成后，我们应该怎么来测试呢？
+创建完成后，我们应该怎么来测试呢？
 
 * 第一步，在本地的`/etc/hosts`里面添加上 `traefik.haimaxy.com` 与 `master` 节点外网 `IP` 的映射关系
 
@@ -248,11 +248,11 @@ $ sudo vi /etc/hosts
 
 ![Alt Image Text](images/adv/adv17_3.jpg "Body image")
 
-加上端口后我们发现可以访问到 `dashboard` 了，而且在 `dashboard `当中多了一条记录，正是上面我们创建的 `ingress` 对象的数据，我们还可以切换到 `HEALTH` 界面中，可以查看当前 `traefik` 代理的服务的整体的健康状态
+加上端口后我们发现可以访问到 `dashboard` 了，而且在 `dashboard `当中多了一条记录，正是上面我们创建的 `ingress` 对象的数据，我们还可以切换到 `HEALTH` 界面中，可以查看当前 `traefik` 代理的服务的整体的健康状态
 
 ![Alt Image Text](images/adv/adv17_4.jpg "Body image")
 
-* 第三步，上面我们可以通过自定义域名加上端口可以访问我们的服务了，但是我们平时服务别人的服务是不是都是直接用的域名啊，`http` 或者 `https` 的，几乎很少有在域名后面加上端口访问的吧？为什么？太麻烦啊，端口也记不住，要解决这个问题，怎么办，我们只需要把我们上面的 `traefik` 的核心应用的端口隐射到 `master` 节点上的 `80` 端口，是不是就可以了，因为 `http` 默认就是访问 `80` 端口，但是我们在 `Service` 里面是添加的一个 `NodePort` 类型的服务，没办法隐射 `80` 端口，怎么办？
+* 第三步，上面我们可以通过自定义域名加上端口可以访问我们的服务了，但是我们平时服务别人的服务是不是都是直接用的域名啊，`http` 或者 `https` 的，几乎很少有在域名后面加上端口访问的吧？为什么？太麻烦啊，端口也记不住，要解决这个问题，怎么办，我们只需要把我们上面的 `traefik` 的核心应用的端口隐射到 `master` 节点上的 `80` 端口，是不是就可以了，因为 `http` 默认就是访问 `80` 端口，但是我们在 `Service` 里面是添加的一个 `NodePort` 类型的服务，没办法隐射 `80` 端口，怎么办？
 
 ### 这里就可以直接在 `Pod` 中指定一个 `hostPort` 即可，更改上面的 `traefik.yaml` 文件中的容器端口：
 
