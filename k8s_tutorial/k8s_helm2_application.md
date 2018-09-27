@@ -455,7 +455,7 @@ kubernetes                ClusterIP   10.254.0.1      <none>        443/TCP     
 mydb-mysql                NodePort    10.254.69.235   <none>        3306:30364/TCP   2m
 queenly-angelfish-mysql   ClusterIP   10.254.193.49   <none>        3306/TCP         1h
 ```
-看到服务 `mydb-mysql` 变成了 `NodePort` 类型的，二之前默认创建的 `queenly-angelfish-mysql` 是 `ClusterIP` 类型的，证明上面我们通过 `YAML` 文件来覆盖 `values` 是成功的。
+看到服务 `mydb-mysql` 变成了 `NodePort` 类型的，二之前默认创建的 `queenly-angelfish-mysql` 是 `ClusterIP` 类型的，证明上面我们通过 `YAML` 文件来覆盖 `values` 是成功的。
 
 接下来我们查看下 `Pod` 的状况：
 
@@ -466,7 +466,7 @@ mydb-mysql-7ff7cc9459-4rxd6                0/1       Pending   0          4m
 queenly-angelfish-mysql-76dfb56855-nczpx   0/1       Pending   0          1h
 ```
 
-比较奇怪的是之前默认创建的和现在的 `mydb` 的 `release` 创建的 `Pod` 都是 `Pending` 状态，直接使用 `describe` 命令查看下：
+比较奇怪的是之前默认创建的和现在的 `mydb` 的 `release` 创建的 `Pod` 都是 `Pending` 状态，直接使用 `describe` 命令查看下：
 
 ```
 $ kubectl describe pod mydb-mysql-7ff7cc9459-4rxd6
@@ -489,7 +489,7 @@ Events:
 
 我们可以发现两个 `Pod` 处于 `Pending` 状态的原因都是 `PVC` 没有被绑定上，所以这里我们可以通过 `storageclass` 或者手动创建一个合适的 `PV` 对象来解决这个问题。
 
-另外为了说明 `helm` 更新的用法，我们这里来直接禁用掉数据持久化，可以在上面的 `config.yaml` 文件中设置：
+另外为了说明 `helm` 更新的用法，我们这里来直接禁用掉数据持久化，可以在上面的 `config.yaml` 文件中设置：
 
 ```
 persistence:
@@ -552,7 +552,7 @@ mydb-mysql-96cf76947-22n77                 1/1       Running   0          48s
 queenly-angelfish-mysql-76dfb56855-nczpx   0/1       Pending   0          1h
 ```
 
-我们看到 `mydb` 关联的 `Pod` 已经变成了 `runing` 的状态，已经不是 `Pending` 状态了，同样的，使用 `describe` 命令查看：
+我们看到 `mydb` 关联的 `Pod` 已经变成了 `runing` 的状态，已经不是 `Pending` 状态了，同样的，使用 `describe` 命令查看：
 
 ```
 $ kubectl describe pod  mydb-mysql-96cf76947-22n77
@@ -576,7 +576,7 @@ Events:
   Normal  Created                1m    kubelet, 192.168.1.138  Created container
   Normal  Started                1m    kubelet, 192.168.1.138  Started container
 ```
-我们可以看到现在没有任何关于 `PVC` 的错误信息了，这是因为我们刚刚更新的版本中就是禁用掉了的数据持久化的，证明 `helm upgrade` 和 `--values` 是生效了的。现在我们使用 `helm ls` 命令查看先当前的 `release`：
+我们可以看到现在没有任何关于 `PVC` 的错误信息了，这是因为我们刚刚更新的版本中就是禁用掉了的数据持久化的，证明 `helm upgrade` 和 `--values` 是生效了的。现在我们使用 `helm ls` 命令查看先当前的 `release`：
 
 ```
 $ helm ls
@@ -595,7 +595,7 @@ REVISION	UPDATED                 	STATUS    	CHART       	DESCRIPTION
 2       	Thu Sep 27 06:23:16 2018	DEPLOYED  	mysql-0.10.1	Upgrade complete
 ```
 
-当然如果我们要回滚到某一个版本的话，使用 `helm rollback` 命令即可，比如我们将 `mydb` 回滚到上一个版本
+当然如果我们要回滚到某一个版本的话，使用 `helm rollback` 命令即可，比如我们将 `mydb` 回滚到上一个版本
 
 ```
 $ helm rollback mydb 1
@@ -628,7 +628,7 @@ queenly-angelfish	1       	Thu Sep 27 05:01:54 2018	DELETED 	mysql-0.10.1    	de
 
 `helm list --all`则会显示所有的 `release`，包括已经被删除的
 
-由于 `Helm` 保留已删除 `release` 的记录，因此不能重新使用 `release` 名称。（如果确实 需要重新使用此 `release` 名称，则可以使用此 `–replace` 参数，但它只会重用现有 `release` 并替换其资源。）这点是不是和 `docker container` 的管理比较类似
+由于 `Helm` 保留已删除 `release` 的记录，因此不能重新使用 `release` 名称。（如果确实 需要重新使用此 `release` 名称，则可以使用此 `–replace` 参数，但它只会重用现有 `release` 并替换其资源。）这点是不是和 `docker container` 的管理比较类似
 
 请注意，因为 `release` 以这种方式保存，所以可以回滚已删除的资源并重新激活它。
 
