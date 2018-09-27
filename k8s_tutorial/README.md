@@ -63,23 +63,41 @@
 
 ## K8S进阶课程(K8S Adv. Tutorial)
 
+### 深入理解 POD
+
 1. [使用YAML文件创建Kubernetes Deployment](k8s_adv0_yaml.md)
 2. [Kubernetes Pod 工作流](k8s_adv1_pod.md)
-3. [学习使用 Kubernetes 中的 Service 对象](k8s_adv2_service.md)
-4. [Kubernetes Deployment滚动升级](k8s_adv3_Deployment.md)
-5. [kubernetes PodPreset 的使用](k8s_adv4_PodPreset.md)
-6. [kubernetes ConfigMap 和 Secrets](k8s_adv5_ConfigMap_Secrets.md)
-7. [Kubernetes Downward API 基本用法](k8s_adv6_Downward_API.md)
-8. [理解 Kubernetes 的亲和性调度](k8s_adv7_Affinity_Selector.md)
-9. [kubernetes 的资源配额控制器](k8s_adv8_resource_quotation.md)
-10. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
-11. [用Replication Controller、Replica Set 管理Pod](k8s_adv10_RC_RS.md)
-12. [Job和CronJob 的使用方法](k8s_adv11_job_cronjob.md)
-13. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
-14. [kubernetes 持久化存储(一)](k8s_adv14_pv1.md)
-15. [kubernetes 持久化存储(二)](k8s_adv14_pv2.md)
-16. [Pod 中挂载单个文件的方法 subpath](k8s_adv15_subpath.md)
-17. [集群内部服务发现之 DNS](k8s_adv16_dns.md)
-18. [外部服务发现之 ingress(一): traefik 的安装使用](k8s_adv17_ingress1.md)
-19. [外部服务发现之 ingress(二): Ingress TLS 和 PATH 的使用](k8s_adv18_ingress2.md)
-20. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
+3. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
+
+### 常用对象操作:
+
+1. [学习使用 Kubernetes 中的 Service 对象](k8s_adv2_service.md)
+2. [Kubernetes Deployment滚动升级](k8s_adv3_Deployment.md)
+3. [kubernetes PodPreset 的使用](k8s_adv4_PodPreset.md)
+4. [kubernetes ConfigMap 和 Secrets](k8s_adv5_ConfigMap_Secrets.md)
+5. [Kubernetes Downward API 基本用法](k8s_adv6_Downward_API.md)
+6. [理解 Kubernetes 的亲和性调度](k8s_adv7_Affinity_Selector.md)
+7. [kubernetes 的资源配额控制器](k8s_adv8_resource_quotation.md) 
+8. [用Replication Controller、Replica Set 管理Pod](k8s_adv10_RC_RS.md)
+9. [Job和CronJob 的使用方法](k8s_adv11_job_cronjob.md)
+10. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
+11. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
+
+### 持久化存储:
+
+1. [kubernetes 持久化存储(一)](k8s_adv14_pv1.md)
+2. [kubernetes 持久化存储(二)](k8s_adv14_pv2.md)
+3. [Pod 中挂载单个文件的方法 subpath](k8s_adv15_subpath.md)
+
+### 服务发现
+
+1. [集群内部服务发现之 DNS](k8s_adv16_dns.md)
+2. [外部服务发现之 ingress(一): traefik 的安装使用](k8s_adv17_ingress1.md)
+3. [外部服务发现之 ingress(二): Ingress TLS 和 PATH 的使用](k8s_adv18_ingress2.md)
+
+### 包管理工具 HELM
+
+1. [Helm安装使用](k8s_helm1_setup.md)
+2. [Helm 的基本使用](k8s_helm2_application.md)
+3. [Helm 模板之内置函数和Values](k8s_helm3_func_value.md)
+4. [Helm 模板之模板函数与管道](k8s_helm4_template_pipe.md)
