@@ -101,3 +101,5 @@
 2. [Helm 的基本使用](k8s_helm2_application.md)
 3. [Helm 模板之内置函数和Values](k8s_helm3_func_value.md)
 4. [Helm 模板之模板函数与管道](k8s_helm4_template_pipe.md)
+5. [Helm 模板之控制流程](k8s_helm5_process.md)
+6. [Helm模板之命名模板](k8s_helm6_definename.md)
