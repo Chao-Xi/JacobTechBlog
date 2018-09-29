@@ -67,7 +67,10 @@
 
 1. [使用YAML文件创建Kubernetes Deployment](k8s_adv0_yaml.md)
 2. [Kubernetes Pod 工作流](k8s_adv1_pod.md)
-3. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
+3. [静态 Pod](k8s_adv20_static_pod.md)
+4. [Pod Hook(PostStart & PreStop)](k8s_adv21_pod_hook.md)
+5. [健康检查(liveness probe & readiness probe)](k8s_adv22_health_inspect.md)
+6. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
 
 ### 常用对象操作:
 
