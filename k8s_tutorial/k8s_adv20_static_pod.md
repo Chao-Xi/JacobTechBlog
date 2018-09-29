@@ -131,7 +131,7 @@ ce7d234cfdd2        nginx         "nginx -g 'daemon of…"   50 seconds ago     
 ```
 ls /etc/kubernetes/manifests/
 etcd.yaml  kube-apiserver.yaml  kube-controller-manager.yaml  kube-scheduler.yaml
-``
+```
 
 **现在明白了吧，这种方式也为我们将集群的一些组件容器化提供了可能**，因为这些 `Pod` 都不会受到 `apiserver` 的控制，不然我们这里`kube-apiserver`怎么自己去控制自己呢？万一不小心把这个 `Pod` 删掉了呢？所以只能有`kubelet`自己来进行控制，这就是我们所说的静态 `Pod`。
 
