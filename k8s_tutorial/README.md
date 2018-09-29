@@ -85,6 +85,8 @@
 9. [Job和CronJob 的使用方法](k8s_adv11_job_cronjob.md)
 10. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
 11. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
+12. [Pod 自动扩缩容(HPA: Horizontal Pod Autoscaling)](k8s_adv23_HPA.md)
+13. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
 
 ### 持久化存储:
 
