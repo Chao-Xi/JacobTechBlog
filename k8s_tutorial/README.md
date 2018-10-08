@@ -108,8 +108,10 @@
 4. [Helm 模板之模板函数与管道](k8s_helm4_template_pipe.md)
 5. [Helm 模板之控制流程](k8s_helm5_process.md)
 6. [Helm模板之命名模板](k8s_helm6_definename.md)
+7. [Helm Hooks 的使用](k8s_helm7_hook.md)
 
 ### K8S 安全性问题
 
 1. [浅谈Docker的安全性支持(一)](k8s_security1_docker1.md)
 2. [浅谈Docker的安全性支持(二)](k8s_security1_docker2.md)
+3. [Kubernetes集群节点被入侵挖矿案例与发现解决问题](k8s_security2_invasive_bitcoin_mining.md)
