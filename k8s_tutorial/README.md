@@ -72,6 +72,11 @@
 5. [健康检查(liveness probe & readiness probe)](k8s_adv22_health_inspect.md)
 6. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
 
+### K8S 调度器
+
+1. [Kubernetes 调度器介绍](k8s_adv25_kube-scheduler.md)
+2. [理解 Kubernetes 的亲和性调度](k8s_adv7_Affinity_Selector.md)
+
 ### 常用对象操作:
 
 1. [学习使用 Kubernetes 中的 Service 对象](k8s_adv2_service.md)
@@ -79,14 +84,13 @@
 3. [kubernetes PodPreset 的使用](k8s_adv4_PodPreset.md)
 4. [kubernetes ConfigMap 和 Secrets](k8s_adv5_ConfigMap_Secrets.md)
 5. [Kubernetes Downward API 基本用法](k8s_adv6_Downward_API.md)
-6. [理解 Kubernetes 的亲和性调度](k8s_adv7_Affinity_Selector.md)
-7. [kubernetes 的资源配额控制器](k8s_adv8_resource_quotation.md) 
-8. [用Replication Controller、Replica Set 管理Pod](k8s_adv10_RC_RS.md)
-9. [Job和CronJob 的使用方法](k8s_adv11_job_cronjob.md)
-10. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
-11. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
-12. [Pod 自动扩缩容(HPA: Horizontal Pod Autoscaling)](k8s_adv23_HPA.md)
-13. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
+6. [kubernetes 的资源配额控制器](k8s_adv8_resource_quotation.md) 
+7. [用Replication Controller、Replica Set 管理Pod](k8s_adv10_RC_RS.md)
+8. [Job和CronJob 的使用方法](k8s_adv11_job_cronjob.md)
+9. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
+10. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
+11. [Pod 自动扩缩容(HPA: Horizontal Pod Autoscaling)](k8s_adv23_HPA.md)
+12. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
 
 ### 持久化存储:
 
@@ -115,3 +119,4 @@
 1. [浅谈Docker的安全性支持(一)](k8s_security1_docker1.md)
 2. [浅谈Docker的安全性支持(二)](k8s_security1_docker2.md)
 3. [Kubernetes集群节点被入侵挖矿案例与发现解决问题](k8s_security2_invasive_bitcoin_mining.md)
+
