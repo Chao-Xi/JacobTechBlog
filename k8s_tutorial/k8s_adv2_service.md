@@ -33,9 +33,9 @@
 * `Cluster IP`: `Service`的IP地址
 
 
-### 首先，`Node IP`是`Kubernetes`集群中节点的物理网卡`IP`地址(一般为内网)，所有属于这个网络的服务器之间都可以直接通信，所以`Kubernetes`集群外要想访问`Kubernetes`集群内部的某个节点或者服务，肯定得通过`Node IP`进行通信（这个时候一般是通过外网IP了）
+### 首先，`Node IP`是`Kubernetes`集群中节点的物理网卡`IP`地址(一般为内网)，所有属于这个网络的服务器之间都可以直接通信，所以`Kubernetes`集群外要想访问`Kubernetes`集群内部的某个节点或者服务，肯定得通过`Node IP`进行通信（这个时候一般是通过外网IP了）
 
-### 然后`Pod IP`是每个`Pod`的IP地址，它是`Docker Engine`根据`docker0`网桥的`IP`地址段进行分配的（我们这里使用的是`flannel`这种网络插件保证所有节点的`Pod IP`不会冲突）
+### 然后`Pod IP`是每个`Pod`的IP地址，它是`Docker Engine`根据`docker0`网桥的`IP`地址段进行分配的（我们这里使用的是`flannel`这种网络插件保证所有节点的`Pod IP`不会冲突）
 
 
 ### 最后`Cluster IP`是一个虚拟的`IP`，仅仅作用于`Kubernetes Service`这个对象，由`Kubernetes`自己来进行管理和分配地址，当然我们也无法`ping`这个地址，他没有一个真正的实体对象来响应，他只能结合`Service Port`来组成一个可以通信的服务。
