@@ -16,9 +16,9 @@
 ![Alt Image Text](images/adv/adv2_1.jpg "Headline image")
 
 
-同样的，要解决我们上面遇到的问题是不是实现一个服务发现的工具也可以解决啊？没错的，当我们`Pod`被销毁或者新建过后，我们可以把这个`Pod`的地址注册到这个服务发现中心去就可以，**但是这样的话我们的前端的`Pod`结合就不能直接去连接后台的`Pod`集合了是吧**，应该连接到一个能够做服务发现的中间件上面，对吧？
+同样的，要解决我们上面遇到的问题是不是实现一个服务发现的工具也可以解决啊？没错的，当我们`Pod`被销毁或者新建过后，我们可以把这个`Pod`的地址注册到这个服务发现中心去就可以，**但是这样的话我们的前端的`Pod`结合就不能直接去连接后台的`Pod`集合了是吧**，应该连接到一个能够做服务发现的中间件上面，对吧？
 
-没错，`Kubernetes`集群就为我们提供了这样的一个对象 - `Service`，
+没错，`Kubernetes`集群就为我们提供了这样的一个对象 - `Service`，
 ### `Service`是一种抽象的对象，它定义了一组`Pod`的逻辑集合和一个用于访问它们的策略，
 **其实这个概念和微服务非常类似**。
 ### 一个`Serivce`下面包含的`Pod`集合一般是由`Label Selector`来决定的。
@@ -40,9 +40,9 @@
 
 ### 最后`Cluster IP`是一个虚拟的`IP`，仅仅作用于`Kubernetes Service`这个对象，由`Kubernetes`自己来进行管理和分配地址，当然我们也无法`ping`这个地址，他没有一个真正的实体对象来响应，他只能结合`Service Port`来组成一个可以通信的服务。
 
-## 定义Service
+## 定义Service
 
-定义`Service`的方式和我们前面定义的各种资源对象的方式类型，例如，假定我们有一组`Pod`服务，它们对外暴露了 `8080` 端口，同时都被打上了`app=myapp`这样的标签，那么我们就可以像下面这样来定义一个`Service`对象：
+定义`Service`的方式和我们前面定义的各种资源对象的方式类型，例如，假定我们有一组`Pod`服务，它们对外暴露了 `8080` 端口，同时都被打上了`app=myapp`这样的标签，那么我们就可以像下面这样来定义一个`Service`对象：
 
 ```
 apiVersion: v1
@@ -59,7 +59,7 @@ spec:
     name: myapp-http 
 ```
 
-然后通过的使用`kubectl create -f myservice.yaml`就可以创建一个名为`myservice`的`Service`对象，它会将请求代理到使用 **TCP 端口为 8080**，具有标签`app=myapp`的`Pod`上，这个`Service`会被系统分配一个我们上面说的`Cluster IP`，该Service还会持续的监听`selector`下面的`Pod`，会把这些`Pod`信息更新到一个名为`myservice`的`Endpoints`对象上去，这个对象就类似于我们上面说的`Pod`集合了。
+然后通过的使用`kubectl create -f myservice.yaml`就可以创建一个名为`myservice`的`Service`对象，它会将请求代理到使用 **TCP 端口为 8080**，具有标签`app=myapp`的`Pod`上，这个`Service`会被系统分配一个我们上面说的`Cluster IP`，该Service还会持续的监听`selector`下面的`Pod`，会把这些`Pod`信息更新到一个名为`myservice`的`Endpoints`对象上去，这个对象就类似于我们上面说的`Pod`集合了。
 
 需要注意的是，`Service`能够将一个接收端口映射到任意的`targetPort`。 默认情况下，`targetPort`将被设置为与`port`字段相同的值。 可能更有趣的是，`targetPort` 可以是一个字符串，引用了 `backend Pod` 的一个端口的名称。 因实际指派给该端口名称的端口号，在每个 `backend Pod` 中可能并不相同，所以对于部署和设计 `Service` ，这种方式会提供更大的灵活性。
 
@@ -68,7 +68,7 @@ spec:
 
 ## kube-proxy
 
-前面我们讲到过，在`Kubernetes`集群中，每个`Node`会运行一个`kube-proxy`进程, 负责为`Service`实现一种 **VIP**（虚拟 IP，就是我们上面说的`clusterIP`）的代理形式，现在的`Kubernetes`中默认是使用的`iptables`这种模式来代理。
+前面我们讲到过，在`Kubernetes`集群中，每个`Node`会运行一个`kube-proxy`进程, 负责为`Service`实现一种 **VIP**（虚拟 IP，就是我们上面说的`clusterIP`）的代理形式，现在的`Kubernetes`中默认是使用的`iptables`这种模式来代理。
 
 ### 这种模式，`kube-proxy`会监视`Kubernetes master`对 `Service` 对象和 `Endpoints` 对象的添加和移除。
  
