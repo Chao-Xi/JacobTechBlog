@@ -113,6 +113,7 @@
 5. [Helm 模板之控制流程](k8s_helm5_process.md)
 6. [Helm模板之命名模板](k8s_helm6_definename.md)
 7. [Helm Hooks 的使用](k8s_helm7_hook.md)
+8. [Helm模板之其他注意事项](k8s_helm8_others.md)
 
 ### K8S 安全性问题
 
