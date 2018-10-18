@@ -121,3 +121,6 @@
 2. [浅谈Docker的安全性支持(二)](k8s_security1_docker2.md)
 3. [Kubernetes集群节点被入侵挖矿案例与发现解决问题](k8s_security2_invasive_bitcoin_mining.md)
 
+### K8S 生产案例
+
+1. [kubernetes学习笔记之阿里云游戏业务实战](k8s_prod1_AliGame.md)
