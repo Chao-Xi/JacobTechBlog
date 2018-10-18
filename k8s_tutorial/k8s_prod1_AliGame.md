@@ -1,6 +1,6 @@
 ![Alt Image Text](images/prod/aligame1.jpg "Headline image")
 
-# kubernetes学习笔记之阿里云游戏业务实战
+# kubernetes生产案例之阿里云游戏业务分析
 
 ## 目标
 
