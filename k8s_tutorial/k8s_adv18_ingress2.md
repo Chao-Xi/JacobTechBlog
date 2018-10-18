@@ -68,9 +68,9 @@ defaultEntryPoints = ["http", "https"]
       KeyFile = "/ssl/tls.key"
 ```
 
-上面的配置文件中我们配置了 `http` 和 `https` 两个入口，并且配置了将 `http` 服务强制跳转到 `https` 服务，这样我们所有通过 `traefik` 进来的服务都是 `https` 的.
+上面的配置文件中我们配置了 `http` 和 `https` 两个入口，并且配置了将 `http` 服务强制跳转到 `https` 服务，这样我们所有通过 `traefik` 进来的服务都是 `https` 的.
 
-### 要访问 `https` 服务，当然就得配置对应的证书了，可以看到我们指定了 `CertFile` 和` KeyFile` 两个文件，由于 `traefik pod` 中并没有这两个证书，所以我们要想办法将上面生成的证书挂载到 `Pod` 中去，是不是前面我们讲解过 `secret` 对象可以通过 `volume` 形式挂载到 `Pod` 中？
+### 要访问 `https` 服务，当然就得配置对应的证书了，可以看到我们指定了 `CertFile` 和` KeyFile` 两个文件，由于 `traefik pod` 中并没有这两个证书，所以我们要想办法将上面生成的证书挂载到 `Pod` 中去，是不是前面我们讲解过 `secret` 对象可以通过 `volume` 形式挂载到 `Pod` 中？
 
 至于上面的 `traefik.toml` 这个文件我们要怎么让 `traefik pod` 能够访问到呢？还记得我们前面讲过的 `ConfigMap` 吗？我们是不是可以将上面的 `traefik.toml` 配置文件通过一个 `ConfigMap` 对象挂载到 `traefik pod` 中去：
 
@@ -149,7 +149,7 @@ spec:
       name: admin
   type: NodePort
 ```
-和之前的比较，我们增加了 `443` 的端口配置，以及启动参数中通过 `configfile` 指定了 `traefik.toml` 配置文件，这个配置文件是通过 `volume` 挂载进来的。然后更新下 `traefik pod`:
+和之前的比较，我们增加了 `443` 的端口配置，以及启动参数中通过 `configfile` 指定了 `traefik.toml` 配置文件，这个配置文件是通过 `volume` 挂载进来的。然后更新下 `traefik pod`:
 
 ```
 $ kubectl apply -f traefik.yaml
@@ -181,7 +181,7 @@ time="2018-09-26T06:22:37Z" level=info msg="Server configuration reloaded on :80
 time="2018-09-26T06:22:37Z" level=info msg="Server configuration reloaded on :443"
 ```
 
-更新完成后我们查看 `traefik pod` 的日志，如果出现类似于上面的一些日志信息，证明更新成功了。现在我们去访问 `traefik` 的 `dashboard` 会跳转到 `https` 的地址，并会提示证书相关的报警信息，这是因为我们的证书是我们自建的，并不受浏览器信任，如果你是正规机构购买的证书并不会出现改报警信息，你应该可以看到我们常见的绿色标志：
+更新完成后我们查看 `traefik pod` 的日志，如果出现类似于上面的一些日志信息，证明更新成功了。现在我们去访问 `traefik` 的 `dashboard` 会跳转到 `https` 的地址，并会提示证书相关的报警信息，这是因为我们的证书是我们自建的，并不受浏览器信任，如果你是正规机构购买的证书并不会出现改报警信息，你应该可以看到我们常见的绿色标志：
 
 因为我的 `traefik pod`所在的node发生了改变，
 
@@ -203,7 +203,7 @@ $ sudo vi /etc/hosts
 
 ## 配置 ingress
 
-其实上面的 `TLS` 认证方式已经成功了，接下来我们通过一个实例来说明下 `ingress` 中 `path` 的用法，这里我们部署了3个简单的 `web` 服务，通过一个环境变量来标识当前运行的是哪个服务：（`backend.yaml`）
+其实上面的 `TLS` 认证方式已经成功了，接下来我们通过一个实例来说明下 `ingress` 中 `path` 的用法，这里我们部署了3个简单的 `web` 服务，通过一个环境变量来标识当前运行的是哪个服务：（`backend.yaml`）
 
 ```
 kind: Deployment
@@ -390,11 +390,11 @@ Events:  <none>
 
 ![Alt Image Text](images/adv/adv18_2.jpg "Body image")
 
-我们可以看到访问上面的域名得到的结果是 `svc3 service`！这是因为上面在 `ingress` 中我们为域名的跟路径匹配的是 `svc3` 这个 `service`，同样的，我们访问`http://example.haimaxy.com/s1` 得到的应该就是 `svc1` 这个 `service` 了：
+我们可以看到访问上面的域名得到的结果是 `svc3 service`！这是因为上面在 `ingress` 中我们为域名的跟路径匹配的是 `svc3` 这个 `service`，同样的，我们访问`http://example.haimaxy.com/s1` 得到的应该就是 `svc1` 这个 `service` 了：
 
 ![Alt Image Text](images/adv/adv18_3.jpg "Body image")
 
-访问`http://example.haimaxy.com/s2` 得到的应该就是 `svc2` 这个 `service` 了：
+访问`http://example.haimaxy.com/s2` 得到的应该就是 `svc2` 这个 `service` 了：
 
 ![Alt Image Text](images/adv/adv18_4.jpg "Body image")
 
@@ -403,7 +403,7 @@ Events:  <none>
 试下把/这个 path 放在最上面，然后访问下 s1 和 s2 这两个 path，看看得到的结果是怎样的？
 ```
 
-有的同学可能有这样的需求，就是不同的 `ingress` 对象是供不同的域名进行使用的，然后不同的域名的证书还不相同，这样我们想使用上面 `traefik` 给大家提供的统一的 `https` 证书就不行了，这个时候我们就可以单独为当前的服务提供单独的证书就可以，同样用证书文件创建一个 `secret` 对象，然后在 `ingress` 对象中声明一个 `tls` 对象即可，比如上面的 `example.haimaxy.com` 我们可以单独指定一个证书文件：
+有的同学可能有这样的需求，就是不同的 `ingress` 对象是供不同的域名进行使用的，然后不同的域名的证书还不相同，这样我们想使用上面 `traefik` 给大家提供的统一的 `https` 证书就不行了，这个时候我们就可以单独为当前的服务提供单独的证书就可以，同样用证书文件创建一个 `secret` 对象，然后在 `ingress` 对象中声明一个 `tls` 对象即可，比如上面的 `example.haimaxy.com` 我们可以单独指定一个证书文件：
 
 ```
 apiVersion: extensions/v1beta1
