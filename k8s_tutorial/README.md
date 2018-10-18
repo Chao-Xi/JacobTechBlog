@@ -123,4 +123,4 @@
 
 ### K8S 生产案例
 
-1. [kubernetes学习笔记之阿里云游戏业务实战](k8s_prod1_AliGame.md)
+1. [kubernetes生产案例之阿里云游戏业务分析](k8s_prod1_AliGame.md)
