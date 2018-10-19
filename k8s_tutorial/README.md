@@ -91,6 +91,7 @@
 10. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
 11. [Pod 自动扩缩容(HPA: Horizontal Pod Autoscaling)](k8s_adv23_HPA.md)
 12. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
+13. [如何在 `kubernetes` 中开启 `ipvs` 模式](k8s_adv26_ipvs.md)
 
 ### 持久化存储:
 
