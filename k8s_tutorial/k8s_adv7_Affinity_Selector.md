@@ -4,7 +4,11 @@
 
 ### `nodeSelector`、`nodeAffinity`、`podAffinity`、`Taints`以及`Tolerations`用法
 
-一般情况下我们部署的 `POD` 是通过集群自动调度选择某个节点的，默认情况下调度器考虑的是资源足够，并且负载尽量平均，但是有的时候我们需要能够更加细粒度的去控制 `POD` 的调度，比如我们内部的一些服务 `gitlab` 之类的也是跑在`Kubernetes`集群上的，我们就不希望对外的一些服务和内部的服务跑在同一个节点上了，害怕内部服务对外部的服务产生影响；有的时候呢我们两个服务直接交流比较频繁，又希望能够将这两个服务的 `POD` 调度到同样的节点上。这就需要用到 
+一般情况下我们部署的 `POD` 是通过集群自动调度选择某个节点的，默认情况下调度器考虑的是资源足够，并且负载尽量平均，
+
+**但是有的时候我们需要能够更加细粒度的去控制 `POD` 的调度，比如我们内部的一些服务 `gitlab` 之类的也是跑在`Kubernetes`集群上的，我们就不希望对外的一些服务和内部的服务跑在同一个节点上了，害怕内部服务对外部的服务产生影响；**
+
+有的时候呢我们两个服务直接交流比较频繁，又希望能够将这两个服务的 `POD` 调度到同样的节点上。这就需要用到 
 
 ### `Kubernetes` 里面的一个概念：亲和性，亲和性主要分为两类：`nodeAffinity`和`podAffinity`。
 
@@ -137,6 +141,8 @@ Events:
 
 ## nodeAffinity
 
+上节课我们了解了 `kubernetes` 调度器的一个调度流程，我们知道默认的调度器在使用的时候，经过了 `predicates` 和 `priorities` 两个阶段，但是在实际的生产环境中，往往我们需要根据自己的一些实际需求来控制 `pod` 的调度，
+
 ### `nodeAffinity`就是节点亲和性，相对应的是`Anti-Affinity`，就是`反亲和性`，这种方法比上面的`nodeSelector`更加灵活，它可以进行一些简单的逻辑组合了，
 
 不只是简单的相等匹配。 调度可以分成`软策略`和`硬策略`两种方式，
@@ -161,7 +167,7 @@ spec:
     image: nginx
   affinity:
     nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
+      requiredDuringSchedulingIgnoredDuringExecution:          # 硬策略
         nodeSelectorTerms:
         - matchExpressions:
           - key: kubernetes.io/hostname
@@ -169,7 +175,7 @@ spec:
             values:
             - 192.168.1.140
             - 192.168.1.161
-      preferredDuringSchedulingIgnoredDuringExecution:
+      preferredDuringSchedulingIgnoredDuringExecution:         # 软策略
       - weight: 1
         preference:
           matchExpressions:
@@ -196,6 +202,8 @@ spec:
 ## podAffinity
 
 ### 上面两种方式都是让 `POD` 去选择节点的，有的时候我们也希望能够根据 `POD` 之间的关系进行调度，`Kubernetes`在`1.4`版本引入的`podAffinity`概念就可以实现我们这个需求。
+
+**`pod` 亲和性主要解决 `pod` 可以和哪些 `pod` 部署在同一个拓扑域中的问题（其中拓扑域用主机标签实现，可以是单个主机，也可以是多个主机组成的 cluster、zone 等等），而 `pod` 反亲和性主要是解决 `pod` 不能和哪些 `pod` 部署在同一个拓扑域中的问题，它们都是处理的 `pod` 与 `pod` 之间的关系，比如一个 `pod` 在一个节点上了，那么我这个也得在这个节点，或者你这个 `pod` 在节点上了，那么我就不想和你待在同一个节点上。**
 
 和`nodeAffinity`类似，`podAffinity`也有`requiredDuringSchedulingIgnoredDuringExecution` 和 `preferredDuringSchedulingIgnoredDuringExecution` 两种调度策略，唯一不同的是如果要使用互斥性，我们需要使用`podAntiAffinity`字段。 如下例子，我们希望`with-pod-affinity`和`busybox-pod`能够就近部署，而不希望和`node-affinity-pod`部署在同一个拓扑域下面：（`test-pod-affinity.yaml`）
 
@@ -261,8 +269,58 @@ test-busybox         1/1       Running   0          8m        172.30.95.18   192
 with-node-affinity   1/1       Running   0          10m       172.30.81.25   192.168.1.172
 with-pod-affinity    1/1       Running   0          8m        172.30.95.17   192.168.1.140
 ```
+## podAntiAffinity
 
-亲和性/反亲和性调度策略比较如下：
+这就是 `pod` 亲和性的用法，而 `pod` 反亲和性则是反着来的，比如一个节点上运行了某个 `pod`，那么我们的 `pod` 则希望被调度到其他节点上去，同样我们把上面的 `podAffinity` 直接改成 `podAntiAffinity`，(`pod-antiaffinity-demo.yaml`)
+
+```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: affinity
+  labels:
+    app: affinity
+spec:
+  replicas: 3
+  revisionHistoryLimit: 15
+  template:
+    metadata:
+      labels:
+        app: affinity
+        role: test
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+          name: nginxweb
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:  # 硬策略
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - busybox-pod
+            topologyKey: kubernetes.io/hostname
+```
+这里的意思就是如果一个节点上面有一个`app=busybox-pod`这样的 `pod` 的话，那么我们的 `pod` 就别调度到这个节点上面来，上面我们把`app=busybox-pod`这个 `pod` 固定到了 `node03` 这个节点上面来，所以正常来说我们这里的 `pod` 不会出现在 `node03` 节点上：
+
+```
+$ kubectl create -f pod-antiaffinity-demo.yaml
+deployment.apps "affinity" created
+$ kubectl get pods -o wide
+NAME                                      READY     STATUS      RESTARTS   AGE       IP             NODE
+affinity-bcbd8854f-br8z8                  1/1       Running     0          5s        10.244.4.222   node02
+affinity-bcbd8854f-cdffh                  1/1       Running     0          5s        10.244.4.223   node02
+affinity-bcbd8854f-htb52                  1/1       Running     0          5s        10.244.4.224   node02
+test-busybox                              1/1       Running     0          23m       10.244.2.10    node03
+```
+
+
+### 亲和性/反亲和性调度策略比较如下：
 
 ![Alt Image Text](images/adv/adv7_1.jpg "Body image")
 
@@ -270,28 +328,111 @@ with-pod-affinity    1/1       Running   0          8m        172.30.95.17   192
 
 对于`nodeAffinity`无论是**硬策略还是软策略方式**，都是调度 `POD` 到预期节点上，而`Taints`恰好与之相反，如果一个节点标记为 `Taints` ，除非 `POD` 也被标识为可以容忍污点节点，否则该 `Taints` 节点不会被调度`pod`。
 
-比如用户希望把 `Master` 节点保留给 `Kubernetes` 系统组件使用，或者把一组具有特殊资源预留给某些 `POD`，则污点就很有用了，`POD` 不会再被调度到 `taint` 标记过的节点。`taint` 标记节点举例如下：
+比如用户希望把 `Master` 节点保留给 `Kubernetes` 系统组件使用，或者把一组具有特殊资源预留给某些 `POD`，则污点就很有用了，`POD` 不会再被调度到 `taint` 标记过的节点。我们使用 `kubeadm`搭建的集群默认就给 `master` 节点添加了一个污点标记，所以我们看到我们平时的 `pod` 都没有被调度到 `master` 上去：
 
 ```
-$ kubectl taint nodes 192.168.1.40 key=value:NoSchedule
-node "192.168.1.40" tainted
+$ kubectl describe node master
+Name:               master
+Roles:              master
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/hostname=master
+                    node-role.kubernetes.io/master=
+......
+Taints:             node-role.kubernetes.io/master:NoSchedule
+Unschedulable:      false
+......
+
+```
+我们可以使用上面的命令查看 master 节点的信息，其中有一条关于 `Taints` 的信息：`node-role.kubernetes.io/master:NoSchedule`，就表示给 master 节点打了一个污点的标记，其中影响的参数是 `NoSchedule`，表示 `pod` 不会被调度到标记为 `taints` 的节点，除了 `NoSchedule` 外，还有另外两个选项：
+
+* `PreferNoSchedule`：`NoSchedule` 的软策略版本，表示尽量不调度到污点节点上去
+* `NoExecute`：该选项意味着一旦 Taint 生效，如该节点内正在运行的 `pod` 没有对应 `Tolerate` 设置，会直接被逐出
+
+`taint` 标记节点举例如下：
+
+```
+$ kubectl taint nodes node02 test=node02:NoSchedule
+node "node02" tainted
 ```
 
-如果仍然希望某个 `POD` 调度到 `taint` 节点上，则必须在 `Spec` 中做出`Toleration`定义，才能调度到该节点，举例如下：
+上面的命名将 `node02` 节点标记为了污点，影响策略是 `NoSchedule`，只会影响新的 `pod `调度，如果仍然希望某个 `pod` 调度到 `tain`t 节点上，则必须在 `Spec` 中做出 `Toleration`定义，才能调度到该节点，比如现在我们想要将一个 `pod` 调度到 `master` 节点：(`taint-demo.yaml`)
+
+```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: taint
+  labels:
+    app: taint
+spec:
+  replicas: 3
+  revisionHistoryLimit: 10
+  template:
+    metadata:
+      labels:
+        app: taint
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - name: http
+          containerPort: 80
+      tolerations:
+      - key: "node-role.kubernetes.io/master"
+        operator: "Exists"
+        effect: "NoSchedule"
+```
+
+由于 `master` 节点被标记为了污点节点，所以我们这里要想 `pod` 能够调度到 `master` 节点去，就需要增加容忍的声明：
 
 ```
 tolerations:
-- key: "key"
-operator: "Equal"
-value: "value"
-effect: "NoSchedule"
+- key: "node-role.kubernetes.io/master"
+  operator: "Exists"
+  effect: "NoSchedule"
 ```
+然后创建上面的资源，查看结果：
+
+```
+$ kubectl create -f taint-demo.yaml
+deployment.apps "taint" created
+$ kubectl get pods -o wide
+NAME                        READY     STATUS             RESTARTS   AGE       IP             NODE
+......
+taint-845d8bb4fb-57mhm      1/1       Running            0          1m        10.244.4.247   node02
+taint-845d8bb4fb-bbvmp      1/1       Running            0          1m        10.244.0.33    master
+taint-845d8bb4fb-zb78x      1/1       Running            0          1m        10.244.4.246   node02
+......
+```
+我们可以看到有一个 `pod` 副本被调度到了 `master` 节点，这就是容忍的使用方法。
+
+对于 `tolerations` 属性的写法，其中的 `key`、`value`、`effect` 与 `Node` 的 `Taint` 设置需保持一致， 还有以下几点说明：
+
+1. 如果 operator 的值是 Exists，则 value 属性可省略
+2. 如果 operator 的值是 Equal，则表示其 key 与 value 之间的关系是 equal(等于)
+3. 如果不指定 operator 属性，则默认值为 Equal
+
+另外，还有两个特殊值：
+
+1. 空的 `key` 如果再配合 `Exists` 就能匹配所有的 `key` 与 `value`，也是是能容忍所有 `node` 的所有 `Taints`
+2. 空的 `effect` 匹配所有的 `effect`
 
 `effect` 共有三个可选项，可按实际需求进行设置：
 
 * `NoSchedule`：POD 不会被调度到标记为 `taints `节点。
 * `PreferNoSchedule`：`NoSchedule` 的软策略版本。
 * `NoExecute`：该选项意味着一旦 `Taint` 生效，如该节点内正在运行的 `POD` 没有对应 `Tolerate` 设置，会直接被逐出。
+
+最后，如果我们要取消节点的污点标记，可以使用下面的命令
+
+```
+$ kubectl taint nodes node02 test-
+node "node02" untainted
+```
+
+这就是污点和容忍的使用方法。
 
 ## 参考资料
 
