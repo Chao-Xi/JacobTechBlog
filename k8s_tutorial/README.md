@@ -133,3 +133,4 @@
 ### K8S 生产案例
 
 1. [kubernetes生产案例之阿里云游戏业务分析](k8s_prod1_AliGame.md)
+2. [民生银行智能运维项目在容器云平台的部署](k8s_prod2_CMBC.md)
