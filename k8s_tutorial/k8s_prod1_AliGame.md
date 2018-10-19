@@ -197,6 +197,8 @@ Ingress 其实就是从 kuberenets 集群外部访问集群的一个入口，将
 * **无状态:** 该服务运行的实例不会在本地存储需要持久化的数据，**并且多个实例对于同一个请求响应的结果是完全一致的**
 * **有状态:** 和上面的概念是对立的了，**该服务运行的实例需要在本地存储持久化数据**,比如 `socket` 长连接
 
+[StatefulSet 的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_adv24_DaemonSet_StatefulSet.md#statefulset-%E7%9A%84%E4%BD%BF%E7%94%A8)
+
 ```
 apiVersion: apps/v1beta1                          # kubectl api的版本
 kind: StatefulSet                                 # kubernetes的资源类型 对于有状态应用选择StatefulSet
