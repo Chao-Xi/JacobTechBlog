@@ -51,7 +51,7 @@ k8s为kubernetes缩写，Google开源容器集群管理系统，使用中重点�
 
 docker镜像来源一般有2种：官方或社区（Docker Hub）镜像和自己编译的镜像。
 
-**社区镜像**，可登录Docker Hub (https://hub.docker.com)进行搜索，如`ubuntu/mysql/mongo/redis`等，常用的镜像一般都可以找到。若未找到所需的，可基于这些已有镜像编译自己的镜像。
+**社区镜像**，可登录Docker Hub  进行搜索，如`ubuntu/mysql/mongo/redis`等，常用的镜像一般都可以找到。若未找到所需的，可基于这些已有镜像编译自己的镜像。
 
 **自定义镜像**，一般是将应用程序打包在镜像里，在本地电脑或云服务器进行编译生成。
 
