@@ -8,3 +8,7 @@
 
 
 
+## Prometheus Adv. tutorial
+
+1. [在 Kubernetes 中手动部署 Prometheus](4.Adv_Prometheus_setup.md)
+
