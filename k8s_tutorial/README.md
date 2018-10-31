@@ -122,6 +122,11 @@
 2. [浅谈Docker的安全性支持(二)](k8s_security1_docker2.md)
 3. [Kubernetes集群节点被入侵挖矿案例与发现解决问题](k8s_security2_invasive_bitcoin_mining.md)
 
+### K8S 集群监控
+
+1. [在 Kubernetes 中手动部署 Prometheus](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/4.Adv_Prometheus_setup.md)
+2. [Kubernetes 应用监控](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/5Adv_Prometheus_monitor.md)
+3. [监控 Kubernetes 集群节点](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/6Adv_K8S_Nodes_monitor.md)
 
 ### K8S Q&A
 
