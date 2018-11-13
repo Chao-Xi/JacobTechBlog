@@ -67,7 +67,7 @@
 
 1. Amazon Simple Notification Service (SNS)  **push**
 2. Amazon Simple Queue Service (SQS)      **poll, push**
-3. Amazon Simple Email Service (Amazon SES) is a **cloud-based email **
+3. Amazon Simple Email Service (Amazon SES) is a **cloud-based email**
 
 
 
