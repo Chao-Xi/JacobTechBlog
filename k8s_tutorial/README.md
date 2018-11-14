@@ -126,7 +126,7 @@
 
 1. [在 Kubernetes 中手动部署 Prometheus](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/4.Adv_Prometheus_setup.md)
 2. [Kubernetes 应用监控](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/5Adv_Prometheus_monitor.md)
-3. [监控 Kubernetes 集群节点](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/6Adv_K8S_Nodes_monitor.md)
+3. [监控 Kubernetes 集群节点](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/6Adv_K8S_Nodes_monitor.md)
 4. [监控 Kubernetes 常用资源对象](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/7Adv_K8S_Resource_monitor.md)
 
 ### K8S Q&A
