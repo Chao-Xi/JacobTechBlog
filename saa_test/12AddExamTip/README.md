@@ -10,4 +10,6 @@
 6. [WorkSpaces](6WorkSpaces.md)
 7. [AWS Federated Authentication with Active Directory Federation Services](7AD_FS.md)
 8. [Intro to DNS](../8Route53/1Dns_Intro.md)
+9. [AWS ECS and ECR](8ECS_ECR.md)
+10. [Choosing Between an ELB and an ALB on AWS](9ALBvsELB.md)
 
