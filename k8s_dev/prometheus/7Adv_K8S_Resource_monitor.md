@@ -35,7 +35,7 @@
 
 ![Alt Image Text](images/7_1.jpg "body image")
 
-然后我们可以切换到 `Graph` 路径下面查询容器相关数据，比如我们这里来查询集群中所有 `Pod` 的 `CPU` 使用情况，这里用的数据指标是 `container_cpu_usage_seconds_total`，然后去除一些无效的数据，查询1分钟内的数据，由于查询到的数据都是容器相关的，最好要安装 `Pod` 来进行聚合，对应的`promQL`语句如下：
+然后我们可以切换到 `Graph` 路径下面查询容器相关数据，比如我们这里来查询集群中所有 `Pod` 的 `CPU` 使用情况，这里用的数据指标是 `container_cpu_usage_seconds_total`，然后去除一些无效的数据，查询1分钟内的数据，由于查询到的数据都是容器相关的，最好要安装 `Pod` 来进行聚合，对应的`promQL`语句如下：
 
 ```
 sum by (pod_name)(rate(container_cpu_usage_seconds_total{image!="", pod_name!=""}[1m] ))
@@ -83,7 +83,7 @@ $ curl -X POST "http://10.102.74.90:9090/-/reload"
 
 ![Alt Image Text](images/7_3.jpg "body image")
 
-我们可以看到 `kubernetes-apiservers` 下面出现了很多实例，这是因为这里我们使用的是 `Endpoints` 类型的服务发现，所以 `Prometheus` 把所有的 `Endpoints` 服务都抓取过来了，同样的，上面我们需要的服务名为 `kubernetes`这个 `apiserver` 的服务也在这个列表之中，那么我们应该怎样来过滤出这个服务来呢？
+我们可以看到 `kubernetes-apiservers` 下面出现了很多实例，这是因为这里我们使用的是 `Endpoints` 类型的服务发现，所以 `Prometheus` 把所有的 `Endpoints` 服务都抓取过来了，同样的，上面我们需要的服务名为 `kubernetes`这个 `apiserver` 的服务也在这个列表之中，那么我们应该怎样来过滤出这个服务来呢？
 
 还记得上节课的 `relabel_configs` 吗？没错，同样我们需要使用这个配置，只是我们这里不是使用`replace` 这个动作了，而是`keep`，就是只把符合我们要求的给保留下来，哪些才是符合我们要求的呢？
 
@@ -123,7 +123,7 @@ $ curl -X POST "http://10.102.74.90:9090/-/reload"
 sum(rate(apiserver_request_count[1m]))
 ```
 
-`这里我们使用到了 promql 里面的 rate 和 sum函数，表示的意思是 apiserver 在1分钟内总的请求数。`
+`这里我们使用到了 promql 里面的 rate 和 sum函数，表示的意思是 apiserver 在1分钟内总的请求数。`
 
 ![Alt Image Text](images/7_6.jpg "body image")
 
@@ -132,7 +132,7 @@ sum(rate(apiserver_request_count[1m]))
 
 这样我们就完成了对 `Kubernetes APIServer` 的监控。
 
-另外如果我们要来监控其他系统组件，比如 `kube-controller-manager`、`kube-scheduler` 的话应该怎么做呢？由于 `apiserver` 服务 `namespace` 在 `default` 使用默认的 `Service kubernetes`，而其余组件服务在 `kube-system` 这个 `namespace` 下面，如果我们想要来监控这些组件的话，需要手动创建单独的 `Service`，其中 `kube-sheduler` 的指标数据端口为 `10251`，`kube-controller-manager` 对应的端口为 `10252`，大家可以尝试下自己来配置下这几个系统组件。
+另外如果我们要来监控其他系统组件，比如 `kube-controller-manager`、`kube-scheduler` 的话应该怎么做呢？由于 `apiserver` 服务 `namespace` 在 `default` 使用默认的 `Service kubernetes`，而其余组件服务在 `kube-system` 这个 `namespace` 下面，如果我们想要来监控这些组件的话，需要手动创建单独的 `Service`，其中 `kube-sheduler` 的指标数据端口为 `10251`，`kube-controller-manager` 对应的端口为 `10252`，大家可以尝试下自己来配置下这几个系统组件。
 
 ## Service 的监控
 
@@ -169,15 +169,15 @@ sum(rate(apiserver_request_count[1m]))
     target_label: kubernetes_name
 ```
 
-#### 注意我们这里在 `relabel_configs` 区域做了大量的配置，特别是第一个保留`__meta_kubernetes_service_annotation_prometheus_io_scrape` 为`true`的才保留下来，这就是说要想自动发现集群中的 `Service`，就需要我们在 `Service` 的 `annotation` 区域添加 `prometheus.io/scrape=true` 的声明.
+#### 注意我们这里在 `relabel_configs` 区域做了大量的配置，特别是第一个保留`__meta_kubernetes_service_annotation_prometheus_io_scrape` 为`true`的才保留下来，这就是说要想自动发现集群中的 `Service`，就需要我们在 `Service` 的 `annotation` 区域添加 `prometheus.io/scrape=true` 的声明.
 
-现在我们先将上面的配置更新，查看下效果：
+现在我们先将上面的配置更新，查看下效果：
 
 ![Alt Image Text](images/7_7.jpg "body image")
 
 `service endpoints`
 
-#### 我们可以看到 `kubernetes-service-endpoints` 这一个任务下面只发现了一个服务，这是因为我们在`relabel_configs` 中过滤了 `annotation` 有 `prometheus.io/scrape=true` 的 `Service`，而现在我们系统中只有这样一个服务符合要求，所以只出现了一个实例。
+#### 我们可以看到 `kubernetes-service-endpoints` 这一个任务下面只发现了一个服务，这是因为我们在`relabel_configs` 中过滤了 `annotation` 有 `prometheus.io/scrape=true` 的 `Service`，而现在我们系统中只有这样一个服务符合要求，所以只出现了一个实例。
 
 ```
 kind: Service
@@ -210,7 +210,7 @@ service "redis" changed
 
 ![Alt Image Text](images/7_8.jpg "body image")
 
-这样以后我们有了新的服务，服务本身提供了`/metrics` 接口，我们就完全不需要用静态的方式去配置了，到这里我们就可以将之前配置的 `redis` 的静态配置去掉了。
+这样以后我们有了新的服务，服务本身提供了`/metrics` 接口，我们就完全不需要用静态的方式去配置了，到这里我们就可以将之前配置的 `redis` 的静态配置去掉了。
 
 同样的，大家可以自己去尝试下去配置下自动发现 Pod、ingress 这些资源对象。
 
