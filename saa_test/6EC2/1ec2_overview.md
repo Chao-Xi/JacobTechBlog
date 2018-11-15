@@ -21,7 +21,7 @@ Provide you with a capacity reservation, and offer a significant discount on the
 
 ### Spot
 
-Enable you to bid whatever price you want fir instance capacity, **providing for even greater saving for even greater savings if your applications have flexible start and end times**
+Enable you to bid whatever price you want for instance capacity, **providing for even greater saving for even greater savings if your applications have flexible start and end times**
 
 
 
