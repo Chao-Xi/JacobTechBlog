@@ -12,4 +12,5 @@
 8. [Intro to DNS](../8Route53/1Dns_Intro.md)
 9. [AWS ECS and ECR](8ECS_ECR.md)
 10. [Choosing Between an ELB and an ALB on AWS](9ALBvsELB.md)
+11. [AWS Amazon Kinesis](10Kinesis.md)
 
