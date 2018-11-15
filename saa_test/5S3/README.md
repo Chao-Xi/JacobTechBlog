@@ -113,9 +113,9 @@ Not suitable to install an operating system on**
 
 ##### Server Side Encryption
 
-* S3 Managed Keys - **SSE-S3[S3 FOR BOTH](S3 manage the data and master encryption keys)**
+* S3 Managed Keys - **SSE-S3(S3 FOR BOTH)(S3 manage the data and master encryption keys)**
 * AWS Key Management Services, Managed Keys - **SSE-KMS(AWS manage the data key but you manage the master key in AWS KMS.)**
-* Server Side Encryption with Customer Provided Keys - **SSE-C[CUSTOMER](you manage the encryption key)**
+* Server Side Encryption with Customer Provided Keys - **SSE-C(CUSTOMER)(you manage the encryption key)**
 
 ## Storage Gateway
 
