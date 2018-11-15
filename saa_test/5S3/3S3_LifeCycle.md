@@ -41,7 +41,7 @@ Transition
 
 #### If you select this expire option, you cannot select the option to clean up expired delete markers
 
-Select **Permanently delete previous versions**, and then enter the number of days **after an object becomes a previous version to permanently delete the object **(for example, 465 days).
+Select **Permanently delete previous versions**, and then enter the number of days **after an object becomes a previous version to permanently delete the object** (for example, 465 days).
 
 It is a recommended best practice to always select **Clean up incomplete multipart uploads**. For example, type 7 for the number of days after the multipart upload initiation date that you want to end and clean up any multipart uploads that have not completed.
 
