@@ -14,7 +14,7 @@
 
 ### AWS S3 Overview
 
-* Remember S3 is object based i.e. allows you to upload files
+* Remember S3 is **object based** i.e. allows you to upload files
 * Files can be from 1 Byte to 5Tb
 * There is unlimited storage
 * Files are stored in Buckets
@@ -46,7 +46,10 @@
 * Metadata
 * Access control lists
 
-### S3 - Versioning
+**Object based storage only (for files).
+Not suitable to install an operating system on**
+
+## S3 - Versioning
 
 1. Stores all versions of an object (including all writes and even if you delete an object)
 2. Great backup tool
@@ -55,14 +58,24 @@
 5. **Versioning's MFA Delete capability, which users multi-factor authentication, can be used to provide an additional layer of security**
 6. **Cross Religion Replication, requires versioning enabled on source bucket**
 
+## S3 - S3 Cross Region Replication (CRR)
+
+1. Cross-region replication (CRR) enables **automatic, asynchronous copying of objects across buckets in different AWS Regions.**
+2. Buckets configured for cross-region replication **can be owned by different accounts.**
+3. Cross-region replication is enabled with a **bucket-level configuration**
+4. Both source and destination buckets must have versioning enabled.
+5. S3 must have permissions to replicate objects from the source bucket to the destination bucket on your behalf.
+6. If the owner of the source bucket doesn't own the object in the bucket, the object owner must grant the bucket owner READ and READ_ACP permissions with the object ACL.
+7. If you **specify an object version ID** to delete in a DELETE request, **Amazon S3 deletes that object version in the source bucket, but it doesn't replicate the deletion in the destination bucket.**
+
 
 ### S3 - LifeCycle Management
 
-* Can be used in conjunction with versioning
-* Can be applied to current versions and pervious versions
+* Can be used in **conjunction with versioning**
+* Can be applied to **current versions and pervious versions**
 * Following actions can now be done;
   * Transition to the Standard - Infrequent Access Storage Class (128Kb and 30 days after the creation date)
-  * Archive to the Glacier storage Class (do days after IA, if relevant)
+  * Archive to the Glacier storage Class (days after IA, if relevant)
   * Permanently Delete
 
 
@@ -70,15 +83,15 @@
 
 * Edge Location - This is the location where `content will be cached`. `This is separate to an AWS Region/AZ`
 * Origin - This is the origin of all the files that the CDN will distribute. This can be either an `S3 bucket`, an `EC2 instance`, an `Elastic Load Balancer` or `Route53`
-* Distribution - This is the name given the CDN which consists pf a collection of Edge Locations
-  * Web Distribution - Typically used for Websites
-  * RTMP - Used for Media Streaming
-Edge locations are not just READ only, you can write them too (ie. put object in to them)
+* Distribution - This is the name given the CDN which consists of a collection of Edge Locations
+  * **Web Distribution** - Typically used for Websites
+  * **RTMP** - Used for Media Streaming
+* **Edge locations are not just READ only, you can write them too** (ie. put object in to them)
 * Objects are cached for the life of the TTL(Time to Live)
-* You can clear the cached objects, but you will be charged
+* **You can clear the cached objects, but you will be charged**
 
 
-### Securing your buckets
+## Securing your buckets
 
 #### 1.By default, all newly created buckets are `PRIVATE`
 #### 2.You can setup access control to your buckets using
@@ -100,11 +113,18 @@ Edge locations are not just READ only, you can write them too (ie. put object in
 
 ##### Server Side Encryption
 
-* S3 Managed Keys - **SSE-S3(S3 manage the data and master encryption keys)**
-* AWS Key Management Services, Managed Keys - **SSE-KMS(WS manage the data key but you manage the master key in AWS KMS.)**
-* Server Side Encryption with Customer Provided Keys - **SSE-C(you manage the encryption key)**
+* S3 Managed Keys - **SSE-S3[S3 FOR BOTH](S3 manage the data and master encryption keys)**
+* AWS Key Management Services, Managed Keys - **SSE-KMS(AWS manage the data key but you manage the master key in AWS KMS.)**
+* Server Side Encryption with Customer Provided Keys - **SSE-C[CUSTOMER](you manage the encryption key)**
 
-### Storage Gateway
+## Storage Gateway
+
+**AWS Storage Gateway** is a service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between an organization's on-premises IT environment and AWS's storage infrastructure.
+
+
+![Alt Image Text](images/6_1.jpg "body image")
+
+**AWS Storage Gateway, by default, uploads data using SSL and provides data encryption at rest when stored in S3 or Glacier using AES-256**
 
 #### Gateway Stored Volumes
 
@@ -116,7 +136,9 @@ Edge locations are not just READ only, you can write them too (ie. put object in
 
 #### Gateway Virtual Tape Library (VTL)
 
-**Used for backup and uses popular backup applications like by NetBackup, Backup Exec, Veam etc.**
+**You can have a limitless collection of virtual tapes. Used for backup and uses popular backup applications like by NetBackup, Backup Exec, Veam etc.**
+
+
 
 ### S3 Import and Export
 
