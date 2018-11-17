@@ -18,15 +18,32 @@
 14. [EFS](14ec2_EFS_lab.md)
 15. [How to Use Putty & PuttyKeyGen](15ec2_putty_puttykeygen.md)
 16. [Lambda](16ec2_lambda.md)
+17. [AWS Lambda LAB - S3 copy](17ec2_lambda_lab.md)
 
 
 ## Exam Tips for EC2
 
 ### Know the differences between;
 
-* On Demand
+* **On Demand**
+
+```
+Pay a fixed rate by the hour with no commitment
+```
+
 * Spot
+
+```
+Enable you to bid whatever price you want for instance capacity, providing for even greater 
+saving for even greater savings if your applications have flexible start and end times
+```
+
 * Reserved (Reserved is most cheapest way)
+
+```
+Provide you with a capacity reservation, and offer a significant discount on the hourly charge 
+for an instance. 1 year or 3 year terms
+```
 
 ### Remember with spot instances;
 
@@ -34,18 +51,28 @@
 * If AWS terminate the spot instance, you get the hour it was terminated in for free.
 
 
+
 ### EBS consists of:
 
 ### Solid-State Drives (SSD)
 
-* General Purpose SSD (gp2)
-* Provisioned IOPS SSD (io1)
+* **General Purpose SSD (gp2)**
+
+[most workloads, System boot volumes, Virtual desktops, Low-latency interactive apps
+, Development and test environments]
+
+* **Provisioned IOPS SSD (io1)**
+
+[Critical business applications, Large database workloads]
 
 
-### Hard disk Drives (HDD)
+### Hard disk Drives (HDD) [Cannot be a boot volume]
 
-* Throughput Optimized HDD (st1)
-* Cold HDD (sc1)
+* Throughput **Optimized** HDD (st1) 
+
+**[Streaming workloads, Big data, Data warehouses, Log processing]**
+
+* Cold HDD (sc1). [Cold HDD, and low cost]
 * EBS Magnetic. (cheap, infrequently accessed storage)
 
 
@@ -55,6 +82,8 @@
 
 ![Alt Image Text](images/1_3.jpg "body image")
 
+The **M5** instances are designed for highly demanding workloads and will **deliver 14% better price/performance than the M4** instances on a per-core basis.
+
 ## EC2 Lab Exam Tips
 
 1. Termination Protection is turned off by default, you **must** turn it on
@@ -63,44 +92,62 @@
 4. **Additional volumes can be encrypted.**
 
 
+### storage:
+
+* IOPS = SIZE * 3 (3 * 8G = 24)
+* Root storage => setting for operating system is not encrypted by default
+
+### Security Group is like a virtual fire wall
+
+
+
 ## EC2 SG Lab Exam Tips
 
-* All inbound Traffic is Blocked
-* All Outbound Traffic is Allowed
+* All **inbound Traffic** is **Blocked**, you can only allow rules rather than deny rules
+* All **Outbound Traffic** is **Allowed**
 * Changed to Security Groups take effect immediately
-* You can have any number of EC2 instances with a security group
-* Security Groups are STATEFUL
+* You can have any **number of EC2 instances with a security group**
+* Security Groups are **STATEFUL**
 
 ### If you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again
 
 ## Volumes VS Snapshots
 
-* Volumes exist on EBS: `Virtual Hard Disk`
-* Snapshot exits on S3
+* **Volumes exist on EBS**: `Virtual Hard Disk`
+* **Snapshot exits on S3**
 * You can take a snapshot of a volume, this will `store that volume on S3`
 * Snapshots are point in time copies of Volumes
-* Snapshots are `incremental`, this means that only the blocks that have changed since your `last snapshot are move to S3`
+* Snapshots are `incremental`, **this means that only the blocks that have changed since your `last snapshot are move to S3`**
 * If this is your first snapshot, it may take some time to create
 
 ## Volumes VS Snapshots - Security
 
 * **Snapshots of encrypted volumes are encrypted automatically**
 * Volumes restored from encrypted snapshots are encrypted automatically
-* You can share snapshots, but only if they are unencrypted
+* **You can share snapshots, but only if they are unencrypte**d
 
 #### These snapshots can be shared with other AWS account or made public
+#### Snapshots of Root Device Volumes
 
+To create a snapshot for Amazon EBS volumes that servers as root devices, **you should stop the instance before taking the snapshot**
 
-## EBS vs Instance Store - Exam Tips
+## AMI Types => Root Device Types (EBS vs Instance Store)
 
-* Instance Store Volumes are sometimes called Ephemeral Storage
+* You can also attach additional EBS volumes **after launching an instance**, but **not instance volumes**
+
+* Instance Store Volumes are sometimes called **Ephemeral Storage**
 * **Instance store volumes cannot be stopped. If the underlying host fails, you will lose your data**
 * **EBS backed instances can be stopped. You will not lose the data on this instance if it is stopped**
 * You can reboot both, you will not lose your data
-* By default, both **ROOT volumes** will be `deleted on termination`. **However with EBS volumes, you can tell AWS to keep the root device volume.**
+* By default, both **ROOT volumes** will be `deleted on termination`. **However with EBS volumes, you can tell AWS to keep the root device volume.(detach EBS volume from instance,)**
 
+
+####  EBS Volumes: created from an **Amazon EBS snapshot**
+####  Instance Store Volumes: e created from a **template stored in Amazon S3**
 
 ## How can I take a Snapshot of a RAID Array?
+
+RAID = Redundant Array of Independent Disks
 
 **Problem** - Take a snapshot, the snapshot `excludes data held in the cache` by applications and the OS. 
 
@@ -109,19 +156,18 @@ This tends not to matter on a single volume, however using multiple volumes in a
 
 ###  Solution - Take an application consistent snapshot. 
 
-
-## How can I take a Snapshot of a RAID Array? 
+### How can I take a Snapshot of a RAID Array? 
 
 * Stop the application from writing to disk. 
 * Flush all caches to the disk. 
 
-### How can we do this? 
+#### How can we do this? 
 
 * Freeze the file system 
 * Unmount the RAID Array 
 * Shutting down the associated EC2 instance. 
 
-## Amazon Machine Images - Exam Tip
+## Amazon Machine Images Share Tip
 
 ### AMI's are regional. 
 
@@ -135,6 +181,9 @@ This tends not to matter on a single volume, however using multiple volumes in a
 #### Health Check
 #### Have their own DNS name. You are never given an IP address
 
+### Enable Connection Draining
+
+In AWS, when **you enable Connection Draining on a load balancer,** any back-end instances that **you deregister will complete requests that are in progress before deregistration**
 
 ## CloudWatch Lab - Exam Tips
 
@@ -176,15 +225,30 @@ This tends not to matter on a single volume, however using multiple volumes in a
 * **No such things as use-data for an instance**
 
 
-## EFS - Exam Tips
+## Launch Configurations & Auto Scaling Groups
+
+### Create `Launch Configurations` Firstly
+### Create `AutoScaling Group` based on `Launch Configurations`
+
+* ASG WILL automatically spreads these three instances to three subnets (which you set)
+* Health check grace period: **150s is set as a session for instances** are totally launched and all packages installed. (Apache installed for exp.)
+   
+#### Create alarm for ASG
+#### create alarm for ASG policies to adjust the capacity of this group
+#### send notification for ASG
+
+## EFS 
+
+**EFS can mount to multiple instances**
+
 
 * Supports the network file system version 4 (NFSv4) protocol
-* You only pay for the storage you use ( no pre-provisioning required)
+* **You only pay for the storage you use** (no pre-provisioning required)
 * Can scale up to the petabytes
 * **Can support thousands concurrent NFS connections**
 * **Data is stored multiple AZ's within a region**
 * Read after write consistency
-* Code all in one file system, all in one container, then mount to multiple instance
+* Code all in one file system, all in one container, **then mount to multiple instance**
 
 
 ## What Is Lambda? 
@@ -195,6 +259,23 @@ AWS Lambda is a compute service where you can **upload your code and create a La
  
 * **As a compute service to run your code in response to HTTP requests using Amazon API Gateway or API calls made using AWS SDKs**.
 
+### What events trigger Lambda
+
+* table updates in Amazon DynamoDB
+* modifications to objects in Amazon S3 buckets,
+* messages arriving in an Amazon Kinesis Stream,
+* AWS API call logs created by AWS cloudTrail,
+* custom events from mobile applications,
+* web applications, 
+* other web services
+ 
+#### Supported Programming Languages - Javascript
+#### AWS Lambda is designed to provide 99.99% availability for both the service itself and for the functions it operates
+
+### Lambda Pricing
+
+* First 1 million requests are free
+* `$0.20` per 1 million requests there after
 
 
 
