@@ -12,7 +12,7 @@
 
 1. [在 Kubernetes 中手动部署 Prometheus](4.Adv_Prometheus_setup.md)
 2. [Kubernetes 应用监控](5Adv_Prometheus_monitor.md)
-3. [监控 Kubernetes 集群节点](6Adv_K8S_Nodes_monitor.md)
+3. [监控 Kubernetes 集群节点](6Adv_K8S_Nodes_monitor.md)
 4. [监控 Kubernetes 常用资源对象](7Adv_K8S_Resource_monitor.md)
 5. [Grafana 在 Kubernetes 中的使用](8Adv_K8S_Grafana.md)
 
