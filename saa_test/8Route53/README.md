@@ -45,5 +45,32 @@ A CNAME can't be used for naked domain names (zone apex). You **can't have a CNA
 * **Failover**: Route53 will monitor the health of your primary site using a **health check**.
 * **Geolocation**: Geolocation routing lets you choose where your traffic will be **sent based on the geographic location of your users** (ie the location from which DNS queries originate). 
 
+### Active-Active and Active-Passive Failover
+
+#### 1.Active-Active Failover (All)
+
+configuration want all of your resources to be available the majority of the time
+When a resource becomes unavailable, Route 53 can detect that it's unhealthy and stop including it when responding to queries.
+
+#### 2.Active-Passive Failover (Primary, secondary)
+
+* Use an active-passive failover configuration when you want a **primary resource or group of resources to be available the majority of the time** 
+ 
+* you want a **secondary resource or group of resources to be on standby in case all the primary resources become unavailable**.
+
+* When responding to queries, Route 53 includes only the healthy primary resources. 
+
+* If **all the primary resources are unhealthy**, **Route 53 begins to include only the healthy secondary resources in response to DNS queries**.
+
+### ways
+
+* Configuring Active-Passive Failover with One Primary and One Secondary Resource
+* Configuring Active-Passive Failover with Multiple Primary and Secondary Resources
+* Configuring Active-Passive Failover with Weighted Records
+
+
+
+
+
 
 
