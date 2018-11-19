@@ -8,6 +8,16 @@
 
 ## Exam Tips 
 
+#### CNAMES(Canonical Name) can be used to resolve one domain name to another
+#### Alias Records: are used to map resource `record sets` in your `hosted zone` to `Elastic Load Balancers`, `CloudFront distributions`, or `S3 buckets` that are configured as websites.
+
+
+### Key difference
+
+A CNAME can't be used for naked domain names (zone apex). You **can't have a CNAME** for `http://acloud.guru`, it must be either an **A record or an Alias**.
+
+**Amazon Route 53 will automatically reflect those changes in DNS answers for IP changes of load balancing**
+
 * ELB's do not have pre-defined IPv4 addresses, you resolve to them using a DNS name. 
 * Understand the difference between an Alias Record and a CNAME. 
 * Given the choice, always choose an Alias Record over a CNAME. 
@@ -21,13 +31,19 @@
 | A CNAME record appears as a CNAME record in response to dig or nslookup queries. | An alias record appears as the record type that you specified when you created the record, such as A or AAAA. The alias property is visible only in the Route 53 console or in the response to a programmatic request, such as an AWS CLI `list-resource-record-sets` command.        |
 
 
+## Route53 The Basics - Lab
+
+* create public hosted zone
+* copy `4 name severs(NS) value` and paste Name Severs in `Domain Registrars`
+* Create `Record Set` and point **Alias to created ELB**
+
 ### Remember the different routing policies and their use cases;
 
-* Simple 
-* Weighted 
-* Latency 
-* Failover 
-* Geolocation 
+* **Simple:** 
+* **Weighted** : Weighted Routing Policies let you split your traffic based on different weights assigned.
+* **Latency**: Latency based routing allows you to route your traffic based on the **lowest network latency** for your end user
+* **Failover**: Route53 will monitor the health of your primary site using a **health check**.
+* **Geolocation**: Geolocation routing lets you choose where your traffic will be **sent based on the geographic location of your users** (ie the location from which DNS queries originate). 
 
 
 
