@@ -17,6 +17,14 @@
 5. [Grafana 在 Kubernetes 中的使用](8Adv_K8S_Grafana.md)
 
 
+## Other monitor tools
+
+1.[ 安装使用 360 开源 K8S Dashboard: `Wayne`](9Adv_Wayne_dashboard.md) 
+
+
+
+
+
 
 
 
