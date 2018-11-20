@@ -134,6 +134,10 @@
 4. [监控 Kubernetes 常用资源对象](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/7Adv_K8S_Resource_monitor.md)
 5. [Grafana 在 Kubernetes 中的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/8Adv_K8S_Grafana.md)
 
+### K8S 其他工具
+
+1. [安装使用 360 开源 K8S Dashboard: `Wayne`](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/9Adv_Wayne_dashboard.md) 
+
 ### K8S Q&A
 
 1. [K8S Issues List](k8s_QA_sum.md)
