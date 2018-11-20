@@ -11,20 +11,28 @@
 
 #### `Amazon SQS` is a `web service` that gives you access to a `message queue` that can be used to store messages while waiting for a computer to process them. 
 
-* Does not offer FIFO (first in, first out)
+Amazon SQS is a **distributed queue system** that enables web service applications to quickly and reliably queue messages that **one component in the application generates to be consumed by another component**.
+
+#### A queue is a `temporary repository` for messages that are awaiting processing.
+
+* **Does not offer FIFO** (first in, first out)
 
 * 12 hours visibility time out
  
 * Amazon SQS is engineered to provide "at least once" delivery of all messages in its queues. Although most of the time each message will be delivered to your application exactly once, you should design your system so that processing a message more than once does not create any errors or inconsistencies. 
 
-* `256kb` message size now available 
-* Billed at `64kb` "Chunks" 
-* A `256kb` message will be `4 x 64kb` "chunks"
+* `$0.50` per 1 million `Amazon SQS Requests` per month thereafter ($0.00000050 per SQS Request)
+
+* A single request can have from 1 to 10 messages, up to a maximum total payload of 256KB.
+
+* **Each 64KB 'chunk' of payload is billed as 1 request.** For example, a single API call with a 256KB payload will be billed as **four** requests.
 
 
  
 
-#### Amazon Simple Workflow Service (Amazon SWF) is a web service that makes it easy to coordinate work across distributed application components.
+## Simple Workflow Service
+
+Amazon Simple Workflow Service (Amazon SWF) is a web service that makes it easy to coordinate work across distributed application components.
 
 ## SWF vs SQS (Exam Tips)
 
@@ -48,8 +56,20 @@
 
 Carry out the activity tasks 
 
+## Simple Notification Service
 
-## SNS Subscribers
+Amazon Simple Notification Service (Amazon SNS) is a web service that makes it easy to set up, operate, and **send notifications from the cloud**.
+
+### can-dos:
+
+1. **pushing cloud notifications** directly to mobile devices
+2. deliver notifications by **SMS text message** or **email**
+3. deliver notifications to **Amazon Simple Queue Service (SQS) queues**, or to **any HTTP endpoint**.
+4. SNS notifications can also trigger Lambda functions.
+5. Send the message to other AWS services
+
+
+### SNS Subscribers
 
 * HTTP 
 * HTTPS 
@@ -64,6 +84,16 @@ Carry out the activity tasks
 #### Both Messaging Services in AWS 
 #### SNS - Push
 #### SQS - Polls (Pulls) [SQS download message and do the task]
+
+#### SNS Pricing:
+
+* Users pay `$0.50` per 1 million Amazon SNS Requests
+* `$0.06` per 100,000 Notification deliveries over HTTP
+* `$0.75` per 100 Notification deliveries over SMS
+* `$2.00` per 100,000 Notification deliveries over Email
+
+cost: sms > email > http notification
+
 
 ## What is Elastic Transcoder? 
 
