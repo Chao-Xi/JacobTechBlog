@@ -138,6 +138,10 @@
 
 1. [安装使用 360 开源 K8S Dashboard: `Wayne`](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/9Adv_Wayne_dashboard.md) 
 
+### K8S 操作
+
+1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)
+
 ### K8S Q&A
 
 1. [K8S Issues List](k8s_QA_sum.md)
