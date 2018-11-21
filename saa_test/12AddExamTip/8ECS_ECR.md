@@ -38,10 +38,10 @@
 
 ### AMAZON ECS AGENT 
 
-* **MANAGES THE STATE OF CONTAINERS ON A SINGLE EC2 INSTANCE** 
-* **HOW ECS COMMUNICATES WITH THE DOCKER DAEMON ON THE EC2 INSTANCE** 
-* **MUST BE ON EVERY EC2 INSTANCE IN YOUR ECS CLUSTER** 
-* INCLUDED WITH THE ECS-OPTIMIZED AMAZON MACHINE IMAGE (AMI) 
+* Manages the state of containers on a single EC2 instance
+* **How ECS communicates with the docker daemon on the EC2 instance**
+* **Must be on every EC2 instance in your ECS cluster**
+* Included with the ecs-optimized amazon machine image (AMI) 
 
 
 ## Key Components: Clusters 
