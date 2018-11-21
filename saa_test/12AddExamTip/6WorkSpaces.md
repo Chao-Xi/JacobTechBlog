@@ -19,5 +19,5 @@ A user can connect to a WorkSpace from any supported device (PC, Mac, Chromebook
 * By default you will be given local administrator access, so you can install your own appplications
 * **Workspaces are persistent.**
 * **All data on the `D:\` is backed up every 12 hours.**
-* **You do not need an AWS account to login to workspaces **
+* **You do not need an AWS account to login to workspaces**
 
