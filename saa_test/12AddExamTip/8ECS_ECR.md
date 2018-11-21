@@ -2,11 +2,11 @@
 
 ## AMAZON EC2 CONTAINER REGISTRY (AMAZON ECR) 
 
-1. FULLY MANAGED DOCKER CONTAINER REGISTRY 
-2. STORE, MANAGE, AND DEPLOY CONTAINER IMAGES 
-3. INTEGRATED WITH AMAZON ECS 
-4. ENCRYPTED, REDUNDANT, AND HIGHLY-AVAILABLE 
-5. GRANULAR SECURITY PERMISSIONS WITH AWS iAM 
+* Fully managed **docker container registry**
+* **Store, manage, and deploy container image**s
+* Integrated with amazon ECS
+* **Encrypted, redundant, and highly-available**
+* **Granular security permissions with AWS IAM** 
 
 ![Alt Image Text](images/8_1.jpg "body image")
 
