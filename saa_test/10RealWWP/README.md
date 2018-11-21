@@ -63,7 +63,7 @@ VPC SG: rds-sg
 
 3.add `domain name` to `/var/www/html/.htaccess` and and copy to **rewriterule**
 
-4.in `/etc/crontab`, add **Cronjob** **automatically upload images and code to S3 bucket **and **download code to EC2 instance from S3**
+4.in `/etc/crontab`, add **Cronjob** **automatically upload images and code to S3 bucket** and **download code to EC2 instance from S3**
 
 5.Create AMI Image for web instance
 
