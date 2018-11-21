@@ -26,6 +26,14 @@
 * Key AWS Services 
 
 
+### General Design Principles
+
+* Stop guessing your capacity needs
+* Test systems at production scale
+* Lower the risk of architecture change
+* Automate to make architectural experimentation easier
+* Allow for evolutionary architectures
+
 
 ## Security in the cloud consists of 4 areas;  
 
@@ -42,6 +50,10 @@
 * How are you encrypting and protecting your data in transit? (SSL) 
 
 ### Privilege Management Questions 
+
+* Access Control Lists (ACLs)
+* Role Based Access Controls
+* Password Management (such as password rotation policies)
 
 #### How are you protecting access to and use of the AWS root account credentials? 
 
@@ -93,6 +105,12 @@ Anti-virus installed?
 
 ### Detective Control Questions 
 
+* AWS CloudTrail
+* Amazon CloudWatch
+* AWS Config
+* Amazon Simple Storage Service (S3)
+* Amazon Glacier
+
 #### How are you capturing and analyzing AWS logs? 
 
 ```
@@ -134,6 +152,20 @@ someone raise tickets for change control process
 * How does your system withstand component failures? 
 * How are you planning for recovery?
 
+### Key AWS Services
+
+#### Foundations
+
+IAM, VPC
+
+#### Change Management
+
+AWS CloudTrail
+
+#### Failure Management
+
+AWS CloudFormation
+
 ## Exam Tips - Performance Efficiency
 
 Performance Efficiency in the cloud consists of 4 areas; 
@@ -173,6 +205,23 @@ Performance Efficiency in the cloud consists of 4 areas;
 * How do you monitor your proximity and caching solutions to ensure performance is as expected? 
 * How do you ensure that the proximity and caching solutions you have matches demand? 
 
+### Key AWS Services
+
+#### Compute
+
+Autoscaling
+
+#### Storage
+
+EBS, S3, Glacier
+
+#### Database
+
+RDS, DynamoDB, Redshift
+
+#### Space-Time Trade-Off
+
+CloudFront, ElastiCache, Direct Connect, RDS Read Replicas etc
 
 ## Exam Tips: Cost Optimization Pillar
 
@@ -183,6 +232,25 @@ Cost Optimization in the cloud consists of 4 areas;
 * **Expenditure awareness**
 * **Optimizing over time** 
 
+### Key AWS Services
+
+#### Matched supply and demand
+
+Autoscaling
+
+#### Cost-effective resources
+
+EC2 (reserved instances), AWS Trusted Advisor
+
+#### Expenditure awareness
+
+CloudWatch Alarms, SNS
+
+You can use cost allocation tags to track this, billing alerts as well as consolidated billing.
+
+#### Optimizing over time
+
+AWS Blog, AWS Trusted Advisor
 
 ### Best Practices - Matched supply and demand Questions 
 
