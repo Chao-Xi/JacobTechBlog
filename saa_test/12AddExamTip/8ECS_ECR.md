@@ -54,10 +54,10 @@
 
 ### AMAZON ECS CLUSTER
 
-* **LOGICAL GROUP OF AMAZON EC2 INSTANCES** THAT YOU CAN PLACE CONTAINERS ONTO 
-* **CAN UTILIZE ON-DEMAND, SPOT, OR RESERVED EC2 INSTANCES** 
-* CAN INCLUDE **DIFFERENT EC2 INSTANCE TYPES REGION-SPECIFIC** 
-* **EC2 INSTANCES ARE LINKED IN A VIRTUAL PRIVATE CLOUD (VPC)** 
+* **Logical group of amazon EC2 instances that you can place containers onto**
+* Can utilize **on-demand, spot, or reserved EC2 instances**
+* Can include different EC2 instance types region-specific
+* **EC2 instances are linked in a virtual private cloud (VPC)**
 
 ## Key Components: Task Definitions
 
@@ -66,12 +66,12 @@
 
 ### AN AMAZON ECS TASK DEFINITION SPECIFIES
 
-* **DOCKER IMAGE** FOR EACH CONTAINER 
-* **CPU AND MEMORY REQUIREMENTS FOR EACH CONTAINER** 
-* **LINKS BETWEEN CONTAINERS**
-* **NETWORKING AND PORT SETTINGS**
-* **DATA STORAGE VOLUMES** 
-* **SECURITY IAM ROLE**
+* Docker image for each container
+* CPU and memory requirements for each container
+* **Links between containers**
+* Networking and port settings
+* Data storage volumes
+* **Security IAM role**
 
 ![Alt Image Text](images/8_3.jpg "body image")
 
@@ -95,10 +95,10 @@
 
 ## SERVICES
 
-* **MANAGE LONG-RUNNING WORKLOADS** 
-* **AUTOMATE THE 'RUN-TASK' PROCESS** 
-* **ACTIVELY MONITOR RUNNING TASKS**
-* **RESTART TASKS IF THEY FAIL**
+* Manage long-running workloads
+* Automate the 'run-task' process
+* Actively monitor running tasks
+* Restart tasks if they fail
 
 ### SERVICE UPDATES 
 
@@ -114,10 +114,10 @@
 
 ### STRATEGIES INCLUDE:
 
-* BALANCE TASKS FOR AVAILABILITY 
-* PACK TASKS FOR EFFICIENCY 
-* RUN ONLY ONE TASK PER EC2 INSTANCE 
-* CUSTOM TASK PLACEMENTS 
+* Balance tasks for availability
+* Pack tasks for efficiency
+* Run **only one task per ec2 instance**
+* Custom task placements
 
 
 ## ECS LAB
