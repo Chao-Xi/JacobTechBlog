@@ -134,7 +134,7 @@ virtualenvwrapper.user_scripts creating /home/vagrant/.virtualenvs/postmkproject
 
 ## pyenv
 
-`pyenv`是`Python`版本管理工具，可以改变全局的`Python`版本，安装多个版本的`Python`，设置目录级别的Python版本，还能创建和管理虚拟环境。所有的设置都是用户级别的操作，不需要sudo命令。 **`pyenv`通过系统修改环境变量来实现`Python`不同版本的切换。**而`virtualenv` 通过将Python包安装到一个目录来作为`Python` 包虚拟环境，通过切换目录来实现不同包环境间的切换。
+`pyenv`是`Python`版本管理工具，可以改变全局的`Python`版本，安装多个版本的`Python`，设置目录级别的Python版本，还能创建和管理虚拟环境。所有的设置都是用户级别的操作，不需要sudo命令。 **`pyenv`通过系统修改环境变量来实现`Python`不同版本的切换** 而`virtualenv` 通过将Python包安装到一个目录来作为`Python` 包虚拟环境，通过切换目录来实现不同包环境间的切换。
 
 安装方式
 
