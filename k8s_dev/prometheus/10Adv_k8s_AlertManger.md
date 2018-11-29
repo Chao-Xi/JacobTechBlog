@@ -266,9 +266,9 @@ prometheus   NodePort    10.102.74.90    <none>        9093:31788/TCP,9090:30358
 
 #### 由于我们上面添加的 Silences 是有过期时间的，所以在这个时间段过后，node02 的报警信息就会恢复了。
 
-## webhook接收器
+## webhook接收器
 
-上面我们配置的是 AlertManager 自带的邮件报警模板，我们也说了 AlertManager 支持很多中报警接收器，比如 slack、微信之类的，其中最为灵活的方式当然是使用 `webhook` 了，我们可以定义一个 `webhook` 来接收报警信息，然后在 `webhook` 里面去进行处理，需要发送怎样的报警信息我们自定义就可以。
+上面我们配置的是 AlertManager 自带的邮件报警模板，我们也说了 AlertManager 支持很多中报警接收器，比如 slack、微信之类的，其中最为灵活的方式当然是使用 `webhook` 了，我们可以定义一个 `webhook` 来接收报警信息，然后在 `webhook` 里面去进行处理，需要发送怎样的报警信息我们自定义就可以。
 
 比如我们这里用 `Flask` 编写了一个简单的处理钉钉报警的 `webhook` 的程序：
 
