@@ -133,6 +133,7 @@
 3. [监控 Kubernetes 集群节点](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/6Adv_K8S_Nodes_monitor.md)
 4. [监控 Kubernetes 常用资源对象](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/7Adv_K8S_Resource_monitor.md)
 5. [Grafana 在 Kubernetes 中的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/8Adv_K8S_Grafana.md)
+6. [报警神器 AlertManager 的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/10Adv_k8s_AlertManger.md)
 
 ### K8S 其他工具
 
