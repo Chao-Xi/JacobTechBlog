@@ -109,6 +109,11 @@
 2. [外部服务发现之 ingress(一): traefik 的安装使用](k8s_adv17_ingress1.md)
 3. [外部服务发现之 ingress(二): Ingress TLS 和 PATH 的使用](k8s_adv18_ingress2.md)
 
+### K8S 伸缩问题
+
+1. [k8s自动伸缩那些事](k8s_adv28_hpa_vpa.md)
+
+
 ### 包管理工具 HELM
 
 1. [Helm安装使用](k8s_helm1_setup.md)
@@ -125,6 +130,7 @@
 1. [浅谈Docker的安全性支持(一)](k8s_security1_docker1.md)
 2. [浅谈Docker的安全性支持(二)](k8s_security1_docker2.md)
 3. [Kubernetes集群节点被入侵挖矿案例与发现解决问题](k8s_security2_invasive_bitcoin_mining.md)
+
 
 ### K8S 集群监控
 
