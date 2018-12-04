@@ -80,6 +80,7 @@
 
 1. [Kubernetes 调度器介绍](k8s_adv25_kube-scheduler.md)
 2. [理解 Kubernetes 的亲和性调度](k8s_adv7_Affinity_Selector.md)
+3. [Kubelet 调度资源预留](k8s_adv29_kubelet_resource.md)
 
 ### 常用对象操作:
 
