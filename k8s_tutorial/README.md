@@ -109,6 +109,7 @@
 1. [集群内部服务发现之 DNS](k8s_adv16_dns.md)
 2. [外部服务发现之 ingress(一): traefik 的安装使用](k8s_adv17_ingress1.md)
 3. [外部服务发现之 ingress(二): Ingress TLS 和 PATH 的使用](k8s_adv18_ingress2.md)
+4. [Kubernetes Ingress 使用 Let's Encrypt 自动化 HTTPS](k8s_adv30_ingress_auto_https.md)
 
 ### K8S 伸缩问题
 
