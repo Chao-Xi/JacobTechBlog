@@ -66,6 +66,7 @@
 ### 深入理解 容器化和 `Docker`
 
 1. [从进程说容器](k8s_container1.md)
+2. [Docker 镜像分析工具 Dive](k8s_container2_dive.md)
 
 ### 深入理解 POD
 
