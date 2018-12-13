@@ -143,6 +143,7 @@
 4. [监控 Kubernetes 常用资源对象](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/7Adv_K8S_Resource_monitor.md)
 5. [Grafana 在 Kubernetes 中的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/8Adv_K8S_Grafana.md)
 6. [报警神器 AlertManager 的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/10Adv_k8s_AlertManger.md)
+7. [Prometheus Operator 初体验](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/11Adv_Prometheus_Operator.md)
 
 ### K8S 其他工具
 
@@ -152,6 +153,16 @@
 
 1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)
 2. [Kubernetes API 资源应该使用哪个 Group 和 Version?](k8s_adv31_api_group_version.md)
+
+### google (gke) Kubernetes Best Practice
+
+1. [Building Small Containers](k8s_bp1_small_container.md)
+2. [Organizing Kubernetes with Namespaces](k8s_bp2_namespace.md)
+3. [Kubernetes Health Checks with Readiness and Liveness Probes ](k8s_bp3_probes.md)
+4. [Setting Resource Requests and Limits in Kubernetes](k8s_bp4_resouce_request_limit.md)
+5. [K8S Terminating with Grace](k8s_bp5_grace_termination.md)
+6. [K8S Mapping External Services](k8s_bp6_mapping_external_service.md)
+7. [Upgrading your Cluster with Zero Downtime](k8s_bp7_upgrading_cluster.md)
 
 ### K8S Q&A
 
