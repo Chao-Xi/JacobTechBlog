@@ -18,6 +18,11 @@
 6. [报警神器 AlertManager 的使用](10Adv_k8s_AlertManger.md)
 
 
+## Prometheus Operator Framework
+
+1. [Prometheus Operator 初体验](11Adv_Prometheus_Operator.md)
+
+
 ## Other monitor tools
 
 1.[安装使用 360 开源 K8S Dashboard: `Wayne`](9Adv_Wayne_dashboard.md) 
