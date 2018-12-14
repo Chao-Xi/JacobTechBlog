@@ -148,6 +148,7 @@
 ### K8S 其他工具
 
 1. [安装使用 360 开源 K8S Dashboard: `Wayne`](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/9Adv_Wayne_dashboard.md) 
+2. [Grafana 日志聚合工具 Loki](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/12Adv_Grafana_Loki.md)
 
 ### K8S 操作
 
