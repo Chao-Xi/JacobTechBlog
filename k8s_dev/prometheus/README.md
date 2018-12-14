@@ -25,7 +25,9 @@
 
 ## Other monitor tools
 
-1.[安装使用 360 开源 K8S Dashboard: `Wayne`](9Adv_Wayne_dashboard.md) 
+1. [安装使用 360 开源 K8S Dashboard: `Wayne`](9Adv_Wayne_dashboard.md) 
+2. [Grafana 日志聚合工具 Loki](12Adv_Grafana_Loki.md)
+
 
 
 
