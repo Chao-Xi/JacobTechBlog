@@ -21,6 +21,7 @@
 ## Prometheus Operator Framework
 
 1. [Prometheus Operator 初体验](11Adv_Prometheus_Operator.md)
+2. [使用 Prometheus Operator 监控 etcd](13Adv_Prometheus_Operator_etcd.md)
 
 
 ## Other monitor tools
