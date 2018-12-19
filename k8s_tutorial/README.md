@@ -144,6 +144,7 @@
 5. [Grafana 在 Kubernetes 中的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/8Adv_K8S_Grafana.md)
 6. [报警神器 AlertManager 的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/10Adv_k8s_AlertManger.md)
 7. [Prometheus Operator 初体验](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/11Adv_Prometheus_Operator.md)
+8. [使用 Prometheus Operator 监控 etcd](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/13Adv_Prometheus_Operator_etcd.md)
 
 ### K8S 其他工具
 
