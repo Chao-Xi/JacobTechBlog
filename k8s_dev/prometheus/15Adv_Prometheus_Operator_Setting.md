@@ -1,4 +1,4 @@
-#Prometheus Operator 自动发现以及数据持久化
+# Prometheus Operator 自动发现以及数据持久化
 
 学习了如何在 [`Prometheus Operator` 下面自定义一个监控选项](13Adv_Prometheus_Operator_etcd.md)，以及[自定义报警规则](15Adv_Prometheus_Operator_Setting.md)的使用。那么我们还能够直接使用前面课程中的自动发现功能吗？如果在我们的 `Kubernetes` 集群中有了很多的 `Service/Pod`，那么我们都需要一个一个的去建立一个对应的 `ServiceMonitor` 对象来进行监控吗？
 
