@@ -145,6 +145,8 @@
 6. [报警神器 AlertManager 的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/10Adv_k8s_AlertManger.md)
 7. [Prometheus Operator 初体验](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/11Adv_Prometheus_Operator.md)
 8. [使用 Prometheus Operator 监控 etcd](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/13Adv_Prometheus_Operator_etcd.md)
+9. [Prometheus Operator 自定义报警](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/14Adv_Prometheus_Operator_alarm.md)
+10. [Prometheus Operator 自动发现以及数据持久化](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/15Adv_Prometheus_Operator_Setting.md)
 
 ### K8S 其他工具
 
