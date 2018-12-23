@@ -1,6 +1,6 @@
 # jsonnet 和 Kubernetes
 
-![Alt Image Text](images/adv/32_1.jpg "Body image")
+![Alt Image Text](images/adv/adv32_1.jpg "Body image")
 
 `Jsonnet` 是 `Google` 开源的一门配置语言，用于增强 `JSON` 暴露出来的短板，它与 `JSON` 完全兼容并加入了一些新特性，包括注释、引用、算术运算、条件操作符、数组和对象深入、引入函数、局部变量、继承等，`Jsonnet` 程序被编译为兼容 `JSON` 的数据格式，简单来说 `Jsonnet` 就是 `JSON` 的增强版。
 
@@ -27,7 +27,7 @@ local base = {
 
 `ksonnet` 提供的 `kubecfg` 工具（地址[https://github.com/ksonnet/kubecfg](https://github.com/ksonnet/kubecfg)）就是依赖于 `Jsonnet` 来描述 `Kubernetes` 资源，然后将 `Jsonnet` 编译成 `JSON` 文件的。
 
-![Alt Image Text](images/adv/32_2.jpg "Body image")
+![Alt Image Text](images/adv/adv32_2.jpg "Body image")
 
 如果我们只在 `Jsonnet` 中只配置一个 `Kubernetes` 对象的话，那么我们就会错过了在具有共性的对象集合之间删除重复数据的能力。幸运的是，我们有几种方法可以来配置 Kubernetes 对象集合：使用 `YAML` 流输出、多文件输出或者单个 `kubectl` 列对象，熟悉` Kubernetes` 的都知道，后面一种是 `Kubernetes` 支持的，无需 `Jsonnet` 提供任何支持，它允许我们将几个 `Kubernetes` 对象组合成一个对象，这是一个非常重要的能力，因为它不需要任何的中间文件。
 
