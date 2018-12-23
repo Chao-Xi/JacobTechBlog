@@ -68,6 +68,13 @@
 1. [从进程说容器](k8s_container1.md)
 2. [Docker 镜像分析工具 Dive](k8s_container2_dive.md)
 
+### K8S 操作
+
+1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)
+2. [Kubernetes API 资源应该使用哪个 Group 和 Version?](k8s_adv31_api_group_version.md)
+3. [jsonnet 和 Kubernetes](k8s_adv32_jsonnet.md)
+
+
 ### 深入理解 POD
 
 1. [使用YAML文件创建Kubernetes Deployment](k8s_adv0_yaml.md)
@@ -153,10 +160,6 @@
 1. [安装使用 360 开源 K8S Dashboard: `Wayne`](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/9Adv_Wayne_dashboard.md) 
 2. [Grafana 日志聚合工具 Loki](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/12Adv_Grafana_Loki.md)
 
-### K8S 操作
-
-1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)
-2. [Kubernetes API 资源应该使用哪个 Group 和 Version?](k8s_adv31_api_group_version.md)
 
 ### google (gke) Kubernetes Best Practice
 
