@@ -25,3 +25,16 @@
 ### Quiz
 
 1. [Quiz1](Quiz1.md)
+
+### Adv. AWS Lists
+
+1. [AWS Lambda ](13Lambda.md)
+2. [DynamoDB Scaling & Performance & Auto Scaling](14DynamoDB_performance.md)
+3. [Traditional RDS Scaling & Performance & Auto Scaling](15RDS_performance.md)
+4. [Aurora Scaling & Performance & Auto Scaling](16Aurora_performance.md)
+5. [SQS](17SQS.md)
+6. [Kinesis](18kinesis.md)
+7. [S3](19S3.md)
+8. [HTTPS in AWS](20HTTPS.md)
+9. [Additional Services(Redis, Spot instance for ASG, API Beanstalk, SFTP, ElasticSearch, Cognito)](21Additional.md)
+
