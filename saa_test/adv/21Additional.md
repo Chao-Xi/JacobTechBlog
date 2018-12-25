@@ -37,7 +37,7 @@ Using **Redis AUTH** command can **improve data security by requiring the user t
 * No client side changes or app rewrites 
 * **Scale up to 6.1TB of in-memory capacity**
 
-##2.Launching Spot Instances in Your Auto Scaling Group
+## 2.Launching Spot Instances in Your Auto Scaling Group
 
 ### Launching configuration
 
@@ -55,7 +55,7 @@ Amazon EC2 Auto Scaling can terminate or replace Spot Instances just as it can t
 
 ![Alt Image Text](images/21_2.jpg "Body image")
 
-##3.API Beanstalk with External RDS
+## 3.API Beanstalk with External RDS
 
 ### Create web app with application name: Docker & Multi-container docker
 
@@ -87,7 +87,7 @@ AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer fo
 ![Alt Image Text](images/21_6.jpg "Body image")
 
 
-##6.Amazon Cognito
+## 6.Amazon Cognito
 
 Amazon Cognito lets you add user sign-up, sign-in, and access control to your web and mobile apps quickly and easily. Amazon Cognito scales to millions of users and supports sign-in with social identity providers, such as Facebook, Google, and Amazon, and enterprise identity providers via SAML 2.0.
 
