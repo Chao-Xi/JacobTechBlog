@@ -66,7 +66,7 @@ Amazon EC2 Auto Scaling can terminate or replace Spot Instances just as it can t
 
 ![Alt Image Text](images/21_4.jpg "Body image")
 
-##4.aws SFTP (SSH File Transfer Protocol)
+## 4.aws SFTP (SSH File Transfer Protocol)
 
 AWS Transfer for SFTP is a fully managed service that enables the transfer of files directly into and out of Amazon S3 using the Secure File Transfer Protocol (SFTP)—also known as Secure Shell (SSH) File Transfer Protocol. 
 
