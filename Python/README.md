@@ -16,6 +16,11 @@
 4. [Python conditionals and booleans, Loops and Iterations, functions](python_basic4.md)
 5. [Python self defined module and python basic module](python_basic5.md)
 
+### Python2 quick cheat list
+
+* [熟悉Python2.7语句表达式](1python_cheatlist.md)
+ 
+
 ### code example:
 
 * [Python function example: daymonthfunc.py](daymonthfunc.py)
