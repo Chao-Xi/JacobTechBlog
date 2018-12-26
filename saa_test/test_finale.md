@@ -825,18 +825,18 @@ When your Spot Instance is terminated, the Auto Scaling group attempts to launch
 
 **Private subnet nacl**
 
-![Alt Image Text](adv/f1.jpg "Body image")
+![Alt Image Text](adv/images/f1.jpg "Body image")
 
 #### sg
 
 * inbound: source, protocol, port range(80,443,22,3389),
 * outbound: destination(sg), protocol, port range(1433, 3306)
 
-![Alt Image Text](adv/f2.jpg "Body image")
+![Alt Image Text](adv/images/f2.jpg "Body image")
 
 ### AWS CICD
 
-![Alt Image Text](adv/f3.jpg "Body image")
+![Alt Image Text](adv/images/f3.jpg "Body image")
 
 ## SAA failed test
 
