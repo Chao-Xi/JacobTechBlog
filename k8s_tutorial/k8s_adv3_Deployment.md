@@ -160,7 +160,7 @@ $ kubectl rollout pause deployment <deployment>
 **3. 继续升级**
 
 ```
-$ kubectl rollout pause deployment <deployment>
+$ kubectl rollout resume deployment <deployment>
 ```
 
 升级结束后，继续查看rs的状态：
