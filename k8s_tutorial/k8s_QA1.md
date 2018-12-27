@@ -68,7 +68,7 @@ docker tag cnych/pause-amd64:3.0 gcr.io/google_containers/ pause-a md 64:3.0
 在创建`service`的时候不指定`selectors`，用来将`service`转发到`kubernetes`集群外部的服务（而不是`Pod`)。目前支持两种方法： 
 
 1. 自定义`endpoint`，即创建同名的 `service`和`endpoint`，在`endpoint`中设置 外部服务的IP和端口 
-2. 通过`DNS`转发，在`service`定义中指定 `external Name`。此时`DNS`服务会给 `<service>.<namespace>.svc.cluster.local` 创建一个`CNAM`记录，其值为 ·my.database.example.com·。并且，该服务不会自动分配 `ClusterlP`，需要通过 `service`的`DNS`来访问。
+2. 通过`DNS`转发，在`service`定义中指定 `external Name`。此时`DNS`服务会给 `<service>.<namespace>.svc.cluster.local` 创建一个`CNAME`记录，其值为 `my.database.example.com`。并且，该服务不会自动分配 `ClusterIP`，需要通过 `service`的`DNS`来访问。
 
 ``` 
 kind: service 
