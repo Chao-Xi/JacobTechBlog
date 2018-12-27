@@ -10,7 +10,7 @@
 * `kube-reserved` 是给 `kube` **组件预留的资源**，
 * `system-reserved`是给 `System` **进程预留的资源**， 
 * `eviction-threshold` 是 `kubelet eviction` 的**阈值设定**，
-* `allocatable` 才是真正`scheduler 调度`Pod` 时的参考值
+* `allocatable` 才是真正`scheduler` 调度`Pod` 时的参考值
 
 ```
 Node Allocatable Resource = Node Capacity - Kube-reserved - system-reserved - eviction-threshold
