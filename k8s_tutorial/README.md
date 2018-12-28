@@ -88,7 +88,7 @@
 
 1. [Kubernetes 调度器介绍](k8s_adv25_kube-scheduler.md)
 2. [理解 Kubernetes 的亲和性调度](k8s_adv7_Affinity_Selector.md)
-3. [Kubelet 调度资源预留](k8s_adv29_kubelet_resource.md)
+
 
 ### 常用对象操作:
 
@@ -122,6 +122,12 @@
 ### K8S 伸缩问题
 
 1. [k8s自动伸缩那些事](k8s_adv28_hpa_vpa.md)
+
+### K8S 深度设计理念
+
+1. [Kubelet 调度资源预留(如何预防雪崩)](k8s_adv29_kubelet_resource.md)
+2. [Kubernetes与容器设计模式](k8s_adv35_design_pattern.md)
+3. [微服务中的Sidecar设计模式解析 & Kubernetes日志采集Sidecar模式介绍](k8s_adv34_sidecar.md)
 
 
 ### 包管理工具 HELM
