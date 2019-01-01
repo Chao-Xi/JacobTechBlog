@@ -16,6 +16,7 @@
 4. [监控 Kubernetes 常用资源对象](7Adv_K8S_Resource_monitor.md)
 5. [Grafana 在 Kubernetes 中的使用](8Adv_K8S_Grafana.md)
 6. [报警神器 AlertManager 的使用](10Adv_k8s_AlertManger.md)
+7. [Prometheus 删除数据指标](16Adv_Prometheus_Del_index.md)
 
 
 ## Prometheus Operator Framework
