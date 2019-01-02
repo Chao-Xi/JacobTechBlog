@@ -104,7 +104,6 @@
 10. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
 11. [Pod 自动扩缩容(HPA: Horizontal Pod Autoscaling)](k8s_adv23_HPA.md)
 12. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
-13. [如何在 `kubernetes` 中开启 `ipvs` 模式](k8s_adv26_ipvs.md)
 
 ### 持久化存储:
 
@@ -114,10 +113,17 @@
 
 ### 服务发现
 
-1. [集群内部服务发现之 DNS](k8s_adv16_dns.md)
-2. [外部服务发现之 ingress(一): traefik 的安装使用](k8s_adv17_ingress1.md)
-3. [外部服务发现之 ingress(二): Ingress TLS 和 PATH 的使用](k8s_adv18_ingress2.md)
-4. [Kubernetes Ingress 使用 Let's Encrypt 自动化 HTTPS](k8s_adv30_ingress_auto_https.md)
+#### (1) 内部服务发现:
+
+1. [内部服务发现 `kube-proxy` 实现原理](k8s_adv36_kube_proxy.md)
+2. [如何在 `kubernetes` 中开启 `ipvs` 模式](k8s_adv26_ipvs.md)
+3. [集群内部服务发现之 DNS](k8s_adv16_dns.md)
+
+#### (2) 外部服务发现
+
+1. [外部服务发现之 ingress(一): traefik 的安装使用](k8s_adv17_ingress1.md)
+2. [外部服务发现之 ingress(二): Ingress TLS 和 PATH 的使用](k8s_adv18_ingress2.md)
+3. [Kubernetes Ingress 使用 Let's Encrypt 自动化 HTTPS](k8s_adv30_ingress_auto_https.md)
 
 ### K8S 伸缩问题
 
