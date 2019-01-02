@@ -5,5 +5,7 @@
 3. [并发模型](concurrency.md)
 4. [如何理解linux top命令的输出结果](top_command.md)
 5. [Git常用命令与GitHub使用技巧技巧整理](git_commands.md)
+6. [Common Terminology and Abbreviations](ops_terminology_abbr.md)
+7. [Scrum Ceremonies &  Sizing Epics and Stories](ops_scrum_ceremonies.md)
 
 
