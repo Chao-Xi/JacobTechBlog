@@ -64,6 +64,11 @@ vagrant reload
 sudo yum update
 sudo yum install wget
 wget https://packages.chef.io/files/stable/chef-server/12.17.33/el/7/chef-server-core-12.17.33-1.el7.x86_64.rpm
+```
+
+[Install the Chef Server](https://docs.chef.io/install_server.html)
+
+```
 sudo chef-server-ctl reconfigure
 ```
 
@@ -87,9 +92,12 @@ $ chef-server-ctl org-create ORG_NAME "ORG_FULL_NAME" (options)
 My process: 
 
 ```
-ssh-keygen (devops.pem)
+sudo ssh-keygen -f devops.pem
+
+# Run the following command to create an administrator:
 sudo chef-server-ctl user-create devopsjxi devops jxi xichao2017@gmail.com devops123 --filename /home/vagrant/devops.pem
 
+# Run the following command to create an organization
 sudo chef-server-ctl org-create devops-jxi "Wrevel，Inc." --association_user devopsjxi
 
 #  username/email: devopsjxi / xichao2017@gmail.com
@@ -98,6 +106,8 @@ sudo chef-server-ctl org-create devops-jxi "Wrevel，Inc." --association_user de
 ```
 
 **3. Install Chef manage**
+
+[Chef Manage 2.5.16](https://downloads.chef.io/manage/2.5.16)
 
 Use Chef management console to manage **data bags, attributes, run-lists, roles, environments and cookbooks** from a web user interface
 
@@ -132,7 +142,12 @@ sudo vi /etc/hosts
 sudo yum update
 sudo yum install wget
 sudo yum install unzip
+```
 
+[Chef Development Kit 3.6.57](https://downloads.chef.io/chefdk/3.6.57)
+
+
+```
 wget https://packages.chef.io/files/stable/chefdk/3.1.0/el/7/chefdk-3.1.0-1.el7.x86_64.rpm
 sudo rpm -ivh chefdk-3.1.0-1.el7.x86_64.rpm
 ```
@@ -193,19 +208,63 @@ cd /var/opt/opscode/nginx/ca/
 sudo scp chefserver.crt vagrant@192.168.33.20:/home/vagrant/chef-repo/.chef/trusted_certs/
 ```
 
+**Do the test again:**
+
+```
+$ cd ~/chef-repo
+$ knife ssl check
+Connecting to host ChefServer:443
+Successfully verified certificates from `ChefServer'
+```
+
 **on chef workstation machine**
 
 ```
 $ knife client fetch
+FATAL: Cannot find subcommand for: 'client fetch'
+Available client subcommands: (for details, knife SUB-COMMAND --help)
+
+** CLIENT COMMANDS **
+knife client bulk delete REGEX (options)
+knife client create CLIENTNAME (options)
+knife client delete [CLIENT [CLIENT]] (options)
+knife client edit CLIENT (options)
+knife client key create CLIENT (options)
+knife client key delete CLIENT KEYNAME (options)
+knife client key edit CLIENT KEYNAME (options)
+knife client key list CLIENT (options)
+knife client key show CLIENT KEYNAME (options)
+knife client list (options)
+knife client reregister CLIENT (options)
+knife client show CLIENT (options)
 ```
-```
-$ knife ssl check
-Connecting to host chefserver:443
-Successfully verified certificates from `chefserver'
-```
+
 ```
 $ knife client list
 devops-jxi-validator
 ```
 
+## Quick Test on Chef Workstation
 
+```
+mkdir learningchef/chap04
+touch hello.rb
+
+file 'hello.txt' do
+  content 'Welcome to Chef'
+end
+
+$ chef-apply hello.rb
+Recipe: (chef-apply cookbook)::(chef-apply recipe)
+  * file[hello.txt] action create
+    - create new file hello.txt
+    - update content in file hello.txt from none to 40a30c
+    --- hello.txt	2019-01-03 07:53:06.225972913 +0000
+    +++ ./.chef-hello20190103-24137-1hvfb70.txt	2019-01-03 07:53:06.224972913 +0000
+    @@ -1 +1,2 @@
+    +Welcome to Chef
+    - restore selinux security context
+ 
+$ ls 
+hello.rb  hello.txt
+```

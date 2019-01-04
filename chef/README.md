@@ -9,6 +9,10 @@
 3. [Chef Recipes Introduction](chef_basic3.md)
 4. [Chef Cookbook run local and remote chef client](chef_basic4.md)
 
+## Chef Adv.
+
+1. [How to Perform Chef Knife SSL Check and Fetch to Verify Certificate](chef_adv1.md)
+2. [12 Chef Knife Cookbook Command Examples](chef_adv2.md)
 
 ## Chef Practice
 

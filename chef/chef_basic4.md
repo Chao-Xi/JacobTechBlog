@@ -30,7 +30,27 @@ A resource can be anything of a system in desired state
 
 **new cookname `ApacheWebserver`**
 
+#### notice: in random folder 
+
 ```
+$ chef generate cookbook ApacheWebserver
+$ sudo chef-client --local-mode --runlist 'recipe[ApacheWebserver]'
+
+...
+================================================================================
+Error Resolving Cookbooks for Run List:
+================================================================================
+
+Missing Cookbooks:
+------------------
+No such cookbook: ApacheWebserver
+...
+```
+
+#### So use special folder 
+
+```
+cd /home/vagrant/chef-repo/cookbooks
 chef generate cookbook ApacheWebserver
 cd ApacheWebserver/recipes/
 vi default.rb
@@ -81,7 +101,7 @@ vi default.rb
 # Recipe:: default
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
-include_recipe 'ApacheWebserver::hello'
+include_recipe 'ApacheWebserver::hello'.  #include hello recipe
 package 'httpd'
 service "httpd" do
         action [:enable, :start]
@@ -93,10 +113,10 @@ end
 ```
 
 ```
-sudo chef-client --local-mode --runlist 'recipe[ApacheWebserver@hello.rb]'
+sudo chef-client --local-mode --runlist 'recipe[ApacheWebserver::hello]'
 ```
 
-**`'recipe[ApacheWebserver@hello.rb]'` run another recipe beside `default.rb`**
+**`'recipe[ApacheWebserver::hello]'` run another recipe beside `default.rb`**
 
 `http://192.168.33.20/hello.html`
 
@@ -116,6 +136,16 @@ $ sudo knife cookbook upload ApacheWebserver
 Uploading ApacheWebserver [0.1.0]
 Uploaded 1 cookbook.
 ```
+
+#### Although I passed `knife ssl check` and done the `knife knife ssl fetch`, and fetch the key to `/home/vagrant/chef-repo/.chef/trusted_certs` but when I upload cookbook, I still encountered "upload SSL validation error", don't know why so I have to turn down the "ssl check" on workstation
+
+```
+$ cd /home/vagrant/chef-repo/.chef
+$ vi knife.rb
+
+ssl_verify_mode          :verify_none
+```
+
 ### Run the cookbook on new node first time directly (brand new and empty machine)
 **My node ip 192.168.33.18 centos 7**
 
@@ -149,10 +179,10 @@ failed for user vagrantd@192.168.33.18@192.168.33.18
 ```
 **solution:**
 
-copy workstation pub key to node machine (This maybe not 100% right)
+copy **workstation pub key** to node machine **(Not Chef Server)**
 
 ```
-less ~/.ssh/id_ras.pub
+less ~/.ssh/id_rsa.pub
 ```
 
 on the node machine, copy pub key to `authorized_keys`
@@ -174,7 +204,7 @@ Chef encountered an error attempting to load the node data for "Node"
 ```
 **solution:**
 
-On node machine add your `chef server ip info` to `/etc/hosts`
+On **node machine** add your `chef server ip info` to `/etc/hosts`
 
 ```
 $ sudo vi /etc/hosts
@@ -201,13 +231,54 @@ restart chef server machine
  knife node delete node1
  knife client delete node1
 ```
+**Error 4:**
+
+#####  192.168.33.18 upload SSL validation error
+
+```
+$ cd /home/vagrant/chef-repo
+$ sudo knife cookbook upload ApacheWebserver
+$ knife bootstrap 192.168.33.18 --ssh-user vagrant --ssh-password 'vagrant' --sudo --use-sudo-password --node-name node1 --run-list 'recipe[ApacheWebserver]'
+
+# 192.168.33.18 upload SSL validation error
+# I have to turn off node ssl check in bootstrap
+
+$ knife bootstrap 192.168.33.18 --ssh-user vagrant --ssh-password 'vagrant' --sudo --use-sudo-password --node-name node1 --node-ssl-verify-mode none --run-list 'recipe[ApacheWebserver]'
+
+```
+##### `--node-ssl-verify-mode none `
+
+
+**Error 5:**
+
+```
+folder /var/www/html/ doesn't exist, when execute "include_recipe 'ApacheWebserver::hello'.  #include hello recipe"
+
+so: put down
+
+#
+# Cookbook:: ApacheWebserver
+# Recipe:: default
+#
+# Copyright:: 2019, The Authors, All Rights Reserved.
+package 'httpd'
+service "httpd" do
+        action [:enable, :start]
+end
+
+file '/var/www/html/index.html' do
+        content "<html><body bgcolor='#D2D2D3'><h1>Hello World, This is my 1st cookbook recipe </h1></body></html>"
+end
+
+include_recipe 'ApacheWebserver::hello'
+```
 
 
 **Then I successfully start the node with httpd installation**
 
 ```
 $ sudo knife cookbook upload ApacheWebserver
-$ knife bootstrap 192.168.33.18 --ssh-user vagrant --ssh-password 'vagrant' --sudo --use-sudo-password --node-name node1 --run-list 'recipe[ApacheWebserver]'
+$ knife bootstrap 192.168.33.18 --ssh-user vagrant --ssh-password 'vagrant' --sudo --use-sudo-password --node-name node1 --node-ssl-verify-mode none --run-list 'recipe[ApacheWebserver]'
 
 Node node1 exists, overwrite it? (Y/N) y
 Client node1 exists, overwrite it? (Y/N) y
