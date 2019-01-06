@@ -107,9 +107,10 @@
 
 ### 持久化存储:
 
-1. [kubernetes 持久化存储(一)](k8s_adv14_pv1.md)
-2. [kubernetes 持久化存储(二)](k8s_adv14_pv2.md)
+1. [kubernetes 持久化存储(一): PV 和 PVC 的使用](k8s_adv14_pv1.md)
+2. [kubernetes 持久化存储(二): StorageClass 的使用](k8s_adv14_pv2.md)
 3. [Pod 中挂载单个文件的方法 subpath](k8s_adv15_subpath.md)
+4. [Kubernetes Local Persistent Volume](k8s_adv37_local_persistent_volume.md)
 
 ### 服务发现
 
