@@ -12,6 +12,7 @@
 1. [更优雅的git log](git_decorator.md)
 2. [Git常用命令与GitHub使用技巧技巧整理](git_commands.md)
 3. [Git Pull Request Guidelines & Process](git_pull_request.md)
+4. [Git Tools - Rewriting History](git_squash.md)
 
 
 
