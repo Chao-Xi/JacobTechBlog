@@ -30,3 +30,16 @@
 
 14. [`kubectl` 出现 `no such host` 的错误](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA3.md#3-kubectl-%E5%87%BA%E7%8E%B0-no-such-host-%E7%9A%84%E9%94%99%E8%AF%AF)
 
+15. [`kubeadm` 证书有效期问题](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA4.md#1-kubeadm-%E8%AF%81%E4%B9%A6%E6%9C%89%E6%95%88%E6%9C%9F%E9%97%AE%E9%A2%98)
+
+16. [关于`java`应用中资源限制的问题 CPU and Memory](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA4.md#2-%E5%85%B3%E4%BA%8Ejava%E5%BA%94%E7%94%A8%E4%B8%AD%E8%B5%84%E6%BA%90%E9%99%90%E5%88%B6%E7%9A%84%E9%97%AE%E9%A2%98)
+
+17. [Critical Pod 的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA4.md#3-critical-pod-%E7%9A%84%E4%BD%BF%E7%94%A8)
+
+18. [Prometheus 管理数据指标的方法(删除)](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA4.md#4-prometheus-%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE%E6%8C%87%E6%A0%87%E7%9A%84%E6%96%B9%E6%B3%95)
+
+19. [`Statefulset Pod` 的管理策略](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA4.md#5-statefulset-pod-%E7%9A%84%E7%AE%A1%E7%90%86%E7%AD%96%E7%95%A5)
+
+20. [`kubectl exec` 参数问题](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA4.md#6-kubectl-exec-%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98)
+
+
