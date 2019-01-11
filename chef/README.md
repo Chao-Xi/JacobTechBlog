@@ -10,6 +10,10 @@
 4. [Chef Cookbook run local and remote chef client](chef_basic4.md)
 
 
+## Chef Operations
+
+1. [knife search](chef_op1_kinfe_search.md)
+
 ## Chef Components
 
 1. [Chef Roles](chef_adv4.md)
