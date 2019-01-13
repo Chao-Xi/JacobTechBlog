@@ -27,16 +27,43 @@
 
 ## Python Tutorial Advance
 
-1. [Python OS Module and underlying operating system function](python_adv1.md)
-2. [Python read, copy, write files](python_adv2.md)
-3. [Python CSV module, read, parse, and write CSV Files](python_adv3.md)
-4. [Python Datetime Module, dates, times, timedeltas and timezone](python_adv4.md)
-5. [Python LEGB rule and sorting List, Tuples and Object](python_adv5.md)
-6. [Python Try/Except Blocks for Error Handling and Unit Testing with unittest Module](python_adv6.md)
+### Datetime Section
 
-### code example:
+1. [Python Datetime Module, dates, times, timedeltas and timezone](python_adv4.md)
+2. [Calculate Number of Days, Weeks, or Months to Reach Specific Goals(datetime and calendar module)](python_adv15.md)
+
+### File and Content Management Section
+
+1. [Python read, copy, write files](python_adv2.md)
+2. [Python CSV module, read, parse, and write CSV Files](python_adv3.md)
+3. [Context Managers - Efficiently Managing Resources](python_adv17.md)
+
+##### Code Example:
+
 * [Python function example: RenameMultifile.py](RenameMultifile.py)
 * [Python function example: csv2html.py](csv2html.py)
+
+
+### Data Format Section
+
+1. [Python F-Strings - How to Use Them and Advanced String Formatting](python_adv7.md)
+2. [Namedtuple - When and why should you use namedtuples?](python_adv14.md)
+3. [Working with JSON Data using the json Module](python_adv12.md)
+4. [Slice list and String](python_adv18.md)
+
+
+### Others Section
+
+1. [Python OS Module and underlying operating system function](python_adv1.md) 
+2. [Python LEGB rule and Sorting List, Tuples and Object](python_adv5.md)
+3. [Python Try/Except Blocks for Error Handling and Unit Testing with unittest Module](python_adv6.md)
+4. [Python Generators and its performance](python_adv8.md)
+5. [Generate Random Numbers and Data Using the random Module](python_adv9.md)
+6. [Duck Typing and Asking Forgiveness, Not Permission (EAFP)](python_adv10.md)
+7. [Python Decorators - Dynamically Alter The Functionality Of Your Functions](python_adv11.md)
+8. [re Module - How to Write and Match Regular Expressions (Regex)](python_adv13.md)
+9. [Web Scraping with BeautifulSoup and Requests module](python_adv16.md)
+
 
 ## Python OOP Tutorial
 
