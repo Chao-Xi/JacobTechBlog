@@ -13,6 +13,7 @@
 2. [Git常用命令与GitHub使用技巧技巧整理](git_commands.md)
 3. [Git Pull Request Guidelines & Process](git_pull_request.md)
 4. [Git Tools - Rewriting History](git_squash.md)
+5. [Git Package Management with Git LFS](git_package_management.md)
 
 
 
