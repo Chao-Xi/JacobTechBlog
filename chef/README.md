@@ -17,6 +17,7 @@
 ## Chef Components
 
 1. [Chef Roles](chef_adv4.md)
+2. [Cookbook Versioning](chef_adv5.md)
 
 ## Chef Adv.
 
