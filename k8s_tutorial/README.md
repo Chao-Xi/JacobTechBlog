@@ -170,6 +170,7 @@
 8. [使用 Prometheus Operator 监控 etcd](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/13Adv_Prometheus_Operator_etcd.md)
 9. [Prometheus Operator 自定义报警](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/14Adv_Prometheus_Operator_alarm.md)
 10. [Prometheus Operator 自动发现以及数据持久化](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/15Adv_Prometheus_Operator_Setting.md)
+11. [kube-state-metrics](k8s_adv39_kube_state_metrics.md)
 
 ### K8S 其他工具
 
