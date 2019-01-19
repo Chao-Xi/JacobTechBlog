@@ -32,11 +32,12 @@
 1. [Python Datetime Module, dates, times, timedeltas and timezone](python_adv4.md)
 2. [Calculate Number of Days, Weeks, or Months to Reach Specific Goals(datetime and calendar module)](python_adv15.md)
 
-### File and Content Management Section
+### File, image and Content Management Section
 
 1. [Python read, copy, write files](python_adv2.md)
 2. [Python CSV module, read, parse, and write CSV Files](python_adv3.md)
 3. [Context Managers - Efficiently Managing Resources](python_adv17.md)
+4. [Image Manipulation with Pillow](python_adv25.md)
 
 ##### Code Example:
 
@@ -50,7 +51,16 @@
 2. [Namedtuple - When and why should you use namedtuples?](python_adv14.md)
 3. [Working with JSON Data using the json Module](python_adv12.md)
 4. [Slice list and String](python_adv18.md)
+5. [What is the difference between `str()` and `repr()`](python_adv19.md)
 
+
+### SQLite Database
+
+1. [SQLite Tutorial: Creating a Database, Table, and Running Queries](python_adv20.md)
+
+### SQL logging message
+
+1. [Logging Basic and Advanced](python_adv21.md)
 
 ### Others Section
 
@@ -63,6 +73,10 @@
 7. [Python Decorators - Dynamically Alter The Functionality Of Your Functions](python_adv11.md)
 8. [re Module - How to Write and Match Regular Expressions (Regex)](python_adv13.md)
 9. [Web Scraping with BeautifulSoup and Requests module](python_adv16.md)
+10. [Hiding Passwords and Secret Keys in Environment Variables](python_adv22.md)
+11. [`if __name__ == '__main__'`](python_adv23.md)
+12. [Else Clauses on Loops](python_adv24.md)
+13. 
 
 
 ## Python OOP Tutorial
