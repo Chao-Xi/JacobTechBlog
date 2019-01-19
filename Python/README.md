@@ -76,7 +76,6 @@
 10. [Hiding Passwords and Secret Keys in Environment Variables](python_adv22.md)
 11. [`if __name__ == '__main__'`](python_adv23.md)
 12. [Else Clauses on Loops](python_adv24.md)
-13. 
 
 
 ## Python OOP Tutorial
