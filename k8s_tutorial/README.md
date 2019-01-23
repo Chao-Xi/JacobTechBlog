@@ -151,6 +151,7 @@
 6. [Helm模板之命名模板](k8s_helm6_definename.md)
 7. [Helm Hooks 的使用](k8s_helm7_hook.md)
 8. [Helm模板之其他注意事项](k8s_helm8_others.md)
+9. [Helm monitor 插件](k8s_helm9_monitor.md)
 
 ### K8S 安全性问题
 
