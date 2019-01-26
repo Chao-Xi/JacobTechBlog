@@ -64,6 +64,7 @@
 ## K8S进阶课程(K8S Adv. Tutorial)
 
 1. [kubernetes interview questions (Keep Updating)](k8s_adv33_interview.md)
+2. [Kubernetes 部署策略详解](k8s_adv41_deploy.md)
 
 ### 深入理解 容器化和 `Docker`
 
@@ -122,6 +123,7 @@
 1. [内部服务发现 `kube-proxy` 实现原理](k8s_adv36_kube_proxy.md)
 2. [如何在 `kubernetes` 中开启 `ipvs` 模式](k8s_adv26_ipvs.md)
 3. [集群内部服务发现之 DNS](k8s_adv16_dns.md)
+4. [详解 DNS 与 CoreDNS 的实现原理](k8s_adv40_CoreDNS.md)
 
 #### (2) 外部服务发现
 
