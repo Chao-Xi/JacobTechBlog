@@ -52,6 +52,7 @@
 3. [Working with JSON Data using the json Module](python_adv12.md)
 4. [Slice list and String](python_adv18.md)
 5. [What is the difference between `str()` and `repr()`](python_adv19.md)
+6. [Set Methods (Remove duplicate)](python_adv26.md)
 
 
 ### SQLite Database
@@ -62,20 +63,24 @@
 
 1. [Logging Basic and Advanced](python_adv21.md)
 
+### Python performance
+
+1. [Python Generators and its performance](python_adv8.md)
+2. [Python Decorators - Dynamically Alter The Functionality Of Your Functions](python_adv11.md)
+3. [Else Clauses on Loops](python_adv24.md)
+4. [Iterators and Iterables](python_adv27.md)
+
 ### Others Section
 
 1. [Python OS Module and underlying operating system function](python_adv1.md) 
 2. [Python LEGB rule and Sorting List, Tuples and Object](python_adv5.md)
 3. [Python Try/Except Blocks for Error Handling and Unit Testing with unittest Module](python_adv6.md)
-4. [Python Generators and its performance](python_adv8.md)
-5. [Generate Random Numbers and Data Using the random Module](python_adv9.md)
-6. [Duck Typing and Asking Forgiveness, Not Permission (EAFP)](python_adv10.md)
-7. [Python Decorators - Dynamically Alter The Functionality Of Your Functions](python_adv11.md)
-8. [re Module - How to Write and Match Regular Expressions (Regex)](python_adv13.md)
-9. [Web Scraping with BeautifulSoup and Requests module](python_adv16.md)
-10. [Hiding Passwords and Secret Keys in Environment Variables](python_adv22.md)
-11. [`if __name__ == '__main__'`](python_adv23.md)
-12. [Else Clauses on Loops](python_adv24.md)
+4. [Generate Random Numbers and Data Using the random Module](python_adv9.md)
+5. [Duck Typing and Asking Forgiveness, Not Permission (EAFP)](python_adv10.md)
+6. [re Module - How to Write and Match Regular Expressions (Regex)](python_adv13.md)
+7. [Web Scraping with BeautifulSoup and Requests module](python_adv16.md)
+8. [Hiding Passwords and Secret Keys in Environment Variables](python_adv22.md)
+9. [`if __name__ == '__main__'`](python_adv23.md)
 
 
 ## Python OOP Tutorial
