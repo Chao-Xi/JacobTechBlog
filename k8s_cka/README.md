@@ -44,4 +44,17 @@
    * `Admissions`与安全的持久化保存键值(`etcd`)
    * `Pod SecurityContext`(安全上下文)
    * `Network Policy`
-7. []()
+7. [K8S集训运维实训](7CKA_ClusterOps.md)
+   * 集群部署及安全配置
+   * 节点证书签发
+   * 安装`network`插件插件
+   * 高可用集群
+   * 集群升级与备份恢复
+   * `E2E`测试及结果分析
+8. [K8S故障排查实训](8CKA_TroubleShoot.md)
+   * E2E测试及结果分析
+   * 管理面异常原因排查
+   * 节点异常原因排查
+   * 应用异常原因排查
+   * Service访问异常问题排查
+   * 常用kubectl命令
