@@ -186,6 +186,8 @@ The positive aspect of this method, no matter we wait for the rebuild finish or 
 
 ### Option 3: Call Jenkins API firstly in the script
 
+[Jenkins API Call](https://gist.github.com/justlaputa/5634984)
+
 **Steps:**
 
 * Call the Jenkins API in bash script shell, before the actual deployment job is running
