@@ -1,4 +1,4 @@
-![Alt Image Text](images/gp1.jpg "headline image")
+![Alt Image Text](images/3_1.jpg "headline image")
 # Website status monitor using Jenkins
 
 Jenkins is a great tool for continuous integration and deployment. In a sense, and greatly simplified, it is a very complex and feature rich task runner.I am wondering whether it could also keep track of applications in an production environment. This give me the idea to build a Jenkins job for monitoring live websites.
@@ -538,11 +538,11 @@ And the template, I'm using `expense_notification_email.template` should be plac
 
 If the website works fine, run the job, you gonna receive the email looks like this,
 
-![Alt Image Text](images/success.jpg "body image")
+![Alt Image Text](images/3_2.jpg "body image")
 
 If the website done, run the job, you gonna receive the email looks like this,
 
-![Alt Image Text](images/down.jpg "body image")
+![Alt Image Text](images/3_3.jpg "body image")
 
 
 ## Wrapping up
