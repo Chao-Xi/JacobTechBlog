@@ -128,7 +128,7 @@ end
 
 ```
 sitename => ["example.com"] ["example.org"]
-datat    => { "port" => 80, "servername" => "example.com", "serveradmin" => "webmaster@example.com" }
+data    => { "port" => 80, "servername" => "example.com", "serveradmin" => "webmaster@example.com" }
 ```
 
 
@@ -305,13 +305,13 @@ openssl rand -base64 512 > ~/chef-repo/.chef/encrypted_data_bag_secret
 knife data bag create mysql rtpass.json --secret-file ~/chef-repo/.chef/encrypted_data_bag_secret
 ```
 
-**vi knife.rb **
+**vi knife.rb**
 
 ```
 knife[:editor] = "/usr/bin/vim"
 ```
 
-**vi rtpass.json **
+**vi rtpass.json**
 
 ```
 {
