@@ -194,9 +194,9 @@ spec:
 
 **A记录:**
 
-**```
+```
 pod-ip(1,2,3,4).my-namespace.pod.cluster.local -> Pod IP
-```**
+```
 
 ## 实机操作
 
