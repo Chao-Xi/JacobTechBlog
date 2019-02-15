@@ -70,17 +70,21 @@
 3. [Else Clauses on Loops](python_adv24.md)
 4. [Iterators and Iterables](python_adv27.md)
 
+### Important Module
+
+1. [psutil](python_adv29.md)
+2. [re Module - How to Write and Match Regular Expressions (Regex)](python_adv13.md)
+3. [Web Scraping with BeautifulSoup and Requests module](python_adv16.md)
+4. [Generate Random Numbers and Data Using the random Module](python_adv9.md)
+5. [Python OS Module and underlying operating system function](python_adv1.md) 
+
 ### Others Section
 
-1. [Python OS Module and underlying operating system function](python_adv1.md) 
-2. [Python LEGB rule and Sorting List, Tuples and Object](python_adv5.md)
-3. [Python Try/Except Blocks for Error Handling and Unit Testing with unittest Module](python_adv6.md)
-4. [Generate Random Numbers and Data Using the random Module](python_adv9.md)
-5. [Duck Typing and Asking Forgiveness, Not Permission (EAFP)](python_adv10.md)
-6. [re Module - How to Write and Match Regular Expressions (Regex)](python_adv13.md)
-7. [Web Scraping with BeautifulSoup and Requests module](python_adv16.md)
-8. [Hiding Passwords and Secret Keys in Environment Variables](python_adv22.md)
-9. [`if __name__ == '__main__'`](python_adv23.md)
+1. [Python LEGB rule and Sorting List, Tuples and Object](python_adv5.md)
+2. [Python Try/Except Blocks for Error Handling and Unit Testing with unittest Module](python_adv6.md)
+3. [Duck Typing and Asking Forgiveness, Not Permission (EAFP)](python_adv10.md)
+4. [Hiding Passwords and Secret Keys in Environment Variables](python_adv22.md)
+5. [`if __name__ == '__main__'`](python_adv23.md)
 
 
 ## Python OOP Tutorial
