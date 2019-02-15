@@ -77,6 +77,7 @@
 3. [Web Scraping with BeautifulSoup and Requests module](python_adv16.md)
 4. [Generate Random Numbers and Data Using the random Module](python_adv9.md)
 5. [Python OS Module and underlying operating system function](python_adv1.md) 
+6. [Itertools Module - Iterator Functions for Efficient Looping](python_adv1.md)
 
 ### Others Section
 
