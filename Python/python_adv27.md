@@ -204,5 +204,5 @@ for word in g_sentence:
 >>> is
 >>> a
 >>> test2	
-```s
+```
 
