@@ -138,7 +138,7 @@ def memory_usage_psutil():
     return mem
 
 def memory_usage_resource():
-    rusage_denom = 1024.
+    rusage_denom = 1024
     if sys.platform == 'darwin':
         # ... it seems that in OSX the output is different units ...
         rusage_denom = rusage_denom * rusage_denom
