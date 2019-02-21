@@ -65,6 +65,7 @@
 
 1. [kubernetes interview questions (Keep Updating)](k8s_adv33_interview.md)
 2. [Kubernetes 部署策略详解](k8s_adv41_deploy.md)
+3. [Kubernetes 2018 年度简史](k8s_adv42_dev2018.md)
 
 ### 深入理解 容器化和 `Docker`
 
