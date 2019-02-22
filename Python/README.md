@@ -96,3 +96,4 @@
 4. [Python中的类的继承](Inheritance.md)
 5. [Magic Methods inside Class](python_oop2.md)
 6. [Class Function Decorators](python_oop3.md)
+7. [深入理解 Python 元类](python_oop4.md)
