@@ -17,3 +17,11 @@
 13. [Hashes](13Hashes.md)
 14. [Enumerable](14Enumerable.md)
 
+### adv.
+
+1. [Prepare local Ruby environment](0Required_module.md)
+2. [Get and Post work with an API in Ruby](15API.md)
+
+
+
+
