@@ -75,8 +75,12 @@
 ### K8S 操作
 
 1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)
-2. [Kubernetes API 资源应该使用哪个 Group 和 Version?](k8s_adv31_api_group_version.md)
-3. [jsonnet 和 Kubernetes](k8s_adv32_jsonnet.md)
+2. [Kubernetes service中的故障排查](k8s_skill1_bugfix1.md)
+3. [使用`etcdctl`访问`kubernetes`数据](k8s_skill2_etcdctl.md)
+4. [POD内部使用技巧](k8s_skill3_skillset.md)
+5. [Kubernetes API 资源应该使用哪个 Group 和 Version?](k8s_adv31_api_group_version.md)
+6. [jsonnet 和 Kubernetes](k8s_adv32_jsonnet.md)
+
 
 
 ### 深入理解 POD
@@ -85,8 +89,9 @@
 2. [Kubernetes Pod 工作流](k8s_adv1_pod.md)
 3. [静态 Pod](k8s_adv20_static_pod.md)
 4. [Pod Hook(PostStart & PreStop)](k8s_adv21_pod_hook.md)
-5. [健康检查(liveness probe & readiness probe)](k8s_adv22_health_inspect.md)
-6. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
+5. [Pod 的生命周期](k8s_adv43_podlifecycle.md)
+6. [健康检查(liveness probe & readiness probe)](k8s_adv22_health_inspect.md)
+7. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
 
 ### K8S 调度器
 
