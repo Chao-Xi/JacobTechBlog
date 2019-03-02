@@ -98,3 +98,4 @@
 5. [Magic Methods inside Class](python_oop2.md)
 6. [Class Function Decorators](python_oop3.md)
 7. [深入理解 Python 元类](python_oop4.md)
+8. [Python装饰器简介](python_oop5.md)
