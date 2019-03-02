@@ -6,9 +6,17 @@
 4. [Prevent Jenkins concurrent build job with same parameter](4Prevent_IdenticalParam.md)
 5. [Docker Jenkins Master with it's Host Machine as Agent](9HostMachineAgent.md)
 6. [Building Continuous Delivery pipelines with Jenkins2(Scripted vs. declarative pipeline)](8Jenkins_basic_pipelineascode.md)
+7. [批量修改 Jenkins 任务的技巧](10MultipleJenkinsJobAlter.md)
 
 ### Lockable resource plugin
 
 1. [Lockable Resources and Remove It](7LockResourcePlugin.md)
 2. [Controlling the Flow with Stage, Lock, and Milestone ](5Localresource.md)
+
+### Learning groovy
+
+1. [Standlone Job and its Class for the job builder](11SimpleStandloneJob.md)
+
+
+
 
