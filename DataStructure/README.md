@@ -15,4 +15,6 @@
 2. [SelectionSort algorithm](2SelectionSort.md)
 3. [BubbleSort algorithm](3BubbleSort.md)
 4. [MergeSort algorithm](4MergeSort.md)
+5. [QuickSort algorithm](5QuickSort.md)
+6. [Sorting Algorithms Benchmarks Comparison](6SortingAlorithmsComparison.md)
 
