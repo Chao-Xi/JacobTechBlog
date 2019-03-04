@@ -16,6 +16,7 @@
 ### Learning groovy
 
 1. [Standlone Job and its Class for the job builder](11SimpleStandloneJob.md)
+2. [Multiple Inheritance Job in pipeline job (lock and unlock parts)](12MultipleInheritanceJob.md)
 
 
 
