@@ -16,5 +16,10 @@
 5. [Git Package Management with Git LFS](git_package_management.md)
 
 
+### Linux Network
+
+1. [Network Tools in the Command Line](linux_network_troubleshooting_tools.md)
+2. [Linux Basic Networking Commands](linux_network_command.md)
+
 
 
