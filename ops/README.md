@@ -20,6 +20,8 @@
 
 1. [Network Tools in the Command Line](linux_network_troubleshooting_tools.md)
 2. [Linux Basic Networking Commands](linux_network_command.md)
+3. [How does DNS work?](linux_dns_work.md)
+
 
 
 
