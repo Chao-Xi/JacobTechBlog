@@ -79,6 +79,7 @@
 5. [Python OS Module and underlying operating system function](python_adv1.md) 
 6. [Itertools Module - Iterator Functions for Efficient Looping](python_adv1.md)
 7. [Request Web Pages, Download Images, POST Data, Read JSON](python_adv31.md)
+8. [Python Numpy Intro](python_adv32.md)
 
 ### Others Section
 
