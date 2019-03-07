@@ -26,7 +26,9 @@
 2. [Multiple Inheritance Job in pipeline job (lock and unlock parts)](12MultipleInheritanceJob.md)
 3. [Manually Created Jenkins Seed Job](13ManuallySeedjob.md)
 
+## Learning Architecture 
 
+1. [MPL - 模块化的流水线库](15ModularPipelineLibrary.md)
 
 
 
