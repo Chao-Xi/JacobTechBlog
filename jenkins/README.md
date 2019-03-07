@@ -8,12 +8,19 @@
 6. [Building Continuous Delivery pipelines with Jenkins2(Scripted vs. declarative pipeline)](8Jenkins_basic_pipelineascode.md)
 7. [批量修改 Jenkins 任务的技巧](10MultipleJenkinsJobAlter.md)
 
+## Learning Plugins
+
 ### Lockable resource plugin
 
 1. [Lockable Resources and Remove It](7LockResourcePlugin.md)
 2. [Controlling the Flow with Stage, Lock, and Milestone ](5Localresource.md)
 
-### Learning groovy
+### Others
+
+1. [Build Name Setter Plugin](14BuildNameSetterPlugin.md)
+
+
+## Learning groovy
 
 1. [Standlone Job and its Class for the job builder](11SimpleStandloneJob.md)
 2. [Multiple Inheritance Job in pipeline job (lock and unlock parts)](12MultipleInheritanceJob.md)
