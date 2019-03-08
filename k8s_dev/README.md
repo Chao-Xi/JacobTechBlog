@@ -1,0 +1,7 @@
+1. [手摸手搭建高可用的kubernetes集群（1.8.2)](./build_k8s18/README.md)
+2. [kubeadm12](./kubeadm12/README.md)
+3. [基于 Jenkins 的 CI/CD](./jenkins/README.md)
+4. [Kubernetes monitoring with Prometheus](./prometheus/README.md)
+5. [kubernetes 日志收集](./log_architecture/README.md)
+6. [Harbor - Manage and serve container images in a secure environment](./harbor/README.md)
+7. []()
