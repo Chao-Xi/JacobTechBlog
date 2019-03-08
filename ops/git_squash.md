@@ -66,5 +66,89 @@ To abort and get back to the state before "git rebase", run "git rebase --abort"
 Could not apply 102a57d... update cookbook_cloud_learn to update bb-newrelic
 ```
 
+## Example
+
+### Step one, add and commit changes
+
+```
+$ git add lic_ami_and_asg_update.groovy
+$ git commit
+[feature/LSB-3760 63167848] Add lock and unlock mechanism on Jenkins lic_ami_and_asg_update job
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+```
+
+### Step two, check commit history
+
+```
+$ git lg
+* 63167848 - (HEAD -> feature/LSB-3760) Add lock and unlock mechanism on Jenkins lic_ami_and_asg_update job (41 seconds ago) <Jaf 1b800791 Add LockUnlockDeployJobBuilder.groovy for lic_ami_and_asg_update job. Test
+cob xi>
+* 6a007ea8 - (origin/feature/LSB-3760) bug fix (43 minutes ago) <Jacob xi>
+* dac89615 - add status check for learn_ami_asg_update (47 minutes ago) <Jacob xi>
+* 1433b290 - fix bug on buildNameSetter (2 days ago) <Jacob xi>
+* 3e787839 - add buildNameSetter (2 days ago) <Jacob xi>
+r 1b800791 Add LockUnlockDeployJobBuilder.groovy for lic_ami_and_asg_update job. Test
+Add lock and unlock mechanism on Jenkins job lic_ami_and_asg_update
+* 1b800791 - Add LockUnlockDeployJobBuilder.groovy for lic_ami_and_asg_update job. Test (2 days ago) <Jacob xi>
+```
+**There are too many commit (6)**
+
+### Step three, squash commit history
+
+```
+$ git rebase -i HEAD~6
+[detached HEAD 37e877f8] Add lock and unlock mechanism on Jenkins job lic_ami_and_asg_update
+ Date: Wed Mar 6 11:38:56 2019 +0800
+ 2 files changed, 62 insertions(+), 9 deletions(-)
+...
+Successfully rebased and updated refs/heads/feature/LSB-3760.
+```
+
+#### 1.for example, before squash
+
+```
+pick f7f3f6d changed my name a bit
+pick 310154e updated README formatting and added blame
+pick a5f4a0d added cat-file
+```
+
+#### 2.for example, after squash
+
+```
+f f7f3f6d changed my name a bit
+f 310154e updated README formatting and added blame
+r a5f4a0d added cat-file
+```
+
+#### 3.Commit again with new commit message
+
+
+### Step four, push commit
+
+#### 1. Got rejected
+
+```
+git push
+To ssh://stash.bbpd.io/l4c/learn-saas.git
+ ! [rejected]          feature/LSB-3760 -> feature/LSB-3760 (non-fast-forward)
+error: failed to push some refs to 'ssh://git@stash.bbpd.io/l4c/learn-saas.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+#### 2. push forcefully
+
+```
+$ git push -u origin feature/LSB-3760 --force
+Counting objects: 12, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (11/11), done.
+```
+
+
+
+
 
 
