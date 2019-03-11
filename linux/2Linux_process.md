@@ -56,8 +56,8 @@ How nice is this process being to others, **low priority with higher the nicenes
 ### Standard signals
 	
 ```	
-		Signal        x86/ARM     Alpha/   MIPS   PARISC   Notes
-		SIGHUP           1           1       1       1
+       Signal        x86/ARM     Alpha/   MIPS   PARISC   Notes
+       SIGHUP           1           1       1       1
        SIGINT           2           2       2       2
        SIGQUIT          3           3       3       3
        SIGILL           4           4       4       4
