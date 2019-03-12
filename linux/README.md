@@ -12,6 +12,7 @@
 3. [Network Tools in the Command Line](https://github.com/Chao-Xi/JacobTechBlog/blob/master/ops/linux_network_troubleshooting_tools.md)
 4. [Linux Basic Networking Commands](https://github.com/Chao-Xi/JacobTechBlog/blob/master/ops/linux_network_command.md)
 5. [8 Basic `lsof` Commands](3Linux_lsof.md)
+6. [How to use GNU SCREEN - the Terminal Multiplexer](4Linux_GNU_Screen.md)
 
 
 ## Linux Interview
