@@ -4,4 +4,4 @@
 4. [Kubernetes monitoring with Prometheus](./prometheus/README.md)
 5. [kubernetes 日志收集](./log_architecture/README.md)
 6. [Harbor - Manage and serve container images in a secure environment](./harbor/README.md)
-7. []()
+7. [如何在Kubernetes上部署Redis集群](./k8s_redis/1k8s_install_redis.md)
