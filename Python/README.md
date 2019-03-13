@@ -63,6 +63,11 @@
 
 1. [Logging Basic and Advanced](python_adv21.md)
 
+### Web Scrap
+
+1. [Web Scraping with BeautifulSoup and Requests module](python_adv16.md)
+2. [Web Scraping with Requests-HTML](python_adv33.md)
+
 ### Python performance
 
 1. [Python Generators and its performance](python_adv8.md)
@@ -74,12 +79,11 @@
 
 1. [psutil](python_adv29.md)
 2. [re Module - How to Write and Match Regular Expressions (Regex)](python_adv13.md)
-3. [Web Scraping with BeautifulSoup and Requests module](python_adv16.md)
-4. [Generate Random Numbers and Data Using the random Module](python_adv9.md)
-5. [Python OS Module and underlying operating system function](python_adv1.md) 
-6. [Itertools Module - Iterator Functions for Efficient Looping](python_adv1.md)
-7. [Request Web Pages, Download Images, POST Data, Read JSON](python_adv31.md)
-8. [Python Numpy Intro](python_adv32.md)
+3. [Generate Random Numbers and Data Using the random Module](python_adv9.md)
+4. [Python OS Module and underlying operating system function](python_adv1.md) 
+5. [Itertools Module - Iterator Functions for Efficient Looping](python_adv1.md)
+6. [Request Web Pages, Download Images, POST Data, Read JSON](python_adv31.md)
+7. [Python Numpy Intro](python_adv32.md)
 
 ### Others Section
 
