@@ -7,6 +7,7 @@
 5. [Docker Jenkins Master with it's Host Machine as Agent](9HostMachineAgent.md)
 6. [Building Continuous Delivery pipelines with Jenkins2(Scripted vs. declarative pipeline)](8Jenkins_basic_pipelineascode.md)
 7. [批量修改 Jenkins 任务的技巧](10MultipleJenkinsJobAlter.md)
+8. [在安全防火墙内通过 WebHook 触发构建(github)](18Jenkins_Github_Webhook.md)
 
 ## Learning Plugins
 
