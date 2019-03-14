@@ -25,6 +25,7 @@
 1. [Standlone Job and its Class for the job builder](11SimpleStandloneJob.md)
 2. [Multiple Inheritance Job in pipeline job (lock and unlock parts)](12MultipleInheritanceJob.md)
 3. [Manually Created Jenkins Seed Job](13ManuallySeedjob.md)
+4. [How to use gradle check to check your code sanity and gramma](17Gradle_check_for_groovy.md)
 
 ## Learning Architecture 
 
