@@ -82,7 +82,6 @@
 6. [jsonnet 和 Kubernetes](k8s_adv32_jsonnet.md)
 
 
-
 ### 深入理解 POD
 
 1. [使用YAML文件创建Kubernetes Deployment](k8s_adv0_yaml.md)
@@ -189,16 +188,6 @@
 2. [Grafana 日志聚合工具 Loki](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/12Adv_Grafana_Loki.md)
 
 
-### google (gke) Kubernetes Best Practice
-
-1. [Building Small Containers](k8s_bp1_small_container.md)
-2. [Organizing Kubernetes with Namespaces](k8s_bp2_namespace.md)
-3. [Kubernetes Health Checks with Readiness and Liveness Probes ](k8s_bp3_probes.md)
-4. [Setting Resource Requests and Limits in Kubernetes](k8s_bp4_resouce_request_limit.md)
-5. [K8S Terminating with Grace](k8s_bp5_grace_termination.md)
-6. [K8S Mapping External Services](k8s_bp6_mapping_external_service.md)
-7. [Upgrading your Cluster with Zero Downtime](k8s_bp7_upgrading_cluster.md)
-
 ### K8S Q&A
 
 1. [K8S Issues List](k8s_QA_sum.md)
@@ -211,3 +200,18 @@
 
 1. [kubernetes生产案例之阿里云游戏业务分析](k8s_prod1_AliGame.md)
 2. [民生银行智能运维项目在容器云平台的部署](k8s_prod2_CMBC.md)
+
+### K8S 生产架构
+
+1. [7 款你不得不了解的开源云监控工具](k8s_arch1_monitor7.md) 
+
+
+### google (gke) Kubernetes Best Practice
+
+1. [Building Small Containers](k8s_bp1_small_container.md)
+2. [Organizing Kubernetes with Namespaces](k8s_bp2_namespace.md)
+3. [Kubernetes Health Checks with Readiness and Liveness Probes ](k8s_bp3_probes.md)
+4. [Setting Resource Requests and Limits in Kubernetes](k8s_bp4_resouce_request_limit.md)
+5. [K8S Terminating with Grace](k8s_bp5_grace_termination.md)
+6. [K8S Mapping External Services](k8s_bp6_mapping_external_service.md)
+7. [Upgrading your Cluster with Zero Downtime](k8s_bp7_upgrading_cluster.md)
