@@ -1,0 +1,15 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hostname-ingress
+  namespace: default
+spec:
+  rules:
+  - host: hostname-v1.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hostname-v1
+          servicePort: web
