@@ -14,8 +14,19 @@
 5. [8 Basic `lsof` Commands](3Linux_lsof.md)
 6. [How to use GNU SCREEN - the Terminal Multiplexer](4Linux_GNU_Screen.md)
 
+* [运维实用的 Linux 命令](5Devops_Linux_commmand.md)
+  * 实用的 `xargs` 命令
+  * 命令或脚本后台运行
+  * 找出当前系统内存使用量较高的进程
+  * 找出当前系统CPU使用量较高的进程
+  * 同时查看多个日志或数据文件
+  * 持续 ping 并将结果记录到日志
+  * 查看tcp连接状态
+  * 查找80端口请求数最高的前20个IP
+  * ssh实现端口转发
 
 ## Linux Interview
 
 1. [Top 9 Linux Job Interview Questions(command)](1top10linuxjobQA.md)
 2. []()
+
