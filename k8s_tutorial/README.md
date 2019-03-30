@@ -64,13 +64,18 @@
 ## K8S进阶课程(K8S Adv. Tutorial)
 
 1. [kubernetes interview questions (Keep Updating)](k8s_adv33_interview.md)
-2. [Kubernetes 部署策略详解](k8s_adv41_deploy.md)
-3. [Kubernetes 2018 年度简史](k8s_adv42_dev2018.md)
+2. [Kubernetes 2018 年度简史](k8s_adv42_dev2018.md)
+3. [Kubernetes 1.14 正式发布，Windows节点生产级支持！](k8s_adv46_114.md)
 
 ### 深入理解 容器化和 `Docker`
 
 1. [从进程说容器](k8s_container1.md)
 2. [Docker 镜像分析工具 Dive](k8s_container2_dive.md)
+
+### K8S 生产架构
+
+1. [7 款你不得不了解的开源云监控工具](k8s_arch1_monitor7.md) 
+2. [Kubernetes 部署策略详解](k8s_adv41_deploy.md)
 
 ### K8S 操作
 
@@ -121,6 +126,7 @@
 2. [kubernetes 持久化存储(二): StorageClass 的使用](k8s_adv14_pv2.md)
 3. [Pod 中挂载单个文件的方法 subpath](k8s_adv15_subpath.md)
 4. [Kubernetes Local Persistent Volume](k8s_adv37_local_persistent_volume.md)
+5. [3种K8S存储：emptyDir、hostPath、local](k8s_adv45_3OthersStorage.md)
 
 ### 服务发现
 
@@ -200,11 +206,6 @@
 
 1. [kubernetes生产案例之阿里云游戏业务分析](k8s_prod1_AliGame.md)
 2. [民生银行智能运维项目在容器云平台的部署](k8s_prod2_CMBC.md)
-
-### K8S 生产架构
-
-1. [7 款你不得不了解的开源云监控工具](k8s_arch1_monitor7.md) 
-
 
 ### google (gke) Kubernetes Best Practice
 
