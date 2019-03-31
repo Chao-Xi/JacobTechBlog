@@ -94,6 +94,21 @@
 5. [`if __name__ == '__main__'`](python_adv23.md)
 
 
+### Tricks and tips
+
+* [10 Python Tips and Tricks For Writing Better Code](python_adv34.md)
+  * Ternary Conditionals 
+  * Underscore Placeholders => big number easy to read
+  * Content manager
+  * Enumerate() method
+  * Zip function
+  * Unpacking tuple
+  * setattr()/getattr()
+  * GetPass() get input password safely
+  * `python3 -m` in terminal
+  * Get help of python modules
+
+
 ## Python OOP Tutorial
 
 1. [Class Introduction](python_oop1.md)
