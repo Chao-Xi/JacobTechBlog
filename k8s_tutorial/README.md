@@ -76,6 +76,7 @@
 
 1. [7 款你不得不了解的开源云监控工具](k8s_arch1_monitor7.md) 
 2. [Kubernetes 部署策略详解](k8s_adv41_deploy.md)
+3. [Kubernetes CNI网络最强对比：Flannel、Calico、Canal和Weave](k8s_adv47_CNI.md)
 
 ### K8S 操作
 
