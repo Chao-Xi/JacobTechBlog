@@ -26,7 +26,7 @@
 
 ### 不过 `kube-state-metrics` 和 `metrics-server` 之间还是有很大不同的，二者的主要区别如下：
 
-* `kube-state-metric`s 主要关注的是业务相关的一些元数据，比如 `Deployment`、`Pod`、副本状态等
+* `kube-state-metrics` 主要关注的是业务相关的一些元数据，比如 `Deployment`、`Pod`、副本状态等
 * `metrics-server` 主要关注的是[资源度量 API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/resource-metrics-api.md) 的实现，比如 CPU、文件描述符、内存、请求延时等指标。
 
 ## 监控集群节点
