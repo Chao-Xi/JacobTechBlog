@@ -37,3 +37,9 @@
 * 4.5 [Jenkins+Ldap认证集成](chapter/9Jenkins_LDAP.md)
 * 4.6 [Jenkins+Gitlab集成](chapter/10Jenkins_Gitlab.md)
 * 4.7 [Jenkins+SaltStack集成](chapter/11Jenkins_SaltStack.md)
+
+## 第5章 流水线基础
+
+* 5.1 [流水线基础-认识Pipeline](chapter/12Pipeline_Basic.md)
+* 5.2 [**流水线实践-Pipeline语法**](chapter/13Pipeline_Gramma.md)
+
