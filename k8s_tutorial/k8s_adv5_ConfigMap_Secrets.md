@@ -146,7 +146,7 @@ $ docker run --name envtest --rm -e TOKEN=abcdefg88888 -e LANGUAGE=English -p 50
 
 ## 4. 使用 Kubernetes 的环境变量
 
-当我们开始使用`Kubernetes`的时候，情况又不太一样了，我们可能会在多个 `Kubernetes Deploymen`t 中使用相同的 `Docker` 镜像，我们也可能希望对 `Deployment` 进行 `A/B` 测试，对不同的 `Deployment` 设置不同的配置信息。
+当我们开始使用`Kubernetes`的时候，情况又不太一样了，我们可能会在多个 `Kubernetes Deployment` 中使用相同的 `Docker` 镜像，我们也可能希望对 `Deployment` 进行 `A/B` 测试，对不同的 `Deployment` 设置不同的配置信息。
 
 和上面的 `Dockerfile` 一样，我们可以在 Kubernetes Deployment 的YAML文件中指定环境变量，这样我们就可以在不同的 Deployment 中设置不同的环境变量：（`read-env.yaml`）
 
