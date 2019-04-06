@@ -116,12 +116,18 @@
 8. [Job和CronJob 的使用方法](k8s_adv11_job_cronjob.md)
 9. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
 10. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
-11. [Pod 自动扩缩容(HPA: Horizontal Pod Autoscaling)](k8s_adv23_HPA.md)
-12. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
-13. [Kubernetes Secret 资源对象使用方法](k8s_adv12_secret.md)
-14. [`Kubernetes Namespace`命名空间详解](k8s_adv44_namespace.md)
+11. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
+12. [Kubernetes Secret 资源对象使用方法](k8s_adv12_secret.md)
+13. [`Kubernetes Namespace`命名空间详解](k8s_adv44_namespace.md)
 
 ### 持久化存储:
+
+#### (1) 使用指南：
+
+1. [深入浅出聊聊Kubernetes存储（一）：详解Kubernetes存储关键概念](k8s_adv48_Storage1.md)
+2. [深入浅出聊聊Kubernetes存储（二）：搞定持久化存储](k8s_adv48_Storage2.md)
+
+#### (2) 常用方法：
 
 1. [kubernetes 持久化存储(一): PV 和 PVC 的使用](k8s_adv14_pv1.md)
 2. [kubernetes 持久化存储(二): StorageClass 的使用](k8s_adv14_pv2.md)
@@ -148,6 +154,8 @@
 ### K8S 伸缩问题
 
 1. [k8s自动伸缩那些事](k8s_adv28_hpa_vpa.md)
+2. [Pod 自动扩缩容(HPA: Horizontal Pod Autoscaling)](k8s_adv23_HPA.md)
+3. [6个与弹性伸缩、调度相关的Kubernetes附加组件](k8s_adv49_AS_plugins.md)
 
 ### K8S 深度设计理念
 
