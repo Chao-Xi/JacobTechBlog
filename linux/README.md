@@ -28,5 +28,5 @@
 ## Linux Interview
 
 1. [Top 9 Linux Job Interview Questions(command)](1top10linuxjobQA.md)
-2. []()
+2. [50 Linux Interview Questions And Answers](1Linux_interview.md)
 
