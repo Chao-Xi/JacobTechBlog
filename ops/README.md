@@ -15,6 +15,7 @@
 3. [Git Pull Request Guidelines & Process](git_pull_request.md)
 4. [Git Tools - Rewriting History](git_squash.md)
 5. [Git Package Management with Git LFS](git_package_management.md)
+6. [git rebase vs git merge详解](git_rebase_merge.md)
 
 
 ### Linux Network
