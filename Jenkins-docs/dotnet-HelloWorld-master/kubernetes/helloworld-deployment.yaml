@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: helloworld-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+        - name: HelloWorld-container
+          image: "765584129419.dkr.ecr.us-east-1.amazonaws.com/HelloWorld:latest"
+        ports:
+        - containerPort: 80

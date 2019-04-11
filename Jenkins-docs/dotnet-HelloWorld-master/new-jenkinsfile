@@ -1,0 +1,21 @@
+
+String buildShell = "${env.buildShell}"
+String targetDir  = "${env.targetDir}"
+
+node("runner"){
+    stage("checkout"){
+        checkout scm
+    }
+    
+    
+    stage("build"){
+        sh " ${buildShell} "
+    }
+    
+    
+    stage("publish"){
+        sh " mkdir -p ${targetDir} "
+        sh " dotnet publish -o ${targetDir}  && ls -l ${targetDir}"
+        
+    }
+}

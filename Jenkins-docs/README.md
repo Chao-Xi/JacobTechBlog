@@ -43,3 +43,15 @@
 * 5.1 [流水线基础-认识Pipeline](chapter/12Pipeline_Basic.md)
 * 5.2 [**流水线实践-Pipeline语法**](chapter/13Pipeline_Gramma.md)
 
+## 第6章 前端项目流水线实践
+
+* 6.1 [静态资源发布](chapter/14Pipeline_Frontend.md)
+* 6.2 [nodejs项目发布](chapter/15Pipeline_NodeJs.md)
+* 6.3 [dotnet项目发布](chapter/17Pipeline_DotNet.md)
+
+
+## 第7章 后端项目流水线实践
+
+* 7.1 [Java 应用使用 Docker 的入门指南：建立一个 CI/CD 流水线](chapter/16Java_Docker_Pipeline.md)
+* 
+
