@@ -28,9 +28,14 @@
 3. [Manually Created Jenkins Seed Job](13ManuallySeedjob.md)
 4. [How to use gradle check to check your code sanity and gramma](17Gradle_check_for_groovy.md)
 
+## Jenkins CICD
+
+1. [Provision Shared RDS with FreeStyle and DownStream Jenkins job](19Jenkins_Provision_SRDS_freeStyle.md)
+
 ## Learning Architecture 
 
 1. [MPL - 模块化的流水线库](15ModularPipelineLibrary.md)
+2. [简析 Jenkins 专有用户数据库加密算法](20Jenkins_UserDB_Encryption.md)
 
 
 
