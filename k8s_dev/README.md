@@ -5,3 +5,4 @@
 5. [kubernetes 日志收集](./log_architecture/README.md)
 6. [Harbor - Manage and serve container images in a secure environment](./harbor/README.md)
 7. [如何在Kubernetes上部署Redis集群](./k8s_redis/1k8s_install_redis.md)
+8. [K8S +Gitlab + Gitlab CI Runner + Jenkins + Harbor + Helm + Kubernetes](./k8s_gitlab/README.md)
