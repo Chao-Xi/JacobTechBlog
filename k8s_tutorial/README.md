@@ -149,7 +149,8 @@
 1. [外部服务发现之 ingress(一): traefik 的安装使用](k8s_adv17_ingress1.md)
 2. [外部服务发现之 ingress(二): Ingress TLS 和 PATH 的使用](k8s_adv18_ingress2.md)
 3. [Kubernetes Ingress 使用 Let's Encrypt 自动化 HTTPS](k8s_adv30_ingress_auto_https.md)
-4. [kubernetes 办公环境下网络互通方案](k8s_adv38_Connect_Offce_Network.md)
+4. [如何保护对外暴露的 Kubernetes 服务](k8s_adv50_Ingress_Protection.md)
+5. [kubernetes 办公环境下网络互通方案](k8s_adv38_Connect_Offce_Network.md)
 
 ### K8S 伸缩问题
 
