@@ -53,5 +53,15 @@
 ## 第7章 后端项目流水线实践
 
 * 7.1 [Java 应用使用 Docker 的入门指南：建立一个 CI/CD 流水线](chapter/16Java_Docker_Pipeline.md)
-* 
+* 7.2 [JAVA Springboot项目发布](chapter/18Pipeline_JavaSprint.md)
+* 7.3 []()
+* 7.4 [Golang 项目发布流水线（demo)](chapter/19Pipeline_golang.md)
+
+
+## 第8章 Extend Jenkins ith Shared Libraries
+
+* 8.1 [Defining Shared Libraries(目录结构, 加载库, 实战)](chapter/20Shared_Library_Definition.md)
+* 8.2 [Shared Library global configuration](chapter/21Shared_Library_global_configuration.md)
+* 8.3 [Writing libraries in Shared Library](chapter/22Shared_Library_Writing_library.md)
+
 
