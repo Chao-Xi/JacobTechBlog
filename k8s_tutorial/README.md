@@ -64,8 +64,9 @@
 ## K8S进阶课程(K8S Adv. Tutorial)
 
 1. [kubernetes interview questions (Keep Updating)](k8s_adv33_interview.md)
-2. [Kubernetes 2018 年度简史](k8s_adv42_dev2018.md)
-3. [Kubernetes 1.14 正式发布，Windows节点生产级支持！](k8s_adv46_114.md)
+3. [Kubernetes的11大基本概念及重要概念性理解](k8s_adv52_Common_knowledge.md)
+3. [Kubernetes 2018 年度简史](k8s_adv42_dev2018.md)
+4. [Kubernetes 1.14 正式发布，Windows节点生产级支持！](k8s_adv46_114.md)
 
 ### 深入理解 容器化和 `Docker`
 
