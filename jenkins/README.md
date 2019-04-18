@@ -37,6 +37,8 @@
 1. [MPL - 模块化的流水线库](15ModularPipelineLibrary.md)
 2. [简析 Jenkins 专有用户数据库加密算法](20Jenkins_UserDB_Encryption.md)
 
+## Monitoring Jenkins
 
+1. [使用 Zabbix 监控 Jenkins](21Jenkins_Monitor_Zabbix.md)
 
 
