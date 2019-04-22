@@ -67,6 +67,7 @@
 
 1. [Web Scraping with BeautifulSoup and Requests module](python_adv16.md)
 2. [Web Scraping with Requests-HTML](python_adv33.md)
+3. [How to Write Python Scripts to Analyze JSON APIs and Sort Results](python_adv35.md)
 
 ### Python performance
 
