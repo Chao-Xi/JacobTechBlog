@@ -53,6 +53,7 @@
 4. [Slice list and String](python_adv18.md)
 5. [What is the difference between `str()` and `repr()`](python_adv19.md)
 6. [Set Methods (Remove duplicate)](python_adv26.md)
+7. [Comprehensions - How they work in lists, dicts, and sets](python_adv36.md)
 
 
 ### SQLite Database
