@@ -110,6 +110,12 @@
   * `python3 -m` in terminal
   * Get help of python modules
 
+* [5 Common Python Mistakes and How to Fix Them](python_adv37.md)
+  * Indentation and Spaces
+  * Naming Conflicts
+  * Mutable Default Args
+  * Python3 Exhausting Iterators
+  * Importing with * (asterisks) 
 
 ## Python OOP Tutorial
 
