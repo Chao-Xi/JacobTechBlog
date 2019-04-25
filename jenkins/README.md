@@ -8,6 +8,7 @@
 6. [Building Continuous Delivery pipelines with Jenkins2(Scripted vs. declarative pipeline)](8Jenkins_basic_pipelineascode.md)
 7. [批量修改 Jenkins 任务的技巧](10MultipleJenkinsJobAlter.md)
 8. [在安全防火墙内通过 WebHook 触发构建(github)](18Jenkins_Github_Webhook.md)
+9. [关于 Jenkins master 共享 `JENKINS_HOME` 目录的实验](22Jenkins_masters_share_home_test_fail.md)
 
 ## Learning Plugins
 
