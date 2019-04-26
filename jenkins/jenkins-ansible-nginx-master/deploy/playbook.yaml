@@ -1,0 +1,6 @@
+---
+- hosts: "nginx"
+  become: true
+  roles:
+    - ansible-role-nginx
+    - ansible-role-firewall

@@ -32,6 +32,7 @@
 ## Jenkins CICD
 
 1. [Provision Shared RDS with FreeStyle and DownStream Jenkins job](19Jenkins_Provision_SRDS_freeStyle.md)
+2. [使用 Jenkins + Ansible 实现自动化部署 Nginx](23Jenkins_Ansible_deploy_nginx.md)
 
 ## Learning Architecture 
 
