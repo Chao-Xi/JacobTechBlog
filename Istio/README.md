@@ -12,6 +12,18 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
 * istio 架构详解
 * istio 实战
 
+## Istio基础教学
+
+1. [Istio 架构与技术](1isba_Frame_Tech.md)
+  * Service Mesh
+  * Istio 架构基础
+  * Istio 基本概念
+  * Istio & Kubernetes:架构结合
+  * 运行第一个Istio集群
+
+
+## bookinfo 实验与教学
+
 1. [Docker for Mac安装istio](1Istio_install_docker.md)
    * 安装 docker 和 k8s
    * 安装 kubectl
@@ -30,3 +42,6 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
    * 服务网格外的流量管理
    * `VirtualService` & `DestinationRule` 规则说明
    * 收个尾
+
+
+
