@@ -82,12 +82,18 @@
 
 ### K8S 操作
 
+### 使用技巧
+
 1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)
-2. [Kubernetes service中的故障排查](k8s_skill1_bugfix1.md)
-3. [使用`etcdctl`访问`kubernetes`数据](k8s_skill2_etcdctl.md)
-4. [POD内部使用技巧](k8s_skill3_skillset.md)
-5. [Kubernetes API 资源应该使用哪个 Group 和 Version?](k8s_adv31_api_group_version.md)
-6. [jsonnet 和 Kubernetes](k8s_adv32_jsonnet.md)
+2. [使用`etcdctl`访问`kubernetes`数据](k8s_skill2_etcdctl.md)
+3. [POD内部使用技巧](k8s_skill3_skillset.md)
+4. [Kubernetes API 资源应该使用哪个 Group 和 Version?](k8s_adv31_api_group_version.md)
+5. [jsonnet 和 Kubernetes](k8s_adv32_jsonnet.md)
+
+#### 故障排除
+
+1. [Kubernetes service中的故障排查](k8s_skill1_bugfix1.md)
+2. [Kubernetes 网络故障常见排查方法](k8s_adv55_network_troubleshooting.md)
 
 
 ### 深入理解 POD
