@@ -21,6 +21,11 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
   * Istio & Kubernetes:架构结合
   * 运行第一个Istio集群
 
+2. [Istio 服务发现和 Pilot的架构机制](2isba_Service_Find.md)
+  * Istio架构回顾&Pilot介绍
+  * Istio服务发现
+  * Istio服务配置
+  * Istio服务发现&规则管理与Kubernetes结合 
 
 ## bookinfo 实验与教学
 
