@@ -12,6 +12,11 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
 * istio 架构详解
 * istio 实战
 
+* `VirtualService` 在 Istio 服务网格中**定义路由规则**，**控制路由如何路由到服务上**。
+* `DestinationRule` 是 `VirtualService` **路由生效后，配置应用与请求的策略集**。
+* `ServiceEntry` 是通常用于在 Istio **服务网格之外启用对服务的请求**。
+*  `Gateway` 为 `HTTP/TCP` **流量配置负载均衡器**，最常见的是在**网格的边缘的操作**，以**启用应用程序的入
+
 ## Istio基础教学
 
 1. [Istio 架构与技术](1isba_Frame_Tech.md)
@@ -31,6 +36,11 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
   * Gateway vs Kubernetes Ingress 
   * Gateway原理及实现
   * Gateway demo演示
+4. [Istio 灰度发布与技术实现](4isba_Gray_release.md)
+  * 典型发布类型对比
+  * Istio流量治理技术解析
+  * 智能灰度发布介绍
+  * 灰度发布功能展示Demo
 
 ## bookinfo 实验与教学
 
