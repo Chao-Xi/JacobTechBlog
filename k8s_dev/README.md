@@ -1,3 +1,7 @@
+![Alt Image Text](bg.png "Body image")
+
+## 项目列表
+
 1. [手摸手搭建高可用的kubernetes集群（1.8.2)](./build_k8s18/README.md)
 2. [kubeadm12](./kubeadm12/README.md)
 3. [基于 Jenkins 的 CI/CD](./jenkins/README.md)
@@ -6,3 +10,4 @@
 6. [Harbor - Manage and serve container images in a secure environment](./harbor/README.md)
 7. [如何在Kubernetes上部署Redis集群](./k8s_redis/1k8s_install_redis.md)
 8. [K8S +Gitlab + Gitlab CI Runner + Jenkins + Harbor + Helm + Kubernetes](./k8s_gitlab/README.md)
+9. [如何使用`Message Queues`, `Spring Boot`, 以及 `Kubernetes`构建高可用的微服务架构](./k8s_queue_springboot/README.md)
