@@ -10,4 +10,4 @@
 ### `Jenkins` + `Gitlab` + `Harbor` + `Helm` + `Kubernetes`  => `CICD`
 
 1. [基于 Jenkins、Gitlab、Harbor、Helm 和 Kubernetes 的 CI/CD(一)](4K8S_gitlab_cicd.md)
-2. 
+2. [基于 Jenkins、Gitlab、Harbor、Helm 和 Kubernetes 的 CI/CD(二, Pipeline)](5cicd_pipeline.md)

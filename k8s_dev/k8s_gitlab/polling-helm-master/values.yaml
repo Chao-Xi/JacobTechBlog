@@ -1,0 +1,89 @@
+expose:
+  type: ingress
+  tls:
+    enabled: false
+    secretName: ""
+  ingress:
+    hosts:
+      ui: ui.polling.domain
+    annotations:
+      kubernetes.io/ingress.class: nginx
+  nodePort:
+    port: 30002
+
+persistence:
+  enabled: true
+  persistentVolumeClaim:
+    database:
+      existingClaim: ""
+      storageClass: ""
+      subPath: ""
+      accessMode: ReadWriteOnce
+      size: 1Gi
+
+# imagePullSecrets:
+#   - name: myreg
+
+ui:
+  image:
+    repository: cnych/polling-ui
+    tag: 0.0.3
+    pullPolicy: IfNotPresent
+  replicas: 1
+# resources:
+#  requests:
+#    memory: 256Mi
+#    cpu: 100m
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  ## Additional deployment annotations
+  podAnnotations: {}
+
+api:
+  image:
+    repository: cnych/polling-api
+    tag: 0.0.7
+    pullPolicy: IfNotPresent
+  replicas: 1
+  service:
+    port:
+# resources:
+#  requests:
+#    memory: 256Mi
+#    cpu: 100m
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  ## Additional deployment annotations
+  podAnnotations: {}
+
+database:
+  # if external database is used, set "type" to "external"
+  # and fill the connection informations in "external" section
+  type: internal
+  internal:
+    image:
+      repository: mysql
+      tag: 5.7
+    # 使用的数据库名称
+    database: "polling"
+    # 数据库用户
+    username: "polling"
+    # 数据库用户密码
+    password: "polling321"
+    # resources:
+    #  requests:
+    #    memory: 256Mi
+    #    cpu: 100m
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}
+  external:
+    host: "192.168.0.1"
+    port: "3306"
+    username: "user"
+    password: "password"
+    database: "polling"
+  ## Additional deployment annotations
+  podAnnotations: {}

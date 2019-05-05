@@ -1,0 +1,18 @@
+{{- if eq .Values.database.type "internal" -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ template "polling.database" . }}"
+  labels:
+{{ include "polling.labels" . | indent 4 }}
+    component: database
+spec:
+  ports:
+    - port: 3306
+      targetPort: db
+      protocol: TCP
+      name: db
+  selector:
+{{ include "polling.matchLabels" . | indent 4 }}
+    component: database
+{{- end -}}

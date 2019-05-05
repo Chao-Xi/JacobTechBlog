@@ -1,0 +1,70 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: "{{ template "polling.api" . }}"
+  labels:
+{{ include "polling.labels" . | indent 4 }}
+    component: api
+spec:
+  replicas: {{ .Values.api.replicaCount }}
+  selector:
+    matchLabels:
+{{ include "polling.matchLabels" . | indent 6 }}
+      component: api
+  template:
+    metadata:
+      labels:
+{{ include "polling.matchLabels" . | indent 8 }}
+        component: api
+    spec:
+      {{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+{{ toYaml .Values.imagePullSecrets | indent 8 }}
+      {{- end }}
+      containers:
+        - name: api
+          image: "{{ .Values.api.image.repository }}:{{ .Values.api.image.tag }}"
+          imagePullPolicy: {{ .Values.api.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /api/_status/healthz
+              port: 8080
+            initialDelaySeconds: 90
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /api/_status/healthz
+              port: 8080
+            initialDelaySeconds: 30
+            timeoutSeconds: 10
+          env:
+          - name: DB_HOST
+            value: "{{ template "polling.database.host" . }}"
+          - name: DB_PORT
+            value: "{{ template "polling.database.port" . }}"
+          - name: DB_NAME
+            value: "{{ template "polling.database.name" . }}"
+          - name: DB_USER
+            value: "{{ template "polling.database.username" . }}"
+          - name: DB_PASSWORD
+            value: "{{ template "polling.database.rawPassword" . }}"
+{{- if .Values.api.resources }}
+          resources:
+{{ toYaml .Values.api.resources | indent 12 }}
+{{- end }}
+    {{- with .Values.api.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.api.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.api.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

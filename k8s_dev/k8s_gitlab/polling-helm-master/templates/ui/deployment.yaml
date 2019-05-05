@@ -1,0 +1,50 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: "{{ template "polling.ui" . }}"
+  labels:
+{{ include "polling.labels" . | indent 4 }}
+    component: ui
+spec:
+  replicas: {{ .Values.ui.replicas }}
+  selector:
+    matchLabels:
+{{ include "polling.matchLabels" . | indent 6 }}
+      component: ui
+  template:
+    metadata:
+      labels:
+{{ include "polling.matchLabels" . | indent 8 }}
+        component: ui
+      annotations:
+{{- if .Values.ui.podAnnotations }}
+{{ toYaml .Values.ui.podAnnotations | indent 8 }}
+{{- end }}
+    spec:
+{{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+{{ toYaml .Values.imagePullSecrets | indent 8 }}
+      {{- end }}
+      containers:
+      - name: ui
+        image: {{ .Values.ui.image.repository }}:{{ .Values.ui.image.tag }}
+        imagePullPolicy: {{ .Values.ui.image.imagePullPolicy }}
+{{- if .Values.ui.resources }}
+        resources:
+{{ toYaml .Values.ui.resources | indent 10 }}
+{{- end }}
+        ports:
+        - name: http
+          containerPort: 80
+    {{- with .Values.ui.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.ui.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.ui.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

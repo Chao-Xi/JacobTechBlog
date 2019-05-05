@@ -1,0 +1,10 @@
+apiVersion: v1
+appVersion: "1.0"
+description: A Helm chart for polling app
+name: polling
+version: 0.1.0
+home: https://www.qikqiak.com
+maintainers:
+- name: 阳明
+  email: icnych@gmail.com
+engine: gotpl
