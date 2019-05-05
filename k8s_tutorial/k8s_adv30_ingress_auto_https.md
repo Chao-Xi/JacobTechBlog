@@ -17,7 +17,7 @@
 
 > 如果对`Helm`还不是很熟悉，可以参考前面我的[Helm 系列文章](https://github.com/Chao-Xi/JacobTechBlog/tree/master/k8s_tutorial#%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-helm)
 
-在使用的时候我们需要配置一个缺省的 [cluster issuer](http://docs.cert-manager.io/en/latest/reference/clusterissuers.html)，当部署 `Cert manager` 的时候，用于支持k`ubernetes.io/tls-acme: "true"` annotation 来自动化 **TLS**：
+在使用的时候我们需要配置一个缺省的 [cluster issuer](http://docs.cert-manager.io/en/latest/reference/clusterissuers.html)，当部署 `Cert manager` 的时候，用于支持`kubernetes.io/tls-acme: "true"` annotation 来自动化 **TLS**：
 
 > ClusterIssuers are a resource type similar to Issuers. They are specified in exactly the same way, but they do not belong to a single namespace and can be referenced by Certificate resources from multiple different namespaces.
 > 
