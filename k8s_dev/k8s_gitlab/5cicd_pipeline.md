@@ -68,7 +68,7 @@ def image = "${dockerRegistryUrl}/${imageEndpoint}"
 
 这还不是因为我们暂时还没有去写应用的 `Helm Chart` 包吗？所以我们先去用原始的 `YAML` 文件来编写应用部署的资源清单文件，这也是我们写出 `Chart` 包前提，**因为只有知道了应用如何部署才可能知道 `Chart` 包如何编写，所以我们先编写应用部署资源清单。**
 
-首先当然就是 `Deployment` 控制器了，如下所示：（`k8s.yaml`）
+首先当然就是 `Deployment` 控制器了，如下所示：（`k8s.yaml`）
 
 ```
 apiVersion: extensions/v1beta1
@@ -180,9 +180,9 @@ spec:
     targetPort: dbport
 ```
 
-**可以看到我们上面的 `YAML` 文件中添加使用的镜像是用标签代替的：`<IMAGE>:<IMAGE_TAG>`，**
+**可以看到我们上面的 `YAML` 文件中添加使用的镜像是用标签代替的：`<IMAGE>:<IMAGE_TAG>`，**
 
-这是因为我们的镜像地址是动态的，下依赖我们在上一个阶段打包出来的镜像地址的，所以我们这里用标签代替，然后将标签替换成真正的值即可，另外为了保证应用的稳定性，**我们还在应用中添加了健康检查，所以需要在代码中添加一个健康检查的 Controller**：（`src/main/java/com/example/polls/controller/StatusController.java`）
+这是因为我们的镜像地址是动态的，下依赖我们在上一个阶段打包出来的镜像地址的，所以我们这里用标签代替，然后将标签替换成真正的值即可，另外为了保证应用的稳定性，**我们还在应用中添加了健康检查，所以需要在代码中添加一个健康检查的 Controller**：（`src/main/java/com/example/polls/controller/StatusController.java`）
 
 ```
 package com.example.polls.controller;
@@ -213,7 +213,7 @@ $ kubectl create secret docker-registry myreg --docker-server=registry.example.c
 
 ### 第五阶段：
 
-运行 `Helm` 工具，就是直接使用 `Helm` 来部署应用了，现在有了上面的基本的资源对象了，要创建 `Chart` 模板就相对容易了，`Chart` [模板仓库地址](polling-helm-master)，我们可以根据**`values.yaml`**文件来进行自定义安装，**模板中我们定义了可以指定使用外部数据库服务或者内部独立的数据库服务**，具体的我们可以去看模板中的定义。首先我们可以先使用这个模板在集群中来测试下。首先在集群中 `Clone` 上面的 `Chart` 模板：
+运行 `Helm` 工具，就是直接使用 `Helm` 来部署应用了，现在有了上面的基本的资源对象了，要创建 `Chart` 模板就相对容易了，`Chart` [模板仓库地址](polling-helm-master)，我们可以根据**`values.yaml`**文件来进行自定义安装，**模板中我们定义了可以指定使用外部数据库服务或者内部独立的数据库服务**，具体的我们可以去看模板中的定义。首先我们可以先使用这个模板在集群中来测试下。首先在集群中 `Clone` 上面的 `Chart` 模板：
 
 ```
 $ git clone https://github.com/cnych/polling-helm.git
