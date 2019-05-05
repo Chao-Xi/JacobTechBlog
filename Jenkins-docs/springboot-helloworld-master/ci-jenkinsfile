@@ -1,0 +1,42 @@
+def jarName
+
+node("master"){
+    
+    stage("Get Code"){
+        checkout scm
+    }
+    
+    stage("Build & Unit Test"){
+        def mvnHome="/usr/local/apache-maven-3.6.0" 
+        sh "${mvnHome}/bin/mvn clean install "
+        
+    }
+    
+    stage("Scan Code"){
+        println("code scan")
+        
+    }
+    
+    stage("Push Nexus"){
+        jarName = sh returnStdout: true, script: "cd target && ls *.jar"
+        jarName = jarName - "\n"
+        def pom = readMavenPom file: 'pom.xml'
+        nexusArtifactUploader(artifacts: [[artifactId: "${pom.artifactId}", 
+                                           classifier: '', 
+                                           file: "./target/${pom.artifactId}-${pom.version}.${pom.packaging}", 
+                                           type: "${pom.packaging}"]],
+                              credentialsId: 'nexus-admin', 
+                              groupId: "${pom.groupId}", 
+                              nexusUrl: '192.168.0.44:8081', 
+                              nexusVersion: 'nexus3', 
+                              protocol: 'http', 
+                              repository: "${pom.groupId}", 
+                              version: "${pom.version}")
+        
+    }
+    
+    stage("To Email "){
+        
+        
+    }
+}

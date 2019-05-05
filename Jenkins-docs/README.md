@@ -57,11 +57,21 @@
 * 7.3 []()
 * 7.4 [Golang 项目发布流水线（demo)](chapter/19Pipeline_golang.md)
 
-
 ## 第8章 Extend Jenkins ith Shared Libraries
 
 * 8.1 [Defining Shared Libraries(目录结构, 加载库, 实战)](chapter/20Shared_Library_Definition.md)
 * 8.2 [Shared Library global configuration](chapter/21Shared_Library_global_configuration.md)
 * 8.3 [Writing libraries in Shared Library](chapter/22Shared_Library_Writing_library.md)
+
+## 第9章 移动端流水线实践
+
+## 第10章 JenkinsAPI
+
+* 10.1 [Jenkins 用户授权脚本](chapter/23Jenkins_roles.md)
+
+## 第11章 容器部署
+
+* 11.1 [基于OpenShift平台部署Jenkins](chapter/24Jenkins_OpenShift.md)
+
 
 
