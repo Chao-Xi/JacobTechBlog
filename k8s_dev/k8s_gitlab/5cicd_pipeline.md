@@ -28,7 +28,7 @@
 
 1. 构建 `Docker` 镜像，
 2. 要构建 `Docker` 镜像，就需要提供镜像的名称和 `tag`，
-3. 要推送到 `Harbor` 仓库，就需要提供登录的用户名和密码，**所以我们这里使用到了`withCredentials`方法，在里面可以提供一个`credentialsId`为`dockerhub`的认证信息**，
+3. 要推送到 `Harbor` 仓库，就需要提供登录的用户名和密码，**所以我们这里使用到了`withCredentials`方法，在里面可以提供一个`credentialsId`为`dockerhub`的认证信息**，
 
 **如下：**
 
@@ -58,15 +58,15 @@ def imageEndpoint = "course/polling-app-server"
 def image = "${dockerRegistryUrl}/${imageEndpoint}"
 ```
 
-`docker` 的用户名和密码信息则需要通过凭据来进行添加，进入 `jenkins 首页 -> 左侧菜单凭据 -> 添加凭据`，选择用户名和密码类型的，**其中 `ID` 一定要和上面的`credentialsId`的值保持一致**：
+`docker` 的用户名和密码信息则需要通过凭据来进行添加，进入 `jenkins 首页 -> 左侧菜单凭据 -> 添加凭据`，选择用户名和密码类型的，**其中 `ID` 一定要和上面的`credentialsId`的值保持一致**：
 
 ![Alt Image Text](images/5_1.png "Body image")
 
 ### 第四个阶段：
 
-运行 `kubectl` 工具，其实在我们当前使用的流水线中是用不到 `kubectl` 工具的，那么为什么我们这里要使用呢？
+运行 `kubectl` 工具，其实在我们当前使用的流水线中是用不到 `kubectl` 工具的，那么为什么我们这里要使用呢？
 
-这还不是因为我们暂时还没有去写应用的 `Helm Chart` 包吗？所以我们先去用原始的 `YAML` 文件来编写应用部署的资源清单文件，这也是我们写出 `Chart` 包前提，**因为只有知道了应用如何部署才可能知道 `Chart` 包如何编写，所以我们先编写应用部署资源清单。**
+这还不是因为我们暂时还没有去写应用的 `Helm Chart` 包吗？所以我们先去用原始的 `YAML` 文件来编写应用部署的资源清单文件，这也是我们写出 `Chart` 包前提，**因为只有知道了应用如何部署才可能知道 `Chart` 包如何编写，所以我们先编写应用部署资源清单。**
 
 首先当然就是 `Deployment` 控制器了，如下所示：（`k8s.yaml`）
 
