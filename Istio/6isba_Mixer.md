@@ -17,13 +17,13 @@
 * **Citadel**: TLS certs to proxies
 
 
-![Alt Image Text](images/6_1.png "Body image")
+![Alt Image Text](images/ba/6_1.png "Body image")
 
 
 
 ### Istio 官方四大功能中两个基于`Mixer`实现 Control & Observer
 
-![Alt Image Text](images/6_2.png "Body image")
+![Alt Image Text](images/ba/6_2.png "Body image")
 
 ###  Mixer在Istio中角色
 
@@ -35,7 +35,7 @@
 ### 没有Mixer的时候 Total Chaos
 
 
-![Alt Image Text](images/6_3.png "Body image")
+![Alt Image Text](images/ba/6_3.png "Body image")
 
 ### Mixer的Adapter机制
 
@@ -45,11 +45,11 @@ Mixer 处理不同基础设施后端的灵活性是通过使用通用插件模�
 
 **Mixer 通过它们与不同的基础设施后端连接，这些后端可提供核心功能，提供日志、监控、配额、ACL 检查等**
 
-![Alt Image Text](images/6_4.png "Body image")
+![Alt Image Text](images/ba/6_4.png "Body image")
 
 ### Mixer完整视图
 
-![Alt Image Text](images/6_5.png "Body image")
+![Alt Image Text](images/ba/6_5.png "Body image")
 
 **解耦、中介、运维时配置**
 
@@ -60,12 +60,12 @@ Mixer 处理不同基础设施后端的灵活性是通过使用通用插件模�
 
 **Custom Metrics**
 
-![Alt Image Text](images/6_6.png "Body image")
+![Alt Image Text](images/ba/6_6.png "Body image")
 
 
 ### Mixer的处理流程
 
-![Alt Image Text](images/6_7.png "Body image")
+![Alt Image Text](images/ba/6_7.png "Body image")
 
 1. **`Envoy`生成属性上报`Mixer`**
 2. **`Mixer` 调用对应后端处理属性**
@@ -77,7 +77,7 @@ Mixer 处理不同基础设施后端的灵活性是通过使用通用插件模�
 
 * **`Handler`**: 创建 `Handler`,即配置`Mixer`适配器。
 * **`Instance`**: 从 `Istio` 属性中生成 `instance`。
-* **`Rule`**:** 配置一组规则，这些规则描述了何时调用特定适配器及哪些实例。**
+* **`Rule`**: **配置一组规则，这些规则描述了何时调用特定适配器及哪些实例。**
 
 ## Mixer的配置模型
 
@@ -154,14 +154,14 @@ spec:
 * 补充属性，
 * 处理属性
 
-![Alt Image Text](images/6_8.png "Body image")
+![Alt Image Text](images/ba/6_8.png "Body image")
 
 
 ### Mixer Adapters
 
 [https://istio.io/docs/reference/config/policy-and-telemetry/adapters/](https://istio.io/docs/reference/config/policy-and-telemetry/adapters/)
 
-![Alt Image Text](images/6_9.png "Body image")
+![Alt Image Text](images/ba/6_9.png "Body image")
 
 ### Mixer 的 Check Adapter
 
@@ -294,7 +294,7 @@ message Params {
 * 高可以用
 * 缓存和缓冲
 
-![Alt Image Text](images/6_10.png "Body image")
+![Alt Image Text](images/ba/6_10.png "Body image")
 
 #### Envoy
 
@@ -307,25 +307,25 @@ message Params {
 
 ###  Mixer 的 Batch Report
 
-![Alt Image Text](images/6_11.png "Body image")
+![Alt Image Text](images/ba/6_11.png "Body image")
 
 ## Mixer的典型应用
 
 ###  Mixer典型应用1: 华为云应用服务网格
 
-![Alt Image Text](images/6_12.png "Body image")
+![Alt Image Text](images/ba/6_12.png "Body image")
 
 ###  Mixer典型应用2: Google Apigee
 
 [https://docs.apigee.com/api-platform/istio-adapter/concepts](https://docs.apigee.com/api-platform/istio-adapter/concepts)
 
-![Alt Image Text](images/6_13.png "Body image")
+![Alt Image Text](images/ba/6_13.png "Body image")
 
 ## Mixer实践1和2
 
 ## 实践1 从0开发并运行一个`Mixer Adapter`:原理
 
-![Alt Image Text](images/6_14.png "Body image")
+![Alt Image Text](images/ba/6_14.png "Body image")
 
 ### 两个角色
 
@@ -333,7 +333,7 @@ message Params {
 配置模板使用一个 Adapter           =>                    开发代码定义模板开发一个Adapter
 ```
 
-![Alt Image Text](images/6_15.png "Body image")
+![Alt Image Text](images/ba/6_15.png "Body image")
 
 
 ### 实践1 从0开发并运行一个Mixer Adapter:步骤
@@ -396,9 +396,9 @@ tail $ISTIO/istio/out.txt
 
 ### 效果
 
-![Alt Image Text](images/6_16.png "Body image")
+![Alt Image Text](images/ba/6_16.png "Body image")
 
-![Alt Image Text](images/6_17.png "Body image")
+![Alt Image Text](images/ba/6_17.png "Body image")
 
 
 ## 实践2 通过Mixer收集自定义的遥测数据:目标
@@ -430,13 +430,13 @@ kubectl get prometheus.config.istio.io -nistio-system
   * 4.1 查看`doublereques`的metric `http://49.4.84.29:9090/graph?g0.range_input=1h&g0.expr=istio_double_request_count&g0.tab=1`
   * 4.2 通过`prometheus`检索特定目标的 metric `istio_double_request_count{destination="details-v1"}`
 
-![Alt Image Text](images/6_18.png "Body image")
+![Alt Image Text](images/ba/6_18.png "Body image")
 
-![Alt Image Text](images/6_19.png "Body image")
+![Alt Image Text](images/ba/6_19.png "Body image")
 
 ### 效果
 
-![Alt Image Text](images/6_20.png "Body image")
+![Alt Image Text](images/ba/6_20.png "Body image")
 
-![Alt Image Text](images/6_21.png "Body image")
+![Alt Image Text](images/ba/6_21.png "Body image")
 
