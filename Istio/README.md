@@ -75,4 +75,8 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
    * 收个尾
 
 
+## Kubernetes + JenkinsX + Istio渐进式交付
 
+1. [Kubernetes 中的渐进式交付：蓝绿部署和金丝雀部署, shipper, Istio, Flagger](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_adv54_release.md)
+2. [使用 Jenkins X 渐进式交付](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_adv56_jenkinsX.md)
+3. [使用 Jenkins X 渐进式交付：自动化金丝雀部署](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_adv57_Auto_Canary.md)
