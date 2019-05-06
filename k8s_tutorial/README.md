@@ -78,7 +78,11 @@
 1. [7 款你不得不了解的开源云监控工具](k8s_arch1_monitor7.md) 
 2. [Kubernetes 部署策略详解](k8s_adv41_deploy.md)
 3. [Kubernetes CNI网络最强对比：Flannel、Calico、Canal和Weave](k8s_adv47_CNI.md)
-4. [Kubernetes 中的渐进式交付, 蓝绿部署和金丝雀部署: shipper, Istio, Flagger](k8s_adv54_release.md)
+
+#### Kubernetes + JenkinsX + Istio渐进式交付
+1. [Kubernetes 中的渐进式交付, 蓝绿部署和金丝雀部署: shipper, Istio, Flagger](k8s_adv54_release.md)
+2. [使用 Jenkins X 渐进式交付](k8s_adv56_jenkinsX.md)
+3. [使用 Jenkins X 渐进式交付：自动化金丝雀部署](k8s_adv57_Auto_Canary.md)
 
 ### K8S 操作
 
