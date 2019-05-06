@@ -46,6 +46,12 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
   * xDS协议分析 
   * ADS理解
   * xDS的未来
+6. [Mixer基础与实现(Handler, Instance, Rule)](6isba_Mixer.md)
+  * Istio架构回顾&Mixer介绍 
+  * Mixer的功能和设计
+  * Mixer的配置模型
+  * Mixer的典型应用
+  * Mixer实践1和2
 
 ## bookinfo 实验与教学
 
