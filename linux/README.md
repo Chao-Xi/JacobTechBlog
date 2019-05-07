@@ -23,11 +23,27 @@
   * 查看tcp连接状态
   * 查找80端口请求数最高的前20个IP
   * ssh实现端口转发
-8. [Linux 性能优化之应用高 `CPU` 处理](6Linux_high_cpu.md)
 
 
 ## Linux Interview
 
 1. [Top 9 Linux Job Interview Questions(command)](1top10linuxjobQA.md)
 2. [50 Linux Interview Questions And Answers](1Linux_interview.md)
+
+## Linux Adv
+
+### System Info
+
+1. [查看特定进程内存使用信息`memory`](linux_adv1_mem_check.md)
+2. [Linux 性能优化之应用高 `CPU` 处理](6Linux_high_cpu.md)
+
+
+### Web Info
+
+1. [使用ab对Web服务进行压力测试](linux_adv2_ab_web.md)
+
+
+### Code Info
+
+1. [使用cloc进行代码统计](linux_adv3_cloc_code.md)
 
