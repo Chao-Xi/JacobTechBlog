@@ -36,12 +36,15 @@
 
 1. [查看特定进程内存使用信息`memory`](linux_adv1_mem_check.md)
 2. [Linux 性能优化之应用高 `CPU` 处理](6Linux_high_cpu.md)
+3. [如何Linux下查看系统CPU信息](linux_adv6_cpu_check.md)
+4. [Linux硬盘性能检测](linux_adv7_disk_info.md)
+5. [Linux进程实时监控 - `htop`](linux_adv8_procss_htop.md)
 
 
 ### Web Info
 
-1. [使用ab对Web服务进行压力测试](linux_adv2_ab_web.md)
-2. [使用httperf对Web服务进行压力测试](linux_adv4_httperf_web.md)
+1. [使用`ab`对Web服务进行压力测试](linux_adv2_ab_web.md)
+2. [使用`httperf`对`Web`服务进行压力测试](linux_adv4_httperf_web.md)
 
 
 ### Code Info
