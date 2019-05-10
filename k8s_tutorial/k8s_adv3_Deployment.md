@@ -7,7 +7,7 @@ k8s集群从1.7.7版本开始官方已经推荐使用`Deployment`代替`Replicat
 
 ![Alt Image Text](images/adv/adv3_1.jpg "Body image")
 
-可以看出一个`Deployment`拥有多个`Replica Set`，而一个`Replica Se`t拥有一个或多个`Pod`。一个`Deployment`控制多个`rs`主要是为了支持回滚机制，每当`Deployment`操作时，`Kubernetes`会重新生成一个`Replica Set`并保留，以后有需要的话就可以回滚至之前的状态。 下面创建一个`Deployment`，它创建了一个`Replica Set`来启动3个`nginx pod`，yaml文件如下：
+可以看出一个`Deployment`拥有多个`Replica Set`，而一个`Replica Set`拥有一个或多个`Pod`。一个`Deployment`控制多个`rs`主要是为了支持回滚机制，每当`Deployment`操作时，`Kubernetes`会重新生成一个`Replica Set`并保留，以后有需要的话就可以回滚至之前的状态。 下面创建一个`Deployment`，它创建了一个`Replica Set`来启动3个`nginx pod`，yaml文件如下：
 
 ```
 apiVersion: apps/v1beta1
