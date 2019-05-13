@@ -1,5 +1,18 @@
 # Linux tutorial
 
+## My Linux cheat lists
+
+```
+$ grep word folder/. * -ri     # find a word in all files inside the folder
+$ netstat -lnotp | grep port
+$ ps aux | grep PID
+$ find folder -name file_name
+$ find . -name 1Linux_interview.md
+./1Linux_interview.md
+$ grep -rnw . -e 'string'     # find string inside the folder
+$ grep -rnw . -e 'linux'
+```
+
 ## Linux Sysadmin Basics 
 
 1. [Linux Sysadmin Basics - Process](2Linux_process.md)
@@ -55,3 +68,6 @@
 
 1. [监控Linux系统当前监听使用的端口](linux_adv5_port_check.md)
 
+
+
+![Alt Image Text](images/0_1.png "Body image")
