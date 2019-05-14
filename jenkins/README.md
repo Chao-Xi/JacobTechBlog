@@ -22,12 +22,19 @@
 1. [Build Name Setter Plugin](14BuildNameSetterPlugin.md)
 
 
-## Learning groovy
+## Learning Jenkins Pipeline
+
+### Learning groovy
+
+* [Groovy 简明教程](24Groovy_basic_tutorial.md)
+* [How to use gradle check to check your code sanity and gramma](17Gradle_check_for_groovy.md)
+
+### Learning Pipeline
 
 1. [Standlone Job and its Class for the job builder](11SimpleStandloneJob.md)
 2. [Multiple Inheritance Job in pipeline job (lock and unlock parts)](12MultipleInheritanceJob.md)
 3. [Manually Created Jenkins Seed Job](13ManuallySeedjob.md)
-4. [How to use gradle check to check your code sanity and gramma](17Gradle_check_for_groovy.md)
+
 
 ## Jenkins CICD
 

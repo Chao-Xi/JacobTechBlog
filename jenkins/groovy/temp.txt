@@ -1,0 +1,3 @@
+$ brew install groovy
+$ groovy -v
+Groovy Version: 2.5.7 JVM: 1.8.0_151 Vendor: Oracle Corporation OS: Mac OS X
