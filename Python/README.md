@@ -95,6 +95,10 @@
 4. [Hiding Passwords and Secret Keys in Environment Variables](python_adv22.md)
 5. [`if __name__ == '__main__'`](python_adv23.md)
 
+### Important tools
+
+* [Jupyter Notebook Tutorial: Introduction, Setup, and Walkthrough](python_adv38.md)
+
 
 ### Tricks and tips
 
