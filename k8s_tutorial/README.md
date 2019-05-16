@@ -134,6 +134,7 @@
 11. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
 12. [Kubernetes Secret 资源对象使用方法](k8s_adv12_secret.md)
 13. [`Kubernetes Namespace`命名空间详解](k8s_adv44_namespace.md)
+14. [`Kubelet` 状态更新机制](k8s_adv58_kubelet.md)
 
 ### 持久化存储:
 
