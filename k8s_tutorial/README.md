@@ -118,6 +118,7 @@
 ### K8S and Cloud
 
 1. [kube2iam overview, features and install on production](k8s_adv53_kube2iam.md)
+2. [BB AWS Cluster Autoscaler](k8s_adv59_aws_cluster_autoscaler.md)
 
 ### 常用对象操作:
 
