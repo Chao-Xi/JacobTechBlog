@@ -151,6 +151,7 @@
 3. [Pod 中挂载单个文件的方法 subpath](k8s_adv15_subpath.md)
 4. [Kubernetes Local Persistent Volume](k8s_adv37_local_persistent_volume.md)
 5. [3种K8S存储：emptyDir、hostPath、local](k8s_adv45_3OthersStorage.md)
+6. [在 `Kubernetes v1.14` 中，如何动态配置本地存储？](k8s_adv60_local_pv.md)
 
 ### 服务发现
 
