@@ -186,7 +186,7 @@ Google data stream       Spark
 
 ![Alt Image Text](images/2_12.png "Body image")
 
-### 􏰡􏰓愿景
+### 愿景
 
 #### 云端开发
 
