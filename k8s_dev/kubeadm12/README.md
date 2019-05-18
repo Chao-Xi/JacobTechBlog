@@ -6,4 +6,4 @@
 
 1. [用 kubeadm 搭建集群环境](1Kubeadm_Setup.md)
 2. [在 kubeadm 集群中安装 Dashboard 插件](2Kubeadm_Dashboard.md)
-
+3. [使用 kubeadm 更新 kubernetes 集群](3Kubeadm_Upgrade_cluster.md)
