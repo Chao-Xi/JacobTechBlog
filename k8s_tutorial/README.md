@@ -110,6 +110,10 @@
 6. [健康检查(liveness probe & readiness probe)](k8s_adv22_health_inspect.md)
 7. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
 
+### etcd 
+
+1. [etcd 集群大小优化选择](k8s_adv61_etcd_think.md)
+
 ### K8S 调度器
 
 1. [Kubernetes 调度器介绍](k8s_adv25_kube-scheduler.md)
