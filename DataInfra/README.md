@@ -7,6 +7,11 @@
    *  Kubeflow with Jupyter notebook
 
 
+## Apache Spark
+
+1. [Apache Spark Introduction](sp1_Intro.md)
+2. [Spark Demo Environment Setup](sp2_Env_setup.md)
+
 
 ## Hive
 
@@ -17,3 +22,4 @@
    * How hive works
    * Quiz
 2. [Setting up our demo environment](hive2_setting_demo_env.md)
+
