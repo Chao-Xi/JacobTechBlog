@@ -108,7 +108,7 @@ A framework to author and orchestrate machine learning workflows
 * Docker containers encapsulate environments. 
 * **APIs for publishing and deploying pipelines.** 
 * Rich metadata and logging. 
-* **Supports GPU and TPU nodes for accelerated training. **
+* **Supports GPU and TPU nodes for accelerated training.**
 
 ![Alt Image Text](images/1_13.png "Body image") 
 
