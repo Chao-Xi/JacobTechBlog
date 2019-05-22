@@ -30,6 +30,18 @@
    * Exploring Data in DataFrames
    * Saving DF Results
    * Quiz
+6. [Using Spark SQL to Analyze Data](sp6_SQL_ana_data.md)
+   * Creating table
+   * Querying Data with Spark SQL
+   * Visualizing data in Databricks notebooks
+   * Quiz
+7. [Running Machine Learning Algorithms Using MLlib](sp7_Machine_Learning.md)
+   * Introduction to machine learning with Spark
+   * Preparing data for machine learning
+   * Building a linear regression mode
+   * Check Models for Accuracy
+   * Visualizing a linear regression model
+   * Quiz
 
 
 ## Hive
