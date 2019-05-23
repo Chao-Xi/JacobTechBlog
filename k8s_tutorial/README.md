@@ -156,6 +156,7 @@
 4. [Kubernetes Local Persistent Volume](k8s_adv37_local_persistent_volume.md)
 5. [3种K8S存储：emptyDir、hostPath、local](k8s_adv45_3OthersStorage.md)
 6. [在 `Kubernetes v1.14` 中，如何动态配置本地存储？](k8s_adv60_local_pv.md)
+7. [K8s 的软件定义存储解决方案(Software-Defined Storage:GlusterFS/ScaleIO/Quobyte)](k8s_adv62_sds.md)
 
 ### 服务发现
 
@@ -221,6 +222,7 @@
 9. [Prometheus Operator 自定义报警](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/14Adv_Prometheus_Operator_alarm.md)
 10. [Prometheus Operator 自动发现以及数据持久化](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/15Adv_Prometheus_Operator_Setting.md)
 11. [kube-state-metrics](k8s_adv39_kube_state_metrics.md)
+12. [Metrics Server 安装与排错](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/17Adv_K8S_Metrics_Server.md)
 
 ### K8S 其他工具
 
