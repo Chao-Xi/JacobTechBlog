@@ -18,6 +18,7 @@
 6. [报警神器 AlertManager 的使用](10Adv_k8s_AlertManger.md)
 7. [Prometheus 删除数据指标](16Adv_Prometheus_Del_index.md)
 8. [`kube-state-metrics`与`metric-server`的对比](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_adv39_kube_state_metrics.md)
+9. [`Metrics Server` 安装与排错](17Adv_K8S_Metrics_Server.md)
 
 
 ## Prometheus Operator Framework
