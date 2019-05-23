@@ -42,6 +42,12 @@
    * Check Models for Accuracy
    * Visualizing a linear regression model
    * Quiz
+8. [Real-Time Data Analysis with Spark Streaming](sp8_data_ana_streaming.md)
+   * Introduction to streaming analytics
+   * Setting up Streaming Context
+   * Querying Streaming Data
+   * Quiz
+9. [Connecting BI Tools to Spark](sp9_set_locally.md)
 
 
 ## Hive
