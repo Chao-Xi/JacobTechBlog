@@ -24,6 +24,8 @@
 ### code example:
 
 * [Python function example: daymonthfunc.py](daymonthfunc.py)
+* [Enter different k8s cluster env(inside `/stash_repos/starter/kubernetes`)](k8s_starter.py)
+* [Enter different chef env(inside `~/.chefdk`](chef_dk_enter_env.py)
 
 ## Python Tutorial Advance
 
