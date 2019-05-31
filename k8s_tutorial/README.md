@@ -229,6 +229,7 @@
 
 1. [安装使用 360 开源 K8S Dashboard: `Wayne`](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/9Adv_Wayne_dashboard.md) 
 2. [Grafana 日志聚合工具 Loki](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/12Adv_Grafana_Loki.md)
+3. [Kubernetes Operator 快速入门教程](k8s_adv63_operator.md)
 
 
 ### K8S Q&A
