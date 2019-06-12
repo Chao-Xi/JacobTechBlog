@@ -1,14 +1,52 @@
-![Alt Image Text](bg.png "Body image")
+# Kubernetes monitoring with Prometheus 
 
-## 项目列表
+![Alt Image Text](images/0.jpg "Headline image")
 
-1. [手摸手搭建高可用的kubernetes集群（1.8.2)](./build_k8s18/README.md)
-2. [kubeadm12](./kubeadm12/README.md)
-3. [基于 Jenkins 的 CI/CD](./jenkins/README.md)
-4. [Kubernetes monitoring with Prometheus](./prometheus/README.md)
-5. [kubernetes 日志收集](./log_architecture/README.md)
-6. [Harbor - Manage and serve container images in a secure environment](./harbor/README.md)
-7. [如何在Kubernetes上部署Redis集群](./k8s_redis/1k8s_install_redis.md)
-8. [K8S +Gitlab + Gitlab CI Runner + Jenkins + Harbor + Helm + Kubernetes](./k8s_gitlab/README.md)
-9. [如何使用`Message Queues`, `Spring Boot`, 以及 `Kubernetes`构建高可用的微服务架构](./k8s_queue_springboot/README.md)
-10. [使用 Jenkins X、Kubernetes 和 Spring Boot 实现 CI/CD](./jenkinsx_springBoot_cicd/README.md)
+1. [Kubernetes 使用 Prometheus搭建监控平台](1.prometheus_setup.md)
+2. [Prometheus 报警 && AlertManager 实战](2.prometheus_AlertManager.md)
+3. [Grafana 显示参数设置](3.changes_on_Grafana.md)
+
+
+
+## Prometheus Adv. tutorial
+
+1. [在 Kubernetes 中手动部署 Prometheus](4.Adv_Prometheus_setup.md)
+2. [Kubernetes 应用监控](5Adv_Prometheus_monitor.md)
+3. [监控 Kubernetes 集群节点](6Adv_K8S_Nodes_monitor.md)
+4. [监控 Kubernetes 常用资源对象](7Adv_K8S_Resource_monitor.md)
+5. [Grafana 在 Kubernetes 中的使用](8Adv_K8S_Grafana.md)
+6. [报警神器 AlertManager 的使用](10Adv_k8s_AlertManger.md)
+7. [Prometheus 删除数据指标](16Adv_Prometheus_Del_index.md)
+8. [深入Prometheus设计-指标定义与分类](18Adv_Prometheus_index_classfication.md)
+
+
+### Metrics Collector
+
+1. [`kube-state-metrics`与`metric-server`的对比](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_adv39_kube_state_metrics.md)
+2. [`Metrics Server` 安装与排错](17Adv_K8S_Metrics_Server.md)
+
+
+## Prometheus Operator Framework
+
+![Alt Image Text](images/11_1.jpg "Body image")
+
+1. [Prometheus Operator 初体验](11Adv_Prometheus_Operator.md)
+2. [使用 Prometheus Operator 监控 etcd](13Adv_Prometheus_Operator_etcd.md)
+3. [Prometheus Operator 自定义报警](14Adv_Prometheus_Operator_alarm.md)
+4. [Prometheus Operator 自动发现以及数据持久化](15Adv_Prometheus_Operator_Setting.md)
+
+
+## Other monitor tools
+
+1. [安装使用 360 开源 K8S Dashboard: `Wayne`](9Adv_Wayne_dashboard.md) 
+2. [Grafana 日志聚合工具 Loki](12Adv_Grafana_Loki.md)
+
+
+
+
+
+
+
+
+
+
