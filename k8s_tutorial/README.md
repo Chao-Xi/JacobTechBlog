@@ -141,6 +141,8 @@
 12. [Kubernetes Secret 资源对象使用方法](k8s_adv12_secret.md)
 13. [`Kubernetes Namespace`命名空间详解](k8s_adv44_namespace.md)
 14. [`Kubelet` 状态更新机制](k8s_adv58_kubelet.md)
+15. [如何在`Kubernetes`实现GPU调度及共享](k8s_adv64_GPU_share.md)
+16. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
 
 ### 持久化存储:
 
@@ -176,6 +178,7 @@
 4. [如何保护对外暴露的 Kubernetes 服务](k8s_adv50_Ingress_Protection.md)
 6. [nginx-ingress 的安装使用](k8s_adv51_Nginx_Ingress.md)
 7. [kubernetes 办公环境下网络互通方案](k8s_adv38_Connect_Offce_Network.md)
+8. [Ingress vs Load Balancer](k8s_adv66_elbVSingress.md)
 
 ### K8S 伸缩问题
 
