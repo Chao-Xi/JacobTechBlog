@@ -17,8 +17,13 @@
 5. [Grafana 在 Kubernetes 中的使用](8Adv_K8S_Grafana.md)
 6. [报警神器 AlertManager 的使用](10Adv_k8s_AlertManger.md)
 7. [Prometheus 删除数据指标](16Adv_Prometheus_Del_index.md)
-8. [`kube-state-metrics`与`metric-server`的对比](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_adv39_kube_state_metrics.md)
-9. [`Metrics Server` 安装与排错](17Adv_K8S_Metrics_Server.md)
+8. [深入Prometheus设计-指标定义与分类](18Adv_Prometheus_index_classfication.md)
+
+
+### Metrics Collector
+
+1. [`kube-state-metrics`与`metric-server`的对比](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_adv39_kube_state_metrics.md)
+2. [`Metrics Server` 安装与排错](17Adv_K8S_Metrics_Server.md)
 
 
 ## Prometheus Operator Framework
