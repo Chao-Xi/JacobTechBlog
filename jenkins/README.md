@@ -35,6 +35,9 @@
 2. [Multiple Inheritance Job in pipeline job (lock and unlock parts)](12MultipleInheritanceJob.md)
 3. [Manually Created Jenkins Seed Job](13ManuallySeedjob.md)
 
+### Learning Configuration
+
+1. [使用 Configuration-As-Code 运行 Jenkins](25Jenkins-config-as-code.md)
 
 ## Jenkins CICD
 
