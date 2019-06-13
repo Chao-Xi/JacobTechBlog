@@ -161,8 +161,25 @@
 6. [在 `Kubernetes v1.14` 中，如何动态配置本地存储？](k8s_adv60_local_pv.md)
 7. [K8s 的软件定义存储解决方案(Software-Defined Storage:GlusterFS/ScaleIO/Quobyte)](k8s_adv62_sds.md)
 
-### 服务发现
+### 服务发现及网络模型解析
 
+#### (0)[ Kubernetes 网络模型解析](k8s_adv67_network_model.md)
+
+1. 容器和容器之间的网络
+2. `Pod` 与 `Pod` 之间的网络
+   * 同一个 `Node` 中的 `Pod` 之间的一次通信
+   * 不同 Node 中的 Pod 之间通讯 (`VXLAN / Flannel` )
+3. `Pod` 与 `Service` 之间的网络
+  * `netfilter`
+  * `iptables`
+  * `IPVS`
+  * `Pod` 到 `Service` 的一个包的流转
+  * `Service` 到 `Pod` 的一个包的流转
+4. Internet 与 Service 之间的网络
+  * `Kubernetes` 流量到 `Internet` 
+  * `Node` 到 `Internet`
+  * `Internet` 到 `Kubernetes` (`NodePort / LoadBalancer / Ingress Controller`)
+  
 #### (1) 内部服务发现:
 
 1. [内部服务发现 `kube-proxy` 实现原理](k8s_adv36_kube_proxy.md)
