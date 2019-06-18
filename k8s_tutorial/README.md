@@ -79,6 +79,7 @@
 2. [Kubernetes 部署策略详解](k8s_adv41_deploy.md)
 3. [Kubernetes CNI网络最强对比：Flannel、Calico、Canal和Weave](k8s_adv47_CNI.md)
 4. [微服务需要拆分到什么程度？](k8s_arch2_micro_service.md)
+5. [在 Kubernetes 上运行 Kafka 合适吗？](k8s_adv68_kafka.md)
 
 #### Kubernetes + JenkinsX + Istio渐进式交付
 1. [Kubernetes 中的渐进式交付, 蓝绿部署和金丝雀部署: shipper, Istio, Flagger](k8s_adv54_release.md)
@@ -284,4 +285,9 @@
 $ kubectl get pods -o custom-columns=POD:metadata.name,NODE:spec.nodeName --sort-by spec.nodeName -n kube-system
 POD                              NODE
 kube-dns-7dc9f9f4c5-2srbc        ubertest-worker-4xlarge-hnc2s
+```
+
+```
+$ kubectl get deploy -n=namespace -o=yaml --export
+Flag --export has been deprecated, This flag is deprecated and will be removed in future.
 ```
