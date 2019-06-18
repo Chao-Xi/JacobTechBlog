@@ -259,6 +259,7 @@
 3. [K8S Q&A Chapter two](k8s_QA2.md)
 4. [K8S Q&A Chapter three](k8s_QA3.md)
 5. [K8S Q&A Chapter Four](k8s_QA4.md)
+6. [K8S Q&A Chapter Five](k8s_QA5.md)
 
 ### K8S 生产案例
 
@@ -274,3 +275,12 @@
 5. [K8S Terminating with Grace](k8s_bp5_grace_termination.md)
 6. [K8S Mapping External Services](k8s_bp6_mapping_external_service.md)
 7. [Upgrading your Cluster with Zero Downtime](k8s_bp7_upgrading_cluster.md)
+
+
+### Daily Operations
+
+```
+$ kubectl get pods -o custom-columns=POD:metadata.name,NODE:spec.nodeName --sort-by spec.nodeName -n kube-system
+POD                              NODE
+kube-dns-7dc9f9f4c5-2srbc        ubertest-worker-4xlarge-hnc2s
+```
