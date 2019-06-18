@@ -42,4 +42,20 @@
 
 20. [`kubectl exec` 参数问题](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA4.md#6-kubectl-exec-%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98)
 
+21. [`Systemd` 连接词号`“-”`的作用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#1-systemd-%E8%BF%9E%E6%8E%A5%E8%AF%8D%E5%8F%B7-%E7%9A%84%E4%BD%9C%E7%94%A8)
 
+22. [外网访问 `Kubernetes` 集群](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#2%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE-kubernetes-%E9%9B%86%E7%BE%A4)
+
+23. [`Jenkins Slave Pod` 启动错误](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#3-jenkins-slave-pod-%E5%90%AF%E5%8A%A8%E9%94%99%E8%AF%AF)
+
+24. [`Gitlab CI Runner` 域名解析问题](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#4-gitlab-ci-runner-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E9%97%AE%E9%A2%98)
+
+25. [`Kubectl` 高级使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#5-kubectl-%E9%AB%98%E7%BA%A7%E4%BD%BF%E7%94%A8)
+
+26. [`Groovy` 脚本问题](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#6-groovy-%E8%84%9A%E6%9C%AC%E9%97%AE%E9%A2%98)
+
+27. [Fluentd 日志收集问题](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#7-fluentd-%E6%97%A5%E5%BF%97%E6%94%B6%E9%9B%86%E9%97%AE%E9%A2%98)
+
+28. [kubeadm 指定初始化集群镜像](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#8-kubeadm-%E6%8C%87%E5%AE%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%86%E7%BE%A4%E9%95%9C%E5%83%8F)
+
+29. [YAML 文件格式](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#9-yaml-%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F)
