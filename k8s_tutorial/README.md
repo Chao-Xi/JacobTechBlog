@@ -99,6 +99,7 @@
 
 1. [Kubernetes service中的故障排查](k8s_skill1_bugfix1.md)
 2. [Kubernetes 网络故障常见排查方法](k8s_adv55_network_troubleshooting.md)
+3. [Kubernetes 处理容器数据磁盘被写满](k8s_skill4_desc_full.md)
 
 
 ### 深入理解 POD
