@@ -17,7 +17,12 @@
 5. [Grafana 在 Kubernetes 中的使用](8Adv_K8S_Grafana.md)
 6. [报警神器 AlertManager 的使用](10Adv_k8s_AlertManger.md)
 7. [Prometheus 删除数据指标](16Adv_Prometheus_Del_index.md)
-8. [深入Prometheus设计-指标定义与分类](18Adv_Prometheus_index_classfication.md)
+
+
+#### Prometheus on Linux 
+
+1. [深入Prometheus设计-指标定义与分类](18Adv_Prometheus_index_classfication.md)
+2. [Prometheus安装部署+监控+绘图+告警](19centos7_Prometheus_Alertmanager_Grafana.md)
 
 
 ### Metrics Collector
