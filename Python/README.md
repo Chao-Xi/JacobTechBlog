@@ -116,7 +116,7 @@
 9. [Plotting Live Data in Real-Time](python_adv48.md)
 10. [Subplots](python_adv49.md)
 
-* [Matplotlib Code and resources](../Matplot_code)
+* [Matplotlib Code and resources](./Matplot_code)
 
 ### Tricks and tips
 
