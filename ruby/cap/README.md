@@ -6,5 +6,3 @@
 * 3.[Cap Filtering `Host filtering/Role filtering`](3Cap_Filter.md)
 
 
-[Demo-code](capistrano-example)
-
