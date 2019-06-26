@@ -291,3 +291,8 @@ kube-dns-7dc9f9f4c5-2srbc        ubertest-worker-4xlarge-hnc2s
 $ kubectl get deploy -n=namespace -o=yaml --export
 Flag --export has been deprecated, This flag is deprecated and will be removed in future.
 ```
+
+```
+$ kubectl top nodes
+$ kubectl exec -it pod-name /bin/bash -n=namespace
+```
