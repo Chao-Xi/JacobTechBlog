@@ -43,6 +43,11 @@ $ grep -rnw . -e 'linux'
 1. [Top 9 Linux Job Interview Questions(command)](1top10linuxjobQA.md)
 2. [50 Linux Interview Questions And Answers](1Linux_interview.md)
 
+## Bash Script
+
+1. [Bash Basic Script](8basch_basic.md)
+2. [Bash Shell Scripting for Automation](7bash_automation.md)
+
 ## Linux Adv
 
 ### System Info
