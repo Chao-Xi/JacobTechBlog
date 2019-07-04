@@ -137,14 +137,18 @@
 6. [kubernetes 的资源配额控制器](k8s_adv8_resource_quotation.md) 
 7. [用Replication Controller、Replica Set 管理Pod](k8s_adv10_RC_RS.md)
 8. [Job和CronJob 的使用方法](k8s_adv11_job_cronjob.md)
-9. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
-10. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
-11. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
-12. [Kubernetes Secret 资源对象使用方法](k8s_adv12_secret.md)
-13. [`Kubernetes Namespace`命名空间详解](k8s_adv44_namespace.md)
-14. [`Kubelet` 状态更新机制](k8s_adv58_kubelet.md)
-15. [如何在`Kubernetes`实现GPU调度及共享](k8s_adv64_GPU_share.md)
-16. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
+9. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
+10. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
+11. [Kubernetes Secret 资源对象使用方法](k8s_adv12_secret.md)
+12. [`Kubernetes Namespace`命名空间详解](k8s_adv44_namespace.md)
+13. [`Kubelet` 状态更新机制](k8s_adv58_kubelet.md)
+14. [如何在`Kubernetes`实现GPU调度及共享](k8s_adv64_GPU_share.md)
+15. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
+
+#### K8S授权和访问
+
+1. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
+2. [通过 GitHub OAuth 和 Dex 访问 Kubernetes 集群](k8s_adv69_oauth_dex.md)
 
 ### 持久化存储:
 
@@ -281,6 +285,8 @@
 
 ### Daily Operations
 
+[k8s command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
+
 ```
 $ kubectl get pods -o custom-columns=POD:metadata.name,NODE:spec.nodeName --sort-by spec.nodeName -n kube-system
 POD                              NODE
@@ -314,3 +320,5 @@ ubertest-management-stzq9	ismanagement=1:NoSchedule	ismanagement=1:NoExecute
 
 $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
+
+
