@@ -296,3 +296,21 @@ Flag --export has been deprecated, This flag is deprecated and will be removed i
 $ kubectl top nodes
 $ kubectl exec -it pod-name /bin/bash -n=namespace
 ```
+
+**Show All nodes and labels**
+
+```
+$ for item in $( kubectl get node --output=name); do printf "Labels for %s\n" "$item" | grep --color -E '[^/]+$' && kubectl get "$item" --output=json | jq -r -S '.metadata.labels | to_entries | .[] | " \(.key)=\(.value)"' 2>/dev/null; printf "\n"; done
+
+```
+
+**Show All nodes and taints**
+
+```
+$ kubectl get nodes -o go-template='{{printf "%-50s %-12s\n" "Node" "Taint"}}{{- range .items}}{{- if $taint := (index .spec "taints") }}{{- .metadata.name }}{{ "\t" }}{{- range $taint }}{{- .key }}={{ .value }}:{{ .effect }}{{ "\t" }}{{- end }}{{- "\n" }}{{- end}}{{- end}}'
+Node                                               Taint
+ubertest-management-bmxwx	ismanagement=1:NoExecute	ismanagement=1:NoSchedule
+ubertest-management-stzq9	ismanagement=1:NoSchedule	ismanagement=1:NoExecute
+
+$ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
+```
