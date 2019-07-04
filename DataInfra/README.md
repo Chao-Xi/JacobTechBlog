@@ -5,6 +5,7 @@
    *  在`Kubernetes`中使用vGPU实现机器学习任务共享GPU
    *  AI Devops
    *  Kubeflow with Jupyter notebook
+3. [在 Kubernetes 中使用 vGPU 实现机器学习任务共享 GPU](3k8s_vGPU_share.md)
 
 
 ## Apache Spark
