@@ -208,6 +208,7 @@
 1. [k8s自动伸缩那些事](k8s_adv28_hpa_vpa.md)
 2. [Pod 自动扩缩容(HPA: Horizontal Pod Autoscaling)](k8s_adv23_HPA.md)
 3. [6个与弹性伸缩、调度相关的Kubernetes附加组件](k8s_adv49_AS_plugins.md)
+4. [Kubernetes 预测性集群伸缩](k8s_adv70_CAC_prediction.md)
 
 ### K8S 深度设计理念
 
