@@ -101,6 +101,8 @@
 1. [Kubernetes service中的故障排查](k8s_skill1_bugfix1.md)
 2. [Kubernetes 网络故障常见排查方法](k8s_adv55_network_troubleshooting.md)
 3. [Kubernetes 处理容器数据磁盘被写满](k8s_skill4_desc_full.md)
+4. [Kubernetes 问题定位技巧：分析 ExitCode](k8s_skill5_exit_code.md)
+5. [Kubernetes 最佳实践：处理内存碎片化](k8s_skill6_slan_cache.md)
 
 
 ### 深入理解 POD
