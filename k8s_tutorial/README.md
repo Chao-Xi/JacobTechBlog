@@ -194,6 +194,7 @@
 2. [如何在 `kubernetes` 中开启 `ipvs` 模式](k8s_adv26_ipvs.md)
 3. [集群内部服务发现之 DNS](k8s_adv16_dns.md)
 4. [详解 DNS 与 CoreDNS 的实现原理](k8s_adv40_CoreDNS.md)
+5. [`kube-proxy` 工作模式分析 `Iptables VS Ipvs`](k8s_adv71_kube_proxy_adv.md)
 
 #### (2) 外部服务发现
 
