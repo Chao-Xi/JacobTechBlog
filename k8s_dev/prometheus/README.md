@@ -29,6 +29,7 @@
 
 1. [`kube-state-metrics`与`metric-server`的对比](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_adv39_kube_state_metrics.md)
 2. [`Metrics Server` 安装与排错](17Adv_K8S_Metrics_Server.md)
+3. [Install Kubernetes `Metrics Server` on `SAP Converged Cloud`](20Install_metrics_server_SAP_CC.md)
 
 
 ## Prometheus Operator Framework
