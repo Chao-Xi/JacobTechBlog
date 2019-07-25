@@ -1,12 +1,13 @@
 # 提高 kubectl 使用生产力
 
-### Abbri
+### Abbr
 
 * 1.命令自动补全安装(Linux/Mac(**Upgrading Bash on macOS**))
 * 2.快速查找资源 `kubectl explain`
 * 3.使用自定义列格式化输出 `-o custom-columns=<header>:<jsonpath>`
 * 4.`JSONPath` 表达式
-
+* 5.切换集群和命名空间
+* 6.使用插件扩展 `kubectl`
 
 
 我们知道在使用 Kubernetes 的过程中，kubectl 工具可能是最常用的工具了（可能还没有之一），所以当我们花费大量的时间在使用 kubectl 上面的时候，那么我们就非常有必要去了解下如何高效的使用它了。
@@ -586,6 +587,9 @@ $ kubectl get nodes -o json
 
 这种方法除了用来查看资源规范之外，这也是用来发现资源更多信息的一种很好的方式。
 
+
+## 切换集群和命名空间
+
 * 当 `kubectl` 向 `APIServer` 发起请求的时候，会读取系统上的 `kubeconfig` 文件，首先会加载`KUBECONFIG`这个环境变量指向的文件，
 
 * 如果没有的话则会去加载`~/.kube/config`文件，去获取需要访问的连接相关参数发起请求。
@@ -651,7 +655,181 @@ $ kubectl get nodes -o json
 
 ### shell 别名
 
+实际上，我们也可以不使用额外的工具来切换上下文和命名空间，因为 `kubectl` 也提供了切换操作的命令，`kubectl config`命令就提供了用于编辑 kubeconfig 文件的功能，下面是一些基本用法：
 
+* `kubectl config get-contexts`: 列出所有的 `context`
+* `kubectl config current-context`: 获取当前的 `context`
+* `kubectl config use-context`: 更改当前 `context`
+* `kubectl config set-context`: 修改 `context` 的元素
+
+很显然直接使用这些命令来说并不是特别方便，但是我们可以将这些命令包装成可以更容易执行的 shell 别名，如下图所示：
+
+![Alt Image Text](images/adv/sk7_8.gif "Body image")
+
+> 这里我们通过fzf来提供交互式的模糊搜索界面（类似于 kubectx 的交互模式），所以我们需要提前安装 [`fzf`](https://github.com/junegunn/fzf#installation)
+
+下面是我们定义的别名：
+
+```
+# 获取当前上下文
+alias krc='kubectl config current-context'
+# 列出所有上下文
+alias klc='kubectl config get-contexts -o name | sed "s/^/  /;\|^  $(krc)$|s/ /*/"'
+# 更改当前上下文
+alias kcc='kubectl config use-context "$(klc | fzf -e | sed "s/^..//")"'
+
+# 获取当前 namespace
+alias krn='kubectl config get-contexts --no-headers "$(krc)" | awk "{print \$5}" | sed "s/^$/default/"'
+# 列出所有 namespace
+alias kln='kubectl get -o name ns | sed "s|^.*/|  |;\|^  $(krn)$|s/ /*/"'
+# 更改当前 namespace
+alias kcn='kubectl config set-context --current --namespace "$(kln | fzf -e | sed "s/^..//")"'
+```
+
+要让这些别名生效，只需要将上述定义添加到`~/.bashrc`或`~/.zshrc`文件中，然后重新加载 `shell `即可。
+
+### 使用插件
+
+`kubectl` 允许安装类似于原生命令的一样被调用的插件，比如，我们可以安装一个名为 `kubectl-foo` 的插件，然后就可以将其作为 `kubectl foo` 命令进行调用。
+
+能够像这样来切换当前上下文和命名空间也是一种很好的方式吧？比如，运行 `kubectl ctx` 命令来更改上下文，运行 `kubectl ns` 命令来更改命名空间。我这里就创建了两个这样的插件：
+
+* [kubectl-ctx](https://github.com/weibeld/kubectl-ctx)
+* [kubectl-ns](https://github.com/weibeld/kubectl-ns)
+
+这两个插件的原理其实也比较简单，也是基于前面提到的 shell 别名来构建的，下图是我们使用这两个插件的实际效果：
+
+![Alt Image Text](images/adv/sk7_9.gif "Body image")
+
+
+> 同样要注意[安装 fzf](https://github.com/junegunn/fzf#installation)。
+
+安装这两个插件非常简单，只需要将上面名为 `kubectl-ctx` 和 `kubectl-ns` 的 `shell` 脚本下载到任意一个 `PATH` 目录下面，将其设置为可执行（使用 `chmod + x` 命令）即可，这样我们就可以使用`kubectl ctx`和`kubectl ns`命令了，是不是很简单？
+
+## 6.使用插件扩展 kubectl
+
+
+从1.12版本开始，kubectl 就提供了一个[插件机制](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/)，允许我们通过自定义命令来扩展 kubectl。
+
+下面是一个插件示例，可以通过调用`kubectl hello`来打印一句话：
+
+![Alt Image Text](images/adv/sk7_10.svg "Body image")
+
+> kubectl 的插件机是严格遵循 [Git 的插件机制的](https://adamcod.es/2013/07/12/how-to-create-git-plugin.html)。
+
+接下来我们将介绍如何安装插件和在什么地方可以找到已有的插件以及如何创建自己的插件。
+
+### 安装插件
+
+kubectl 插件是作为一个简单的可执行文件进行发布的，名称格式为`kubectl-x`，前缀`kubectl-`是必须的，然后就是通过一些配置来允许调用插件的新的 kubectl 子命令。
+
+
+比如，上面显示的 `hello` 插件就是通过名为`kubectl-hello`的可执行文件发布的。
+
+要安装插件，只需要将 `kubectl-x` 文件复制到 `PATH` 目录下任意一个目录中，然后将其设置为可执行状态（比如使用 `chmod + x` 命令），然后就可以使用 kubectl x 命令调用插件了。
+
+
+我们可以使用以下命令列出系统上当前安装的所有插件：
+
+```
+$ kubectl plugin list
+```
+
+如果你有多个具有相同名称的插件或者有不可执行的插件，该命令都会出现一些警告信息。
+
+### 使用 krew 查找和安装插件
+
+kubectl 插件可以像软件包一样共享和重用，但是在哪里可以找到其他人共享的插件呢？
+
+[`krew`](https://github.com/kubernetes-sigs/krew)项目就旨在为共享、搜索、安装和管理 kubectl 插件提供统一的解决方案，该项目将自己称为kubectl 插件的包管理器（krew 的名字灵感也是来源于 brew）。
+
+krew 围绕 kubectl 插件[索引](https://github.com/kubernetes-sigs/krew-index)为中心，可以从中选择和安装，下图是 krew 使用的一个示例：
+
+![Alt Image Text](images/adv/sk7_11.svg "Body image")
+
+事实上，krew 本身也是一个 kubectl 插件，所以安装 krew 本质上就像安装其他 kubectl 插件一样，我们可以在 GitHub 页面上找到 krew 的详细安装说明。
+
+下面是几个最重要的 krew 命令：
+
+```
+# 搜索 krew 索引 (带一个可选的搜索 query 参数)
+$ kubectl krew search [<query>]
+# 显示一个插件的相关信息
+$ kubectl krew info <plugin>
+# 安装插件
+$ kubectl krew install <plugin>
+# Upgrade all plugins to the newest versions
+$ kubectl krew upgrade
+# 列出 krew 安装的所有插件krew
+$ kubectl krew list
+# 卸载一个插件
+$ kubectl krew remove <plugin>
+```
+
+需要注意的使用使用 krew 安装插件也并不会妨碍我们用传统的方式去安装插件，我们仍然还是可以通过其他方式去安装或者自己创建插件。
+
+> 不过需要注意的是`kubectl krew list`命令只会列出使用 `krew` 安装的插件，而`kubectl plugin list`命令会列出所有的插件，包括 `krew` 安装的和其他方式安装的插件。
+
+### 在其他地方查找插件
+
+krew 还是一个非常年轻的项目，目前 `krew index` 中只有大约 `30 `多个插件，如果你找不到合适的插件，可以在其他地方去查找，比如在 `GitHub` 上面搜索。
+
+
+建议可以在 GitHub 上面查看 [kubectl-plugins 主题](https://github.com/topics/kubectl-plugins)，会发现有几十个可用的插件值得一试的。
+
+### 创建自己的插件
+
+当然，我们可以[创建自己的 `kubectl` 插件](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/#writing-kubectl-plugins)，只需要创建一个可执行文件，执行想要的操作，为其命名为 `kubectl-x` 的形式，然后安装上面的方法来安装即可。
+
+可执行的文件可以是任何类型的，比如 Bash 脚本、编译好的 Go 程序、Python 脚本等都是可以的，唯一的要求就是在你操作的系统里面可以直接执行。
+
+下面我们来创建一个简单的插件示例，在前面的一节中，我们通过 kubectl 命令列出了每个 Pod 的容器镜像，我们可以轻松地将该命令转换为可以调用的插件，例如 kubectl img。
+
+创建一个名为 `kubectl-img` 的文件，内容如下：
+
+```
+#!/bin/bash
+kubectl get pods -o custom-columns='NAME:metadata.name,IMAGES:spec.containers[*].image'
+```
+
+然后执行以下命令使文件变成可执行：
+
+
+```
+$ chmod +x kubectl-img
+```
+然后将 `kubectl-img` 文件移动到 `PATH` 中任意一个目录，然后我们就可以使用 `kubectl img` 命令了：
+
+```
+$ kubectl plugin list
+The following compatible plugins are available:
+
+/Users/ych/devs/workspace/yidianzhishi/kubernetes/bin/kubectl-img
+$ kubectl img
+NAME                                      IMAGES
+cm-test-pod                               busybox
+nfs-client-provisioner-6985f88c47-pd6mr   quay.io/external_storage/nfs-client-provisioner:latest
+nginx                                     nginx:1.7.9
+nginx-app-76b6449498-86b55                nginx:1.7.9
+nginx-app-76b6449498-nlnkj                nginx:1.7.9
+opdemo-64db96d575-5mhgg                   cnych/opdemo
+```
+
+> 如上所示，kubectl 插件可以使用任何编程语言或者脚本来实现的，如果使用 shell 脚本，则可以在插件中轻松调用 kubectl，当然我们也可以使用实际编程语言来编写更复杂的插件，例如，使用 [Kubernetes 客户端库](https://kubernetes.io/docs/reference/using-api/client-libraries/)，如果使用 Go 语言，还可以使用 [cli-runtime 库](https://github.com/kubernetes/cli-runtime)，它是专门用于编写 kubectl 插件的。
+
+### 分享你的插件
+
+
+如果你认为你的插件可能对其他人也有用，那么可以随时在 GitHub 上面分享，最好添加到 kubectl-plugins 主题中，这样可以方便别的用户找到。
+
+你还可以请求将你的插件添加到 `krew index` 中去，可以在 [krew 的 GitHub 仓库](https://github.com/kubernetes-sigs/krew/blob/master/docs/DEVELOPER_GUIDE.md)上面找到有关如何执行该操作的说明。
+
+
+### 命令提示
+
+目录，插件机制还不支持命令提示功能，所以我们需要完全输入插件的名称和插件的参数下可以使用。
+
+不过不用担心，在 `kubectl GitHub` 仓库中有一个是 `open feature request`，所以，该功能应该很快就会被支持了。
 
 
 
