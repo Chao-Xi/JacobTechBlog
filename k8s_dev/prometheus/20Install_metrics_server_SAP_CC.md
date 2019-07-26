@@ -215,11 +215,15 @@ $ kubectl edit  deployment metric-metrics-server -n kube-system
 deployment.extensions/metric-metrics-server edited
 ```
 
+**8 spaces**
+
 ```
-- args:
-  - --kubelet-insecure-tls
-  - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+args:
+- --kubelet-insecure-tls
+- --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
 ```
+
+![Alt Image Text](images/20_1.png "Body image")
 
 **Please use 4 spaces to replace one tap, otherwise you may encounter unident problem**
 
