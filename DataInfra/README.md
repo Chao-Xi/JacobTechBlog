@@ -7,6 +7,10 @@
    *  Kubeflow with Jupyter notebook
 3. [在 Kubernetes 中使用 vGPU 实现机器学习任务共享 GPU](3k8s_vGPU_share.md)
 
+## AWS Data Infra
+
+1. [借助`AWS Lake Formation`构建云上数据湖](aws1_data_lake.md)
+2. [利用 `Amazon Kinesis` 搭建实时数据分析平台](aws2_kinesis.md)
 
 ## Apache Spark
 
