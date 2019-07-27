@@ -88,6 +88,15 @@
 
 ### K8S 操作
 
+#### 提高 kubectl 使用生产力
+
+* 命令自动补全安装[Linux/Mac(**Upgrading Bash on macOS**)]
+* 快速查找资源 `kubectl explain`
+* 使用自定义列格式化输出 `-o custom-columns=<header>:<jsonpath>`
+* `JSONPath` 表达式
+* 切换集群和命名空间
+* 使用插件扩展 `kubectl`
+
 ### 使用技巧
 
 1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)
