@@ -88,7 +88,7 @@
 
 ### K8S 操作
 
-#### 提高 kubectl 使用生产力
+#### [提高 kubectl 使用生产力](k8s_skill7_kubectl_improve.md)
 
 * 命令自动补全安装[Linux/Mac(**Upgrading Bash on macOS**)]
 * 快速查找资源 `kubectl explain`
