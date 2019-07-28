@@ -40,6 +40,7 @@
 2. [使用 Prometheus Operator 监控 etcd](13Adv_Prometheus_Operator_etcd.md)
 3. [Prometheus Operator 自定义报警](14Adv_Prometheus_Operator_alarm.md)
 4. [Prometheus Operator 自动发现以及数据持久化](15Adv_Prometheus_Operator_Setting.md)
+5. [Install prometheus-operator with Helm in Ubertest Cluster](21Install_Prometheus_Operator_SAP_CC.md)
 
 
 ## Other monitor tools
