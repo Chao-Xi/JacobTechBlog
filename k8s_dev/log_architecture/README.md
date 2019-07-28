@@ -10,5 +10,6 @@
 ![Alt Image Text](images/0_2.jpg "Headline image")
 
 1. [Grafana 日志聚合工具 Loki](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/12Adv_Grafana_Loki.md)
-
+2. [Grafana Logging using Loki](5Grafana_using_loki.md)
+3. [Install Grafana-Loki in Ubertest Cluster](4Install_Logging_loki_SAP_CC.md)
 
