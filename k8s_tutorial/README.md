@@ -229,25 +229,6 @@
 3. [微服务中的Sidecar设计模式解析 & Kubernetes日志采集Sidecar模式介绍](k8s_adv34_sidecar.md)
 
 
-### 包管理工具 HELM
-
-1. [Helm安装使用](k8s_helm1_setup.md)
-2. [Helm 的基本使用](k8s_helm2_application.md)
-3. [Helm 模板之内置函数和Values](k8s_helm3_func_value.md)
-4. [Helm 模板之模板函数与管道](k8s_helm4_template_pipe.md)
-5. [Helm 模板之控制流程](k8s_helm5_process.md)
-6. [Helm模板之命名模板](k8s_helm6_definename.md)
-7. [Helm Hooks 的使用](k8s_helm7_hook.md)
-8. [Helm模板之其他注意事项](k8s_helm8_others.md)
-9. [Helm monitor 插件](k8s_helm9_monitor.md)
-10. [Helm Chart 模板开发技巧](k8s_helm10_Dev_Skills.md)
-
-#### HELM Chart 管理
-
-* [Chart Repository 存储库指南 (创建 `chart` 库 / 托管 `chart` 库 / 管理 `chart` 库 / 同步 `chart` 库)](k8s_helm13_Charts_Repo.md)
-* [Helm Chart (`Chart` 文件结构 / `Chart.yaml` 文件 / `Chart` 依赖关系 / 通过 `charts/` 目录手动管理依赖性 / 模板 `Templates` 和值 `Values` / 使用 `Helm` 管理 `chart`)](k8s_helm12_Charts.md)
-* [`Chart` 测试](k8s_helm14_Chart_Test.md)
-
 ### K8S 安全性问题
 
 1. [浅谈Docker的安全性支持(一)](k8s_security1_docker1.md)
@@ -302,6 +283,7 @@
 7. [Upgrading your Cluster with Zero Downtime](k8s_bp7_upgrading_cluster.md)
 
 
+
 ### Daily Operations
 
 [k8s command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
@@ -341,3 +323,33 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 ```
 
 
+## 包管理工具 HELM
+
+
+### HELM 基本使用
+
+1. [Helm安装使用](k8s_helm1_setup.md)
+2. [Helm 的基本使用](k8s_helm2_application.md)
+3. [Helm monitor 插件](k8s_helm9_monitor.md)
+
+### HELM Chart 管理
+
+1. [Chart Repository 存储库指南 (创建 `chart` 库 / 托管 `chart` 库 / 管理 `chart` 库 / 同步 `chart` 库)](k8s_helm13_Charts_Repo.md)
+2. [Helm Chart (`Chart` 文件结构 / `Chart.yaml` 文件 / `Chart` 依赖关系 / 通过 `charts/` 目录手动管理依赖性 / 模板 `Templates` 和值 `Values` / 使用 `Helm` 管理 `chart`)](k8s_helm12_Charts.md)
+3. [`Chart` 测试](k8s_helm14_Chart_Test.md)
+
+
+### 开发 CHART 模板
+
+3. [Helm 模板之内置函数和Values](k8s_helm3_func_value.md)
+4. [Helm 模板之模板函数与管道](k8s_helm4_template_pipe.md)
+5. [Helm 模板之控制流程](k8s_helm5_process.md)
+6. [Helm模板之命名模板](k8s_helm6_definename.md)
+7. [Helm Hooks 的使用](k8s_helm7_hook.md)
+8. [Helm模板之其他注意事项](k8s_helm8_others.md)
+10. [Helm Chart 模板开发技巧](k8s_helm10_Dev_Skills.md)
+
+
+#### HELM 开发技巧 
+
+1. [`HELM`开发 `YAML`技巧](k8s_helm11_chart_yaml.md)
