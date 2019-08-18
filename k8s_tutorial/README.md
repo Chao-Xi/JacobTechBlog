@@ -97,7 +97,7 @@
 * 切换集群和命名空间
 * 使用插件扩展 `kubectl`
 
-### 使用技巧
+#### 使用技巧
 
 1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)
 2. [使用`etcdctl`访问`kubernetes`数据](k8s_skill2_etcdctl.md)
@@ -113,6 +113,9 @@
 4. [Kubernetes 问题定位技巧：分析 ExitCode](k8s_skill5_exit_code.md)
 5. [Kubernetes 最佳实践：处理内存碎片化](k8s_skill6_slan_cache.md)
 
+#### 编写模板
+
+* [使用 `Kustomize` 配置 `Kubernetes` 应用](k8s_adv72_Kustomize.md)
 
 ### 深入理解 POD
 
