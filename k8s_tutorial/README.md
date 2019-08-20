@@ -339,8 +339,10 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 
 ### HELM Chart 管理
 
-1. [Chart Repository 存储库指南 (创建 `chart` 库 / 托管 `chart` 库 / 管理 `chart` 库 / 同步 `chart` 库)](k8s_helm13_Charts_Repo.md)
-2. [Helm Chart (`Chart` 文件结构 / `Chart.yaml` 文件 / `Chart` 依赖关系 / 通过 `charts/` 目录手动管理依赖性 / 模板 `Templates` 和值 `Values` / 使用 `Helm` 管理 `chart`)](k8s_helm12_Charts.md)
+1. [Chart Repository 存储库指南](k8s_helm13_Charts_Repo.md)
+   * [创建 `chart` 库 / 托管 `chart` 库 / 管理 `chart` 库 / 同步 `chart` 库]
+2. [Helm Chart](k8s_helm12_Charts.md)
+   * [`Chart` 文件结构 / `Chart.yaml` 文件 / `Chart` 依赖关系 / 通过 `charts/` 目录手动管理依赖性 / 模板 `Templates` 和值 `Values` / 使用 `Helm` 管理 `chart`]
 3. [`Chart` 测试](k8s_helm14_Chart_Test.md)
 
 
