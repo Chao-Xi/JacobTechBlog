@@ -89,6 +89,7 @@
 5. [Itertools Module - Iterator Functions for Efficient Looping](python_adv1.md)
 6. [Request Web Pages, Download Images, POST Data, Read JSON](python_adv31.md)
 7. [Python Numpy Intro](python_adv32.md)
+8. [Calling External Commands Using the `Subprocess Module`](python_adv51.md)
 
 ### Others Section
 
@@ -119,6 +120,8 @@
 * [Matplotlib Code and resources](./Matplot_code)
 
 ### Tricks and tips
+
+* [The Difference Between "==" and "is" (Equality vs Identity)](python_adv50.md)
 
 * [10 Python Tips and Tricks For Writing Better Code](python_adv34.md)
   * Ternary Conditionals 
