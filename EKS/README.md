@@ -4,9 +4,10 @@
 
 * [AWS 上的容器服务概览](1AWS_container_service.md)
 * [AWS EKS Introduction](2AWS_KES_intro.md)
-
-
-
+* [深入理解 Amazon EKS(EKS 进阶功能)](AWS_EKS_ADV.pptx)
+  * `EKS`集群的运维管理
+  * `EKS`集群上的`CICD`流程
+  * `EKS`集群之上的服务发现和服务网格
 
 ## EKS 
 
