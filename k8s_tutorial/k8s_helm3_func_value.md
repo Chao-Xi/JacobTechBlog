@@ -1,6 +1,35 @@
 ![Alt Image Text](images/helm/helm3_0.jpg "Headline image")
 # Helm 模板之内置函数和Values
 
+* Charts
+* 定义 `chart`
+* 创建模板
+* 添加一个简单的模板
+* 内置对象
+* `values` 文件
+
+## Charts
+
+如 `chart` 指南中所述，`Helm chart` 的结构如下所示：
+
+```
+mychart/
+  Chart.yaml
+  values.yaml
+  charts/
+  templates/
+  ...
+```
+
+**`templates/` 目录用于放置模板文件。当 `Tiller` 评估 `chart` 时，它将 `templates/` 通过模板渲染引擎发送目录中的所有文件。然后，`Tiller` 收集这些模板的结果并将它们发送给 `Kubernetes`。**
+
+`values.yaml` 文件对模板也很重要。该文件包含 `char`t 默认值。这些值可能在用户在 `helm install` 或 `helm upgrade  --install` 期间被覆盖。
+
+#### `Chart.yaml` 文件包含 `chart` 的说明。
+
+可以从模板中查看访问它。该 `charts/` 目录可能包含其他 `chart`（我们称之为子 chart）。在本指南的后面，我们将看到它们在模板渲染方面如何起作用。
+
+
 ## 定义 chart
 
 `Helm` 的 `github` 上面有一个[比较完整的文档](https://github.com/helm/helm/blob/master/docs/charts.md)，建议大家好好阅读下该文档，这里我们来一起创建一个`chart`包。
@@ -32,13 +61,16 @@ mychart/
 * `deployment.yaml`：创建 `Kubernetes deployment` 的基本 `manifest`
 * `service.yaml`：为 `deployment` 创建 `service` 的基本 `manifest`
 * `ingress.yaml`: 创建 `ingress` 对象的资源清单文件
-* `_helpers.tpl`：放置模板助手的地方，可以在整个 `chart` 中重复使用''
+* `_helpers.tpl`：放置模板助手的地方，可以在整个 `chart` 中重复使用
 
 这里我们明白每一个文件是干嘛的就行，然后我们把 `templates` 目录下面所有文件全部删除掉，这里我们自己来创建模板文件：
 
 ```
 $ rm -rf mychart/templates/*.*
 ```
+
+在编写生产级 `chart` 时，使用这些 `chart` 的基本版本可能非常有用。所以在你的日常 `chart` 制作中，可以不删除它们。
+
 
 ## 创建模板
 
@@ -53,8 +85,13 @@ data:
   myvalue: "Hello World"
 ```
 
-实际上现在我们就有一个可安装的 `chart` 包了，通过`helm install`命令来进行安装：
+**提示**： 模板名称不遵循严格的命名模式。但是，我们建议 `.yaml` 为 YAML 文件后缀，`.tpl` 为模板助手后缀。
 
+上面的 `YAML` 文件是一个简单的 `ConfigMap`，具有最少的必要字段。由于该文件位于 `templates/` 目录中，因此将通过模板引擎发送。
+
+在 `templates/` 目录中放置一个像这样的纯 `YAML` 文件。当 `Tiller` 读取这个模板时，它会直接发送给 `Kubernetes`。
+
+实际上现在我们就有一个可安装的 `chart` 包了，通过`helm install`命令来进行安装：
 
 ```
 $ helm install ./mychart/
@@ -113,6 +150,11 @@ data:
   myvalue: "Hello World"
 ```
 
+该 `helm get manifest` 命令获取 `release` 名称（eyewitness-grasshopper）并打印出上传到服务器的所有 `Kubernetes` 资源。每个文件都以 `---` 开始作为 `YAML` 文档的开始，然后是一个自动生成的注释行，告诉我们该模板文件生成的这个 `YAML` 文档。
+
+从那里开始，我们可以看到 `YAML` 数据正是我们在我们的 `configmap.yaml` 文件中所设计的 。
+
+
 现在我们看到上面的 `ConfigMap` 文件是不是正是我们前面在模板文件中设计的，现在我们删除当前的`release`:
 
 ```
@@ -141,7 +183,17 @@ metadata:
 data:
   myvalue: "Hello World"
 ```
-我们将名称替换成了`{{ .Release.Name }}-configmap`，其中包含在`{{`和`}}`之中的就是模板指令，`{{ .Release.Name }}` 将 `release `的名称注入到模板中来，这样最终生成的 `ConfigMap` 名称就是以 `release` 的名称开头的了。这里的 `Release` 模板对象属于 `Helm` 内置的一种对象，还有其他很多内置的对象，稍后我们将接触到。
+
+我们将名称替换成了`{{ .Release.Name }}-configmap`，
+
+其中包含在`{{`和`}}`之中的就是模板指令。
+
+`{{ .Release.Name }}` 将 `release `的名称注入到模板中来，这样最终生成的 `ConfigMap` 名称就是以 `release` 的名称开头的了。其中 `dot（.）`分隔每个 `namespace` 元素。
+
+
+`Release` 前面的前一个小圆点表示我们从这个范围的最上面的 `namespace` 开始（我们将稍微谈一下 `scope`）。所以我们可以这样理解 `.Release.Name`：**"从顶层命名空间开始，找到 Release 对象，然后在里面查找名为 Name 的对象"**。
+
+这里的 `Release` 模板对象属于 `Helm` 内置的一种对象，还有其他很多内置的对象，稍后我们将接触到。
 
 现在我们来重新安装我们的 `Chart` 包，注意观察 `ConfigMap` 资源对象的名称：
 
@@ -157,6 +209,10 @@ RESOURCES:
 NAME                     DATA  AGE
 foiled-sponge-configmap  1     1s
 ```
+
+**注意**，在该 `RESOURCES` 部分中，我们看到的名称 `foiled-sponge-configmap` 不是 `mychart-configmap`。
+
+可以运行 `helm get manifest foiled-sponge` 以查看整个生成的 `YAML`。
 
 可以看到现在生成的名称变成了`foiled-sponge-configmap`，证明已经生效了，当然我们也可以使用命令`helm get manifest foiled-sponge`查看最终生成的清单文件的样子。
 
@@ -178,7 +234,7 @@ $ helm delete foiled-sponge --purge
 release "foiled-sponge" deleted
 ```
 
-## 调试
+### 调试
 
 我们用模板来生成资源文件的清单，但是如果我们想要调试就非常不方便了，不可能我们每次都去部署一个`release`实例来校验模板是否正确，所幸的时 `Helm` 为我们提供了`--dry-run --debug`这个可选参数，在执行`helm install`的时候带上这两个参数就可以把对应的 `values` 值和生成的最终的资源清单文件打印出来，而不会真正的去部署一个`release`实例，比如我们来调试上面创建的 `chart` 包：
 
@@ -239,7 +295,7 @@ data:
 
 刚刚我们使用`{{.Release.Name}}` 将 `release` 的名称插入到模板中。这里的 `Release` 就是 `Helm` 的内置对象，下面是一些常用的内置对象，在需要的时候直接使用就可以：
 
-### `Release`：这个对象描述了 `release` 本身。它里面有几个对象：
+#### `Release`：这个对象描述了 `release` 本身。它里面有几个对象：
 
 * `Release.Name`：`release` 名称
 * `Release.Time`：`release` 的时间
@@ -249,30 +305,32 @@ data:
 * `Release.IsUpgrade`：**如果当前操作是升级或回滚，则将其设置为 `true`**。
 * `Release.IsInstall`：**如果当前操作是安装，则设置为 true**。
 
-### `Values`：从`values.yaml`文件和用户提供的文件`传入模板的值`。默认情况下，`Values` 是空的。
+#### `Values`：从`values.yaml`文件和用户提供的文件`传入模板的值`。默认情况下，`Values` 是空的。
 
-### `Chart`：`Chart.yaml`文件的内容。所有的 `Chart` 对象都将从该文件中获取。`chart` 指南中[Charts Guide](https://github.com/kubernetes/helm/blob/master/docs/charts.md#the-chartyaml-file)列出了可用字段，可以前往查看。
+#### `Chart`：`Chart.yaml`文件的内容。所有的 `Chart` 对象都将从该文件中获取。`chart` 指南中[Charts Guide](https://github.com/kubernetes/helm/blob/master/docs/charts.md#the-chartyaml-file)列出了可用字段，可以前往查看。
 
-### `Files`：这提供对 `chart` 中所有非特殊文件的访问。虽然无法使用它来访问模板，但可以使用它来访问 `chart` 中的其他文件。请参阅 "访问文件" 部分。
+#### `Files`：这提供对 `chart` 中所有非特殊文件的访问。虽然无法使用它来访问模板，但可以使用它来访问 `chart` 中的其他文件。请参阅 "访问文件" 部分。
 
 * `Files.Get` 是一个按名称获取文件的函数（`.Files.Get config.ini`）
 * `Files.GetBytes` 是将文件内容作为字节数组而不是字符串获取的函数。这对于像图片这样的东西很有用。
 
-### `Capabilities`：这提供了关于 `Kubernetes `集群支持的功能的信息。
+#### `Capabilities`：这提供了关于 `Kubernetes `集群支持的功能的信息。
 
 * `Capabilities.APIVersions` 是一组版本信息。
-* `Capabilities.APIVersions.Has $version` 指示是否在群集上启用版本（batch/v1）。
+* `Capabilities.APIVersions.Has $version` 指示是否在群集上启用版本（`batch/v1`）。
 * `Capabilities.KubeVersion` 提供了查找 Kubernetes 版本的方法。它具有以下值：Major，Minor，GitVersion，GitCommit，GitTreeState，BuildDate，GoVersion，Compiler，和 Platform。
 * `Capabilities.TillerVersion` 提供了查找 `Tiller` 版本的方法。它具有以下值：SemVer，GitCommit，和 GitTreeState。
 
-### `Template`：包含有关正在执行的当前模板的信息
+#### `Template`：包含有关正在执行的当前模板的信息
 
-### `Name`：到当前模板的文件路径（例如 `mychart/templates/mytemplate.yaml`）
+#### `Name`：到当前模板的文件路径（例如 `mychart/templates/mytemplate.yaml`）
 
-### `BasePath`：当前 `chart` 模板目录的路径（例如 `mychart/templates`）。
+#### `BasePath`：当前 `chart` 模板目录的路径（例如 `mychart/templates`）。
 
 
-上面这些值可用于任何顶级模板，要注意内置值始终以大写字母开头。这也符合Go的命名约定。当你创建自己的名字时，你可以自由地使用适合你的团队的惯例。
+上面这些值可用于任何顶级模板，**要注意内置值始终以大写字母开头。** 
+
+这也符合`Go`的命名约定。当你创建自己的名字时，你可以自由地使用适合你的团队的惯例。
 
 ## values 文件
 
@@ -433,4 +491,43 @@ data:
 ```
 
 可以看到模板中的参数已经被 `values.yaml` 文件中的值给替换掉了。虽然以这种方式构建数据是可以的，
-### 但我们还是建议保持 value 树浅一些，平一些，这样维护起来要简单一点。
+
+#### 但我们还是建议保持 value 树浅一些，平一些，这样维护起来要简单一点。
+
+## 删除默认 key
+
+如果您需要从默认值中删除一个键，可以覆盖该键的值为 `null`，在这种情况下，`Helm` 将从覆盖值合并中删除该键。
+
+例如，`stable` 版本的 `Drupal chart` 允许配置 `liveness` 探测器，如果你配置自定义的 image。以下是默认值：
+
+```
+livenessProbe:
+  httpGet:
+    path: /user/login
+    port: http
+  initialDelaySeconds: 120
+```
+
+如果尝试覆盖 `liveness Probe` 处理程序 `exec` 而不是 `httpGet`，使用 `--set livenessProbe.exec.command=[cat,docroot/CHANGELOG.txt]`，`Helm` 会将默认和重写的键合并在一起，从而产生以下 YAML：
+
+```
+livenessProbe:
+  httpGet:
+    path: /user/login
+    port: http
+  exec:
+    command:
+    - cat
+    - docroot/CHANGELOG.txt
+  initialDelaySeconds: 120
+```
+
+但是，`Kubernetes` 会报错，因为无法声明多个 `liveness Prob`e 处理程序。为了克服这个问题，你可以指示 `Helm `过将 `livenessProbe.httpGet` 通设置为空来删除它：
+
+
+```
+helm install stable/drupal --set image=my-registry/drupal:0.1.0 --set livenessProbe.exec.command=[cat,docroot/CHANGELOG.txt] --set livenessProbe.httpGet=null
+```
+
+**`livenessProbe.httpGet=null`**
+

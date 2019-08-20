@@ -2,6 +2,16 @@
 
 Helm Chart 在我们使用的时候非常方便的，但是对于开发人员来说 Helm Chart 模板就并不一定显得那么友好了，本文主要介绍了 Helm Chart 模板开发人员在构建生产级的 Chart 包时的一些技巧和窍门。
 
+* Include and required
+* 使用 tpl 函数
+* 创建 imagePullSecret
+* ConfigMap 或者 Secret 更改时自动更新
+* 告诉 Tiller 不要删除资源
+* 使用Partials
+* others
+
+
+
 ## 了解你的模板功能
 
 Helm 使用[Go Template](https://godoc.org/text/template)来模板化资源文件。在 Go 提供的内置函数基础上，还添加了许多其他功能。

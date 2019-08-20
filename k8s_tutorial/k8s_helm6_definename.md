@@ -2,14 +2,41 @@
 
 # Helm模板之命名模板
 
-在实际的应用中，很多都是相对比较复杂的，往往会超过一个模板，如果有多个应用模板，我们应该如何进行处理呢？这就需要用到新的概念：`命名模板`。
+* `partials` 和 `_` 文件
+* 用 `define` 和 `template` 声明和使用命名模板
+* 模板范围
+* `include` 函数
 
-### 1.命名模板我们也可以称为`子模板`，是限定在`一个文件内部的模板`，然后给一个名称。
+在实际的应用中，很多都是相对比较复杂的，往往会超过一个模板，如果有多个应用模板，我们应该如何进行处理呢？
+
+这就需要用到新的概念：`命名模板`。
+
+在 “流量控制” 部分中，我们介绍了声明和管理模板三个动作：`define`，`template`，和 `block`。在本节中，我们将介绍这三个动作，并介绍一个 `include` 函数，与 `template` 类似功能。
+
+
+#### 命名模板我们也可以称为`子模板`，是限定在`一个文件内部的模板`，然后给一个名称。
+
 在使用命名模板的时候有一个需要特别注意的是：**模板名称是全局的，如果我们声明了两个相同名称的模板，最后加载的一个模板会覆盖掉另外的模板**，由于子 `chart` 中的模板也是和顶层的模板一起编译的，所以在命名的时候一定要注意，**不要重名了**。
 
-### 为了避免重名，有个通用的约定就是为每个定义的模板添加上 `chart` 名称：`{{define "mychart.labels"}}`，`define`关键字就是用来声明命名模板的，加上 `chart` 名称就可以避免不同 `chart` 间的模板出现冲突的情况。
+#### 为了避免重名，有个通用的约定就是为每个定义的模板添加上 `chart` 名称：
 
-## 声明和使用命名模板
+`{{define "mychart.labels"}}`，`define`关键字就是用来声明命名模板的，加上 `chart` 名称就可以避免不同 `chart` 间的模板出现冲突的情况。
+
+## `partials` 和 `_` 文件
+
+到目前为止，我们已经使用了一个文件，一个文件包含一个模板。但 `Helm` 的模板语言允许创建指定的嵌入模板，可以通过名称访问。
+
+在我们开始编写这些模板之前，有一些文件命名约定值得一提：
+
+* 大多数文件 `templates/` 被视为包含 `Kubernetes manifests`
+* `NOTES.txt` 是一个例外
+* 名称以下划线（`_`）开头的文件被假定为没有内部 `manifest`。这些文件不会渲染 `Kubernetes` 对象定义，而是在其他 `chart` 模板中随处可用以供调用。
+
+这些文件用于存储 `partials` 和辅助程序。事实上，当我们第一次创建时 `mychart`，我们看到一个叫做文件 `_helpers.tpl`。该文件是模板 `partials` 的默认位置。
+
+
+
+## 用 `define` 和 `template` 声明和使用命名模板
 
 使用`define`关键字就可以允许我们在模板文件内部创建一个命名模板，它的语法格式如下：
 
@@ -47,7 +74,9 @@ data:
   {{- end }}
 ```
 
-我们这个模板文件被渲染过后的结果如下所示：
+#### `{{- template "mychart.labels" }}`
+
+当模板引擎读取该文件时，它将存储引用 `mychart.labels` 直到 `template "mychart.labels"` 被调用。然后它将在文件内渲染该模板。所以结果如下所示：
 
 ```
 $ helm install --dry-run --debug ./mychart/
@@ -77,7 +106,7 @@ data:
 
 我们可以看到`define`区域定义的命名模板被嵌入到了template所在的区域，但是如果我们将命名模板全都写入到一个模板文件中的话无疑也会增大模板的复杂性。
 
-还记得我们在创建 chart 包的时候，templates 目录下面默认会生成一个_helpers.tpl文件吗？我们前面也提到过 templates 目录下面除了`NOTES.txt`文件和`以下划线_开头命令的文件`之外，都会被当做 `kubernetes` 的资源清单文件，**而这个下划线开头的文件不会被当做资源清单外**，还可以被其他 `chart ` 模板中调用，这个就是 `Helm` 中的`partials`文件，所以其实我们完全就可以将命名模板定义在这些`partials`文件中，默认就是`_helpers.tpl`文件了。
+还记得我们在创建 chart 包的时候，templates 目录下面默认会生成一个`_helpers.tpl`文件吗？我们前面也提到过 templates 目录下面除了`NOTES.txt`文件和`以下划线_开头命令的文件`之外，都会被当做 `kubernetes` 的资源清单文件，**而这个下划线开头的文件不会被当做资源清单外**，还可以被其他 `chart ` 模板中调用，这个就是 `Helm` 中的`partials`文件，所以其实我们完全就可以将命名模板定义在这些`partials`文件中，**默认就是`_helpers.tpl`文件了**。
 
 现在我们将上面定义的命名模板移动到 `templates/_helpers.tpl` 文件中去：
 
@@ -90,9 +119,21 @@ data:
 {{- end }}
 ```
 
-### 一般情况下面，我们都会在命名模板头部加一个简单的文档块，用`/**/`包裹起来，用来描述我们这个命名模板的用途的。 
+#### 一般情况下面，我们都会在命名模板头部加一个简单的文档块，用`{{/*...*/}}`包裹起来，用来描述我们这个命名模板的用途的。 
 
 现在我们讲命名模板从模板文件 `templates/configmap.yaml` 中移除，当然还是需要保留 `template` 来嵌入命名模板内容，名称还是之前的 `mychart.lables`，这是因为**模板名称是全局的**，所以我们可以能够直接获取到。我们再用 `DEBUG` 模式来调试下是否符合预期？
+
+```
+$ tree .
+.
+├── Chart.yaml
+├── charts
+├── templates
+│   ├── NOTES.txt
+│   ├── _helpers.tpl
+│   └── configmap.yaml
+└── values.yaml
+```
 
 ```
 apiVersion: v1
@@ -171,15 +212,21 @@ data:
 
 `chart` 的名称和版本都没有正确被渲染，这是因为他们不在我们定义的模板范围内，
 
-### 当命名模板被渲染时，它会接收由 `template` 调用时传入的作用域，有我们我们这里并没有传入对应的作用域，因此模板中我们无法调用到 `.Chart` 对象，要解决也非常简单，我们只需要在 `template` 后面加上作用域范围即可：
+#### 当命名模板被渲染时，它会接收由 `template` 调用时传入的作用域，有我们我们这里并没有传入对应的作用域，因此模板中我们无法调用到 `.Chart` 对象，要解决也非常简单，我们只需要在 `template` 后面加上作用域范围即可：
 
 ```
-...
-{{- template "mychart.labels" .}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+  {{- template "mychart.labels" . }}
 ...
 ```
 
-如果这样的直接进行渲染测试的话，是不会得到我们的预期结果的：
+**请注意，我们在调用 `template` 时末尾传递了 `.`。我们可以很容易地通过 `.Values` 或者 `.Values.course` 或者我们想要的任何范围。但是我们想要的是顶级范围。**
+
+现在，当我们用 `helm install --dry-run --debug ./mychart` 执行这个模板，我们得到这个：
+
 
 ```
 $ helm install --dry-run --debug ./mychart/
@@ -215,6 +262,10 @@ data:
 
 我们可以看到 chart 的名称和版本号都已经被正常渲染出来了。
 
+现在 `{{.Chart.Name}}` 解析为 `mychart`, `{{ .Chart.Version }}` 解析为 `0.1.0`。
+
+
+
 ## include 函数
 
 假如现在我们将上面的定义的 `labels` 单独提取出来放置到 `_helpers.tpl` 文件中：
@@ -237,12 +288,12 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
   labels:
-    {{- template "mychart.labels" . }}
+    {{- template "mychart.labels" }}
 data:
   {{- range $key, $value := .Values.course }}
   {{ $key }}: {{ $value | quote }}
   {{- end }}
-  {{- template "mychart.labels" . }}
+  {{- template "mychart.labels" }}
 ```
 
 然后同样的查看下渲染的结果：
@@ -275,7 +326,6 @@ from: helm
 date: 2018-09-28
 chart: mychart
 version: 0.1.0
-    version: 0.1.0
 ```
 我们可以看到渲染结果是有问题的，不是一个正常的 `YAML` 文件格式，这是因为`template`只是表示一个嵌入动作而已，不是一个函数，所以原本命名模板中是怎样的格式就是怎样的格式被嵌入进来了，
 **比如我们可以在命名模板中给内容区域都空了两个空格，再来查看下渲染的结构**
@@ -318,7 +368,7 @@ data:
 
 我们可以看到 `data` 区域里面的内容是渲染正确的，但是上面 `labels` 区域是不正常的，因为命名模板里面的内容是属于 `labels` 标签的，是不符合我们的预期的，但是我们又不可能再去把命名模板里面的内容再增加两个空格，因为这样的话 `data` 里面的格式又不符合预期了。
 
-为了解决这个问题，`Helm` 提供了另外一个方案来代替template，那就是使用`include`函数，在需要控制空格的地方使用`indent`管道函数来自己控制，比如上面的例子我们替换成`include`函数：
+**为了解决这个问题，`Helm` 提供了另外一个方案来代替`template`，那就是使用`include`函数，在需要控制空格的地方使用`indent`管道函数来自己控制，比如上面的例子我们替换成`include`函数：**
 
 ```
 apiVersion: v1
@@ -365,6 +415,4 @@ data:
  
 ```
 
-可以看到是符合我们的预期，所以在 Helm 模板中我们使用 include 函数要比 template 更好，可以更好地处理 YAML 文件输出格式。
-
-
+#### 可以看到是符合我们的预期，所以在 `Helm` 模板中我们使用 `include` 函数要比 `template` 更好，可以更好地处理 `YAML` 文件输出格式。

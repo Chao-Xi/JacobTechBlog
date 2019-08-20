@@ -335,6 +335,7 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 1. [Helm安装使用](k8s_helm1_setup.md)
 2. [Helm 的基本使用](k8s_helm2_application.md)
 3. [Helm monitor 插件](k8s_helm9_monitor.md)
+4. [`Chart Debug`调试模板](k8s_helm15_chart_debug.md)
 
 ### HELM Chart 管理
 
@@ -345,15 +346,39 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 
 ### 开发 CHART 模板
 
-3. [Helm 模板之内置函数和Values](k8s_helm3_func_value.md)
-4. [Helm 模板之模板函数与管道](k8s_helm4_template_pipe.md)
-5. [Helm 模板之控制流程](k8s_helm5_process.md)
-6. [Helm模板之命名模板](k8s_helm6_definename.md)
-7. [Helm Hooks 的使用](k8s_helm7_hook.md)
-8. [Helm模板之其他注意事项](k8s_helm8_others.md)
+1. [Helm 模板之内置函数和Values](k8s_helm3_func_value.md)
+   * [`Charts/`/ 定义 `chart`/ 创建模板 / 添加一个简单的模板 / 内置对象/ `values` 文件] 
+2. [Helm 模板之模板函数与管道](k8s_helm4_template_pipe.md)
+   * [模板函数/ 管道 /  `default` 函数 /  运算符函数]
+3. [Helm 模板之控制流程](k8s_helm5_process.md)
+   * [`if/else` 条件 / 控制空格 / 使用 `with` 修改范围/ `range` 循环 / 变量]
+4. [Helm模板之命名模板](k8s_helm6_definename.md)
+   * [`partials` 和 `_` 文件 / 用 `define` 和 `template` 声明和使用命名模板/ 模板范围 / `include` 函数]
+5. [`Helm Hooks` 的使用](k8s_helm7_hook.md)
+   
+6. [`Helm` 文件系统](k8s_helm8_files.md)
+   * [模板内访问文件 /  `NOTES.txt` 文件/ `.helmignore` 文件]
+7. [子 `chart` 和全局值](k8s_helm8_others.md)
+   * [子 Chart 的使用 / 全局值的使用]
 10. [Helm Chart 模板开发技巧](k8s_helm10_Dev_Skills.md)
+   * [ 使用 `tpl` 函数 / 创建 `imagePullSecret` / `ConfigMap` 或者 `Secret` 更改时自动更新/ 告诉 `Tiller` 不要删除资源 / 使用`Partials/ others`]
 
+
+### CHART 最佳实践
+
+* [CHART 最佳实践](k8s_helm15_best_practice.md)
+
+* 一般约定：了解 chart 一般约定。
+* `values` 文件：查看结构化 `values.yaml` 的最佳实践。
+* `Template:`：学习一些编写模板的最佳技巧。
+* `Requirement`：遵循 requirements.yaml 文件的最佳做法。
+* 标签和注释:：`helm` 具有标签和注释的传统。
+* Kubernetes 资源：
+  * `Pod` 及其规格：查看使用 `pod` 规格的最佳做法。
+  * 基于角色的访问控制：有关创建和使用服务帐户，角色和角色绑定的指导。
+  * 自定义资源：自定义资源（`CRDs`）有其自己的相关最佳实践。
 
 #### HELM 开发技巧 
 
 1. [`HELM`开发 `YAML`技巧](k8s_helm11_chart_yaml.md)
+2. [Helm 词汇表](k8s_helm16_term.md)

@@ -2,9 +2,9 @@
 
 和`Kubernetes`里面的容器一样，`Helm`也提供了 `Hook` 的机制，允许 `chart` 开发人员在 `release` 的生命周期中的某些节点来进行干预，比如我们可以利用 `Hooks` 来做下面的这些事情：
 
-### 在加载任何其他 `chart` 之前，在安装过程中加载 `ConfigMap` 或 `Secret`
-### 在安装新 `chart` 之前执行作业以备份数据库，然后在升级后执行第二个作业以恢复数据
-### 在删除 `release` 之前运行作业，以便在删除 `release` 之前优雅地停止服务
+#### 在加载任何其他 `chart` 之前，在安装过程中加载 `ConfigMap` 或 `Secret`
+#### 在安装新 `chart` 之前执行作业以备份数据库，然后在升级后执行第二个作业以恢复数据
+#### 在删除 `release` 之前运行作业，以便在删除 `release` 之前优雅地停止服务
 
 值得注意的是 `Hooks` 和普通模板一样工作，但是它们具有特殊的注释，可以使 `Helm` 以不同的方式使用它们。
 
@@ -59,14 +59,14 @@ metadata:
 * `Tiller` 将 `release` 名称和其他数据返回给客户端
 * `Helm` 客户端退出
 
-### 等待 `hook` 准备就绪，这是一个阻塞的操作，如果 `hook` 中声明的是一个 `Job` 资源，那么 `Tiller` 将等待 `Job` 成功完成，如果失败，则发布失败，在这个期间，`Helm` 客户端是处于暂停状态的。
+#### 等待 `hook` 准备就绪，这是一个阻塞的操作，如果 `hook` 中声明的是一个 `Job` 资源，那么 `Tiller` 将等待 `Job` 成功完成，如果失败，则发布失败，在这个期间，`Helm` 客户端是处于暂停状态的。
 
 对于所有其他类型，只要 `kubernetes` 将资源标记为加载（添加或更新），资源就被视为**就绪**状态，当一个 `hook` 声明了很多资源是，**这些资源是被串行执行的**。
 
 
-### 另外需要注意的是 `hook` 创建的资源不会作为 `release` 的一部分进行跟踪和管理，一旦 `Tiller Server` 验证了 `hook` 已经达到了就绪状态，它就不会去管它了。
+#### 另外需要注意的是 `hook` 创建的资源不会作为 `release` 的一部分进行跟踪和管理，一旦 `Tiller Server` 验证了 `hook` 已经达到了就绪状态，它就不会去管它了。
 
-### 所以，如果我们在 `hook` 中创建了资源，那么不能依赖`helm delete`去删除资源，因为 `hook` 创建的资源已经不受控制了，要销毁这些资源，需要在`pre-delete`或者`post-delete`这两个 `hook` 函数中去执行相关操作，或者将`helm.sh/hook-delete-policy`这个 `annotation` 添加到 `hook` 模板文件中。
+#### 所以，如果我们在 `hook` 中创建了资源，那么不能依赖`helm delete`去删除资源，因为 `hook` 创建的资源已经不受控制了，要销毁这些资源，需要在`pre-delete`或者`post-delete`这两个 `hook` 函数中去执行相关操作，或者将`helm.sh/hook-delete-policy`这个 `annotation` 添加到 `hook` 模板文件中。
 
 ## 写一个 hook
 
@@ -118,7 +118,7 @@ annotations:
   "helm.sh/hook": post-install,post-upgrade
 ```
 
-另外值得注意的是我们为 `hook` 定义了一个权重，**这有助于建立一个确定性的执行顺序，权重可以是正数也可以是负数，但是必须是字符串才行**。
+另外值得注意的是我们为 `hook` 定义了一个权重，**这有助于建立一个确定性的执行顺序，权重可以是正数也可以是负数，但是必须是字符串才行**。当 `Tiller` 开始执行一个特定类型的 `hook` (例： `pre-install hooks post-install hooks`, 等等) 执行周期时，它会按升序对这些 `hook` 进行排序
 
 ```
 annotations:
@@ -131,7 +131,7 @@ annotations:
   "helm.sh/hook-delete-policy": hook-succeeded
 ```
 
-### 删除资源的策略可供选择的注释值：
+#### 删除资源的策略可供选择的注释值：
 
 * `hook-succeeded`：表示 `Tiller` 在 `hook` 成功执行后删除 `hook` 资源
 * `hook-failed`：表示如果 `hook` 在执行期间失败了，`Tiller` 应该删除 `hook` 资源

@@ -1,74 +1,7 @@
-# Helm模板之其他注意事项
+# 子 `chart` 和全局值
 
-### NOTES.txt 文件的使用、子 Chart 的使用、全局值的使用
-
-## NOTES.txt 文件
-
-我们前面在使用 `helm install` 命令的时候，`Helm` 都会为我们打印出一大堆介绍信息，这样当别的用户在使用我们的 chart 包的时候就可以根据这些注释信息快速了解我们的 `chart` 包的使用方法，这些信息就是编写在 `NOTES.txt` 文件之中的，这个文件是纯文本的，但是它和其他模板一样，**具有所有可用的普通模板函数和对象**。
-
-现在我们在前面的示例中 `templates` 目录下面创建一个 `NOTES.txt` 文件
-
-```
-$ cd /helm/mychart/templates
-$ vi NOTES.txt
-
-
-Your release is named {{ .Release.Name }}.
-
-To learn more about the release, try:
-
-  $ helm status {{ .Release.Name }}
-  $ helm get {{ .Release.Name }}
-```
-
-我们可以看到我们在 `NOTES.txt` 文件中也使用 `Chart` 和 `Release` 对象，现在我们在 `mychart` 包根目录下面执行安装命令查看是否能够得到上面的注释信息：
-
-```
-$ cd ..
-$ helm install .
-
-$ helm install .
-NAME:   masked-ocelot
-LAST DEPLOYED: Tue Oct 16 08:44:41 2018
-NAMESPACE: default
-STATUS: DEPLOYED
-
-RESOURCES:
-==> v1/ConfigMap
-NAME                     DATA  AGE
-masked-ocelot-configmap  6     0s
-
-
-NOTES:
-Thank you for installing mychart.
-
-Your release is named masked-ocelot.
-
-To learn more about the release, try:
-
-  $ helm status masked-ocelot
-  $ helm get masked-ocelot
-```
-
-```
-$ helm list
-NAME         	REVISION	UPDATED                 	STATUS  	CHART        	NAMESPACE
-masked-ocelot	1       	Tue Oct 16 08:44:41 2018	DEPLOYED	mychart-0.1.0	default
-```
-
-```
-$ helm delete masked-ocelot
-release "masked-ocelot" deleted
-
-$ helm list --all
-NAME         	REVISION	UPDATED                 	STATUS 	CHART           	NAMESPACE
-lanky-lion   	1       	Wed Sep 26 09:30:34 2018	DELETED	hello-helm-0.1.0	default
-masked-ocelot	1       	Tue Oct 16 08:44:41 2018	DELETED	mychart-0.1.0   	default
-```
-
-现在已经安装成功了，而且下面的注释部分也被渲染出来了，我们可以看到 NOTES.txt 里面使用到的模板对象都被正确渲染了。
-
-为我们创建的 chart 包提供一个清晰的 NOTES.txt 文件是非常有必要的，可以为用户提供有关如何使用新安装 chart 的详细信息，这是一种非常友好的方式方法
+* 子 Chart 的使用
+* 全局值的使用
 
 ## 子 chart 包
 
@@ -344,6 +277,29 @@ data:
 data:
   allin: helm
 ```
-我们可以看到两个模板中都输出了allin: helm这样的值，全局变量对于传递这样的信息非常有用，不过也要注意我们不能滥用全局值。
+我们可以看到两个模板中都输出了	`allin: helm`这样的值，全局变量对于传递这样的信息非常有用，不过也要注意我们不能滥用全局值。
 
-另外值得注意的是我们在学习命名模板的时候就提到过父 chart 和子 chart 可以共享模板。任何 chart 中的任何定义块都可用于其他 chart，所以我们在给命名模板定义名称的时候添加了 chart 名称这样的前缀，避免冲突。
+另外值得注意的是我们在学习命名模板的时候就提到过父 `chart` 和子 `chart` 可以共享模板。任何 `chart` 中的任何定义块都可用于其他 `chart`，所以我们在给命名模板定义名称的时候添加了 chart 名称这样的前缀，避免冲突。
+
+
+### 与子 chart 共享模板(include / template)
+
+
+父 `chart` 和子 `chart` 可以共享模板。任何 chart 中的任何定义块都可用于其他 chart。
+
+例如，我们可以像这样定义一个简单的模板：
+
+```
+{{- define "labels"}}from: mychart{{ end }}
+
+```
+
+回想一下模板上的标签是如何全局共享的。因此，`labels chart` 可以包含在其他 chart 中。
+
+尽管 chart 开发人员可以选择 `include` 和 `template`, 使用 `include` 的一个优点是，include 可以动态地引用模板：
+
+```
+{{include $mytemplate}}
+```
+
+
