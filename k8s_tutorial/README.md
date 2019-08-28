@@ -261,6 +261,7 @@
 2. [Grafana 日志聚合工具 Loki](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/12Adv_Grafana_Loki.md)
 3. [Kubernetes Operator 快速入门教程](k8s_adv63_operator.md)
 4. [在现有 `Kubernetes` 集群上安装 `KubeSphere`](k8s_adv73_KubeSphere.md)
+5. [VMWare 开源的 `Kubernetes` 可视化工具 `Octant`](k8s_adv75_octant_dashboard.md)
 
 
 ### K8S Q&A
