@@ -164,6 +164,7 @@
 1. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
 2. [通过 GitHub OAuth 和 Dex 访问 Kubernetes 集群](k8s_adv69_oauth_dex.md)
 3. [这些用来审计 Kubernetes RBAC 策略](k8s_adv74_BRAC_strategy.md)
+4. [Kubernetes Pod 安全策略(PodSecurityPolicy,PSP)配置](k8s_adv76_psp.md)
 
 ### 持久化存储:
 
