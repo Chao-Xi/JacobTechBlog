@@ -332,6 +332,7 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 
 ## 包管理工具 HELM
 
+![Alt Image Text](images/boat.gif "headline image")
 
 ### HELM 基本使用
 
@@ -339,6 +340,7 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 2. [Helm 的基本使用](k8s_helm2_application.md)
 3. [Helm monitor 插件](k8s_helm9_monitor.md)
 4. [`Chart Debug`调试模板](k8s_helm15_chart_debug.md)
+5. [Helm V2 迁移到 V3 版本](k8s_helm17_helmv3.md)
 
 ### HELM Chart 管理
 
