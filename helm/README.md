@@ -34,59 +34,34 @@ It will also init the DB.
 
 * [Jam MySql(helm)](2Mysql.md)
 
-**2. Elasticsearch & Elasticsearch6**
+**2. Elasticsearch & Elasticsearch6 :**[ElasticSearch and ElasticSearch6(helm)](3elasticsearch.md)
+
+**3. RabbitMQ :** [RabbitMQ(helm)](4rabbitmq.md)
+
+**4. SMTP :** [SMTP(mailcatcher helm)](5SMTP.md)
 
 
-* [ElasticSearch and ElasticSearch6(helm)](3elasticsearch.md)
+**5. mail-inbound :**[mail-inbound](5mail-inbound.md)
 
-**3. RabbitMQ**
+**6. antivirus :** [Antivirus](6Antivirus.md)
 
-
-* [RabbitMQ(helm)](4rabbitmq.md)
-
-**4. SMTP**
-
-
-* [SMTP(mailcatcher helm)](5SMTP.md)
-
-
-**5. mail-inbound**
-
-* [mail-inbound](5mail-inbound.md)
-
-**6. antivirus**
-
-* [Antivirus](6Antivirus.md)
-
-**7. Memcached for CT**
-
-* [CT-Memcached](7ct-memcached.md)
+**7. Memcached for CT :** [CT-Memcached](7ct-memcached.md)
 
 ### 3. Launch Application
 
-**1. jod**
+**1. jod:** [Jam Jod](app1_jod.md)
 
 **For excel conversion**
 
-* [Jam Jod](app1_jod.md)
+**2. doc :** [Jam Doc Conversion](app2_doc.md)
 
-**2. doc**
+**3. opensocial :** [Jam opensocial](app3_opensocial.md)
 
-* [Jam Doc Conversion](app2_doc.md)
+**4. agent-server :**[Jam agent-server-realtime](app4_agent-server.md)
 
-**3. opensocial**
-
-* [Jam opensocial](app3_opensocial.md)
-
-**4. agent-server**
-
-* [Jam agent-server-realtime](app4_agent-server.md)
-
-**5. Profile Sync（PS)**
+**5. Profile Sync（PS) :** [Jam Profile Sync（PS)](app5_profile_sync.md)
 
 It will also migrate PS database
-
-* [Jam Profile Sync（PS)](app5_profile_sync.md)
 
 **6. Jam Cubetree(CT)**
 
