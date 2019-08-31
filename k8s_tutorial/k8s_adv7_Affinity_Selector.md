@@ -324,6 +324,65 @@ test-busybox                              1/1       Running     0          23m  
 
 ![Alt Image Text](images/adv/adv7_1.jpg "Body image")
 
+### 亲和性/反亲和性应用实例：
+
+* 硬策略反亲和性
+
+```
+affinity:
+	podAffinity:
+	  requiredDuringSchedulingIgnoredDuringExecution:
+	  - labelSelector:
+	      matchExpressions:
+	      - key: app
+	        operator: In
+	        values:
+	        - prometheus
+	    topologyKey: kubernetes.io/hostname
+	    namespaces: ["monitoring"]    😘  
+```
+
+* 硬策略反亲和性(多values, 多namespaces)
+
+```
+affinity:
+	podAntiAffinity:
+	  requiredDuringSchedulingIgnoredDuringExecution:
+	  - labelSelector:
+	      matchExpressions:
+	      - key: app
+	        operator: In
+	        values:
+	        - prometheus
+	        - metrics-server
+	    topologyKey: kubernetes.io/hostname
+	    namespaces: ["monitoring","kube-system"]
+```
+
+* 软策略策略反亲和性(多values, 多namespaces)
+
+```
+affinity:
+	podAntiAffinity:
+	  preferredDuringSchedulingIgnoredDuringExecution:
+	  - weight: 100     👌
+	    podAffinityTerm:
+	      labelSelector:
+	        matchExpressions:
+	        - key: app
+	          operator: In
+	          values:
+	          - prometheus
+	          - metrics-server
+	      topologyKey: kubernetes.io/hostname
+	      namespaces: ["monitoring","kube-system"] 
+```
+
+[Scheduler affinities through examples](https://banzaicloud.com/blog/k8s-affinities/)
+
+**So what’s a good advice for setting `weight` in the range `1-100`? It’s simple: you won’t be able to calculate the priority score in advance for each of the nodes, so as a rule of thumb, the more you want your preference to be fulfilled, the higher weight you’ll need to set**.
+
+
 ## 污点（Taints）与容忍（tolerations）
 
 对于`nodeAffinity`无论是**硬策略还是软策略方式**，都是调度 `POD` 到预期节点上，而`Taints`恰好与之相反，如果一个节点标记为 `Taints` ，除非 `POD` 也被标识为可以容忍污点节点，否则该 `Taints` 节点不会被调度`pod`。
