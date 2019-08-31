@@ -215,7 +215,9 @@
 1. [外部服务发现之 ingress(一): traefik 的安装使用](k8s_adv17_ingress1.md)
 2. [外部服务发现之 ingress(二): Ingress TLS 和 PATH 的使用](k8s_adv18_ingress2.md)
 3. [Kubernetes Ingress 使用 Let's Encrypt 自动化 HTTPS](k8s_adv30_ingress_auto_https.md)
-4. [如何保护对外暴露的 Kubernetes 服务](k8s_adv50_Ingress_Protection.md)
+4. [Traefik 2.0 正式版发布及安装与使用](k8s_adv77_traefik2.0.md) 
+5. [`Traefik` 团队开源的轻量级 `Service Mesh` 工具 `Maesh`](k8s_adv78_trarfik_mesh.md)
+5. [如何保护对外暴露的 Kubernetes 服务](k8s_adv50_Ingress_Protection.md)
 6. [nginx-ingress 的安装使用](k8s_adv51_Nginx_Ingress.md)
 7. [kubernetes 办公环境下网络互通方案](k8s_adv38_Connect_Offce_Network.md)
 8. [Ingress vs Load Balancer](k8s_adv66_elbVSingress.md)
@@ -329,17 +331,6 @@ ubertest-management-stzq9	ismanagement=1:NoSchedule	ismanagement=1:NoExecute
 $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-**Show All nodes and IPs**
-
-```
-kubectl get nodes -o custom-columns='NodeIP:status.addresses[0].address,NodeName:metadata.name'
-```
-
-**Show All pods and labels**
-
-```
-kubectl get pods -n management -o custom-columns="pod-name:.metadata.name,app-label:.metadata.labels.app"
-```
 
 ## 包管理工具 HELM
 
