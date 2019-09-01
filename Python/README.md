@@ -80,6 +80,11 @@
 3. [Else Clauses on Loops](python_adv24.md)
 4. [Iterators and Iterables](python_adv27.md)
 
+### Python Thread and Process
+
+1. [Calling External Commands Using the `Subprocess Module`](python_adv51.md)
+2. [Run Code Concurrently Using the `Threading` and `Concurrent` Module](python_adv52.md)
+
 ### Important Module
 
 1. [psutil](python_adv29.md)
