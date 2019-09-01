@@ -1,6 +1,10 @@
 # Run Code Concurrently Using the Threading and Concurrent Module
 
+**Threading is I/O bound** 
+
 ## Thread module in simple way
+
+![Alt Image Text](images/52_1.png "Body image")
 
 ### No thread module： Sequentially running
 
@@ -118,6 +122,8 @@ print(f'Finished in {round(finish-start, 2)} second(s)')
 
 
 ## Concurrent to run thread
+
+![Alt Image Text](images/52_2.png "Body image")
 
 ```
 import concurrent.futures

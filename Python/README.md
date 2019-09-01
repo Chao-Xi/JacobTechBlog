@@ -84,6 +84,7 @@
 
 1. [Calling External Commands Using the `Subprocess Module`](python_adv51.md)
 2. [Run Code Concurrently Using the `Threading` and `Concurrent` Module](python_adv52.md)
+3. [Run Code in Parallel Using the `Multiprocessing` AND `Concurrent` Module](python_adv53.md)
 
 ### Important Module
 
