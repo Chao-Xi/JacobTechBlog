@@ -336,6 +336,8 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 
 ![Alt Image Text](images/boat.gif "headline image")
 
+* [在Kubernetes平台上如何使用Helm部署以获得最佳体验？](k8s_helm18_best_practice.md)
+
 ### HELM 基本使用
 
 1. [Helm安装使用](k8s_helm1_setup.md)
