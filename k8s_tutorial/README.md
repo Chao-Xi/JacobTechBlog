@@ -221,6 +221,7 @@
 6. [nginx-ingress 的安装使用](k8s_adv51_Nginx_Ingress.md)
 7. [kubernetes 办公环境下网络互通方案](k8s_adv38_Connect_Offce_Network.md)
 8. [Ingress vs Load Balancer](k8s_adv66_elbVSingress.md)
+9. [使用 inlets 和 kubernetes 访问本地服务](k8s_adv79_inlets.md)
 
 ### K8S 伸缩问题
 
