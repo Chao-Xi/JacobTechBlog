@@ -329,6 +329,11 @@ ubertest-management-stzq9	ismanagement=1:NoSchedule	ismanagement=1:NoExecute
 $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
+**Show All nodes and IPs**
+
+```
+kubectl get nodes -o custom-columns='NodeIP:status.addresses[0].address,NodeName:metadata.name'
+```
 
 ## 包管理工具 HELM
 
