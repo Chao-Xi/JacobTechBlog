@@ -13,6 +13,13 @@ $ grep -rnw . -e 'string'     # find string inside the folder
 $ grep -rnw . -e 'linux'
 ```
 
+[Ops Terminal Common Commands](9Ops_command.md)
+
+* `Crontab` job
+* `find` Command
+* `Curl` Command
+* `grep` command
+
 ## Linux Sysadmin Basics 
 
 1. [Linux Sysadmin Basics - Process](2Linux_process.md)
