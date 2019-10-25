@@ -41,6 +41,7 @@
 3. [Prometheus Operator 自定义报警](14Adv_Prometheus_Operator_alarm.md)
 4. [Prometheus Operator 自动发现以及数据持久化](15Adv_Prometheus_Operator_Setting.md)
 5. [Install prometheus-operator with Helm in Ubertest Cluster](21Install_Prometheus_Operator_SAP_CC.md)
+6. [Add Custom Alert and Send Alert Email with Alertmanager (SAP - Converged Cloud - Ubertest Cluster)](22Customize_Alert_Email.md)
 
 
 ## Other monitor tools
@@ -48,7 +49,9 @@
 1. [安装使用 360 开源 K8S Dashboard: `Wayne`](9Adv_Wayne_dashboard.md) 
 2. [Grafana 日志聚合工具 Loki](12Adv_Grafana_Loki.md)
 
+## Awesome Prometheus Alerts
 
+[Awesome Prometheus Alerts](https://github.com/samber/awesome-prometheus-alerts)
 
 
 
