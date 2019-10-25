@@ -59,3 +59,23 @@
 28. [kubeadm 指定初始化集群镜像](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#8-kubeadm-%E6%8C%87%E5%AE%9A%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%86%E7%BE%A4%E9%95%9C%E5%83%8F)
 
 29. [YAML 文件格式](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA5.md#9-yaml-%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F)
+
+30. [如果`pod`长期不重启，容器输出到 `emptydir` 的日志文件，有什么好的清理办法呢？](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA6.md#1-%E5%A6%82%E6%9E%9Cpod%E9%95%BF%E6%9C%9F%E4%B8%8D%E9%87%8D%E5%90%AF%E5%AE%B9%E5%99%A8%E8%BE%93%E5%87%BA%E5%88%B0-emptydir-%E7%9A%84%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E6%B8%85%E7%90%86%E5%8A%9E%E6%B3%95%E5%91%A2)
+
+31. [`kubeadm` 搭建集群忘记了 `join` 的命令](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA6.md#2-kubeadm-%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E5%BF%98%E8%AE%B0%E4%BA%86-join-%E7%9A%84%E5%91%BD%E4%BB%A4)
+
+32. [`ServiceAccount` 如何进行权限控制](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA6.md#3-serviceaccount-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6)
+
+33. [`Docerfile` 中添加交互式命令](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA6.md#4--docerfile-%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%91%BD%E4%BB%A4)
+
+34. [`kubeadm` 升级集群配置](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA6.md#5-kubeadm-%E5%8D%87%E7%BA%A7%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE)
+
+35. [`Pod `时区同步](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA6.md#6-pod-%E6%97%B6%E5%8C%BA%E5%90%8C%E6%AD%A5)
+
+36. [`Prometheus` 采集 `Kubelet` 指标](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA6.md#7-prometheus-%E9%87%87%E9%9B%86-kubelet-%E6%8C%87%E6%A0%87)
+
+37. [`Lease API`](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA6.md#8-lease-api)
+
+38. [`Prometheus` 报警规则](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA6.md#9-prometheus-%E6%8A%A5%E8%AD%A6%E8%A7%84%E5%88%99)
+
+39. [启动探针](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_QA6.md#10%E5%90%AF%E5%8A%A8%E6%8E%A2%E9%92%88)
