@@ -17,6 +17,7 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
 * `ServiceEntry` 是通常用于在 Istio **服务网格之外启用对服务的请求**。
 *  `Gateway` 为 `HTTP/TCP` **流量配置负载均衡器**，最常见的是在**网格的边缘的操作**，以**启用应用程序的入口流量。**
 
+
 ## Istio基础教学
 
 1. [Istio 架构与技术](1isba_Frame_Tech.md)
@@ -52,6 +53,75 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
   * Mixer的配置模型
   * Mixer的典型应用
   * Mixer实践1和2
+
+## Istio 高级教学与实践
+
+![Alt Image Text](images/bg2.png "Body image")
+
+1. [服务网格的基本特征](1Service_Mesh_Intro.md)
+2. [Istio 基本介绍](2Istio_Intro.md)
+ * Istio的核心组件及其功能
+ * 核心配置对象
+3. [Istio, Service Mesh快速入门](3Istro_ServiceM_Prac.md) 
+4. [用`Helm`部署`Istio`](4Istio_Helm.md) 
+ * `Istlo Chart`概述 
+ * `charts`全局变量介绍
+ * `Istio` 安装清单的生成和部署
+5. [Istio 常用功能 （自动/手动部署`Istio`应用）](5Istio_funcs.md) 
+ * 在网格中部署应用
+ * 修改`Istio`配置
+6. [使用 `Istio Dashboard Grafana / Prometheus`](6Istio_func2_grafana_prometheus.md)
+ *  使用`Istio Dashboard (Grafana)` 
+ *  使用`Prometheus`
+7. [使用 `Istio Dashboard Jager`](7Istio_fun3_Jager.md)
+8. [使用`Istio Dashboard Kiali`](8Istio_func4_Kiali.md)
+9. [`HTTPS`流量管理1](9Istio_http1.md)
+ * 定义目标规则 
+ * 定义默认路由
+ * 流量的拆分和迁移
+10. [`HTTPS`流量管理2](10Istio_http2.md)
+ * 金丝雀部署
+ * 根据来源服务进行路由
+ * 对`URI`进行重定向
+11. [HTTPS流量管理3](11Istio_http3.md)
+ * 通信超时控制 
+ * 故障重试控制
+ * 入口流量管理
+ * 出口流量管理
+12. [HTTPS流量管理4](12Istio_http4.md)
+ * 置服务熔断
+ * 故障注入测试
+ * 注入中断
+ * 流量复制
+13. [Mixer 适配器的应用](13Istio_Mixer1.md)
+ * Mixer适配器简介
+ * 基于`Denier`适配器的访问控制
+ * 基于`Listchecker`适配器的访问控制
+14. [Mixer 适配器的应用2](14Istio_Mixer2.md)
+ * 使用`MemQuota`适配器进行服务限流
+ * 使用`RedisQuota`适配器进行服务限流
+15. [Mixer 适配器的应用3 - 为Prometheus定义监控指标](15Istio_Mixer3_prometheus.md)
+ * 默认监控指标
+ * 自定义监控指标 
+16. [使用`stdio`输出自定义日志](16Istio_Mixer4_stdio.md)
+ * 默认的访问日志 
+ * 定义日志对象
+ * 测试输出
+17. [使用`Fluentd`输出日志](17Istio_Mixer5_fluentd.md)
+ * 部署`Fluentd`
+ * 测试输出
+18. [Istio的安全加固1](18Istio_Sec1.md)
+ * `Istio`安全加固概述 
+ * 启用`mTLS` 
+19. [Istio的安全加固2](19Istio_Sec2_RBAC.md)
+ * 设置`RBAC`
+ * `RBAC`的除错过程
+20. [`Istio` 的试用建议](20Istio_Usage.md)
+ * `Istio`自身的突出问题
+ * 确定功能范围
+ * 选择试用业务
+ * 调用过程 
+
 
 ## bookinfo 实验与教学
 
