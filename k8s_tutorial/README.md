@@ -276,6 +276,7 @@
 4. [K8S Q&A Chapter three](k8s_QA3.md)
 5. [K8S Q&A Chapter Four](k8s_QA4.md)
 6. [K8S Q&A Chapter Five](k8s_QA5.md)
+7. [K8S Q&A Chapter Six](k8s_QA6.md)
 
 ### K8S 生产案例
 

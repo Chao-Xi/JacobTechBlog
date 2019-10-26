@@ -58,6 +58,16 @@ $ kubectl -n monitoring port-forward prometheus-monitoring-prometheus-oper-prome
 
 ![Alt Image Text](images/22_1.png "Body image")
 
+* **Option two**
+
+```
+$ kubectl exec prometheus-monitoring-prometheus-oper-prometheus-0 -n monitoring -it sh
+
+# cd /etc/prometheus/rules/prometheus-monitoring-prometheus-oper-prometheus-rulefiles-0/
+
+# ls -la 
+```
+
 ### Reference: 
 
 1. [PromQL]()
