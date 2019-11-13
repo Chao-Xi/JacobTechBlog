@@ -49,9 +49,20 @@
 1. [安装使用 360 开源 K8S Dashboard: `Wayne`](9Adv_Wayne_dashboard.md) 
 2. [Grafana 日志聚合工具 Loki](12Adv_Grafana_Loki.md)
 
-## Awesome Prometheus Alerts
+## PromQL and Prometheus Alerts
 
-[Awesome Prometheus Alerts](https://github.com/samber/awesome-prometheus-alerts)
+### PromQL 
+
+1. [初识 PromQL](1Promql_basic1.md)
+2. [`PromQL` 操作符](2Promql_basic2.md)
+3. [`PromQL` 内置函数](3Promql_basic3.md)
+4. [ `PromQL` 简单示例](4Promql_basic4.md)
+5. [在 `HTTP API` 中使用 `PromQL`](5Promql_basic5.md)
+
+
+### Marvelous Prometheus Alerts
+
+* [Marvelous Prometheus Alerts](prom-alerts/README.md)
 
 
 

@@ -1,0 +1,110 @@
+#  Redis 
+
+[https://github.com/oliver006/redis_exporter](https://github.com/oliver006/redis_exporter)
+
+## 8.1. Redis down
+
+**Redis instance is down**
+
+```
+- alert: RedisDown
+  expr: redis_up == 0
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Redis down (instance {{ $labels.instance }})"
+    description: "Redis instance is down\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+```
+
+## 8.2. Missing backup
+
+**Redis has not been backuped for 24 hours**
+
+```
+- alert: MissingBackup
+  expr: time() - redis_rdb_last_save_timestamp_seconds > 60 * 60 * 24
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Missing backup (instance {{ $labels.instance }})"
+    description: "Redis has not been backuped for 24 hours\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+```
+
+
+## 8.3. Out of memory
+
+**Redis is running out of memory (> 90%)**
+
+```
+- alert: OutOfMemory
+  expr: redis_memory_used_bytes / redis_total_system_memory_bytes * 100 > 90
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "Out of memory (instance {{ $labels.instance }})"
+    description: "Redis is running out of memory (> 90%)\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+```
+
+## 8.4. Replication broken
+
+**Redis instance lost a slave**
+
+```
+- alert: ReplicationBroken
+  expr: delta(redis_connected_slaves[1m]) < 0
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Replication broken (instance {{ $labels.instance }})"
+    description: "Redis instance lost a slave\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+```
+
+## 8.5. Too many connections
+
+**Redis instance has too many connections**
+
+```
+- alert: TooManyConnections
+  expr: redis_connected_clients > 100
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "Too many connections (instance {{ $labels.instance }})"
+    description: "Redis instance has too many connections\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+```
+
+## 8.6. Not enough connections
+
+**Redis instance should have more connections (> 5)**
+
+```
+- alert: NotEnoughConnections
+  expr: redis_connected_clients < 5
+  for: 5m
+  labels:
+    severity: warning
+  annotations:
+    summary: "Not enough connections (instance {{ $labels.instance }})"
+    description: "Redis instance should have more connections (> 5)\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+```
+
+## 8.7. Rejected connections
+
+**Some connections to Redis has been rejected**
+
+```
+- alert: RejectedConnections
+  expr: increase(redis_rejected_connections_total[1m]) > 0
+  for: 5m
+  labels:
+    severity: error
+  annotations:
+    summary: "Rejected connections (instance {{ $labels.instance }})"
+    description: "Some connections to Redis has been rejected\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+```
+

@@ -149,8 +149,8 @@ route:
 receivers:
 - name: 'jam_devops'
   email_configs:
-  # - to: 'DL_5D1776B74AD79A0279CD79CA@global.corp.sap'  # This is Jam Devops Team DL
-  - to: 'jacob.xi@sap.com'
+  # - to: 'DL_@global.corp.sap'  # This is Jam Devops Team DL
+  - to: 'j@sap.com'
     send_resolved: true
     headers:
       Subject: 'Ubertest-Alert{{ template "email.default.subject" . }}' # Special header for ubertest cluster
