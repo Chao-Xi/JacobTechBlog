@@ -1,0 +1,20 @@
+apiVersion: ceph.rook.io/v1
+kind: CephCluster
+metadata:
+  name: rook-ceph
+  namespace: rook-ceph
+spec:
+  cephVersion:
+    # 最新得 ceph 镜像, 可以查看 https://hub.docker.com/r/ceph/ceph/tags
+    image: ceph/ceph:v14.2.4-20190917
+  dataDirHostPath: /data/rook  # 主机有效目录
+  mon:
+    count: 3
+  dashboard:
+    enabled: true
+  storage:
+    useAllNodes: true
+    useAllDevices: false
+    # 重要: Directories 应该只在预生产环境中使用
+    directories:
+    - path: /var/lib/rook
