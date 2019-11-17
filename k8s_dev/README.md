@@ -12,5 +12,5 @@
 8. [K8S +Gitlab + Gitlab CI Runner + Jenkins + Harbor + Helm + Kubernetes](./k8s_gitlab/README.md)
 9. [如何使用`Message Queues`, `Spring Boot`, 以及 `Kubernetes`构建高可用的微服务架构](./k8s_queue_springboot/README.md)
 10. [使用 Jenkins X、Kubernetes 和 Spring Boot 实现 CI/CD](./jenkinsx_springBoot_cicd/README.md)
-11. [使用 kubeadm 搭建 `v1.15.3` 版本 `Kubernetes` 集群](kubeadm15/init_kubeadm_1.15.3.md)
+11. [使用 kubeadm 搭建 `v1.15.3` 版本 `Kubernetes` 集群](kubeadm15/README.md)
 12. [K8S Rook 搭建 Ceph 集群](rook_ceph/README.md)
