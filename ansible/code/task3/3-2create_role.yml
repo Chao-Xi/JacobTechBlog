@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - include_role:
+          name: create_user
+      vars:
+        user_name: jacob
+        # user_state: present
+        # user_state: absent
+        ssh_key: ~/.ssh/id_rsa.pub

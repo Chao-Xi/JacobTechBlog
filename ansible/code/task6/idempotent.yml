@@ -1,0 +1,31 @@
+---
+- hosts: k8s_master
+  tasks:
+  - name: an idempotent create command
+    copy:
+      src: files/idempotent.txt
+      dest: $HOME/tmp/idempotent.txt
+    tags:
+      - create
+  - name: an idempotent command
+    lineinfile:
+      dest: $HOME/tmp/idempotent.txt
+      regexp: '^(.*)is an(.*)$'
+      backrefs: true
+      line: '\1is really an\2'
+    tags:
+      - create
+  - name: a non idempotent command
+    shell: "echo this is a non-idempotent file >> $HOME/tmp/non-idempotent.txt"
+    tags:
+      - create
+
+  - name: remove the file we created
+    file:
+      path: $HOME/tmp/{{ item }}
+      state: absent
+    with_items:
+    - non-idempotent.txt
+    - idempotent.txt
+    tags:
+      - destroy

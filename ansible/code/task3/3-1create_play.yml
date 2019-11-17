@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    user_name: jacob
+    # user_state: present
+    user_state: absent
+    ssh_key: ~/.ssh/id_rsa.pub
+  tasks:
+     - include_tasks: tasks/create_user.yml

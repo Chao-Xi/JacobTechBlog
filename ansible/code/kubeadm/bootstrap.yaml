@@ -1,0 +1,253 @@
+# This ansible.yaml is used to install kubeadm components 
+# on centos7 servers and automatically init an kubadm nodes 
+# for k8s cluster
+# Step One: Add pub key from workhost to the destination host
+
+# Step two: Check new server connectivity 
+# ansible -m ping -i ../inventory-kube.ini all
+# ...
+#  "ping": "pong"
+# ...
+
+# Step Three: ansible-playbook -i  ../inventory-kube.ini bootstrap.yaml --check
+# Validate the playbook
+
+# Step four: ansible-playbook -i  ../inventory-kube.ini bootstrap.yaml 
+# Run the playbook
+
+# Attention:
+# Serveral parts needed to be change to fit your 
+
+---
+- hosts: all
+  vars:
+    nodes:
+    # Put all kubeadm servers infos here
+      node_master:
+        hostsname: jabox
+        ip_addr: 10.151.30.11
+      node1:
+        hostsname: jabox-node1
+        ip_addr: 10.151.30.22
+      node2:
+        hostsname: jabox-node2
+        ip_addr: 10.151.30.23 
+      node3:
+        hostsname: jabox-node3
+        ip_addr: 10.151.30.24
+
+  tasks:
+  - name: Show all Ip address in the dict
+    debug:
+      msg: "{{ item.value.hostsname }} {{ item.value.ip_addr }}"
+    loop: "{{ lookup('dict', nodes) }}"
+  
+  # with predefined vars
+  - name: Add IP address of all hosts to all hosts
+    # debug:
+    #   msg: "{{ item.value.hostsname }} ({{ item.value.ip_addr }})"
+    lineinfile: 
+      dest: /etc/hosts
+      line: "{{ item.value.hostsname }} {{ item.value.ip_addr }}"
+      state: present
+    loop: "{{ lookup('dict', nodes) }}"
+    become: yes
+    # become_method: "sudo"
+  
+  - name: Stop and disable firewalld
+    service:
+      name: firewalld
+      state: stopped
+      enabled: no
+    become: yes
+    # become_method: "sudo"
+    ignore_errors: true # if firewalld service doesn't exist
+  
+  - name: Disable SELinux
+    selinux:
+      state: disabled
+    become: yes
+    # become_method: "sudo"
+  
+  - name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
+    shell: |
+      swapoff -a
+    when: ansible_swaptotal_mb > 0
+    become: yes
+
+  - name: Remove swapfile from /etc/fstab
+    mount:
+      name: swap
+      fstype: swap
+      state: absent
+
+  - name: Create k8s ip config in /etc/sysctl.d 
+    copy:
+      src: template/k8s.conf
+      dest: /etc/sysctl.d/k8s.conf
+    become: yes
+    # # become_method: "sudo"
+  
+  - name: Enable k8s ip config
+    command: "{{item}}"
+    with_items:
+      - modprobe br_netfilter
+      - sysctl -p /etc/sysctl.d/k8s.conf
+    become: yes
+
+  - name: Create ipvs.modules in /etc/sysconfig/modules/
+    template:
+      src: template/ipvs.modules
+      dest: /etc/sysconfig/modules/ipvs.modules
+      mode: '0755'
+    become: yes
+    # become_method: "sudo"
+    tags:
+      - ipvs_modules
+
+  - name: Enable ipvs modules with bash script
+    command: bash /etc/sysconfig/modules/ipvs.modules
+    become: yes
+    # become_method: "sudo"
+    tags:
+      - ipvs_modules
+
+  # - name: Check ipvs modules loaded or not
+  #   shell: "lsmod | grep -e ip_vs -e nf_conntrack_ipv4"
+  #   tags:
+  #     - ipvs_modules
+
+  - name: upgrade all packages
+    yum: name=* state=latest  
+    become: yes
+    # become_method: "sudo"
+    when: ansible_os_family == "RedHat"
+  
+  - name: Install ipset and ipvsadm on the node
+    yum:
+      name: '{{ip_packages}}'
+      state: latest
+    when: ansible_os_family == "RedHat"
+    become: yes
+    # become_method: "sudo"
+    vars:
+      ip_packages:
+      - ipset
+      - ipvsadm
+    tags:
+      - ipvs_modules
+
+  - name: Install chrony
+    yum:
+      name: chrony
+      state: latest
+    when: ansible_os_family == "RedHat"
+    become: yes
+    # become_method: "sudo"
+  
+  - name: Start and enable chronyd
+    service:
+      name: chronyd
+      state: started
+      enabled: yes
+    become: yes
+    # become_method: "sudo"
+  
+#### Install docker service
+
+  - name: Install yum utils
+    yum:
+      name: yum-utils
+      state: latest
+    become: yes
+
+  - name: Install device-mapper-persistent-data
+    yum:
+      name: device-mapper-persistent-data
+      state: latest
+    become: yes
+
+  - name: Install lvm2
+    yum:
+      name: lvm2
+      state: latest
+    become: yes
+
+  - name: Add Docker repo
+    get_url:
+      url: https://download.docker.com/linux/centos/docker-ce.repo
+      dest: /etc/yum.repos.d/docer-ce.repo
+    become: yes
+
+  # - name: Enable Docker Edge repo
+  #   ini_file:
+  #     dest: /etc/yum.repos.d/docer-ce.repo
+  #     section: 'docker-ce-edge'
+  #     option: enabled
+  #     value: "0"
+  #   become: yes
+
+  # - name: Enable Docker Test repo
+  #   ini_file:
+  #     dest: /etc/yum.repos.d/docer-ce.repo
+  #     section: 'docker-ce-test'
+  #     option: enabled
+  #     value: "0"
+  #   become: yes
+
+  - name: Install Docker
+    package:
+      name: docker-ce-19.03.1-3.el7
+      state: latest
+    become: yes
+    ignore_errors: true 
+
+  - name: Start Docker service
+    service:
+      name: docker
+      state: started
+      enabled: yes
+    become: yes
+
+  - name: Add user vagrant to docker group
+    user:
+      name: vagrant
+      groups: docker
+      append: yes
+    become: yes
+    # ignore_errors: true 
+
+#### Install kubeadm service
+  - name: add kubernetes.repo to /etc/yum.repos.d
+    copy:
+      src: template/kubernetes.repo
+      dest:  /etc/yum.repos.d/kubernetes.repo
+    become: yes
+    # become_method: "sudo"
+  
+  - name: Intall kubernetes service on the node
+    yum:
+      name: "{{packages}}"
+      state: latest
+      # enabled: yes
+      disable_excludes: kubernetes
+    vars:
+      packages:
+      - kubelet
+      - kubeadm
+      - kubectl
+    become: yes
+    # ignore_errors: true 
+  
+  - name: Enable kubelet.service automatically
+    service:
+      name: kubelet.service
+      state: started
+      enabled: yes
+    become: yes
+
+ # Then restart server    
+ # kubeadm token create --print-join-command
+
+    
+

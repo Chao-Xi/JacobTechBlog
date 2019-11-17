@@ -1,0 +1,1 @@
+password: '{{vault_password}}'

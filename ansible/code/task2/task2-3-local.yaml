@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Create a file via ssh connection
+    file:
+      dest: $HOME/Devops_sap/ansible/code/task2/2-3ssh-created
+      state: touch
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Create a file via sdirect local connection
+    file:
+      dest: $HOME/Devops_sap/ansible/code/task2/2-3direct-created
+      state: touch

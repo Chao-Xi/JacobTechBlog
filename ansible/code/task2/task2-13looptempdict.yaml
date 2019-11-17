@@ -1,0 +1,62 @@
+---
+- hosts: all
+  vars:
+    animals:
+      cats:
+        tabby:
+          color: grey
+          persnickityness: high
+        calico:
+          color: orange
+          persnickityness: medium
+      dogs:
+        doberman:
+          color: black
+          persnickityness: extreme
+        retriever:
+          color: golden
+          persnickityness: low
+  tasks:
+  - name: deploy a dictionary looping template file
+    template:
+      src: templates/2-13-template.j2
+      dest: $HOME/tmp/2-13-template.txt
+    tags:
+      - create
+  - name: remove the templated file
+    file:
+      dest: $HOME/tmp/2-13-template.txt
+      state: absent
+    tags:
+      - destroy
+
+# ansible-playbook -i ../inventory.ini task2-13looptempdict.yaml --tags create
+# ansible-playbook -i ../inventory.ini task2-13looptempdict.yaml --tags destroy
+
+# 2-14 Check mode Check Mode (“Dry Run”)
+
+# When ansible-playbook is executed with `--check` it will not make any changes on remote systems. 
+
+# check s a way of validating that our ansible is actually valid in advance of impacting our systems.
+
+# k8s-jx
+# We are in groups: k8s_master, k8s_servers, web
+# We like both cats and dogs
+# We like grey tabbys and orange calicos and we like black dobermans and golden retrievers
+
+# githost
+# We are in groups: githost_servers, web
+# We like both cats and dogs
+# We like grey tabbys and orange calicos and we like black dobermans and golden retrievers
+
+# k8s-jx1
+# We are in groups: db, k8s_servers
+# We like both cats and dogs
+# We like grey tabbys and orange calicos and we like black dobermans and golden retrievers
+
+# k8s-jx2
+# We are in groups: backup, db, k8s_servers
+# We like both cats and dogs
+# We like grey tabbys and orange calicos and we like black dobermans and golden retrievers
+
+

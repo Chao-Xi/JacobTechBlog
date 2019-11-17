@@ -1,0 +1,26 @@
+---
+- hosts: all
+  vars:
+    packages: [git,vim,ruby]
+  tasks:
+  - name: deploy a template file with a loop
+    template:
+      src: templates/2-12-template.j2
+      dest: $HOME/tmp/2-12-template.txt
+    tags:
+      - create
+  - name: remove the templated file
+    file:
+      dest: $HOME/tmp/2-12-template.txt
+      state: absent
+    tags:
+      - destroy
+ 
+# ansible-playbook -i ../inventory.ini task2-12looptemplist.yaml --tags create
+# ansible-playbook -i ../inventory.ini task2-12looptemplist.yaml --tags absent
+
+# We are on host k8s-jx
+# We installed: git, vim, ruby
+
+# We are on host githost
+# We installed: git, vim, ruby

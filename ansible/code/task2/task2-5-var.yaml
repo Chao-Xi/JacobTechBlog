@@ -1,0 +1,32 @@
+---
+- hosts: web
+  tasks:
+  - name: create a web file
+    file:
+      dest: '{{web_file}}'
+      state: '{{file_state}}'
+
+- hosts: backup
+  tasks:
+  - file:
+      dest: '{{backup_file}}'
+      state: '{{file_state}}'
+
+
+- hosts: db
+  tasks:
+  - file:
+      dest: '{{db_file}}'
+      state: '{{file_state}}'
+    when: db_file is defined  # check db_file is defined https://medium.com/opsops/is-defined-in-ansible-d490945611ae
+# Sometimes you will want to skip a particular step on a particular host. 
+# This could be something as simple as not installing a certain package if the operating system 
+# is a particular version, or it could be something like performing some cleanup steps 
+# if a filesystem is getting full.
+
+- hosts: all
+  tasks:
+  - file:
+      dest: '{{all_file}}'
+      state: '{{file_state}}'
+      

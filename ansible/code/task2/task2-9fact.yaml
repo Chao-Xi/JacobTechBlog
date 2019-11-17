@@ -1,0 +1,14 @@
+---
+- hosts: web
+  tasks:
+  - name: create
+    file:
+      dest: $HOME/tmp/k8s-master-on-githost 
+      state: '{{file_state}}'
+    when: hostvars[inventory_hostname]['inventory_hostname'] == 'githost'  #where the file gonna be created
+
+  - name: create
+    file:
+      dest: $HOME/tmp/githost-on-k8s-master
+      state: '{{file_state}}'
+    when: inventory_hostname == 'k8s-jx' #where the file gonna becreated

@@ -1,0 +1,60 @@
+---
+- hosts: all
+  vars:
+    packages: [git,vim,ruby]
+  tasks:
+  - name: install packages for Debian style OSs
+    apt:
+      name: '{{item}}'
+      state: '{{pkg_state}}'
+    with_items: '{{packages}}'
+    when: ansible_os_family == "Debian"
+    sudo: yes
+    tags:
+      - handle-pkg
+
+  - name: install pacakges for Redhat style OSs
+    yum:
+      name: '{{item}}'
+      state: '{{pkg_state}}'
+    with_items: '{{packages}}'
+    when: ansible_os_family == "RedHat"
+    sudo: yes
+    tags:
+      - handle-pkg
+
+  - name: create files based on package names
+    file:
+      dest:  $HOME/tmp/{{item}}
+      state: '{{file_state}}'
+    with_items: '{{packages}}'
+    when: ansible_os_family == "RedHat"
+    tags:
+      - handle-files
+
+#  with_items is used to loop mysql_variables
+#  ansible-playbook -i ../inventory.ini task2-10loopvar.yaml -e file_state=touch -e  pkg_state=latest
+#  ansible-playbook -i ../inventory.ini task2-10loopvar.yaml -e file_state=absent -e  pkg_state=absent
+
+# ansible-playbook -i ../inventory.ini task2-10loopvar.yaml --skip-tags handle-pkg --tags handle-files -e file_state=absent
+
+
+# yum state: absent installed latest present removed
+# Whether to install (present or installed, latest), or remove (absent or removed) a package.
+# present and installed will simply ensure that a desired package is installed.
+# latest will update the specified package if it's not of the latest available version.
+# absent and removed will remove the specified package.
+# Default is None, however in effect the default action is present unless the autoremove option is enabled for this module, then absent is inferred.
+
+# [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple 
+# items and specifying `name: "{{item}}"`, please use `name: '{{packages}}'` and remove the loop. This feature will be removed in version 2.11. 
+# Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+
+# - name: "Install dependencies"
+#   apt:
+#     pkg:
+#       - libnss3
+#       - libasound2
+#       - xcb
+#       - xinit
+#     state: present

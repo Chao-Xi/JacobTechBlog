@@ -1,0 +1,43 @@
+---
+- hosts: all
+  tasks:
+  - name: create tmp folder on all servers
+    file:
+      dest: $HOME/tmp/
+      state: directory
+# If directory, all intermediate subdirectories will be created if they do not exist. 
+# Since Ansible 1.7 they will be created with the supplied permissions.
+
+- hosts: all
+  tasks:
+  - name: create a file on a remote machine
+    file:
+      dest: $HOME/tmp/file
+      state: '{{file_state}}'
+# File module: https://docs.ansible.com/ansible/latest/modules/file_module.html#file-module
+# once with the state of touch, create this file if it doesn't exist
+# Seoncd time, we'll run it with the state of absent
+
+- hosts: web
+  tasks:
+  - name: create file on web machines
+    file:
+      dest: $HOME/tmp/web-file
+      state: '{{file_state}}'
+
+- hosts: all:!db
+  tasks:
+  - name: create file on web machines
+    file:
+      dest: $HOME/tmp/web-not-db-file
+      state: '{{file_state}}'
+
+- hosts: all:&backup:!web
+  tasks:
+  - name: create file on web machines
+    file:
+      dest: $HOME/tmp/backup-file
+      state: '{{file_state}}'
+
+# operators '& and' and '! not'
+# Set "file_state" as variable passed in  '{{file_state}}'

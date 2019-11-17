@@ -1,0 +1,22 @@
+---
+- hosts: all
+  tasks:
+  - name: embed the secure password in a file
+    template:
+      src: templates/password.j2
+      dest: $HOME/tmp/password
+      mode: 0600
+    tags:
+      - create
+  - name: clean up the secure passwords file
+    file:
+      name: $HOME/tmp/password
+      state: absent
+    tags:
+      - destroy
+  - name: debug the password that was encrypted
+    debug:
+      msg: 'the password is {{password}}'
+    tags:
+      - create
+      - destroy

@@ -1,0 +1,40 @@
+---
+- hosts: all
+  tasks:
+  - name: create a file
+    file:
+      dest: $HOME/tmp/file
+      state: touch
+    tags:
+      - create-file
+
+- hosts: all:k8s_servers:!db
+  tags:
+    - delete-file
+  tasks:
+  - name: delete a file
+    file:
+      dest: $HOME/tmp/file
+      state: absent
+
+- hosts: web:githost
+  tasks:
+  - name: delete a file
+    file:
+      dest: /tmp/file
+      state: absent
+    tags:
+      - delete-file
+
+- hosts: all
+  tags:
+    - list-file
+  tasks:
+  - name: Recursively find /tmp files
+    find:
+      paths: $HOME/tmp/
+      recurse: yes
+    register: all_files
+
+  - debug:
+      msg: "{{ all_files.files[0].path }}"
