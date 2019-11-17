@@ -235,6 +235,7 @@
 1. [Kubelet 调度资源预留(如何预防雪崩)](k8s_adv29_kubelet_resource.md)
 2. [Kubernetes与容器设计模式](k8s_adv35_design_pattern.md)
 3. [微服务中的Sidecar设计模式解析 & Kubernetes日志采集Sidecar模式介绍](k8s_adv34_sidecar.md)
+4. [在 `Kubernetes` 中配置 `Container Capabilities`](k8s_adv80_container_capabilities.md)
 
 
 ### K8S 安全性问题
