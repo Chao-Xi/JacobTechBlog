@@ -43,6 +43,9 @@
 5. [Install prometheus-operator with Helm in Ubertest Cluster](21Install_Prometheus_Operator_SAP_CC.md)
 6. [Add Custom Alert and Send Alert Email with Alertmanager (SAP - Converged Cloud - Ubertest Cluster)](22Customize_Alert_Email.md)
 
+## Prometheus-Adapter
+
+* [ 对 `Kubernetes` 应用进行自定义指标扩缩容 by `Prometheus-Adapter` and `Flask Promethues Exporter`](23Kubernetes_Scale_Prometheus-Adapter.md)
 
 ## Other monitor tools
 
@@ -63,6 +66,7 @@
 ### Marvelous Prometheus Alerts
 
 * [Marvelous Prometheus Alerts](prom-alerts/README.md)
+
 
 
 
