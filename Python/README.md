@@ -96,6 +96,7 @@
 6. [Request Web Pages, Download Images, POST Data, Read JSON](python_adv31.md)
 7. [Python Numpy Intro](python_adv32.md)
 8. [Calling External Commands Using the `Subprocess Module`](python_adv51.md)
+9. [Zip Files - Creating and Extracting Zip Archives](python_adv54.md)
 
 ### Others Section
 
@@ -105,10 +106,10 @@
 4. [Hiding Passwords and Secret Keys in Environment Variables](python_adv22.md)
 5. [`if __name__ == '__main__'`](python_adv23.md)
 
-### Important tools
+### Important tools and Module (Data Science)
 
 * [Jupyter Notebook Tutorial: Introduction, Setup, and Walkthrough](python_adv38.md)
-
+* [Python data Science tutorial 1 (module collections)](python_adv55.md)
 
 ### Matplotlib Tutorial
 
