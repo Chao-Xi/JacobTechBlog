@@ -1,5 +1,7 @@
 # 对 `Kubernetes` 应用进行自定义指标扩缩容 by `Prometheus-Adapter` and `Flask Promethues Exporter`
 
+![Alt Image Text](images/23_7.png "body image")
+
 ##  环境准备
 
 * `1.10.0+` 版本的 Kubernetes 集群
