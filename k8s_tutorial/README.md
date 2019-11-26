@@ -264,9 +264,10 @@
 
 1. [安装使用 360 开源 K8S Dashboard: `Wayne`](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/9Adv_Wayne_dashboard.md) 
 2. [Grafana 日志聚合工具 Loki](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/12Adv_Grafana_Loki.md)
-3. [Kubernetes Operator 快速入门教程](k8s_adv63_operator.md)
+3. [`Kubernetes Operator` 快速入门教程](k8s_adv63_operator.md)
 4. [在现有 `Kubernetes` 集群上安装 `KubeSphere`](k8s_adv73_KubeSphere.md)
 5. [VMWare 开源的 `Kubernetes` 可视化工具 `Octant`](k8s_adv75_octant_dashboard.md)
+6. [使用 `OAM` and `Rudr` 部署 Kubernetes 应用](k8s_adv81_OAM_Rudr.md)
 
 
 ### K8S Q&A
