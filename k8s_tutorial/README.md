@@ -219,9 +219,10 @@
 5. [`Traefik` 团队开源的轻量级 `Service Mesh` 工具 `Maesh`](k8s_adv78_trarfik_mesh.md)
 5. [如何保护对外暴露的 Kubernetes 服务](k8s_adv50_Ingress_Protection.md)
 6. [nginx-ingress 的安装使用](k8s_adv51_Nginx_Ingress.md)
-7. [kubernetes 办公环境下网络互通方案](k8s_adv38_Connect_Offce_Network.md)
-8. [Ingress vs Load Balancer](k8s_adv66_elbVSingress.md)
-9. [使用 inlets 和 kubernetes 访问本地服务](k8s_adv79_inlets.md)
+7. [ingress-nginx 中 Rewrite 的使用](k8s_adv82_ingress_nginx_rewrite.md)
+8. [kubernetes 办公环境下网络互通方案](k8s_adv38_Connect_Offce_Network.md)
+9. [Ingress vs Load Balancer](k8s_adv66_elbVSingress.md)
+10. [使用 inlets 和 kubernetes 访问本地服务](k8s_adv79_inlets.md)
 
 ### K8S 伸缩问题
 
