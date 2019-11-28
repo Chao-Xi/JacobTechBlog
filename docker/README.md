@@ -2,6 +2,19 @@
 
 ![Alt Image Text](images/docker_theme.jpg "Headline image")
 
+### [Docker (面试必看)核心技术与实现原理](18docker_core_tech.md) 
+
+* Namespaces
+* 进程
+* 网络
+* `libnetwork`
+* 挂载点(`chroot`)
+* `CGroups`
+* `UnionFS`
+* 存储驱动
+* `AUFS`
+* 其他存储驱动
+
 ## Docker技术与开发 (Docker technology and development[mandarin])
 
 1. [Docker的基本概念与优势(Docker basic concept and advantage)](1docker_basic_concept.md)
