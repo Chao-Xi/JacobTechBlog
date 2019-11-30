@@ -88,7 +88,7 @@
 
 ### K8S 操作
 
-#### [提高 kubectl 使用生产力](k8s_skill7_kubectl_improve.md)
+#### [提高 kubectl 使用生产力](k8s_skill7_kubectl_improve.md) 😍
 
 * 命令自动补全安装[Linux/Mac(**Upgrading Bash on macOS**)]
 * 快速查找资源 `kubectl explain`
@@ -97,13 +97,16 @@
 * 切换集群和命名空间
 * 使用插件扩展 `kubectl`
 
+#### [Kubernetes Deployment 故障排查常见方法😍](k8s_adv84_deployment_diagnostic.md) 
+
 #### 使用技巧
 
-1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)
+1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)  😍
 2. [使用`etcdctl`访问`kubernetes`数据](k8s_skill2_etcdctl.md)
 3. [POD内部使用技巧](k8s_skill3_skillset.md)
 4. [Kubernetes API 资源应该使用哪个 Group 和 Version?](k8s_adv31_api_group_version.md)
 5. [jsonnet 和 Kubernetes](k8s_adv32_jsonnet.md)
+6. [CentOS 7 ETCD集群配置大全](k8s_adv83_etcd_centos7.md)
 
 #### 故障排除
 
@@ -193,7 +196,7 @@
    * 不同 Node 中的 Pod 之间通讯 (`VXLAN / Flannel` )
 3. `Pod` 与 `Service` 之间的网络
   * `netfilter`
-  * `iptables`
+  * `iptables` 
   * `IPVS`
   * `Pod` 到 `Service` 的一个包的流转
   * `Service` 到 `Pod` 的一个包的流转
