@@ -42,6 +42,7 @@
 4. [Prometheus Operator 自动发现以及数据持久化](15Adv_Prometheus_Operator_Setting.md)
 5. [Install prometheus-operator with Helm in Ubertest Cluster](21Install_Prometheus_Operator_SAP_CC.md)
 6. [Add Custom Alert and Send Alert Email with Alertmanager (SAP - Converged Cloud - Ubertest Cluster)](22Customize_Alert_Email.md)
+7. [Prometheus 黑盒监控](24Kubernetes_Prometheus_blackbox.md)
 
 ## Prometheus-Adapter
 
@@ -61,6 +62,7 @@
 3. [`PromQL` 内置函数](3Promql_basic3.md)
 4. [ `PromQL` 简单示例](4Promql_basic4.md)
 5. [在 `HTTP API` 中使用 `PromQL`](5Promql_basic5.md)
+6. [Prometheus 记录规则的使用(`Recording Rule`)](6Promql_adv1.md)
 
 
 ### Marvelous Prometheus Alerts
