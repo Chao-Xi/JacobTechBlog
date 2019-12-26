@@ -157,10 +157,11 @@
 9. [Kubernetes 服务质量 `Qos` 解析 `Pod` 资源 `requests` 和 `limits` 如何配置?](k8s_adv19_Qos.md)
 10. [`DaemonSet` 与 `StatefulSet` 的使用](k8s_adv24_DaemonSet_StatefulSet.md)
 11. [Kubernetes Secret 资源对象使用方法](k8s_adv12_secret.md)
-12. [`Kubernetes Namespace`命名空间详解](k8s_adv44_namespace.md)
-13. [`Kubelet` 状态更新机制](k8s_adv58_kubelet.md)
-14. [如何在`Kubernetes`实现GPU调度及共享](k8s_adv64_GPU_share.md)
-15. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
+12. [两种方法上手`ConfigMap`(环境变量/挂载文件)](k8s_adv85_two_configmaps.md)
+13. [`Kubernetes Namespace`命名空间详解](k8s_adv44_namespace.md)
+14. [`Kubelet` 状态更新机制](k8s_adv58_kubelet.md)
+15. [如何在`Kubernetes`实现GPU调度及共享](k8s_adv64_GPU_share.md)
+16. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
 
 #### K8S授权和访问
 
