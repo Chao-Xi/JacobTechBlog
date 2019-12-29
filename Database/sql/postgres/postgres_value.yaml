@@ -1,0 +1,4 @@
+postgresqlUsername: admin
+postgresqlPassword: admin
+persistence:
+  enabled: false

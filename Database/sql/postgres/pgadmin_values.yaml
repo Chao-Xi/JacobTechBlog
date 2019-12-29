@@ -1,0 +1,6 @@
+persistence:
+  enabled: false
+
+# env:
+#   email: chart@example.local
+#   password: SuperSecret
