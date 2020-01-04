@@ -1,14 +1,14 @@
 # Advanced SQL for Query Tuning and Performance Optimization
 
 
-## How SQL Executes a Query
+## [How SQL Executes a Query](1sql_query.md)
 
 * Advanced SQL for Query Tuning and Performance Optimization
 * Scanning tables and indexes
 * Joining tables
 * Partitioning data
 
-## Postgresql tools for tuning
+## [Postgresql tools for tuning](2sql_tools.md)
 
 * Explain and analyze
 * Example plan: Selecting with a WHERE clause
@@ -28,7 +28,7 @@ explain analyze select * from staff where salary > 75000;
 explain analyze select * from staff where salary > 150000;
 ```
 
-## Types of Indexing
+## [Types of Indexing](3sql_indexes.md)
 
 * Indexing
 * B-tree indexes
@@ -55,7 +55,7 @@ create index index_staff_email on staff using hash(email);
 explain select * from staff where email='jmurray3@gov.uk';
 ```
 
-## Tuning Join
+## [Tuning Join](4sql_join.md)
 
 * What affects joins performance?
 * Nested loops
@@ -119,7 +119,7 @@ set enable_hashjoin=false;
 set enable_mergejoin=true;
 ```
 
-## Partitioning Data
+## [Partitioning Data](5sql_partitioning_data.md)
 
 * Horizontal vs. vertical partitioning
 * Partition by range
@@ -193,7 +193,7 @@ CREATE TABLE customer_interaction_5 PARTITION OF customer_interaction
 	FOR VALUES WITH (MODULUS 5, REMAINDER 4); 
 ```
 
-## Materialized views
+## [Materialized views](6sql_materialized_views.md)
 
 * Materialized views
 * Creating materialized views
@@ -214,7 +214,7 @@ CREATE MATERIALIZED VIEW my_staff AS
 refresh materialized views my_staff
 ```
 
-##  Other Optimization Techniques
+## [Other Optimization Techniques](7sql_opt_tech.md)
 
 * Collect statistics about data in tables
 * Hints to the query optimizer
