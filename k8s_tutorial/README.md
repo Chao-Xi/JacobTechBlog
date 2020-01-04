@@ -115,6 +115,7 @@
 3. [Kubernetes 处理容器数据磁盘被写满](k8s_skill4_desc_full.md)
 4. [Kubernetes 问题定位技巧：分析 ExitCode](k8s_skill5_exit_code.md)
 5. [Kubernetes 最佳实践：处理内存碎片化](k8s_skill6_slan_cache.md)
+6. [Kubernetes 删除卡在 `Terminating`状态的 `namespace`](k8s_skill8_clean_ns.md)
 
 #### 编写模板
 
