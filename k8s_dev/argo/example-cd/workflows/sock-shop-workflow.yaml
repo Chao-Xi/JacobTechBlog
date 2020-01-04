@@ -1,0 +1,113 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: sock-shop-workflow-
+spec:
+  entrypoint: sock-shop
+
+  templates:
+  - name: sock-shop
+    steps:
+    - - name: zipkin-ns-create
+        template: kubectl-ns-create
+        arguments:
+          parameters:
+          - name: ns-to-create
+            value: zipkin
+      - name: sock-shop-ns-create
+        template: kubectl-ns-create
+        arguments:
+          parameters:
+          - name: ns-to-create
+            value: sock-shop
+
+    - - name: zipkin-deploy
+        template: kubectl-create
+        arguments:
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/zipkin"
+
+    - - name: sockshop-db-deploy
+        template: kubectl-create
+        arguments: 
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/sock-shop-db"
+
+    - - name: sockshop-usvc-deploy
+        template: kubectl-create
+        arguments:
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/sock-shop-usvc"
+      - name: sock-shop-zipkin-usvc-deploy
+        template: kubectl-create
+        arguments:
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/sock-shop-zipkin-usvc"
+
+    - - name: front-end-up
+        template: check-lb-service-up
+        arguments:
+          parameters:
+          - name: service-name
+            value: front-end
+          - name: service-namespace
+            value: sock-shop
+          - name: lb-check-timeout
+            value: 300
+          - name: lb-check-period
+            value: 5
+      - name: zipkin-up
+        template: check-lb-service-up
+        arguments:
+          parameters:
+          - name: service-name
+            value: zipkin
+          - name: service-namespace
+            value: zipkin
+          - name: lb-check-timeout
+            value: 300
+          - name: lb-check-period
+            value: 5
+
+  - name: kubectl-ns-create
+    inputs:
+      parameters:
+      - name: ns-to-create
+    container:
+      image: docker.io/argoproj/kubectl:sh-v1.8.3
+      command: ["/bin/sh", "-c"]
+      args: ["kubectl get namespace {{inputs.parameters.ns-to-create}}; RET=$?; if [ ${RET} -ne 0 ]; then kubectl create namespace {{inputs.parameters.ns-to-create}}; fi;"]
+      imagePullPolicy: Always
+        
+  - name: kubectl-create
+    inputs:
+      parameters:
+      - name: repo-manifest-dir
+      artifacts:
+      - name: git-artifact
+        path: /src
+        git:
+          repo: "https://github.com/argoproj/example-cd.git"
+          revision: "master"
+    container:
+      image: docker.io/argoproj/kubectl:sh-v1.8.3
+      command: ["/bin/sh", "-c"]
+      args: ["kubectl create -f /src/{{inputs.parameters.repo-manifest-dir}}"]
+      imagePullPolicy: Always
+
+  - name: check-lb-service-up
+    inputs:
+      parameters:
+      - name: service-name
+      - name: service-namespace
+      - name: lb-check-timeout
+      - name: lb-check-period
+    container:
+      image: docker.io/argoproj/kubectl:sh-v1.8.3
+      command: ["/bin/bash", "-x", "-c"]
+      args: ["ITER=0; MAX_ITER=$(( {{inputs.parameters.lb-check-timeout}} / {{inputs.parameters.lb-check-period}} )); while [ ${ITER} -lt ${MAX_ITER} ]; do IP=$(kubectl get service {{inputs.parameters.service-name}} --namespace {{inputs.parameters.service-namespace}} -o json | jq '.status.loadBalancer.ingress[0].ip'); if [ \"${IP}\" != \"null\" ]; then echo \"{{inputs.parameters.service-name}} load balanced service came up on ip ${IP}\"; exit 0; fi; echo \"Waiting for grafana to come up\"; sleep {{inputs.parameters.lb-check-period}}; ITER=$((ITER+1)); done; echo \"ERROR: Timeout waiting for service to come up\"; exit 1"]
+      imagePullPolicy: Always

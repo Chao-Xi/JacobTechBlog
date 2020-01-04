@@ -1,0 +1,75 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: sock-shop-cleanup-workflow-
+spec:
+  entrypoint: sock-shop-cleanup
+
+  templates:
+  - name: sock-shop-cleanup
+    steps:
+    - - name: sockshop-usvc-cleanup
+        template: kubectl-delete
+        arguments:
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/sock-shop-usvc"
+      - name: sock-shop-zipkin-usvc-deploy
+        template: kubectl-delete
+        arguments:   
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/sock-shop-zipkin-usvc"
+
+    - - name: sockshop-db-cleanup
+        template: kubectl-delete
+        arguments:
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/sock-shop-db"
+
+    - - name: zipkin-cleanup
+        template: kubectl-delete
+        arguments:
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/zipkin"
+
+    - - name: zipkin-ns-delete  
+        template: kubectl-ns-delete
+        arguments:   
+          parameters:
+          - name: ns-to-delete
+            value: zipkin   
+      - name: sock-shop-ns-delete
+        template: kubectl-ns-delete
+        arguments:   
+          parameters:
+          - name: ns-to-delete
+            value: sock-shop  
+
+  - name: kubectl-ns-delete
+    inputs:
+      parameters:
+      - name: ns-to-delete
+    container:
+      image: docker.io/argoproj/kubectl:sh-v1.8.3
+      command: ["/bin/sh", "-c"]
+      args: ["kubectl get namespace {{inputs.parameters.ns-to-delete}}; RET=$?; if [ ${RET} -eq 0 ]; then kubectl delete namespace {{inputs.parameters.ns-to-delete}}; fi;"]
+      imagePullPolicy: Always
+        
+  - name: kubectl-delete
+    inputs:
+      parameters:
+      - name: repo-manifest-dir
+      artifacts:
+      - name: git-artifact
+        path: /src
+        git:
+          repo: "https://github.com/argoproj/example-cd.git"
+          revision: "master"
+    container:
+      image: docker.io/argoproj/kubectl:sh-v1.8.3
+      command: ["/bin/sh", "-c"]
+      args: ["kubectl delete -f /src/{{inputs.parameters.repo-manifest-dir}}; exit 0"]
+      imagePullPolicy: Always

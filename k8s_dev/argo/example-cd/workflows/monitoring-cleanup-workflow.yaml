@@ -1,0 +1,55 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: sock-shop-monitoring-cleanup-workflow-
+spec:
+  entrypoint: sock-shop-monitoring-cleanup
+
+  templates:
+  - name: sock-shop-monitoring-cleanup
+    steps:
+    - - name: monitoring-cfg-cleanup
+        template: kubectl-delete
+        arguments:
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/monitoring-cfg"
+      - name: monitoring-cleanup
+        template: kubectl-delete
+        arguments:
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/monitoring"
+
+    - - name: monitoring-ns-delete
+        template: kubectl-ns-delete
+        arguments:
+          parameters:
+          - name: ns-to-delete
+            value: monitoring
+
+  - name: kubectl-ns-delete
+    inputs:
+      parameters:
+      - name: ns-to-delete
+    container:
+      image: docker.io/argoproj/kubectl:sh-v1.8.3
+      command: ["/bin/sh", "-c"]
+      args: ["kubectl get namespace {{inputs.parameters.ns-to-delete}}; RET=$?; if [ ${RET} -eq 0 ]; then kubectl delete namespace {{inputs.parameters.ns-to-delete}}; fi;"]
+      imagePullPolicy: Always
+        
+  - name: kubectl-delete
+    inputs:
+      parameters:
+      - name: repo-manifest-dir
+      artifacts:
+      - name: git-artifact
+        path: /src
+        git:
+          repo: "https://github.com/argoproj/example-cd.git"
+          revision: "master"
+    container:
+      image: docker.io/argoproj/kubectl:sh-v1.8.3
+      command: ["/bin/sh", "-c"]
+      args: ["kubectl delete -f /src/{{inputs.parameters.repo-manifest-dir}};exit 0"]
+      imagePullPolicy: Always

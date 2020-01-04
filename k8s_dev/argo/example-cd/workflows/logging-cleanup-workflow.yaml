@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: logging-cleanup-workflow-
+spec:
+  entrypoint: sock-shop-logging-cleanup
+
+  templates:
+  - name: sock-shop-logging-cleanup
+    steps:
+    - - name: logging-cleanup
+        template: kubectl-delete
+        arguments:
+          parameters:
+          - name: repo-manifest-dir
+            value: "example-cd/logging"
+        
+  - name: kubectl-delete
+    inputs:
+      parameters:
+      - name: repo-manifest-dir
+      artifacts:
+      - name: git-artifact
+        path: /src
+        git:
+          repo: "https://github.com/argoproj/example-cd.git"
+          revision: "master"
+    container:
+      image: docker.io/argoproj/kubectl:sh-v1.8.3
+      command: ["/bin/sh", "-c"]
+      args: ["kubectl delete -f /src/{{inputs.parameters.repo-manifest-dir}}; exit 0"]
+      imagePullPolicy: Always
