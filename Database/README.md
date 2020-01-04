@@ -16,6 +16,7 @@
 ## Learning SQL
 
 * [Data Scientists SQL (PostgreSql) ](sql/README.md)
+* [Advanced SQL for Query Tuning and Performance Optimization](query_opt/README.md)
 
 
 ## NoSQL 
