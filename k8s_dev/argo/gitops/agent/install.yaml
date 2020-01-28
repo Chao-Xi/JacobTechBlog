@@ -1,0 +1,42 @@
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: gitops-agent
+subjects:
+  - kind: ServiceAccount
+    name: gitops-agent
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: gitops-agent
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: gitops-agent
+  namespace: default
+spec:
+  schedule: "*/1 * * * *"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: gitops-agent
+          containers:
+            - name: main
+              image: my-agent:v1
+              imagePullPolicy: IfNotPresent
+              args:
+                - /bin/sh
+                - -c
+                - git clone https://github.com/gitops-workshop/poor-mans-gitops && cat poor-mans-gitops/apps/my-app.yaml | envsubst | kubectl apply -l apps.kubernetes.io/instance=my-app --prune --validate=false -f -
+          restartPolicy: Never
