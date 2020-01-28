@@ -1,0 +1,11 @@
+{
+    "kind": "Secret",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "top-secret",
+        "creationTimestamp": null
+    },
+    "data": {
+        "cloud": "Z3Jhc3M="
+    }
+}

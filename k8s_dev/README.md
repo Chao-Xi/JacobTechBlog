@@ -16,3 +16,5 @@
 12. [K8S Rook 搭建 Ceph 集群](rook_ceph/README.md)
 13. [Argo Project](argo/README.md)
 14. [Open Policy Agent(Gatekeeper)](OPA/README.md)
+15. [在 `Kubernetes` 集群上部署 `VSCode`](vscode/vscode.md)
+16. [`sealed-secrets`, 一种`Kubernetes`控制器和一种加密密钥](sealed-secrets/sealed-secrets.md)
