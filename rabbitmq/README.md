@@ -36,6 +36,7 @@
 	*  集群重启顺序
 	*  添加集群配置
 	*  常见故障
+* [7.JAM Rabbitmq Operation](7Rabbitmq_JAM.md)
 
 
 
