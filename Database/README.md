@@ -10,6 +10,7 @@
 * [MySQL 索引性能分析概要](mysql4_index_perf.md)
 * [数据库并发控制 - 锁和 `MVCC`](https://github.com/Chao-Xi/JacobTechBlog/blob/master/Arch/5DB_locc_mvcc.md)
 * [MySQL 为何使用 `B+` 树而非哈希或者`B`树](mysql5_btree.md)
+* [Keepalived+MySQL高可用 双主热备](mysql6_keepalived.md)
 
 
 
