@@ -30,5 +30,54 @@
 1. [HTTPS 原理分析](https,md)
 
 
+## Git Intermediate Techniques
+
+### [Branch Management](gitadv1.md)
+
+* Force push to remote
+* Identify merged branches
+* Delete local and remote branches
+* Prune stale(`remote-tracking`) branches
+
+### [Tagging](gitadv2.md)
+
+* Create tags
+* List tag 
+* Delete tag
+* Push, fetch and delete tags to a remote
+* Check out tags
+
+### [Interactive Staging](gitadv3.md)
+
+* Interactive Mode
+* Patch Mode
+* Split a hunk `s`
+* Edit a hunk  with `e` option mamually change
+
+### [Share select changes](gitadv4.md)
+
+* Cherry-picking commits
+* Resolve cherry-picking conflicts
+* Create diff patches
+* Apply diff patches (Makes changes, but not commits)
+* Create Formatted Patches (Includes commit messages )
+* Apply formatted patches
+* Formatted Patches vs diff patches
+
+### [Rebasing](gitadv5.md)
+
+* Rebase Commit
+* Perform a rebase
+* Merging vs. rebasing
+* Resolve rebase conflicts
+* Rebase onto other branches
+* Undo a rebase
+* Interactive rebasing
+* Pull Rebase 
 
 
+### [Track down the problems](gitadv6.md)
+
+* Log Options 
+* Blame
+* Bisect
