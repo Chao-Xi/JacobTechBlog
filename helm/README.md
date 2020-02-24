@@ -5,6 +5,12 @@
 
 ![Alt Image Text](images/0_1.png "Body image")
 
+### [Jam on Argocd](8argocd-helm.md)
+
+* argo Project
+* argo Application
+
+
 ### Rolling out the Application
 
 | Label | Description | Objectives & Motivation |
@@ -77,3 +83,4 @@ It will also init CT database, which is a time consuming job. So we need to add 
 * worker
 * ct-scheduler
 * Rpush
+

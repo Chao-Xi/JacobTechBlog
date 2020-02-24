@@ -1,0 +1,194 @@
+```
+$  helm version
+version.BuildInfo{Version:"v3.0.3", GitCommit:"ac925eb7279f4a6955df663a0128044a8a6b7593", GitTreeState:"clean", GoVersion:"go1.13.7"}
+```
+```
+$ kubectl version  
+Client Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.1", GitCommit:"4485c6f18cee9a5d3c3b4e523bd27972b1b53892", GitTreeState:"clean", BuildDate:"2019-07-18T09:18:22Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"darwin/amd64"}
+Server Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.5", GitCommit:"20c265fef0741dd71a66480e35bd69f18351daea", GitTreeState:"clean", BuildDate:"2019-10-15T19:07:57Z", GoVersion:"go1.12.10", Compiler:"gc", Platform:"linux/amd64"}
+```
+
+```
+$  wget https://github.com/hashicorp/vault-helm/archive/v0.3.3.tar.gz
+helm install vault --namespace kube-system --set "server.dev.enabled=true" v0.3.3.tar.gz
+$  helm install vault --namespace kube-system --set "server.dev.enabled=true" v0.3.3.tar.gz
+NAME: vault
+LAST DEPLOYED: Wed Feb 19 16:03:02 2020
+NAMESPACE: kube-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+Thank you for installing HashiCorp Vault!
+
+Now that you have deployed Vault, you should look over the docs on using
+Vault with Kubernetes available here:
+
+https://www.vaultproject.io/docs/
+
+
+Your release is named vault. To learn more about the release, try:
+
+  $ helm status vault
+  $ helm get vault
+```
+
+```
+ helm status vault -n kube-system
+NAME: vault
+LAST DEPLOYED: Wed Feb 19 16:03:02 2020
+NAMESPACE: kube-system
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+Thank you for installing HashiCorp Vault!
+
+Now that you have deployed Vault, you should look over the docs on using
+Vault with Kubernetes available here:
+
+https://www.vaultproject.io/docs/
+
+
+Your release is named vault. To learn more about the release, try:
+
+  $ helm status vault
+  $ helm get vault
+```
+```
+$ helm ls -n kube-system | grep vault
+vault   kube-system     1               2020-02-19 16:03:02.951868 +0800 CST    deployed        vault-0.3.3 
+```
+```
+$ kubectl get pods -n kube-system | grep vault
+vault-0                                        1/1     Running   0          25m
+vault-agent-injector-5f8c857c9f-5szkv          1/1     Running   0          25m
+```
+
+```
+$ kubectl exec -it vault-0 /bin/sh -n kube-system
+/ $ vault secrets enable -path=internal kv-v2
+Success! Enabled the kv-v2 secrets engine at: internal/
+/ $ vault kv put internal/database/config username="db-readonly-username" password="db-secret-password"
+Key              Value
+---              -----
+created_time     2020-02-19T12:11:39.8379346Z
+deletion_time    n/a
+destroyed        false
+version          1
+/ $ vault kv get internal/database/config
+====== Metadata ======
+Key              Value
+---              -----
+created_time     2020-02-19T12:11:39.8379346Z
+deletion_time    n/a
+destroyed        false
+version          1
+
+====== Data ======
+Key         Value
+---         -----
+password    db-secret-password
+username    db-readonly-username
+
+
+/ $ vault auth enable kubernetes
+Success! Enabled kubernetes auth method at: kubernetes/
+
+vault write auth/kubernetes/config \
+    token_reviewer_jx="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
+    kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443" \
+    kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+
+$ vault write auth/kubernetes/config \
+>     token_reviewer_jx="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
+>     kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443" \
+>     kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+Success! Data written to: auth/kubernetes/config
+
+vault policy write internal-app - <<EOH
+    path "internal/data/database/config" {
+    capabilities = ["read"]
+ }
+EOH
+Success! Uploaded policy: internal-app
+
+vault write auth/kubernetes/role/internal-app \
+    bound_service_account_names=internal-app \
+    bound_service_account_namespaces=default \
+    policies=internal-app \
+    ttl=72h
+Success! Data written to: auth/kubernetes/role/internal-app
+
+
+/ $ exit
+```
+
+```
+$ kubectl apply -f vault-sa.yaml
+serviceaccount/internal-app created
+```
+
+```
+$ kubectl apply -f vault-sa.yaml
+serviceaccount/internal-app created
+$ kubectl apply -f vault-demo.yaml 
+deployment.apps/vault-demo created
+```
+```
+$ kubectl get pods | grep vault
+vault-demo-57f86557dd-9jn2s           1/1     Running     0          13m
+
+$ kubectl exec -it vault-demo-57f86557dd-9jn2s -- ls /vault/secrets
+ls: /vault/secrets: No such file or directory
+command terminated with exit code 1
+```
+```
+$  kubectl patch deployment vault-demo --patch "$(cat vault-inject.yaml)"
+deployment.extensions/vault-demo patched
+```
+
+```
+$ kubectl get pods | grep  vault
+vault-demo-84cc6585fd-nkxnz                          2/2     Running     0          9m37s
+```
+
+```
+$ kubectl logs -f vault-demo-84cc6585fd-nkxnz  -c vault-agent
+==> Vault server started! Log data will stream in below:
+
+==> Vault agent configuration:
+
+                     Cgo: disabled
+               Log Level: info
+                 Version: Vault v1.3.1
+
+2020-02-19T14:03:20.069Z [INFO]  sink.file: creating file sink
+2020-02-19T14:03:20.069Z [INFO]  sink.file: file sink configured: path=/home/vault/.token mode=-rw-r-----
+2020-02-19T14:03:20.069Z [INFO]  auth.handler: starting auth handler
+2020-02-19T14:03:20.069Z [INFO]  auth.handler: authenticating
+2020-02-19T14:03:20.070Z [INFO]  template.server: starting template server
+2020/02/19 14:03:20.070117 [INFO] (runner) creating new runner (dry: false, once: false)
+2020-02-19T14:03:20.070Z [INFO]  sink.server: starting sink server
+2020/02/19 14:03:20.070986 [INFO] (runner) creating watcher
+2020-02-19T14:03:20.081Z [INFO]  auth.handler: authentication successful, sending token to sinks
+2020-02-19T14:03:20.082Z [INFO]  auth.handler: starting renewal process
+2020-02-19T14:03:20.082Z [INFO]  template.server: template server received new token
+2020/02/19 14:03:20.082340 [INFO] (runner) stopping
+2020/02/19 14:03:20.082419 [INFO] (runner) creating new runner (dry: false, once: false)
+2020/02/19 14:03:20.082936 [INFO] (runner) creating watcher
+2020/02/19 14:03:20.083005 [INFO] (runner) starting
+2020-02-19T14:03:20.083Z [INFO]  sink.file: token written: path=/home/vault/.token
+2020-02-19T14:03:20.090Z [INFO]  auth.handler: renewed auth token
+```
+
+```
+$ kubectl exec -it vault-demo-84cc6585fd-nkxnz -c vault -- cat /vault/secrets/database-config.txt
+data: map[password:db-secret-password username:db-readonly-username]
+metadata: map[created_time:2020-02-19T12:11:39.8379346Z deletion_time: destroyed:false version:1]
+```
+
+
+```
+vault token renew your-vault-token
+```

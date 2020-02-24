@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vault-demo
+  labels:
+    app: vault-demo
+spec:
+  selector:
+    matchLabels:
+      app: vault-demo
+  template:
+    metadata:
+      labels:
+        app: vault-demo
+    spec:
+      serviceAccountName: internal-app  # 使用上面创建的 serviceaccount 对象
+      containers:
+        - name: vault
+          image: cnych/vault-demo:0.0.1
