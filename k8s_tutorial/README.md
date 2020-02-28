@@ -117,6 +117,7 @@
 4. [Kubernetes 问题定位技巧：分析 ExitCode](k8s_skill5_exit_code.md)
 5. [Kubernetes 最佳实践：处理内存碎片化](k8s_skill6_slan_cache.md)
 6. [Kubernetes 删除卡在 `Terminating`状态的 `namespace`](k8s_skill8_clean_ns.md)
+7. [Kubernetes 之`Docker`容器数据写满磁盘解决方法](k8s_skill9_desc_full2.md)
 
 #### 编写模板
 
@@ -229,6 +230,7 @@
 8. [kubernetes 办公环境下网络互通方案](k8s_adv38_Connect_Offce_Network.md)
 9. [Ingress vs Load Balancer](k8s_adv66_elbVSingress.md)
 10. [使用 inlets 和 kubernetes 访问本地服务](k8s_adv79_inlets.md)
+11. [获取客户端访问真实 IP](k8s_adv88_get_ip.md)
 
 ### K8S 伸缩问题
 
