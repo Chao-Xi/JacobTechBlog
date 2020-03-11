@@ -165,6 +165,7 @@
 14. [`Kubelet` 状态更新机制](k8s_adv58_kubelet.md)
 15. [如何在`Kubernetes`实现GPU调度及共享](k8s_adv64_GPU_share.md)
 16. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
+17. [ConfigMap三种使用方法](k8s_adv89_cm_typical_ways.md)
 
 #### K8S授权和访问
 
