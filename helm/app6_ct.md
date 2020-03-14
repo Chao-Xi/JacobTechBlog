@@ -29,6 +29,8 @@ jam:
   nonce: 1
   ctWebapp:
     replicas: 3
+    minReplicas: 2
+    maxReplicas: 5
     resources:
       memory:
         min: 2Gi
@@ -39,6 +41,8 @@ jam:
     disableProbes: false
   ctWorker:
     replicas: 5
+    minReplicas: 2
+    maxReplicas: 10
     resources:
       memory:
         min: 2Gi
@@ -504,7 +508,7 @@ metadata:
   name: ct-webapp-pdb
   namespace: {{ .Values.jam.namespace }}
 spec:
-  maxUnavailable: 0
+  maxUnavailable: 1
   selector:
     matchLabels:
       app: ct
@@ -879,6 +883,38 @@ spec:
             - "pgrep -d, -x bundle | xargs -r ps -fp | tail -n +2 | grep -q rpush"
           initialDelaySeconds: 20
           timeoutSeconds: 60
+```
+
+## hpa.yaml
+
+```
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ct-webapp
+  namespace: {{ .Values.jam.namespace }}
+spec:
+  minReplicas: {{ .Values.jam.ctWebapp.minReplicas | default 2 }}
+  maxReplicas: {{ .Values.jam.ctWebapp.maxReplicas | default 5 }}
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ct-webapp
+  targetCPUUtilizationPercentage: 80
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ct-worker
+  namespace: {{ .Values.jam.namespace }}
+spec:
+  minReplicas: {{ .Values.jam.ctWorker.minReplicas | default 2 }}
+  maxReplicas: {{ .Values.jam.ctWorker.maxReplicas | default 10 }}
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ct-worker
+  targetCPUUtilizationPercentage: 80
 ```
  
 ## Service.yaml

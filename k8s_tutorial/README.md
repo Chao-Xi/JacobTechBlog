@@ -166,6 +166,7 @@
 15. [如何在`Kubernetes`实现GPU调度及共享](k8s_adv64_GPU_share.md)
 16. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
 17. [ConfigMap三种使用方法](k8s_adv89_cm_typical_ways.md)
+18. [图解 K8S 控制器 Node 生命周期管理](k8s_adv90_node_mgm.md)
 
 #### K8S授权和访问
 
@@ -173,6 +174,7 @@
 2. [通过 GitHub OAuth 和 Dex 访问 Kubernetes 集群](k8s_adv69_oauth_dex.md)
 3. [这些用来审计 Kubernetes RBAC 策略](k8s_adv74_BRAC_strategy.md)
 4. [Kubernetes Pod 安全策略(PodSecurityPolicy,PSP)配置](k8s_adv76_psp.md)
+5. [Kubernetes 集群安全机制详解](k8s_adv91_k8s_sec_policy.md)
 
 ### 持久化存储:
 
@@ -255,20 +257,6 @@
 3. [Kubernetes集群节点被入侵挖矿案例与发现解决问题](k8s_security2_invasive_bitcoin_mining.md)
 
 
-### K8S 集群监控
-
-1. [在 Kubernetes 中手动部署 Prometheus](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/4.Adv_Prometheus_setup.md)
-2. [Kubernetes 应用监控](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/5Adv_Prometheus_monitor.md)
-3. [监控 Kubernetes 集群节点](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/6Adv_K8S_Nodes_monitor.md)
-4. [监控 Kubernetes 常用资源对象](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/7Adv_K8S_Resource_monitor.md)
-5. [Grafana 在 Kubernetes 中的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/8Adv_K8S_Grafana.md)
-6. [报警神器 AlertManager 的使用](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/10Adv_k8s_AlertManger.md)
-7. [Prometheus Operator 初体验](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/11Adv_Prometheus_Operator.md)
-8. [使用 Prometheus Operator 监控 etcd](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/13Adv_Prometheus_Operator_etcd.md)
-9. [Prometheus Operator 自定义报警](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/14Adv_Prometheus_Operator_alarm.md)
-10. [Prometheus Operator 自动发现以及数据持久化](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/15Adv_Prometheus_Operator_Setting.md)
-11. [kube-state-metrics](k8s_adv39_kube_state_metrics.md)
-12. [Metrics Server 安装与排错](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/17Adv_K8S_Metrics_Server.md)
 
 ### K8S 其他工具
 

@@ -221,9 +221,22 @@ metadata:
     apply-cd: "true"
 {{- end }}
 spec:
+{{- if eq $application "ct"  }}
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    name: ct-webapp
+    jsonPointers:
+    - /spec/replicas
+  - group: apps
+    kind: Deployment
+    name: ct-worker
+    jsonPointers:
+    - /spec/replicas
+{{- end }}
   project: {{ $.Values.jam.namespace }}
   source:
-    repoURL: https://github....
+    repoURL: https://github.tools.sap/sap-zone/jam-on-k8s
     targetRevision: {{ $.Values.argocd.targetRevision }}
     path: helm/jam/{{ $application }}
     helm:
@@ -241,7 +254,7 @@ spec:
 {{- if eq $.Values.argocd.autoSync true  }}
   syncPolicy:
     automated:
-      prune: false
+      prune: true
       selfHeal: false
 {{- end }}
   destination:
