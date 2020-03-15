@@ -18,7 +18,8 @@
 	* 1.6.Search API
 	* 1.7.Dynamic Mapping
 	* 1.8.Aggregation聚合分析 
-
+9. [`ElasticSearch`节点(角色)类型`node.master`和`node.data`](12Es_roles.md)
+10. [`Elasticsearch unassigned` 故障排查](13Es_unassigned.md)
 
 ![Alt Image Text](images/0_2.jpg "Headline image")
 
