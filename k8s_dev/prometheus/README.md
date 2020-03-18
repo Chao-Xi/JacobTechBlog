@@ -44,9 +44,19 @@
 6. [Add Custom Alert and Send Alert Email with Alertmanager (SAP - Converged Cloud - Ubertest Cluster)](22Customize_Alert_Email.md)
 7. [Prometheus 黑盒监控](24Kubernetes_Prometheus_blackbox.md)
 
+### Jam prometheus Monitor
+
+1. [Alertmanager alerts with Amazon SES SMTP](25Alertmanager_AWS_SES.md)
+2. [Prometheus Operator Monitor on ArgoCD](26Prometheus_Monitor_Argocd.md)
+3. 
+
 ## Prometheus-Adapter
 
 * [ 对 `Kubernetes` 应用进行自定义指标扩缩容 by `Prometheus-Adapter` and `Flask Promethues Exporter`](23Kubernetes_Scale_Prometheus-Adapter.md)
+
+## Grafana Plugins
+
+* [优秀的 Grafana K8S 插件 - `DevOpsProdigy KubeGraf`](28Grafana_plugin_DevOpsProdigy.md)
 
 ## Other monitor tools
 
