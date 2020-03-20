@@ -220,6 +220,7 @@
 3. [集群内部服务发现之 DNS](k8s_adv16_dns.md)
 4. [详解 DNS 与 CoreDNS 的实现原理](k8s_adv40_CoreDNS.md)
 5. [`kube-proxy` 工作模式分析 `Iptables VS Ipvs`](k8s_adv71_kube_proxy_adv.md)
+6. [K8S 之 Headless 浅谈](k8s_adv93_svc_headless.md)
 
 #### (2) 外部服务发现
 
