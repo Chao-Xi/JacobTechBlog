@@ -66,221 +66,74 @@ YAML内容如下：
 apiVersion: v1 
 kind: ConfigMap 
 metadata: 
-	name: redis-cluster
+  name: redis-cluster
+  namespace: redis
 data: 
-	update-node.sh: | 
-		#!/bin/sh 
-		REDIS_NODES="/data/nodes.conf" 
-		sed -i -e "/myself/ s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}/{POD_IP}/" ${REDIS_NODES} 
-		exec "$@" 
-	redis.conf: |+ 
-		cluster-enabled yes 
-		cluster-require-full-covcr no 
-		cluster-node-timeout 15000 
-		cluster-config-file /data/nodes.conf 
-		cluster-migration-barrier 1 
-		appendonly yes 
-		protected-mode no 
+  update-node.sh: | 
+    #!/bin/sh 
+    REDIS_NODES="/data/nodes.conf" 
+    sed -i -e "/myself/ s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}/{POD_IP}/" ${REDIS_NODES} 
+    exec "$@" 
+  redis.conf: |+ 
+    cluster-enabled yes 
+    cluster-require-full-covcr no 
+    cluster-node-timeout 15000 
+    cluster-config-file /data/nodes.conf
+    cluster-migration-barrier 1 
+    appendonly yes 
+    protected-mode no  
+---
 ---
 apiVersion: apps/v1 
 kind: StatefulSet 
 metadata: 
-	name: redis-cluster 
+  name: redis-cluster 
+  namespace: redis
 spec: 
-	serviceName: redis-cluster 
-	replicas: 6 
-	selector: 
-		matchLabels: 
-			app: redis-cluster 
-	template: 
-		metadata: 
-			labels: 
-				app: redis-cluster 
-		spec: 
-			containers: 
-			- name: redis 
-			  image: redis:5.0.1-alpine 
-			  ports: 
-			  - containerPort: 6379 
-			    name: client
-			  - containerPort: 16379 
-			    name: gossip 
-            command: ["/conf/update-node.sh", "redis-server", "/conf/redis.conf"]
-            env: 
-            - name: POD_IP 
-              valueFrom: 
-              	fieldRef: 
-              		fieldPath: status.podIP 
-            volumeMounts: 
-            - name: conf 
-              mountPath: /conf 
-              readOnly: false 
-            - name: data 
-              mountPath: /data 
-              readOnly: false 
-            volumes: 
-            - name: conf 
-              configMap: 
-              	name: redis-cluster 
-              	defaultMode: 0755 
-	volumeClaimTemplates: 
-	- metadata: 
-	  	name: data 
-	  spec:
-	  	accessModes: [ "ReadWriteOnce" ] 
-	  	resources: 
-	  		requests: 
-	  			storage: 1Gi 
-```
-
-**`redis-svc.yaml`**
-
-```
----
-apiVersion: vi 
-kind: Service 
-metadata: 
-	name: redis-cluster 
-spec: 
-	type: ClusterlP 
-	ports: 
-	- port: 6379 
-	  targetPort: 6379 
-	  name: client 
-	- port: 16379 
-	  targetPort: 16379 
-	  name: gossip 
-	selector: 
-		app: redis-cluster 
-```
-
-```
-$ kubectl apply -f redis-sts.yaml 
-configmap/redis-cluster created 
-statefulset.apps/redis-cluster created
- 
-$ kubectl apply -f redis-svc.yaml 
-service/redis-cluster created 
-```
-
-## 验证部署
-
-
-检查`Redis`节点是否启动并运行：
-
-```
-$ kubectl get pods
-NAME            READY STATUS RESTARTS AGE 
-redis-cluster-0 1/1   Running 0 7m 
-redis-cluster-1 1/1   Running 0 7m 
-redis-cluster-2 1/1   Running 0 6m 
-redis-cluster-3 1/1   Running 0 6m 
-redis-cluster-4 1/1   Running 0 6m 
-redis-cluster-5 1/1   Running 0 5m 
-```
-
-下面的6个卷是我们创建的
-
-```
-$ kubectl get pv
-NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                          STORAGECLASS   REASON   AGE
-pvc-ae61ad5c-f0a5-11e8-a6e0-42010aa40039   1Gi        RWO            Delete           Bound    default/data-redis-cluster-0   standard                7m
-pvc-b74b6ef1-f0a5-11e8-a6e0-42010aa40039   1Gi        RWO            Delete           Bound    default/data-redis-cluster-1   standard                7m
-pvc-c4f9b982-f0a5-11e8-a6e0-42010aa40039   1Gi        RWO            Delete           Bound    default/data-redis-cluster-2   standard                6m
-pvc-cd7af12d-f0a5-11e8-a6e0-42010aa40039   1Gi        RWO            Delete           Bound    default/data-redis-cluster-3   standard                6m
-pvc-d5bd0ad3-f0a5-11e8-a6e0-42010aa40039   1Gi        RWO            Delete           Bound    default/data-redis-cluster-4   standard                6m
-pvc-e3206080-f0a5-11e8-a6e0-42010aa40039   1Gi        RWO            Delete           Bound    default/data-redis-cluster-5   standard                5m
-```
-
-我们可以检查任何一个pod，看看它添加的卷：
-
-```
-$ kubectl describe pods redis-cluster-0 | grep pvc
-  Normal  SuccessfulAttachVolume  29m   attachdetach-controller                          AttachVolume.Attach succeeded for volume "pvc-ae61ad5c-f0a5-11e8-a6e0-42010aa40039"
-```
-
-
-### 部署Redis集群
-
-下一步就是创建Redis集群了。为此，我们需要运行以下命令，输入`yes`接受配置。前三个节点成为主节点，最后三个节点设置为从属节点。
-
-```
-$ kubectl exec -it redis-cluster-0 -- redis-cli --cluster create --cluster-replicas 1 $(kubectl get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 ')
-```
-
-以下是完整的输出命令：
-
-```
-M: 754823247cf28af9a2a82f61a8caaa63702275a0 10.60.2.13:6379
-   slots:[10923-16383] (5461 slots) master
-   1 additional replica(s)
-M: 3f119dcdd4a33aab0107409524a633e0d22bac1a 10.60.1.12:6379
-   slots:[5461-10922] (5462 slots) master
-   1 additional replica(s)
-S: e40ae789995dc6b0dbb5bb18bd243722451d2e95 10.60.2.14:6379
-   slots: (0 slots) slave
-   replicates 3f119dcdd4a33aab0107409524a633e0d22bac1a
-S: 8d627e43d8a7a2142f9f16c2d66b1010fb472079 10.60.1.14:6379
-   slots: (0 slots) slave
-   replicates 754823247cf28af9a2a82f61a8caaa63702275a0
-[OK] All nodes agree about slots configuration.
->>> Check for open slots...
->>> Check slots coverage...
-[OK] All 16384 slots covered.
-```
-
-### 验证集群部署
-
-```
-$ kubectl exec -it redis-clusrer-0 -- reddis-cli  cluster info
-```
-
-### 测试Redis集群
-
-我们希望使用集群并且模拟节点故障。对于前一个任务，我们将部署一个简单的python应用程序，而后一个任务，我们将删除一个节点来观察集群行为。
-
-### 部署Hit Counter应用
-
-我们将在集群中部署一个简单的应用程序，并在其之前放置一个负载均衡器。该应用程序的目的是在将计数器的值作为HTTP响应返回值返回之前，增加计数器的值，并将值存到Redis集群上。
-
-YAML内容如下：
-
-`app-deployment-service.yaml`
-
-```
----
-apiVersion: v1 
-kind: Service 
-metadata: 
-	name: hit-counter-lb 
-spec: 
-	type: LoadBalancer 
-	ports: 
-	- port: 80 
-	  protocol: TCP 
-	  targetPort: 5000 
-	selector: 
-		app: myapp 
----
-apiVersion: apps/v1 
-kind: Deployment 
-metadata: 
-	name: hit-counter-app 
-spec: 
-	replicas: 1 
-	selector: 
-		matchLabels: 
-			app: myapp 
-	template: 
-		metadata: 
-			labels: 
-				app: myapp 
-		spec: 
-			containers: 
-			- name: myapp 
-			  image: calinrus/api-redis-ha:1.0 
-			  ports: 
-			  - containerPort: 5000 
+  serviceName: redis-cluster 
+  replicas: 6 
+  selector: 
+    matchLabels: 
+      app: redis-cluster 
+  template: 
+    metadata: 
+      labels: 
+        app: redis-cluster 
+    spec: 
+      containers: 
+      - name: redis 
+        image: redis:5.0.1-alpine 
+        ports: 
+        - containerPort: 6379 
+          name: client
+        - containerPort: 16379 
+          name: gossip 
+        command: ["/conf/update-node.sh", "redis-server", "/conf/redis.conf"]
+        env: 
+        - name: POD_IP 
+          valueFrom: 
+            fieldRef: 
+              fieldPath: status.podIP 
+        volumeMounts: 
+        - name: conf 
+          mountPath: /conf 
+          readOnly: false 
+        - name: data 
+          mountPath: /data 
+          readOnly: false 
+      volumes: 
+      - name: conf 
+        configMap: 
+          name: redis-cluster 
+          defaultMode: 0755 
+  volumeClaimTemplates: 
+  - metadata: 
+      name: data 
+    spec:
+      accessModes: [ "ReadWriteOnce" ] 
+      resources: 
+        requests: 
+          storage: 1Gi 
 ```
 
 使用`kubectl`
