@@ -43,6 +43,7 @@
 5. [Install prometheus-operator with Helm in Ubertest Cluster](21Install_Prometheus_Operator_SAP_CC.md)
 6. [Add Custom Alert and Send Alert Email with Alertmanager (SAP - Converged Cloud - Ubertest Cluster)](22Customize_Alert_Email.md)
 7. [Prometheus 黑盒监控](24Kubernetes_Prometheus_blackbox.md)
+8. [AlertManager 何时报警](29AlertManager_SendAlerts_when.md)
 
 ### Jam prometheus Monitor
 
@@ -57,6 +58,7 @@
 ## Grafana Plugins
 
 * [优秀的 Grafana K8S 插件 - `DevOpsProdigy KubeGraf`](28Grafana_plugin_DevOpsProdigy.md)
+* [用 `Kubernetes darks` 资源对象创建 `Grafana Dashboard`](30Create_Grafana_dashboards.md)
 
 ## Other monitor tools
 
