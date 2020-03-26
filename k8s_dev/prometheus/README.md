@@ -44,12 +44,12 @@
 6. [Add Custom Alert and Send Alert Email with Alertmanager (SAP - Converged Cloud - Ubertest Cluster)](22Customize_Alert_Email.md)
 7. [Prometheus 黑盒监控](24Kubernetes_Prometheus_blackbox.md)
 8. [AlertManager 何时报警](29AlertManager_SendAlerts_when.md)
+9. [Troubleshooting ServiceMonitor changes](32Prometheus_troubleshoot_Servicemonitor.md)
 
 ### Jam prometheus Monitor
 
 1. [Alertmanager alerts with Amazon SES SMTP](25Alertmanager_AWS_SES.md)
 2. [Prometheus Operator Monitor on ArgoCD](26Prometheus_Monitor_Argocd.md)
-3. 
 
 ## Prometheus-Adapter
 
