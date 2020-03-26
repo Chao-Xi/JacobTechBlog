@@ -18,4 +18,5 @@
 14. [Open Policy Agent(Gatekeeper)](OPA/README.md)
 15. [在 `Kubernetes` 集群上部署 `VSCode`](vscode/vscode.md)
 16. [`sealed-secrets`, 一种`Kubernetes`控制器和一种加密密钥](sealed-secrets/sealed-secrets.md)
-17. [Vault on K8S](vault/README.md)
+17. [`Vault on K8S`](vault/README.md)
+18. [`Run Vitess on Kubernetes`](k8s_vitess/README.md)

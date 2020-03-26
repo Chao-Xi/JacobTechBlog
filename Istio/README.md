@@ -18,6 +18,13 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
 *  `Gateway` 为 `HTTP/TCP` **流量配置负载均衡器**，最常见的是在**网格的边缘的操作**，以**启用应用程序的入口流量。**
 
 
+
+## Istio 1.5
+
+* [利用`IstioOperator`部署`Istio 1.5`](21Istio_1.5_upgrade.md)
+* [Istio 1.5 新特性解读](22Istio_1.5_Intro.md)
+
+
 ## Istio基础教学
 
 1. [Istio 架构与技术](1isba_Frame_Tech.md)
