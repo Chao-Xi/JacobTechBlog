@@ -45,11 +45,14 @@
 7. [Prometheus 黑盒监控](24Kubernetes_Prometheus_blackbox.md)
 8. [AlertManager 何时报警](29AlertManager_SendAlerts_when.md)
 9. [Troubleshooting ServiceMonitor changes](32Prometheus_troubleshoot_Servicemonitor.md)
+10. [基于`Prometheus`构建`MySQL`可视化监控平台](36Prometheus_Mysql.md)
 
 ### Jam prometheus Monitor
 
 1. [Alertmanager alerts with Amazon SES SMTP](25Alertmanager_AWS_SES.md)
-2. [Prometheus Operator Monitor on ArgoCD](26Prometheus_Monitor_Argocd.md)
+2. [1. Prometheus Operator Monitor on ArgoCD](26Prometheus_Monitor_Argocd.md)
+3. [2. Prometheus Operator Monitor on ElasticSearch](27Prometheus_Monitor_elasticsearch.md)
+4. []()
 
 ## Prometheus-Adapter
 
