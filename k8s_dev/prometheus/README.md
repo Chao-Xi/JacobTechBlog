@@ -30,6 +30,7 @@
 1. [`kube-state-metrics`与`metric-server`的对比](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_tutorial/k8s_adv39_kube_state_metrics.md)
 2. [`Metrics Server` 安装与排错](17Adv_K8S_Metrics_Server.md)
 3. [Install Kubernetes `Metrics Server` on `SAP Converged Cloud`](20Install_metrics_server_SAP_CC.md)
+4. [从`kubectl top`看K8S监控原理](37kubectl_top.md)
 
 
 ## Prometheus Operator Framework
@@ -39,7 +40,7 @@
 1. [Prometheus Operator 初体验](11Adv_Prometheus_Operator.md)
 2. [使用 Prometheus Operator 监控 etcd](13Adv_Prometheus_Operator_etcd.md)
 3. [Prometheus Operator 自定义报警](14Adv_Prometheus_Operator_alarm.md)
-4. [Prometheus Operator 自动发现以及数据持久化](15Adv_Prometheus_Operator_Setting.md)
+4. [Prometheus Operator **自动发现以及数据持久化**](15Adv_Prometheus_Operator_Setting.md)
 5. [Install prometheus-operator with Helm in Ubertest Cluster](21Install_Prometheus_Operator_SAP_CC.md)
 6. [Add Custom Alert and Send Alert Email with Alertmanager (SAP - Converged Cloud - Ubertest Cluster)](22Customize_Alert_Email.md)
 7. [Prometheus 黑盒监控](24Kubernetes_Prometheus_blackbox.md)
