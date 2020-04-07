@@ -2,6 +2,25 @@
 
 [`prometheus/blackbox_exporter`](https://github.com/prometheus/blackbox_exporter)
 
+## `blackbox_exporter.yml`
+
+```
+modules:
+  http_get_2xx:
+    prober: http
+    timeout: 10s
+    http:
+      valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+      method: GET
+  baidu.com:
+    prober: dns
+    timeout: 10s
+    dns:
+      query_name: "baidu.com"
+      query_type: "A"
+      preferred_ip_protocol: "ip4"
+```
+
 ## 26.1. Probe failed
 
 **Probe failed**

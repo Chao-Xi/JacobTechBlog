@@ -61,7 +61,7 @@
   annotations:
     summary: "Out of memory (instance {{ $labels.instance }})"
     description: "Memory available for RabbmitMQ is low (< 10%)\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
- ```
+```
  
  
 ## 5.5. Too many connections

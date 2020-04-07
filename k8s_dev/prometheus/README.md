@@ -31,6 +31,11 @@
 2. [`Metrics Server` 安装与排错](17Adv_K8S_Metrics_Server.md)
 3. [Install Kubernetes `Metrics Server` on `SAP Converged Cloud`](20Install_metrics_server_SAP_CC.md)
 4. [从`kubectl top`看K8S监控原理](37kubectl_top.md)
+5. [Kubernetes HPA 使用详解](38k8s_hpa_metricsserver.md)
+	* Metrics Server
+	* 基于 CPU 的 HPA
+	* 基于内存 的 HPA
+	* 基于自定义指标 和 `Prometheus-adapater` 的 HPA 
 
 
 ## Prometheus Operator Framework

@@ -1,5 +1,7 @@
 # Marvelous Prometheus alerts
 
+**Reference**: [https://awesome-prometheus-alerts.grep.to/rules](https://awesome-prometheus-alerts.grep.to/rules)
+
 1. [**Prometheus**](1Prometheus.md)
   * **Prometheus configuration reload**(Prometheus configuration reload error)
   * **AlertManager configuration reload**(AlertManager configuration reload error)
@@ -41,6 +43,9 @@
   * **Too many consumers**[Queue should have only 1 consumer]
   * **Unactive exchange**[Exchange receive less than 5 msgs per second]
 6. [**MySQL : prometheus/mysqld_exporter**](6Mysql.md)
+  * MYSQLDown
+  * MysqlQPSTooHigh
+  * [基于Prometheus构建MySQL可视化监控平台](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/36Prometheus_Mysql.md)
 7. [**PostgreSQL**](7PostgreSQL.md)
   * **PostgreSQL down**[PostgreSQL instance is down]
   * **Replication lag**[PostgreSQL replication lag is going up (`> 10s`)]
@@ -138,12 +143,8 @@
   * **Switch is down**[The switch appears to be down]
   * **High Bandwith Usage 1GiB**[Interface is highly saturated for at least 1 min. `(> 0.90GiB/s)`]
   * **High Bandwith Usage 1GiB**[Interface is getting saturated for at least 1 min. `(> 0.80GiB/s)`]
-30. [Docker containers : cAdvisor](30CoreDNS.md)
-  * **Container killed**[A container has disappeared]
-  * **Container CPU usage**[Container CPU usage is above 80%]
-  * **Container Memory usage**[Container Memory usage is above 80%]
-  * **Container Volume usage**[Container Volume usage is above 80%]
-  * **Container Volume IO usage**[Container Volume IO usage is above 80%]
+30. [CoreDNS](30CoreDNS.md)
+  * **CoreDNS Panic Count**
   
 ## AlertManager configuration
 
