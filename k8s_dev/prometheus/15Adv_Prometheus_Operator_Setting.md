@@ -69,7 +69,7 @@ type: Opaque
 然后我们只需要在声明 `prometheus` 的资源对象文件中添加上这个额外的配置：(`prometheus-prometheus.yaml`)
 
 ```
-kubectl edit kube-prom-prometheus-opera-prometheus -n monitoring
+kubectl edit prometheus kube-prom-prometheus-opera-prometheus -n monitoring
 ```
 
 ```
