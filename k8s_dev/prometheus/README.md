@@ -56,9 +56,10 @@
 ### Jam prometheus Monitor
 
 1. [Alertmanager alerts with Amazon SES SMTP](25Alertmanager_AWS_SES.md)
-2. [1. Prometheus Operator Monitor on ArgoCD](26Prometheus_Monitor_Argocd.md)
-3. [2. Prometheus Operator Monitor on ElasticSearch](27Prometheus_Monitor_elasticsearch.md)
-4. []()
+2. [Prometheus Operator Monitor on ArgoCD](26Prometheus_Monitor_Argocd.md)
+3. [Prometheus Operator Monitor on ElasticSearch](27Prometheus_Monitor_elasticsearch.md)
+4. [Prometheus Operator Monitor on Rabbitmq](31Prometheus_Monitor_rabbitmq.md)
+5. [Prometheus Operator Monitor on Memcached](33Prometheus_Monitor_memcached.md)
 
 ## Prometheus-Adapter
 
@@ -90,9 +91,11 @@
 
 * [Marvelous Prometheus Alerts](prom-alerts/README.md)
 
+## Thanos
 
-
-
+* [**大规模场景下 Prometheus 的优化手段 & Thanos 架构详解**](39Thanos_tutorial.md)
+* [使用 Thanos 实现 Prometheus 的高可用介绍](34Thanos_intro.md)
+* [Prometheus高可用Thanos学习-`sidercar`和`query` & Thanos部署](35Thanos_install.md)
 
 
 

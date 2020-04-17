@@ -68,6 +68,7 @@
 3. [Kubernetes 2018 年度简史](k8s_adv42_dev2018.md)
 4. [Kubernetes 1.14 正式发布，Windows节点生产级支持！](k8s_adv46_114.md)
 5. [CKAD 模拟考试](k8s_adv86_ckad.md)
+6. [CKAD Exercises](k8s_adv86_ckad2.md)
 
 ### 深入理解 容器化和 `Docker`
 
