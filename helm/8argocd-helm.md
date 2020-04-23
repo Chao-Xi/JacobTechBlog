@@ -5,19 +5,20 @@
 $ tree argocd/
 argocd/
 ├── applications
-│   ├── Chart.yaml
-│   ├── templates
-│   │   ├── argocd.yaml
-│   │   ├── jam.yaml
-│   │   └── logging.yaml
-│   └── values.yaml
+│   ├── Chart.yaml
+│   ├── templates
+│   │   ├── argocd.yaml
+│   │   ├── jam.yaml
+│   │   ├── logging.yaml
+│   │   └── sealded_secrets.yaml
+│   └── values.yaml
 └── projects
     ├── Chart.yaml
     ├── templates
-    │   └── projects.yaml
+    │   └── projects.yaml
     └── values.yaml
 
-4 directories, 8 files
+4 directories, 9 files
 ```
 
 ### Project
@@ -27,6 +28,7 @@ ArgoCD could both deploy apps whin the same k8s cluster it been deployed at or a
 * **`$JAM_INSTANCE`**: the project contains all of our business services related to jam; 
 * **logging**: the project contains EFK stack, and 
 * **arogocd**: contains both ArgoCD project and ArgoCD application definitions. 
+* **workzone-sealed-secrets**: All secrets contained in cluster 
 
 So the definitions for applications are self-deployed.
 
@@ -92,12 +94,29 @@ spec:
   - group: ''
     kind: Namespace
 {{end}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: workzone-sealed-secrets
+  namespace: argocd
+spec:
+  description: Project for Sync SealedSecrets
+  sourceRepos:
+  - 'https://github.tools.sap/sap-zone/jam-on-k8s'
+  destinations:
+  - namespace: '*'
+    server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+  - group: 'bitnami.com/v1alpha1'
+    kind: SealedSecret
 ```
 
 **projects**:
 
 * **logging**
 * **argocd**
+* **AppProject**
 * **`.Values.jam.namespace`**: `dev902`
 
 ```
@@ -223,16 +242,20 @@ metadata:
 spec:
 {{- if eq $application "ct"  }}
   ignoreDifferences:
+{{- if or $.Values.jam.ctWebapp.minReplicas $.Values.jam.ctWebapp.maxReplicas }}
   - group: apps
     kind: Deployment
     name: ct-webapp
     jsonPointers:
     - /spec/replicas
+{{- end }}
+{{- if or $.Values.jam.ctWorker.minReplicas $.Values.jam.ctWorker.maxReplicas }}
   - group: apps
     kind: Deployment
     name: ct-worker
     jsonPointers:
     - /spec/replicas
+{{- end }}
 {{- end }}
   project: {{ $.Values.jam.namespace }}
   source:
@@ -245,12 +268,6 @@ spec:
           runningInArgo: true
       valueFiles:
       - ../../../instances/{{ $.Values.jam.namespace }}-k8s.yaml
-{{- if and (has $application $applyCdApps) (eq $.Values.argocd.dailyBuild true)  }}
-      - ../../../instances/argo_nonce.yaml
-{{- end }}
-{{- if and (has $application $applyCdApps) (eq $.Values.argocd.syncWithCurrentRelease true)  }}
-      - ../../../instances/current_release.yaml
-{{- end }}
 {{- if eq $.Values.argocd.autoSync true  }}
   syncPolicy:
     automated:
@@ -259,8 +276,7 @@ spec:
 {{- end }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ $.Values.jam.namespace }}
-{{end}}
+    name
 ```
 
 * **allApps:**
@@ -273,15 +289,51 @@ spec:
 * **Excluede**
 	*  mail, memcached, rabbitmq
 
+
+### argocd application: `templates/sealded_secrets.yaml`
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sealed-secrets
+  namespace: argocd
+  labels:
+    apply-cd: "true"
+spec:
+  project: workzone-sealed-secrets
+  source:
+    repoURL: https://github.tools.sap/sap-zone/jam-on-k8s
+    targetRevision: {{ $.Values.argocd.targetRevision }}
+    path: {{ $.Values.kustomize_path }}secrets
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: '*'
+{{- if eq $.Values.argocd.autoSync true  }}
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+{{- end }}
+```
+
+
 	
 ### argocd jam application related value
 
-```
+```	
+jam:
+  namespace: local700
 argocd:
-	dayilyBuild: false
-	autoSync: false
-	syncWithCurrentRelease: false
-	targetRevision: master
+  autoSync: false
+  targetRevision: master
+
+# Path for kustomize manifest of current instance, refer to exists ones.
+kustomize_path:  kustomize/dev/{alicloud,aws,azure,gcp}/{6-9}{00-99}/ 
 ```
 
 
@@ -294,15 +346,6 @@ labels:
 	apply-cd: "true"
 {{- end }}
 	
-
-{{- if and (has $application $applyCdApps) (eq $.Values.argocd.dailyBuild true)  }}
-	- ../../../instances/argo_nonce.yaml
-{{- end }}
-
-
-{{- if and (has $application $applyCdApps) (eq $.Values.argocd.syncWithCurrentRelease true)  }}
-    - ../../../instances/current_release.yaml
-{{- end }}
 
 {{- if eq $.Values.argocd.autoSync true  }}
   syncPolicy:

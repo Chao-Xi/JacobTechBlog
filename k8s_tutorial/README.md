@@ -110,6 +110,8 @@
 4. [Kubernetes API 资源应该使用哪个 Group 和 Version?](k8s_adv31_api_group_version.md)
 5. [jsonnet 和 Kubernetes](k8s_adv32_jsonnet.md)
 6. [CentOS 7 ETCD集群配置大全](k8s_adv83_etcd_centos7.md)
+7. [使用编程语言描述 Kubernetes 应用 - `cdk8s(python)`](k8s_adv96_cdk8s.md)
+8. [tcpdump 简明教程](k8s_adv97_tcpdump.md)
 
 #### 故障排除
 
