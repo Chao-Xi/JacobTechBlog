@@ -38,5 +38,6 @@ spec:
               args:
                 - /bin/sh
                 - -c
-                - git clone https://github.com/gitops-workshop/poor-mans-gitops && cat poor-mans-gitops/apps/my-app.yaml | envsubst | kubectl apply -l apps.kubernetes.io/instance=my-app --prune --validate=false -f -
+                # - git clone https://github.com/gitops-workshop/poor-mans-gitops && cat poor-mans-gitops/apps/my-app.yaml | envsubst | kubectl apply -l apps.kubernetes.io/instance=my-app --prune --validate=false -f -
+                - git clone https://github.com/gitops-workshop/poor-mans-gitops.git && sleep 300
           restartPolicy: Never

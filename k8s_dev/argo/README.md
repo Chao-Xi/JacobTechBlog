@@ -17,5 +17,17 @@
 * [ArgoCD with Kustomize](6Argocd_Kustomize.md)
 * [ArgoCD with Sealed Secrets](7Argocd_Sealsecrets.md)
 * [ArgoCD with Helm Repo and Helm Package](8Argocd_Pak_Helm.md)
-* 
 
+## Argo rollout
+
+* [`argo rollout` 自动化金丝雀canary部署](11Argorollout_Install.md)
+	* Argocd 使用
+	* Argorollouts 使用
+
+
+## Argo with JAM 
+
+* [JAM Operation guide on ArgoCD](9Argocd_Operation_JAM.md)
+* [Jam Argo Projects](12argocd_jam_projects.md)
+* [Jam Argo Applications](13argocd_jam_apps.md)
+* [Apply Argocd rollout to JAM ct-webapp](10Argorollout_JAM.md)
