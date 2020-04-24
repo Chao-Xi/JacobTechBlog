@@ -17,6 +17,7 @@
 5. [Git Package Management with Git LFS](git_package_management.md)
 6. [git rebase vs git merge详解](git_rebase_merge.md)
 7. [Git技巧：修改历史(修改最新一条历史/修改指定某条历史)](git_history.md)
+8. [**动图展示 10 大 Git 命令**](git_10commands.md)
 
 
 ### Linux Network
@@ -27,7 +28,7 @@
 
 ### Network Issue
 
-1. [HTTPS 原理分析](https,md)
+1. [HTTPS 原理分析](https.md)
 
 
 ## Git Intermediate Techniques
