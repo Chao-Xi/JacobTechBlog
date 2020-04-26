@@ -1,0 +1,102 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elastalert-config
+  namespace: logging
+  labels:
+    app: elastalert
+data:
+  elastalert_config: |-
+    ---
+    rules_folder: /opt/rules       # 指定规则的目录
+    scan_subdirectories: false
+    run_every:                     # 多久从 ES 中查询一次
+      minutes: 1
+    buffer_time:
+      minutes: 15
+    es_host: elasticsearch
+    es_port: 9200
+    writeback_index: elastalert
+    use_ssl: False
+    verify_certs: True
+    alert_time_limit:             # 失败重试限制
+      minutes: 2880
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elastalert-rules
+  namespace: logging
+  labels:
+    app: elastalert
+data:
+  rule_config.yaml: |-
+    name: dummylogs error     # 规则名字，唯一值
+    es_host: elasticsearch
+    es_port: 9200
+    
+    type: any                 # 报警类型
+    index: k8s-*              # es索引
+    
+    filter:                   # 过滤
+    - query:
+        query_string:
+          query: "LOGLEVEL:ERROR"  # 报警条件
+
+    alert:                    # 报警类型
+    - "email"
+    smtp_host: smtp.qq.com
+    smtp_port: 587
+    smtp_auth_file: /opt/auth/smtp_auth_file.yaml
+    email_reply_to: 517554016@qq.com
+    from_addr: 517554016@qq.com
+    email:                  # 接受邮箱
+    - "ych_1024@163.com"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elastalert
+  namespace: logging
+  labels:
+    app: elastalert
+spec:
+  selector:
+    matchLabels:
+      app: elastalert
+  template:
+    metadata:
+      labels:
+        app: elastalert
+    spec:
+      containers:
+      - name: elastalert
+        image: jertel/elastalert-docker:0.2.4
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - name: config
+          mountPath: /opt/config
+        - name: rules
+          mountPath: /opt/rules
+        - name: auth
+          mountPath: /opt/auth
+        resources:
+          limits:
+            cpu: 50m
+            memory: 256Mi
+          requests:
+            cpu: 50m
+            memory: 256Mi
+      volumes:
+      - name: auth
+        secret:
+          secretName: smtp-auth
+      - name: rules
+        configMap:
+          name: elastalert-rules
+      - name: config
+        configMap:
+          name: elastalert-config
+          items:
+          - key: elastalert_config
+            path: elastalert_config.yaml

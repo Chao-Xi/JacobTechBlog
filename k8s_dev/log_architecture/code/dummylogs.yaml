@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummylogs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dummylogs
+  template:
+    metadata:
+      labels:
+        app: dummylogs
+        logging: "true"  # 要采集日志需要加上该标签
+    spec:
+      containers:
+      - name: dummy
+        image: cnych/dummylogs:latest
+        args:
+        - msg-processor
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummylogs2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dummylogs2
+  template:
+    metadata:
+      labels:
+        app: dummylogs2
+        logging: "true"  # 要采集日志需要加上该标签
+    spec:
+      containers:
+      - name: dummy
+        image: cnych/dummylogs:latest
+        args:
+        - msg-receiver-api
