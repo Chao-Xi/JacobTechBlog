@@ -40,6 +40,7 @@
 
 1. [Dockerfile 最佳实践](1dockerfile_best_practice.md)
 2. [使用Dockerfile创建镜像(Dockerfile components)](3docker_image.md)
+3. [加速开发流程的 Dockerfile 最佳实践](19dockerfile_code.md)
 
 
 ## Docker basic tutorial [En]
