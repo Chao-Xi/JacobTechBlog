@@ -22,3 +22,4 @@
 18. [`Run Vitess on Kubernetes`](k8s_vitess/README.md)
 19. [`Envoy by lift`](envoy/README.md)
 20. [`Permission Manager`设置的`K8S RBAC`](permissionmanager/permissionmanager.md)
+21. [使用 `Tekton` 创建 CI/CD 流水线](tekton/Tekton_pipeline.md)
