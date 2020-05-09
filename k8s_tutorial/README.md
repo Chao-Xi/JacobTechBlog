@@ -113,6 +113,7 @@
 6. [CentOS 7 ETCD集群配置大全](k8s_adv83_etcd_centos7.md)
 7. [使用编程语言描述 Kubernetes 应用 - `cdk8s(python)`](k8s_adv96_cdk8s.md)
 8. [tcpdump 简明教程](k8s_adv97_tcpdump.md)
+9. [Connecting to a worker node using SSH](k8s_adv98_Connecting_workernode_SSH.md)
 
 #### 故障排除
 
