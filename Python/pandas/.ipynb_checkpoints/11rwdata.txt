@@ -1,0 +1,15 @@
+pip3 install xlwt openpyxl xlrd
+open csv file
+
+Object relational mapper （ORM)
+pip3 install SQLAlchemy
+
+pip3 install psycopg2-binary
+
+
+kubectl port-forward --namespace postgres svc/my-postgresql 5432:5432
+kubectl port-forward -n postgres svc/my-pgadmin 8080:80
+chart@example.local
+SuperSecret
+
+

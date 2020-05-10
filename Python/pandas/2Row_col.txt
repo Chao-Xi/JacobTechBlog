@@ -1,0 +1,28 @@
+person = {
+    "first" : "Jacob",
+    "last" : "Xi",
+    "email" : "jacobxi@outlook.com"
+}
+
+people = {
+    "first" : ["Jacob"],
+    "last" : ["Xi"],
+    "email" : ["jacobxi@outlook.com"]
+}
+
+people = {
+    "first" : ["Jacob","Jane","John"],
+    "last" : ["Xi","Doe","Wick"],
+    "email" : ["jacobxi@outlook.com","JaneDone@outlook.com", "JohnWick@outlook.com"]
+}
+
+import pandas as pd
+df = pd.DataFrame(people)
+
+avengers = {
+    "first" : ["Tony","Steve"],
+    "last" : ["Stark","Rogers"],
+    "email" : ["IronMan@avenge.com","Cap@avenge.com"]
+}
+
+df2 = pd.DataFrame(avengers)

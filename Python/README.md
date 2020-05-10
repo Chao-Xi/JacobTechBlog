@@ -126,6 +126,39 @@
 
 * [Matplotlib Code and resources](./Matplot_code)
 
+### Pandas
+
+1. [Pandas Installation and Loading Data](pandas1.md)
+2. [DataFrame and Series Basics - Selecting Rows and Columns](pandas2.md)
+	* Pandas Series, Rows and Columns
+	* iloc and loc
+3. [Pandas Indexes - How to Set, Reset, and Use Indexes](pandas3.md) 
+4. [Filtering - Using Conditionals to Filter Rows and Columns](pandas4.md)
+5. [Updating Rows and Columns - Modifying Data Within DataFrames](pandas5.md)
+	* Update Columns names
+	* Change one row series(row) value
+	* Change multiple one row series(rows) value
+6. [Add/Remove Rows and Columns From DataFrames](pandas6.md)
+7. [Sorting Data](pandas7.md)
+8. [Grouping and Aggregating - Analyzing and Exploring Your Data](pandas8.md)
+	* Aggregation
+	* `value_counts()` count value in DF
+	* DF `groupby` Col
+	* Count `LanguageWorkedWith` which contains `python`
+9. [Cleaning Data - Casting Datatypes and Handling Missing Values](pandas9.md)
+10. [Working with Dates and Time Series Data](pandas10.md)
+	* Date filter
+	* Set Date as Index
+	* Resample
+11. [Reading/Writing Data to Different Sources - Excel, JSON, SQL, Etc](pandas11.md)
+	* write CSV
+	* export to tsv
+	* export/read to xlsx
+	* export/read to json
+	* Export and read from postgre sql
+
+* [Pandas Code and resources](./pandas)
+
 ### Tricks and tips
 
 * [The Difference Between "==" and "is" (Equality vs Identity)](python_adv50.md)

@@ -1,0 +1,22 @@
+Grouping and Aggregating - Analyzing and Exploring Your Data
+
+import pandas as pd
+
+df = pd.read_csv('data/survey_results_public.csv', index_col='Respondent')
+schema_df = pd.read_csv('data/survey_results_schema.csv', index_col='Column')
+
+pd.set_option('display.max_columns',85)
+pd.set_option('display.max_rows',85)
+
+Aggregation
+1. median salary
+2. check who answer the question about salary
+3. count yes and no in hobbyist column
+4. count different value in SocialMedia column and show it percentage
+
+Split => apply function => combine result
+group by function to check by country
+create filter by country
+
+what % of people from the country know python
+

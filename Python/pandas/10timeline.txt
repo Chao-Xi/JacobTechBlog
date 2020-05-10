@@ -1,0 +1,58 @@
+import pandas as pd
+df = pd.read_csv('ETH_1h.csv')
+df.head()
+
+df.loc[0, 'Date'].day_name()
+df['Date'] = pd.to_datetime(df['Date'])
+df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d %I-%p')
+http://bit.ly/pandas-dt-fmt
+df['Date']
+df.loc[0, 'Date'].day_name()
+
+
+d_parser = lambda x: pd.datetime.strptime(x, '%Y-%m-%d %I-%p')
+df_new = pd.read_csv('ETH_1h.csv', parse_dates=['Date'], date_parser=d_parser)
+
+# dt class and datetime method
+df['Date'].dt.day_name()
+
+df['DayOFweek'] = df['Date'].dt.day_name()
+df
+
+df['Date'].min()
+df['Date'].max()
+
+# Date Delta
+df['Date'].max() - df['Date'].min()
+
+# filter
+filt = (df['Date'] >= '2020' )
+df.loc[filt]
+
+filt = (df['Date'] >= '2019' ) & (df['Date'] < '2020' )
+df.loc[filt]
+
+filt = (df['Date'] >= pd.to_datetime('2019-01-01')) & (df['Date'] < pd.to_datetime('2020-01-01'))
+df.loc[filt]
+
+# Set date as index
+df.set_index('Date', inplace=True)
+df['2019']
+
+df['2020-01':'2020-02']
+df['2020-01':'2020-02']['Close']
+df['2020-01':'2020-02']['Close'].mean()
+
+# Treat date with hourly basis
+## Find the highist of each day
+### Resampling
+df['2020-01-01']['High'].max()
+highs= df['High'].resample('D').max()
+highs['2020-01-01']
+
+# Use Matlotlib
+pip3 install matplotlib
+%matlotlib inline
+
+df.resample('W').mean()
+df.resample('W').agg({'close':'mean','High':'max', 'Low':'min', 'Volue':'sum'})

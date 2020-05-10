@@ -1,0 +1,16 @@
+pip3 install pandas
+pip3 install jupyterlab
+
+import pandas as pd
+df = pd.read_csv('data/survey_results_public.csv')
+
+df.shape
+df.info()
+datatypes object => string
+
+pd.set_option('display.max_columns',85) => set columns numbers to 85
+pd.set_option('display.max_rows',85)
+
+
+schema_df = pd.read_csv('data/survey_results_schema.csv')
+schema_df

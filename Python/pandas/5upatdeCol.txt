@@ -1,0 +1,13 @@
+1.How to update Columns names
+2.How to update Columns names with replace function
+3.rename specific columns names
+4.update rows:  change one row
+5.change parts of one row
+6.change one value of one row loc, at and filter with loc
+7.change multiple rows at once
+8.change multiple rows at once advanced (apply, map, apllymap, replace)
+9.apply change series 
+
+
+sort multiple rows
+reset back
