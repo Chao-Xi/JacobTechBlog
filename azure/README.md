@@ -1,6 +1,6 @@
 # Azure 
 
-![Alt Image Text](images/1_1.PNG "Body image")
+![Alt Image Text](images/1_1.png "Body image")
 
 
 ### [Az900 Exam Tutorial](az103/README.md)
