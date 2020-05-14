@@ -17,7 +17,18 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
 * `ServiceEntry` 是通常用于在 Istio **服务网格之外启用对服务的请求**。
 *  `Gateway` 为 `HTTP/TCP` **流量配置负载均衡器**，最常见的是在**网格的边缘的操作**，以**启用应用程序的入口流量。**
 
+[Istio 常见的 10 个异常分析](24Istio_troubleshoot.md)
 
+* Service 端口命名约束
+*  流控规则下发顺序问题
+*  请求中断分析
+*  `Sidecar` 和 `User Container` 启动顺序
+*  `Ingress Gateway` 和` Service` 端口联动
+*   `VirtualService` 作用域
+*  `VirtualService` 不支持 `Host Fragment`
+*  全链路跟踪并非完全透明接入 
+*  `mTLS` 导致连接中断
+*  用户服务监听地址限制
 
 ## Istio 1.5
 
@@ -31,6 +42,9 @@ Kubernetes是Google基于Borg开源的容器编排调度引擎，作为`CNCF（C
 	* How to upgrade istio for jam
 	* Troubleshooting on istio
 	* Reliablity Validation with Istio Fault Injection
+
+
+Istio 常见的 10 个异常分析
 
 ## Istio基础教学
 

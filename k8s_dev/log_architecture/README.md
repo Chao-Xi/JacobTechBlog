@@ -33,6 +33,7 @@
 2. [Grafana Logging using Loki](5Grafana_using_loki.md)
 3. [Install Grafana-Loki in Ubertest Cluster](4Install_Logging_loki_SAP_CC.md)
 4. [Clean log in Log aggregator System (Loki)](6Loki_Clean_log.md)
+5. [Grafana Loki 设计文档](19Loki_tutorial.md)
 
 ![Alt Image Text](images/0_3.png "Headline image")
 
