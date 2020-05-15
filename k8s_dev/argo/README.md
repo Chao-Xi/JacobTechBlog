@@ -11,7 +11,7 @@
 
 ## ArgoCD & GitOps
 
-
+* [GitOps - 在 Kubernetes 中进行 DevOps 的方式](14gitops_tutorial.md)
 * [What is GitOps & Poor Man's GitOps](4Gitops.md)
 * [Install Argocd](5Argocd_install.md)
 * [ArgoCD with Kustomize](6Argocd_Kustomize.md)
