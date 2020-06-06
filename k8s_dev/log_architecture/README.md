@@ -34,6 +34,7 @@
 3. [Install Grafana-Loki in Ubertest Cluster](4Install_Logging_loki_SAP_CC.md)
 4. [Clean log in Log aggregator System (Loki)](6Loki_Clean_log.md)
 5. [Grafana Loki 设计文档](19Loki_tutorial.md)
+6. [使用 Loki 进行日志监控和报警](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/40Loki_monitor_alert.md)
 
 ![Alt Image Text](images/0_3.png "Headline image")
 
