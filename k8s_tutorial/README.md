@@ -194,11 +194,12 @@
 
 1. [kubernetes 持久化存储(一): PV 和 PVC 的使用](k8s_adv14_pv1.md)
 2. [kubernetes 持久化存储(二): StorageClass 的使用](k8s_adv14_pv2.md)
-3. [Pod 中挂载单个文件的方法 subpath](k8s_adv15_subpath.md)
-4. [Kubernetes Local Persistent Volume](k8s_adv37_local_persistent_volume.md)
-5. [3种K8S存储：emptyDir、hostPath、local](k8s_adv45_3OthersStorage.md)
-6. [在 `Kubernetes v1.14` 中，如何动态配置本地存储？](k8s_adv60_local_pv.md)
-7. [K8s 的软件定义存储解决方案(Software-Defined Storage:GlusterFS/ScaleIO/Quobyte)](k8s_adv62_sds.md)
+3. [**Kubernetes 中 `PV` 和 `PVC` 的状态变化**](k8s_adv100_pv_pvc.md) **
+4. [Pod 中挂载单个文件的方法 subpath](k8s_adv15_subpath.md)
+5. [Kubernetes Local Persistent Volume](k8s_adv37_local_persistent_volume.md)
+6. [3种K8S存储：emptyDir、hostPath、local](k8s_adv45_3OthersStorage.md)
+7. [在 `Kubernetes v1.14` 中，如何动态配置本地存储？](k8s_adv60_local_pv.md)
+8. [K8s 的软件定义存储解决方案(Software-Defined Storage:GlusterFS/ScaleIO/Quobyte)](k8s_adv62_sds.md)
 
 ### 服务发现及网络模型解析
 
