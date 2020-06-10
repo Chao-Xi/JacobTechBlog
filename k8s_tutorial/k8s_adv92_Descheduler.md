@@ -142,6 +142,39 @@ strategies:
      enabled: false
 ```
 
+### RemovePodsHavingTooManyRestarts
+
+该策略可以确保从节点中删除重启次数过多对的 Pod 
+
+例如： 一个有`AWS EBS/GCE PD`挂载的pod如果所在的节点一直无法挂载上`volume/disk`，需要重新调度到其他节点上
+
+```
+apiVersion: "descheduler/v1alpha1"
+kind: "DeschedulerPolicy"
+strategies:
+  "RemovePodsHavingTooManyRestarts":
+     enabled: true
+     params:
+       podsHavingTooManyRestarts:
+         podRestartThreshold: 100
+         includingInitContainers: true
+```
+
+### PodLifeTime
+
+这个策略将会驱逐生命时常大于`.strategies.PodLifeTime.params.maxPodLifeTimeSeconds`的pod
+
+```
+apiVersion: "descheduler/v1alpha1"
+kind: "DeschedulerPolicy"
+strategies:
+  "PodLifeTime":
+     enabled: true
+     params:
+        maxPodLifeTimeSeconds: 86400
+```
+
+
 ## 测试
 
 通过 [Descheduler](https://github.com/kubernetes-sigs/descheduler) 项目 `Github` 仓库中的 `README` 文档介绍，**我们可以在 `Kubernetes` 集群内部通过 `Job` 或者 `CronJob` 的形式来运行 `Deschduler`，这样可以多次运行而无需用户手动干预，此外` Descheduler `的 `Pod` 在 `kube-system `命名空间下面以 `critical pod` 的形式运行，可以避免被自身或者 `kubelet` 驱逐了**。
@@ -223,6 +256,7 @@ data:
 最后可以通过 `Job` 或者 `CronJob` 资源对象来运行 `Descheduler`，这里我们以 `Job` 为例进行说明：(`job.yaml`)
 
 ```
+---
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -238,7 +272,7 @@ spec:
       priorityClassName: system-cluster-critical
       containers:
         - name: descheduler
-          image: us.gcr.io/k8s-artifacts-prod/descheduler/descheduler:v0.10.0
+          image: us.gcr.io/k8s-artifacts-prod/descheduler/descheduler:v0.18.0
           volumeMounts:
           - mountPath: /policy-dir
             name: policy-volume
