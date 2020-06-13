@@ -52,6 +52,7 @@
 8. [AlertManager 何时报警](29AlertManager_SendAlerts_when.md)
 9. [Troubleshooting ServiceMonitor changes](32Prometheus_troubleshoot_Servicemonitor.md)
 10. [基于`Prometheus`构建`MySQL`可视化监控平台](36Prometheus_Mysql.md)
+11. [`Prometheus` 监控外部 `Kubernetes` 集群](41Prometheus_Monitor_OutCluster.md)
 
 ### Jam prometheus Monitor
 
@@ -75,7 +76,7 @@
 1. [安装使用 360 开源 K8S Dashboard: `Wayne`](9Adv_Wayne_dashboard.md) 
 2. [Grafana 日志聚合工具 Loki](12Adv_Grafana_Loki.md)
 3. [使用 Loki 进行日志监控和报警](40Loki_monitor_alert.md)
-4. []()
+
 
 ## PromQL and Prometheus Alerts
 
