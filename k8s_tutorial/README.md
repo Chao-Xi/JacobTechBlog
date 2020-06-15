@@ -189,6 +189,7 @@
 
 1. [深入浅出聊聊Kubernetes存储（一）：详解Kubernetes存储关键概念](k8s_adv48_Storage1.md)
 2. [深入浅出聊聊Kubernetes存储（二）：搞定持久化存储](k8s_adv48_Storage2.md)
+3. [云原生存储详解：容器存储与 K8s 存储卷完整介绍](k8s_adv101_k8s_docker_vol.md)
 
 #### (2) 常用方法：
 
