@@ -5,6 +5,7 @@
 1. [在 Kubernetes 上安装 Gitlab](1k8s_gitlab.md)
 2. [在 Kubernetes 上安装 Gitlab CI Runner](2Gitlab_CI.md)
 3. [Gitlab CI 与 Kubernetes 的结合](3Gitlab_CI_K8S.md)
+4. [在 Kubernetes 上安装 Gitlab （New)](6k8s_gitlab_install.md)
 
 
 ### `Jenkins` + `Gitlab` + `Harbor` + `Helm` + `Kubernetes`  => `CICD`
