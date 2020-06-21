@@ -26,6 +26,7 @@ blueocean:1.23.2
 bouncycastle-api:2.18
 branch-api:2.5.6
 build-blocker-plugin:1.7.3
+build-monitor-plugin:1.12+build.201809061734
 build-name-setter:2.1.0
 build-timeout:1.20
 cloudbees-folder:6.13
