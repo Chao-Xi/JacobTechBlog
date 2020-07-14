@@ -13,13 +13,6 @@ $ grep -rnw . -e 'string'     # find string inside the folder
 $ grep -rnw . -e 'linux'
 ```
 
-[Ops Terminal Common Commands](9Ops_command.md)
-
-* `Crontab` job
-* `find` Command
-* `Curl` Command
-* `grep` command
-
 ## Linux Sysadmin Basics 
 
 1. [Linux Sysadmin Basics - Process](2Linux_process.md)
@@ -43,7 +36,7 @@ $ grep -rnw . -e 'linux'
   * 查看tcp连接状态
   * 查找80端口请求数最高的前20个IP
   * ssh实现端口转发
-
+8. [Tmux 使用教程](11tmux.md)
 
 ## Linux Interview
 
