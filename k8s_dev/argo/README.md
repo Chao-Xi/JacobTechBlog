@@ -31,3 +31,8 @@
 * [Jam Argo Projects](12argocd_jam_projects.md)
 * [Jam Argo Applications](13argocd_jam_apps.md)
 * [Apply Argocd rollout to JAM ct-webapp](10Argorollout_JAM.md)
+
+
+## Argo with Gitlab
+
+* [使用 GitLab CI 与 Argo CD 进行 GitOps 实践](15GitLabCi_ArgoCD.md)
