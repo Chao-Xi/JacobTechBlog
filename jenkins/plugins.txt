@@ -49,6 +49,7 @@ git-server:1.9
 git:4.3.0
 github-api:1.114.3
 github-branch-source:2.8.2
+github-oauth:0.33
 github:1.30.0
 global-slack-notifier:1.5
 gradle:1.36
