@@ -1,3 +1,5 @@
+![Alt Image Text](images/0_2.png "Headline image")
+
 # Kubernetes monitoring with Prometheus 
 
 ![Alt Image Text](images/0.jpg "Headline image")
@@ -78,6 +80,7 @@
 3. [使用 Loki 进行日志监控和报警](40Loki_monitor_alert.md)
 
 
+
 ## PromQL and Prometheus Alerts
 
 ### PromQL 
@@ -93,6 +96,7 @@
 ### Marvelous Prometheus Alerts
 
 * [Marvelous Prometheus Alerts](prom-alerts/README.md)
+* [**Prometheus Operator 常用指标**](42Prometheus_operator_metrics.md)
 
 ## Thanos
 
