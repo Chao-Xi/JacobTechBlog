@@ -207,7 +207,7 @@ spec:
         - name: GITLAB_ROOT_EMAIL
           value: example@gmail.com
         - name: GITLAB_HOST
-          value: "localhost"
+          value: "localhost:30088"
         - name: GITLAB_PORT
           value: "80"
         - name: GITLAB_SSH_PORT
@@ -273,6 +273,7 @@ spec:
     - name: http
       port: 80
       targetPort: http
+      nodePort: 30088
     - name: ssh
       port: 22
       targetPort: ssh
