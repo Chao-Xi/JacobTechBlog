@@ -96,6 +96,7 @@ pipeline-stage-tags-metadata:1.7.1
 pipeline-stage-view:2.13
 pipeline-utility-steps:2.6.1
 plain-credentials:1.7
+pmd:4.0.0
 rebuild:1.31
 resource-disposer:0.14
 role-strategy:3.0
