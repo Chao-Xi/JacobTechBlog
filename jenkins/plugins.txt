@@ -82,6 +82,7 @@ momentjs:1.1.1
 pam-auth:1.6
 parameterized-trigger:2.37
 permissive-script-security:0.6
+performance:3.18
 pipeline-build-step:2.12
 pipeline-github-lib:1.0
 pipeline-graph-analysis:1.10
