@@ -23,3 +23,7 @@
 19. [`Envoy by lift`](envoy/README.md)
 20. [`Permission Manager`设置的`K8S RBAC`](permissionmanager/permissionmanager.md)
 21. [使用 `Tekton` 创建 CI/CD 流水线](tekton/Tekton_pipeline.md)
+22. [在 Kubernetes 上编排 MongoDB 集群](mongodb/README.md)
+23. [K8S 开发工具](k8s_dev/README.md)
+	* [Skaffold-简化本地开发kubernetes应用的神器](k8s_dev/1skaffold.md)
+	* [使用 PyCharm、Okteto 和 Kubernetes 搭建远程开发环境](k8s_dev/2PyCharm_Okteto.md) 

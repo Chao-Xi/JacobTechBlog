@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: hostvm-configurer
+  labels:
+    app: startup-script
+spec:
+  selector:
+    matchLabels:
+      app: startup-script
+  template:
+    metadata:
+      labels:
+        app: startup-script
+    spec:
+      hostPID: true
+      containers:
+      - name: hostvm-configurer
+        image: cnych/startup-script:v1
+        securityContext:
+          privileged: true
+        env:
+        - name: STARTUP_SCRIPT
+          value: |
+            #! /bin/bash
+            set -o errexit
+            set -o pipefail
+            set -o nounset
+            # Disable hugepages
+            echo 'never' > /sys/kernel/mm/transparent_hugepage/enabled
+            echo 'never' > /sys/kernel/mm/transparent_hugepage/defrag
