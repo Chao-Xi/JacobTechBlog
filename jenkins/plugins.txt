@@ -119,6 +119,7 @@ throttle-concurrents:2.0.2
 timestamper:1.11.4
 token-macro:2.12
 trilead-api:1.0.8
+versionnumber:1.9
 violation-comments-to-gitlab:2.43
 windows-slaves:1.6
 workflow-aggregator:2.6
