@@ -81,6 +81,7 @@ mask-passwords:2.13
 matrix-auth:2.6.2
 matrix-project:1.17
 momentjs:1.1.1
+nexus-artifact-uploader:2.13
 nexus-jenkins-plugin:3.9.20200722-164144.e3a1be0
 pam-auth:1.6
 parameterized-trigger:2.37
