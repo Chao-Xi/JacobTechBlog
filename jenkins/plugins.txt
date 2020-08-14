@@ -80,6 +80,7 @@ mapdb-api:1.0.9.0
 mask-passwords:2.13
 matrix-auth:2.6.2
 matrix-project:1.17
+maven-artifact-choicelistprovider:1.5.1
 momentjs:1.1.1
 nexus-artifact-uploader:2.13
 nexus-jenkins-plugin:3.9.20200722-164144.e3a1be0
