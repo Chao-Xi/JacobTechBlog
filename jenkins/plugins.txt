@@ -3,6 +3,7 @@ allure-jenkins-plugin:2.28.1
 ansible:1.0
 ansicolor:0.7.1
 ant:1.11
+artifactory:3.7.3
 antisamy-markup-formatter:2.1
 apache-httpcomponents-client-4-api:4.5.10-2.0
 authentication-tokens:1.4
@@ -33,6 +34,7 @@ build-name-setter:2.1.0
 build-timeout:1.20
 cloudbees-folder:6.14
 command-launcher:1.4
+copyartifact:1.45.1
 credentials-binding:1.23
 credentials:2.3.12
 crowd2:2.0.2
@@ -79,7 +81,9 @@ mapdb-api:1.0.9.0
 mask-passwords:2.13
 matrix-auth:2.6.2
 matrix-project:1.17
+maven-artifact-choicelistprovider:1.5.1
 momentjs:1.1.1
+nexus-artifact-uploader:2.13
 nexus-jenkins-plugin:3.9.20200722-164144.e3a1be0
 pam-auth:1.6
 parameterized-trigger:2.37
@@ -118,6 +122,7 @@ throttle-concurrents:2.0.2
 timestamper:1.11.4
 token-macro:2.12
 trilead-api:1.0.8
+versionnumber:1.9
 violation-comments-to-gitlab:2.43
 windows-slaves:1.6
 workflow-aggregator:2.6
