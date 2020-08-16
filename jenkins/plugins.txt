@@ -3,6 +3,7 @@ allure-jenkins-plugin:2.28.1
 ansible:1.0
 ansicolor:0.7.1
 ant:1.11
+artifactory:3.7.3
 antisamy-markup-formatter:2.1
 apache-httpcomponents-client-4-api:4.5.10-2.0
 authentication-tokens:1.4
