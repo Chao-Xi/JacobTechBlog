@@ -115,6 +115,7 @@
 8. [tcpdump 简明教程](k8s_adv97_tcpdump.md)
 9. [Connecting to a worker node using SSH](k8s_adv98_Connecting_workernode_SSH.md)
 10. [Kubernetes 中的垃圾回收](k8s_adv102_garbage_collection.md)
+11. [为 Kubernetes 节点发布扩展资源](k8s_adv103_resource_expand.md)
 
 #### 故障排除
 
@@ -129,6 +130,7 @@
 #### 编写模板
 
 * [使用 `Kustomize` 配置 `Kubernetes` 应用](k8s_adv72_Kustomize.md)
+* [使用 Kustomize 定制 Helm Chart](k8s_adv104_Kustomize_helm.md)
 
 ### 深入理解 POD
 
