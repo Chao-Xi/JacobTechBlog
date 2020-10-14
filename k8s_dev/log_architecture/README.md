@@ -47,6 +47,7 @@
 6. [使用 Loki 进行日志监控和报警](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/40Loki_monitor_alert.md)
 7. [Grafana Loki 简明教程](24Loki_log_tutorial.md)
 8. [Loki 和 Fluentd 的那点事儿](25Fluented_loki.md)
+9. [Fluentd 简明教程](26Fluented_tutor.md)
 
 ![Alt Image Text](images/0_3.png "Headline image")
 
