@@ -28,3 +28,4 @@
 	* [Skaffold-简化本地开发kubernetes应用的神器](k8s_dev/1skaffold.md)
 	* [使用 PyCharm、Okteto 和 Kubernetes 搭建远程开发环境](k8s_dev/2PyCharm_Okteto.md) 
 24. [Chaos Mesh](chaos/README.md)
+25. [Kind：一个容器创建K8S开发集群](kind.md)
