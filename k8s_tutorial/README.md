@@ -198,7 +198,7 @@
 
 1. [kubernetes 持久化存储(一): PV 和 PVC 的使用](k8s_adv14_pv1.md)
 2. [kubernetes 持久化存储(二): StorageClass 的使用](k8s_adv14_pv2.md)
-3. [**Kubernetes 中 `PV` 和 `PVC` 的状态变化**](k8s_adv100_pv_pvc.md) **
+3. [**Kubernetes 中 `PV` 和 `PVC` 的状态变化**](k8s_adv100_pv_pvc.md)
 4. [Pod 中挂载单个文件的方法 subpath](k8s_adv15_subpath.md)
 5. [Kubernetes Local Persistent Volume](k8s_adv37_local_persistent_volume.md)
 6. [3种K8S存储：emptyDir、hostPath、local](k8s_adv45_3OthersStorage.md)
@@ -248,6 +248,7 @@
 9. [Ingress vs Load Balancer](k8s_adv66_elbVSingress.md)
 10. [使用 inlets 和 kubernetes 访问本地服务](k8s_adv79_inlets.md)
 11. [获取客户端访问真实 IP](k8s_adv88_get_ip.md)
+12. [图解 Kubernetes Ingress 完整详解](k8s_adv105_ingress_detail.md)
 
 ### K8S 伸缩问题
 
@@ -255,6 +256,7 @@
 2. [Pod 自动扩缩容(HPA: Horizontal Pod Autoscaling)](k8s_adv23_HPA.md)
 3. [6个与弹性伸缩、调度相关的Kubernetes附加组件](k8s_adv49_AS_plugins.md)
 4. [Kubernetes 预测性集群伸缩](k8s_adv70_CAC_prediction.md)
+5. [Kubernetes HPA 使用详解](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/38k8s_hpa_metricsserver.md)
 
 ### K8S 深度设计理念
 
