@@ -4,7 +4,7 @@
 
 kind：是一种使用Docker容器节点运行本地Kubernetes集群的工具。该类型主要用于测试Kubernetes，但可用于本地开发或CI。
 
-Kind 是 Kubernetes SIG 的另一种用于本地部署集群的方法。**他的核心实现是让整个集群运行在 Docker 容器中。**因此，它比 Minikube 更容易设置和更快启动。它支持单个节点或多 master 以及多工作节点。
+Kind 是 Kubernetes SIG 的另一种用于本地部署集群的方法。**他的核心实现是让整个集群运行在 Docker 容器中。** 因此，它比 Minikube 更容易设置和更快启动。它支持单个节点或多 master 以及多工作节点。
 
 Kind 是为一致性测试和用于 CI 管道而创建的，提供了一些不错的功能，比如可以直接在集群内部加载 Docker 镜像，而不需要推送到外部镜像仓库。
 
