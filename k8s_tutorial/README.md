@@ -249,6 +249,7 @@
 10. [使用 inlets 和 kubernetes 访问本地服务](k8s_adv79_inlets.md)
 11. [获取客户端访问真实 IP](k8s_adv88_get_ip.md)
 12. [图解 Kubernetes Ingress 完整详解](k8s_adv105_ingress_detail.md)
+13. [图解 Kubernetes Service —— 技术详解](k8s_adv106_svc_scratch.md)
 
 ### K8S 伸缩问题
 
