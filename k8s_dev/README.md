@@ -29,3 +29,4 @@
 	* [使用 PyCharm、Okteto 和 Kubernetes 搭建远程开发环境](k8s_dev/2PyCharm_Okteto.md) 
 24. [Chaos Mesh](chaos/README.md)
 25. [Kind：一个容器创建K8S开发集群](kind.md)
+26. [OpenEBS 教学](openebs/README.md)
