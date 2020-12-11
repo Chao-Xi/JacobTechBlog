@@ -204,6 +204,7 @@
 6. [3种K8S存储：emptyDir、hostPath、local](k8s_adv45_3OthersStorage.md)
 7. [在 `Kubernetes v1.14` 中，如何动态配置本地存储？](k8s_adv60_local_pv.md)
 8. [K8s 的软件定义存储解决方案(Software-Defined Storage:GlusterFS/ScaleIO/Quobyte)](k8s_adv62_sds.md)
+9. [使用s3(minio)为kubernetes提供pv存储](k8s_adv109_s3_minio_pv.md)
 
 ### 服务发现及网络模型解析
 
@@ -350,19 +351,6 @@ ubertest-management-bmxwx	ismanagement=1:NoExecute	ismanagement=1:NoSchedule
 ubertest-management-stzq9	ismanagement=1:NoSchedule	ismanagement=1:NoExecute
 
 $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
-```
-
-
-**Get all containers n/n ready pods**
-
-```
-kubectl -n NAMESPACE get pods -o custom-columns=NAMESPACE:metadata.namespace,POD:metadata.name,PodIP:status.podIP,READY-true:status.containerStatuses[*].ready | grep true | wc -l
-```
-
-**Delete all Crashbacklooppff pods**
-
-```
-kubectl delete pod `kubectl get pods --all-namespaces | awk '$4 == "CrashLoopBackOff" {print $2}'` -n NAMESPACE
 ```
 
 
