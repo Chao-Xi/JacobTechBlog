@@ -234,6 +234,7 @@
 5. [`kube-proxy` 工作模式分析 `Iptables VS Ipvs`](k8s_adv71_kube_proxy_adv.md)
 6. [K8S 之 Headless 浅谈](k8s_adv93_svc_headless.md)
 7. [Kubernetes 中的 DNS 查询(CoreDNS)](k8s_adv94_DNS_check.md)
+8. [给 Pod 添加 DNS 记录](k8s_adv110_pod_dns.md)
 
 #### (2) 外部服务发现
 
