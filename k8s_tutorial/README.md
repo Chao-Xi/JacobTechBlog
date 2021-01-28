@@ -353,6 +353,19 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 ```
 
 
+**Get all containers n/n ready pods**
+
+```
+kubectl -n NAMESPACE get pods -o custom-columns=NAMESPACE:metadata.namespace,POD:metadata.name,PodIP:status.podIP,READY-true:status.containerStatuses[*].ready | grep true | wc -l
+```
+
+**Delete all Crashbacklooppff pods**
+
+```
+kubectl delete pod `kubectl get pods --all-namespaces | awk '$4 == "CrashLoopBackOff" {print $2}'` -n NAMESPACE
+```
+
+
 ## 包管理工具 HELM
 
 ![Alt Image Text](images/boat.gif "headline image")
