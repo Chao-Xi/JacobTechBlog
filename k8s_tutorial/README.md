@@ -178,13 +178,14 @@
 17. [ConfigMap三种使用方法](k8s_adv89_cm_typical_ways.md)
 18. [图解 K8S 控制器 Node 生命周期管理](k8s_adv90_node_mgm.md)
 
-#### K8S授权和访问
+#### K8S授权和访问&证书
 
 1. [Kubernetes RBAC 详解](k8s_adv13_RBAC.md)
 2. [通过 GitHub OAuth 和 Dex 访问 Kubernetes 集群](k8s_adv69_oauth_dex.md)
 3. [这些用来审计 Kubernetes RBAC 策略](k8s_adv74_BRAC_strategy.md)
 4. [Kubernetes Pod 安全策略(PodSecurityPolicy,PSP)配置](k8s_adv76_psp.md)
 5. [Kubernetes 集群安全机制详解](k8s_adv91_k8s_sec_policy.md)
+6. [恢复全部清空的 Kubernetes 证书文件](k8s_adv112_recover_certificates.md)
 
 ### 持久化存储:
 
@@ -235,6 +236,7 @@
 6. [K8S 之 Headless 浅谈](k8s_adv93_svc_headless.md)
 7. [Kubernetes 中的 DNS 查询(CoreDNS)](k8s_adv94_DNS_check.md)
 8. [给 Pod 添加 DNS 记录](k8s_adv110_pod_dns.md)
+9. [理解 Linux 网络命名空间 network namespace](k8s_adv111_net_namespaces.md)
 
 #### (2) 外部服务发现
 
