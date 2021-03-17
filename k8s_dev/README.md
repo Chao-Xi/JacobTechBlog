@@ -31,3 +31,4 @@
 25. [Kind：一个容器创建K8S开发集群](kind.md)
 26. [OpenEBS 教学](openebs/README.md)
 27. [Kubernetes 应用性能分析工具 - Kubectl Flame](flame/flame_start.md)
+28. [rabbitmq集群](rabbitmq/1k8s_rabbitmq.md)
