@@ -56,6 +56,7 @@
 10. [基于`Prometheus`构建`MySQL`可视化监控平台](36Prometheus_Mysql.md)
 11. [`Prometheus` 监控外部 `Kubernetes` 集群](41Prometheus_Monitor_OutCluster.md)
 12. [使用`ssl_exporter`监控K8S集群证书](43Prometheus_operator_ssl_exporter.md)
+13. [**Promethuse-operator2021 - 使用KubeNurse进行集群网络监控**](44Prometheus_KubeNurse.md)
 
 ### Jam prometheus Monitor
 
