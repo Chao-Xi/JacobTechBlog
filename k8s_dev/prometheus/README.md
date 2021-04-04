@@ -57,6 +57,7 @@
 11. [`Prometheus` 监控外部 `Kubernetes` 集群](41Prometheus_Monitor_OutCluster.md)
 12. [使用`ssl_exporter`监控K8S集群证书](43Prometheus_operator_ssl_exporter.md)
 13. [**Promethuse-operator2021 - 使用KubeNurse进行集群网络监控**](44Prometheus_KubeNurse.md)
+14. [**Prometheus Operator 安装配置 | 2021**](45Prom-operator_2021.md)
 
 ### Jam prometheus Monitor
 
