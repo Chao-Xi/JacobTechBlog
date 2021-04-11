@@ -59,6 +59,7 @@
 13. [**Promethuse-operator2021 - 使用KubeNurse进行集群网络监控**](44Prometheus_KubeNurse.md)
 14. [**Prometheus Operator 安装配置 | 2021**](45Prom-operator_2021.md)
 15. [**Traefik之使用 Prometheus 进行监控报警 (2021)(Traefik/Prometheus/PrometheusRule/Grafana 配置/测试)**](46Prometheus_traefik.md)
+16. [**Prometheus Operator 使用 AlertmanagerConfig 进行报警配置**](47Prometheus_opt_AlertmanagerConfig.md)
 
 ### Jam prometheus Monitor
 
