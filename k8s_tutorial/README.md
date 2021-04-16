@@ -116,6 +116,7 @@
 9. [Connecting to a worker node using SSH](k8s_adv98_Connecting_workernode_SSH.md)
 10. [Kubernetes 中的垃圾回收](k8s_adv102_garbage_collection.md)
 11. [为 Kubernetes 节点发布扩展资源](k8s_adv103_resource_expand.md)
+12. [Docker 和 Kubernetes：root 与特权](k8s_adv115_root.md)
 
 #### 故障排除
 
