@@ -77,6 +77,7 @@
 
 * [优秀的 Grafana K8S 插件 - `DevOpsProdigy KubeGraf`](28Grafana_plugin_DevOpsProdigy.md)
 * [用 `Kubernetes darks` 资源对象创建 `Grafana Dashboard`](30Create_Grafana_dashboards.md)
+* [Grafana 图表加速神器 - Trickster](48grafana_Trickster.md)
 
 ## Other monitor tools
 
