@@ -48,6 +48,7 @@
 7. [Grafana Loki 简明教程](24Loki_log_tutorial.md)
 8. [Loki 和 Fluentd 的那点事儿](25Fluented_loki.md)
 9. [Fluentd 简明教程](26Fluented_tutor.md)
+10. [Fluentd 详细教程](27Fluented_all.md)
 
 ![Alt Image Text](images/0_3.png "Headline image")
 
