@@ -50,6 +50,15 @@
 9. [Fluentd 简明教程](26Fluented_tutor.md)
 10. [Fluentd 详细教程](27Fluented_all.md)
 
+
+## Logging Operator
+
+![Alt Image Text](images/0_5.png "Headline image")
+
+1. [Logging Operator - 优雅的云原生日志管理方案 1](28log_operator1.md)
+2. [Logging Operator - 优雅的云原生日志管理方案 2](29log_operator2.md)
+
+
 ![Alt Image Text](images/0_3.png "Headline image")
 
 [在 Kubernetes 集群上部署 Kafka](14K8s_kafka.md)
