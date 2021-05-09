@@ -268,6 +268,7 @@
 4. [Kubernetes 预测性集群伸缩](k8s_adv70_CAC_prediction.md)
 5. [Kubernetes HPA 使用详解](https://github.com/Chao-Xi/JacobTechBlog/blob/master/k8s_dev/prometheus/38k8s_hpa_metricsserver.md)
 6. [改善 Kubernetes 上的 JVM 预热问题](k8s_adv114_jvm.md)
+7. [KEDA-Kubernetes 中基于事件驱动的自动伸缩](k8s_adv117_EKDA_events.md)
 
 ### K8S 深度设计理念
 
