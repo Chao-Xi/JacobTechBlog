@@ -259,6 +259,7 @@
 13. [图解 Kubernetes Service —— 技术详解](k8s_adv106_svc_scratch.md)
 14. [图解 Istio](k8s_adv107_istio_scratch.md)
 15. [Kubernetes Service APIs 介绍](k8s_adv108_serviceapis.md)
+16. [云原生负载均衡和网关应用实践](k8s_adv118_lb_gateway.md)
 
 ### K8S 伸缩问题
 
