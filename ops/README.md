@@ -6,6 +6,7 @@
 4. [Common Terminology and Abbreviations](ops_terminology_abbr.md)
 5. [Scrum Ceremonies & Sizing Epics and Stories](ops_scrum_ceremonies.md)
 6. [Edit text on image with MAC preview](EditWordOnImage.md)
+7. [sed命令](sed.md)
 
 
 ### Git Management
