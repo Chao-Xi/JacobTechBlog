@@ -5,3 +5,4 @@
 1. [在 Kubernetes 上部署 Vault](1k8s_vault.md)
 2. [透过 Vault 定期 rotate credentials](2vault_rotate_credential.md)
 3. [Vault 与 Kubernetes 的深度整合](3k8s_vault_intro.md)
+4. [在 Kubernetes 读取 Vault 中的机密信息](4k8s_read_from_vault.md)
