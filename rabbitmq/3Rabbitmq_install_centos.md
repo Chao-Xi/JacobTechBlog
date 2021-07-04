@@ -1,7 +1,7 @@
-# How to Install RabbitMQ on CentOS 7
+# **L3 How to Install RabbitMQ on CentOS 7**
 
 
-### Step 1: Update the system
+### **Step 1: Update the system**
 
 Use the following commands to update your CentOS 7 system to the latest stable status:
 
@@ -11,7 +11,7 @@ sudo yum update
 sudo reboot
 ```
 
-### Step 2: Install Erlang
+### **Step 2: Install Erlang**
 
 Since RabbitMQ is written in Erlang, you need to install Erlang before you can use RabbitMQ:
 
@@ -33,7 +33,7 @@ Eshell V10.6.4  (abort with ^G)
 
 Press `Ctrl+C` twice to quit the Erlang shell.
 
-### Step 3: Install RabbitMQ
+### **Step 3: Install RabbitMQ**
 
 [https://www.rabbitmq.com/download.html](https://www.rabbitmq.com/download.html)
 
@@ -45,7 +45,7 @@ sudo rpm --import https://www.rabbitmq.com/rabbitmq-signing-key-public.asc
 sudo yum install rabbitmq-server-3.8.2-1.el7.noarch.rpm
 ```
 
-### Step 4: Modify firewall rules
+### **Step 4: Modify firewall rules**
 
 
 In order to access the RabbitMQ remote management console, you need to allow inbound TCP traffic on ports 4369, 25672, 5671, 5672, 15672, 61613, 61614, 1883, and 8883.
@@ -153,7 +153,7 @@ Interface: [::], port: 25672, protocol: clustering, purpose: inter-node and CLI 
 Interface: [::], port: 5672, protocol: amqp, purpose: AMQP 0-9-1 and AMQP 1.0
 ```
 
-### Step 5: Enable and use the RabbitMQ management console
+### **Step 5: Enable and use the RabbitMQ management console**
 
 Enable the RabbitMQ management console so that you can monitor the RabbitMQ server processes from a web browser:
 

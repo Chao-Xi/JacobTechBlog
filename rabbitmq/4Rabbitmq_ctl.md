@@ -1,6 +1,6 @@
-# RabbitMQ手册之rabbitmqctl
+# **L4 RabbitMQ手册之rabbitmqctl**
 
-## Server Status
+## **1、Server Status**
 
 > 服务状态查询语句，询问服务之后，将返回tab分隔的一组列项结果。一些查询语句（例如 `list_queues`, `list_exchanges`, `list_bindings`, `list_consumers`）接受一个可选的`vhost`参数。该参数（如果存在），必须在查询之后立即指定。
 
@@ -158,7 +158,7 @@ rabbitmqctl eval {expr}
 # 上述例子，将返回 rabbitmqctl 已经连接的节点名称
 ```
 
-### 返回队列的详细信息
+### **1-1 返回队列的详细信息**
 
 ```
 $  sudo rabbitmqctl list_queues
@@ -175,7 +175,7 @@ consumers
 1
 ```
 
-### 返回交换器的详细信息
+### **1-2 返回交换器的详细信息**
 
 ```
 $ sudo rabbitmqctl list_exchanges
@@ -190,7 +190,7 @@ amq.rabbitmq.trace	topic
 amq.headers	headers
 ```
 
-### 返回绑定的详细信息
+### **1-3 返回绑定的详细信息**
 
 ```
 $ sudo rabbitmqctl list_bindings
@@ -199,7 +199,7 @@ source_name	source_kind	destination_name	destination_kind	routing_key	arguments
 	exchange	hello	queue	hello	[]
 ```
 
-### 返回TCP/IP连接统计信息
+### **1-4 返回TCP/IP连接统计信息**
 
 ```
 $ sudo rabbitmqctl list_connections
@@ -208,7 +208,7 @@ user	peer_host	peer_port	state
 admin	192.168.33.1	52727	running
 ```
 
-### 返回所有当前的通道的信息，通道即一个执行大多数AMQP命令的逻辑容器。这包括由普通AMQP连接的一部分通道、由各种插件和其他扩展程序创建的通道。
+**返回所有当前的通道的信息，通道即一个执行大多数AMQP命令的逻辑容器。这包括由普通AMQP连接的一部分通道、由各种插件和其他扩展程序创建的通道**。
 
 ```
 $ sudo rabbitmqctl list_channels
@@ -217,7 +217,7 @@ pid	user	consumer_count	messages_unacknowledged
 <rabbit@jabox.3.29946.0>	admin	1	0
 ```
 
-### 列出消费者，例如对一个队列的消息流的订阅者
+### **1-5 列出消费者，例如对一个队列的消息流的订阅者**
 
 ```
 $ sudo rabbitmqctl list_consumers
@@ -225,7 +225,7 @@ queue_name	channel_pid	consumer_tag	ack_required	prefetch_count	active	arguments
 hello	<rabbit@jabox.3.29946.0>	ctag1.d6c95bb056e34fc98850545a0a35a024	false	1	true	[]
 ```
 
-### 展示broker的状态信息，
+### **1-6 展示broker的状态信息**
 
 ```
 $ sudo rabbitmqctl status
@@ -255,7 +255,7 @@ Enabled plugins:
 ...
 ```
 
-### 表示对RabbitMQ节点进行健康检查
+### **1-7 表示对RabbitMQ节点进行健康检查**
 
 ```
 $ sudo rabbitmqctl node_health_check
@@ -264,7 +264,7 @@ Checking health of node rabbit@jabox ...
 Health check passed
 ```
 
-## 用户和用户角色
+## **2、用户和用户角色**
  
  ```
  # 查看用户信息
@@ -326,9 +326,9 @@ admin	[administrator]
 guest	[administrator]
 ```
 
-## 用户角色
+## **3、用户角色**
 
-> `rabbitmq`用户角色（`role`）分为五类： 超级管理员（`administrator`）、监控者（`monitor`）、决策制定者（`policymaker`）、普通管理者（`management`）和其他。
+> **`rabbitmq`用户角色（`role`）分为五类： 超级管理员（`administrator`）、监控者（`monitor`）、决策制定者（`policymaker`）、普通管理者（`management`）和其他**。
 
 * `administrator` 可登录管理控制台（启用`management plugin`的情况下），查看所有的信息，并且可以对用户、策略（`policy`）进行操作；
 * `monitoring` 可登录管理控制台（启用`management plugin`的情况下），同时可以查看`rabbitmq`节点的相关信息（进程数、内存使用情况，磁盘使用情况等）；
@@ -340,7 +340,7 @@ guest	[administrator]
 rabbitmqctl [-n {nodename}] [-t timeout] [-q] {command} [command options...]
 ```
 
-## `application`和`cluster management`
+## **4、`application`和`cluster management`**
 
 ```
 rabbitmqctl stop [{pid_file}]
@@ -386,7 +386,7 @@ rabbitmqctl hipe_compile {directory}
 # 使用预编译的文件，你应该设置 RABBITMQ_SERVER_CODE_PATH 环境变量为 hipe_compile 调用指定的目录。
 ```
 
-## cluster management
+## **5、cluster management**
 
 ```
 rabbitmqctl join_cluster {clusternode} [--ram]
@@ -489,7 +489,7 @@ Flag: quorum_queue, state: enabled
 Flag: virtual_host_metadata, state: enabled
 ```
 
-## User management
+## **6、User management**
 
 > 注意，`rabbitmqctl` 管理 `RabbitMQ` 的内部用户数据库，所有其他后台需要认证的用户对于`rabbitmqctl`将不可见。
 
@@ -533,7 +533,7 @@ admin	[administrator]
 guest	[administrator]
 ```
 
-## Access control
+## **7、Access control**
 
 > 注意，`rabbitmqctl` 管理 `RabbitMQ` 的内部用户数据库，所有其他后台需要认证的用户的权限对于`rabbitmqctl`将不可见。
 
@@ -570,7 +570,7 @@ rabbitmqctl list_user_permissions {username}
 # 表示列出指定用户的权限vhost，和在该vhost上的资源可操作权限。
 ```
 
-### 默认vhost为 "/"。
+**默认vhost为 "/"**
 
 ```
 $ sudo rabbitmqctl list_vhosts
@@ -594,7 +594,7 @@ vhost	configure	write	read
 /	.*	.*	.*
 ```
 
-## Parameter Management
+## **8、Parameter Management**
 
 >  `RabbitMQ`的一些特性（例如联合插件）是被动态的、集群范围内的参数控制。
 > 
@@ -637,7 +637,7 @@ rabbitmqctl list_global_parameters
 # 列出所有的全局运行时参数，类似于 list_parameters，但是该命令不绑定于任何vhost
 ```
 
-### 列出所有的全局运行时参数，类似于 list_parameters，但是该命令不绑定于任何vhost
+**列出所有的全局运行时参数，类似于 `list_parameters`，但是该命令不绑定于任何vhost**
 
 ```
 $ sudo rabbitmqctl list_global_parameters
@@ -647,7 +647,7 @@ name	value
 cluster_name	"rabbit@jabox"
 ```
 
-## Policy Management
+## **9、Policy Management**
 
 >  策略用于在集群范围内，控制和修改队列和交换器的行为。适用于给定固定虚拟机，并由名称，模式，定义和可选优先级组成。可以设置，清除和列出策略
 
@@ -672,7 +672,7 @@ rabbitmqctl list_policies [-p vhost]
 $ sudo rabbitmqctl list_policies -p /
 ```
 
-## Miscellaneous
+## **10、Miscellaneous**
 
 > rabbitmqctl 其他的一些命令
 
