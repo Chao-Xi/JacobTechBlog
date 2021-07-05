@@ -37,6 +37,7 @@ $ grep -rnw . -e 'linux'
   * 查找80端口请求数最高的前20个IP
   * ssh实现端口转发
 8. [Tmux 使用教程](11tmux.md)
+9. [内存泄漏排查攻略之：Show me your Memory](12show_mem.md)
 
 ## Linux Interview
 
