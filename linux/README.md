@@ -38,6 +38,7 @@ $ grep -rnw . -e 'linux'
   * ssh实现端口转发
 8. [Tmux 使用教程](11tmux.md)
 9. [内存泄漏排查攻略之：Show me your Memory](12show_mem.md)
+10. [Linux 平均负载，附排查工具](13show_loadbalancer.md)
 
 ## Linux Interview
 
