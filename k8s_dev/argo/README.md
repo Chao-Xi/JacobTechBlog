@@ -20,6 +20,7 @@
 * [ArgoCD with Kustomize](6Argocd_Kustomize.md)
 * [ArgoCD with Sealed Secrets](7Argocd_Sealsecrets.md)
 * [ArgoCD with Helm Repo and Helm Package](8Argocd_Pak_Helm.md)
+* [Argo CD 优化以及使用钉钉接收状态消息](17Argocd_alert.md)
 
 ## Argo rollout
 
