@@ -27,6 +27,8 @@
 * [`argo rollout` 自动化金丝雀canary部署](11Argorollout_Install.md)
 	* Argocd 使用
 	* Argorollouts 使用
+* [Argo Rollouts 实现蓝绿/金丝雀发布](18Argo_rollouts.md)
+* [Argo Rollouts 基于 Analysis 的渐进式发布](19Argorollouts_analysis.md)
 
 
 ## Argo with JAM 
