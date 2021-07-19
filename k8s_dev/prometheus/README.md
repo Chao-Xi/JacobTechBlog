@@ -62,6 +62,7 @@
 16. [**Prometheus Operator 使用 AlertmanagerConfig 进行报警配置**](47Prometheus_opt_AlertmanagerConfig.md)
 17. [通过Prometheus来做SLI/SLO监控展示](49Prometheus_SLI_SLO.md)
 18. [Prometheus 中使用 PrometheusAlert 进行聚合报警](50PrometheusAlert.md)
+19. [Prometheus 使用 missing-container-metrics 监控 Pod oomkill](51missing-container-metrics.md)
 
 ### Jam prometheus Monitor
 
