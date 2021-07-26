@@ -34,6 +34,7 @@
 12. [Service Account, 授权, Pod Security Policies, Hostpath访问白名单, SELinux (K8S Service Account, Role, Security Context, PSP, Hostpath white list, SELinux)](k8s_basic17.md)
 13. [Resource Quotas, LimitRange, Horizontal Pod Autoscaling](k8s_basic18.md)
 14. [Network Policy, Namespace & Pod Isolation, Ingress, PodPreset, ThirdPartyResources](k8s_basic19.md)
+15. [**K8S Configmap和Secret热更新之Reloader**](k8s_adv123_reloader.md)
 
 
 
@@ -135,6 +136,7 @@
 
 * [使用 `Kustomize` 配置 `Kubernetes` 应用](k8s_adv72_Kustomize.md)
 * [使用 Kustomize 定制 Helm Chart](k8s_adv104_Kustomize_helm.md)
+* [**Kubernetes 资源清单静态分析工具 - KubeLinter**](k8s_adv124_KubeLinter.md)
 
 ### 深入理解 POD
 
