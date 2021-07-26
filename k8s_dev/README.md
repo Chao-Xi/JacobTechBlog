@@ -33,3 +33,4 @@
 27. [Kubernetes 应用性能分析工具 - Kubectl Flame](flame/flame_start.md)
 28. [rabbitmq集群](rabbitmq/1k8s_rabbitmq.md)
 29. [Sealer 把Kubernetes集群打包成一个镜像](sealer/sealer.md)
+30. [Operator List](operator/README.md)
