@@ -216,6 +216,7 @@
 7. [在 `Kubernetes v1.14` 中，如何动态配置本地存储？](k8s_adv60_local_pv.md)
 8. [K8s 的软件定义存储解决方案(Software-Defined Storage:GlusterFS/ScaleIO/Quobyte)](k8s_adv62_sds.md)
 9. [使用s3(minio)为kubernetes提供pv存储](k8s_adv109_s3_minio_pv.md)
+10. [Kubernetes卷快GA及快速安装测试](k8s_adv127_pv_snapshot.md)
 
 ### 服务发现及网络模型解析
 
