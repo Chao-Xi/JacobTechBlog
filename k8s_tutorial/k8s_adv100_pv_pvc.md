@@ -186,3 +186,16 @@ nfs-pv   1Gi        RWO            Retain           Available           manual  
 ```
 
 在较新版本的 Kubernetes 集群中对 PV 的各种功能也做了增强，比如克隆、快照等功能都是非常有用的，我们后续再来对这些新功能进行说明。
+
+##  Deleting a PVC stuck in status “Terminating”
+
+![Alt Image Text](images/adv/adv100_7.png "Body image")
+
+You need to patch the PVC to set the “finalizers” setting to null, this allows the final unmount from the node, and the PVC can be deleted.
+
+```
+kubectl patch pvc {PVC_NAME} -p '{"metadata":{"finalizers":null}}'
+```
+
+
+
