@@ -283,9 +283,9 @@ spec:
   resources:
     requests:
       storage: 1Gi
- ```
+```
  
- ```
+```
  $ kubectl apply -f test-snapshot-pvc.yaml 
 persistentvolumeclaim/pvc-restore created
 
