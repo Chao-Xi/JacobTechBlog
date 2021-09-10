@@ -26,6 +26,7 @@
 	* 1.8.Aggregation聚合分析 
 12. [`ElasticSearch`节点(角色)类型`node.master`和`node.data`](12Es_roles.md)
 13. [`Elasticsearch unassigned` 故障排查](13Es_unassigned.md)
+14. [如何收集管理多行日志？](30multi_logs.md)
 
 
 ## 使用 Elastic Stack 构建 Kubernetes 全栈监控
