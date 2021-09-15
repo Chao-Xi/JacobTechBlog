@@ -16,6 +16,7 @@ $ grep -rnw . -e 'linux'
 ## Linux Sysadmin Basics 
 
 1. [Linux Sysadmin Basics - Process](2Linux_process.md)
+2. [SSH平时常用的几大场景](14ssh.md)
 
 
 ## Common Sysadmin Commands
