@@ -89,6 +89,10 @@
 3. [使用 Loki 进行日志监控和报警](40Loki_monitor_alert.md)
 
 
+## Prometheus-Grafana 高级教程(2021)
+
+1. [Prometheus Relabeling 重新标记的使用](52Prometheus_Relabeling.md)
+2. [Prometheus 服务的自动发现使用](53Prometheus_auto_discovery.md)
 
 ## PromQL and Prometheus Alerts
 
