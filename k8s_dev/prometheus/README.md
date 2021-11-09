@@ -94,6 +94,7 @@
 1. [Prometheus Relabeling 重新标记的使用](52Prometheus_Relabeling.md)
 2. [Prometheus 服务的自动发现使用](53Prometheus_auto_discovery.md)
 3. [如何使用 Prometheus 仪表化应用](54prometheus_go_metrics.md)
+4. [为 Go 应用添加 Prometheus 监控指标](55prometheus_go_metrics.md)
 
 ## PromQL and Prometheus Alerts
 
