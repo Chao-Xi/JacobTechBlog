@@ -412,8 +412,9 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
    * [模板内访问文件 /  `NOTES.txt` 文件/ `.helmignore` 文件]
 7. [子 `chart` 和全局值](k8s_helm8_others.md)
    * [子 Chart 的使用 / 全局值的使用]
-10. [Helm Chart 模板开发技巧](k8s_helm10_Dev_Skills.md)
+8. [Helm Chart 模板开发技巧](k8s_helm10_Dev_Skills.md)
    * [ 使用 `tpl` 函数 / 创建 `imagePullSecret` / `ConfigMap` 或者 `Secret` 更改时自动更新/ 告诉 `Tiller` 不要删除资源 / 使用`Partials/ others`]
+9. [如何在 Helm Chart 中兼容不同的 Kubernetes 版本？](k8s_helm19_versions.md)
 
 
 ### CHART 最佳实践
