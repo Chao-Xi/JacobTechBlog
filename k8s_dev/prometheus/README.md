@@ -96,6 +96,7 @@
 3. [如何使用 Prometheus 仪表化应用](54prometheus_go_metrics.md)
 4. [为 Go 应用添加 Prometheus 监控指标](55prometheus_go_metrics.md)
 5. [PromQL 查询之 rate 函数的使用](56prometheus_promql_rate.md)
+6. [Promethues 应用监控的一些实践](57prometheus_best_practice.md)
 
 ## PromQL and Prometheus Alerts
 
