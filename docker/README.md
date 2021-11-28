@@ -35,6 +35,7 @@
 15. [libnetwork 插件化网络功能](15docker_libnetwork_plugin.md)
 16. [10项你不得不知道的Docker镜像安全最佳实践](16docker_10_practices.md)
 17. [Docker入门18条命令行](17docker_18_commands.md)
+18. [*Dockerfile中CMD与ENTRYPOINT命令的区别](20dockerfile_cmd_entry.md)
 
 ## Dockerfile Research
 
