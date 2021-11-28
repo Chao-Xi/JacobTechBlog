@@ -41,6 +41,7 @@ $ grep -rnw . -e 'linux'
 8. [Tmux 使用教程](11tmux.md)
 9. [内存泄漏排查攻略之：Show me your Memory](12show_mem.md)
 10. [Linux 平均负载，附排查工具](13show_loadbalancer.md)
+11. [Linux 环境变量配置汇总](16Linux_env.md)
 
 ## Linux Interview
 
