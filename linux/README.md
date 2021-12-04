@@ -42,6 +42,7 @@ $ grep -rnw . -e 'linux'
 9. [内存泄漏排查攻略之：Show me your Memory](12show_mem.md)
 10. [Linux 平均负载，附排查工具](13show_loadbalancer.md)
 11. [Linux 环境变量配置汇总](16Linux_env.md)
+12. [23个一线工作中常用的Shell脚本](17Linux_shell.md)
 
 ## Linux Interview
 
