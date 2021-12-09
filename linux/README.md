@@ -43,6 +43,7 @@ $ grep -rnw . -e 'linux'
 10. [Linux 平均负载，附排查工具](13show_loadbalancer.md)
 11. [Linux 环境变量配置汇总](16Linux_env.md)
 12. [23个一线工作中常用的Shell脚本](17Linux_shell.md)
+13. [Linux中排除网络故障时](18Linux_network_ts.md)
 
 ## Linux Interview
 
