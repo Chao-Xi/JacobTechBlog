@@ -1,6 +1,20 @@
 # Kubernetes namespace deleting stuck in Terminating state
 
 ```
+$ kubectl proxy
+Starting to serve on 127.0.0.1:8001
+
+kubectl get namespace argocd -o json > argocd.json
+vim argocd.json 
+###
+spec:
+finalizers:
+###
+   
+curl -k -H "Content-Type: application/json" -X PUT --data-binary @argocd.json http://127.0.0.1:8001/api/v1/namespaces/argocd/finalize   
+```
+
+```
 $ kubectl get ns
 NAME                STATUS        AGE
 argo                Active        31d
