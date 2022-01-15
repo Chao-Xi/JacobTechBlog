@@ -37,6 +37,7 @@
 17. [Docker入门18条命令行](17docker_18_commands.md)
 18. [Dockerfile中CMD与ENTRYPOINT命令的区别](20dockerfile_cmd_entry.md)
 19. [如何在Docker容器中运行Docker [3种方法]](21docker_in_docker.md)
+20. [Docker容器迁移到其他服务器的5种方法](22docker_migration.md)
 
 ## Dockerfile Research
 
