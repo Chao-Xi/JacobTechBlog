@@ -159,6 +159,7 @@
 1. [Kubernetes 调度器介绍](k8s_adv25_kube-scheduler.md)
 2. [理解 Kubernetes 的亲和性调度](k8s_adv7_Affinity_Selector.md)
 3. [Kubernetes 集群均衡器 `Descheduler`](k8s_adv92_Descheduler.md)
+4. [Kubernetes 调度均衡器 Descheduler 使用 2022](k8s_adv130_descheduler_adv.md)
 
 ### K8S and Cloud
 
