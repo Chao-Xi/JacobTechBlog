@@ -423,15 +423,19 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 
 * [CHART 最佳实践](k8s_helm15_best_practice.md)
 
-* 一般约定：了解 chart 一般约定。
-* `values` 文件：查看结构化 `values.yaml` 的最佳实践。
-* `Template:`：学习一些编写模板的最佳技巧。
-* `Requirement`：遵循 requirements.yaml 文件的最佳做法。
-* 标签和注释:：`helm` 具有标签和注释的传统。
-* Kubernetes 资源：
-  * `Pod` 及其规格：查看使用 `pod` 规格的最佳做法。
-  * 基于角色的访问控制：有关创建和使用服务帐户，角色和角色绑定的指导。
-  * 自定义资源：自定义资源（`CRDs`）有其自己的相关最佳实践。
+	* 一般约定：了解 chart 一般约定。
+	* `values` 文件：查看结构化 `values.yaml` 的最佳实践。
+	* `Template:`：学习一些编写模板的最佳技巧。
+	* `Requirement`：遵循 requirements.yaml 文件的最佳做法。
+	* 标签和注释:：`helm` 具有标签和注释的传统。
+	* Kubernetes 资源：
+	  * `Pod` 及其规格：查看使用 `pod` 规格的最佳做法。
+	  * 基于角色的访问控制：有关创建和使用服务帐户，角色和角色绑定的指导。
+	  * 自定义资源：自定义资源（`CRDs`）有其自己的相关最佳实践。
+
+* [Helm Charts 开发完整示例(2022)](k8s_helm20_2022_dev.md)
+	* **[应用 / 基础模板 /  命名模板  / 版本兼容 / 持久化 / 定制 / 共享 Charts]**
+
 
 #### HELM 开发技巧 
 
