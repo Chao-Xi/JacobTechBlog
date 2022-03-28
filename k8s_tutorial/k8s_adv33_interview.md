@@ -1,10 +1,11 @@
-# kubernetes interview questions (Keep Updating)
+# **kubernetes interview questions (Keep Updating)**
 
 ## 基础篇
 
 ### 基础篇主要面向的初级、中级开发工程师职位，主要考察对k8s本身的理解。
 
 * `kubernetes` 包含几个组件。各个组件的功能是什么。组件之间是如何交互的。
+  * **Four types of k8s services**
 * `k8s`的 `pause` 容器有什么用。是否可以去掉。
 * `k8s` 中的`pod`内几个容器之间的关系是什么。
 * 一个经典`pod`的完整生命周期。
@@ -13,6 +14,7 @@
 * `rc/rs`功能是怎么实现的。详述从`API`接收到一个创建`rc/rs`的请求，到最终在节点上创建`pod`的全过程，尽可能详细。另外，当一个`pod`失效时，`kubernetes`是如何发现并重启另一个pod的？
 * `deployment/rs`有什么区别。其使用方式、使用条件和原理是什么。
 * `cgroup`中的`cpu`有哪几种限制方式。k8s是如何使用实现`request`和`limit`的。
+
 
 
 ### 本人的简略回答：
@@ -61,6 +63,17 @@
 `Scheduler`通过`API Server`的`Watch`接口监听到新建`Pod`副本的信息后，它会检索所有符合该`Pod`要求的`Node`列表(round robin)，开始执行`Pod`调度逻辑。调度成功后将`Pod`绑定到目标节点上。
 
 为了缓解各模块对`API Server`的访问压力，**各功能模块都采用缓存机制来缓存数据**，各功能模块**定时**从`API Server`获取指定的资源对象信息 **LIST/WATCH方法**，**然后将信息保存到本地缓存**，**功能模块在某些情况下不直接访问`API Server`，而是通过访问缓存数据来间接访问`API Server`**。
+
+### 1.Four types of k8s services
+
+我们在定义`Service`的时候可以指定一个自己需要的类型的`Service`，如果不指定的**话默认是`ClusterIP`类型**。
+
+我们可以使用的服务类型如下：
+
+* `ClusterIP`：通过集群的**内部 IP 暴露服务**，选择该值，**服务只能够在集群内部可以访问，这也是默认的`ServiceType`**。
+* `NodePort`：通过每个 **`Node节点上的IP`** 和 **`静态端口（NodePort）`** 暴露服务。NodePort 服务会路由到 ClusterIP 服务，这个 ClusterIP 服务会自动创建。通过请求 : **可以从集群的外部访问一个 NodePort 服务**。
+* `LoadBalancer`：**使用云提供商的负载局衡器，可以向外部暴露服务**。外部的负载均衡器可以路由到 `NodePort` 服务和 `ClusterIP` 服务，这个需要结合具体的云厂商进行操作。
+* `ExternalName`：**通过返回 CNAME 和它的值，可以将服务映射到 `externalName` 字段的内容**（例如， `foo.bar.example.com`）。没有任何类型代理被创建，这只有 Kubernetes 1.7 或更高版本的 kube-dns 才支持。
 
 
 ### 2.`k8s`的 `pause` 容器有什么用。是否可以去掉。
@@ -155,6 +168,14 @@ route -n
 * **这些匹配标签的`Pod IP`和`端口列表`组成`endpoints`，由`kube-proxy`负责将服务IP负载均衡到这些`endpoints`上。**
 
 **`Service`同样是根据`Label Selector`来刷选`Pod`进行关联的，实际上k8s在`Service`和`Pod`之间通过`Endpoint`衔接，`Endpoints`同`Service`关联的`Pod`；相对应，可以认为是`Service`的服务代理后端，`k8s`会根据`Service`关联到`Pod`的`Pod IP` 信息组合成一个`Endpoints`。**
+
+#### **9.k8s创建service的过程**
+
+* 通过kubectl提交一个pod的service创建请求
+* **`Controller Manager`会通过对应的`Label`标签查询到相关的pod实例**，生成**`Serveice`的`Endpoints`信息**，**并通过`API server`写入到`etcd`键值库中**
+* **`Worker Node`节点上的`kube proxy`通过`API server`查询并监听`service`对象与其对应的`Endpoints`信息(服务发现)**，创建一个类似负载均衡器实现`Service`访问到后端Pod的流量
+
+
 
 
 ![Alt Image Text](images/basic11/2.jpg "Body image")
@@ -377,6 +398,27 @@ containers:
 如果`Pod`中所有容器的`resources`**均未设置**`requests`与`limits`，该`pod`的`QoS`即为`Best-Effort`。
 
 ![Alt Image Text](images/adv/adv8_1.jpg "Headline image")
+
+
+### **9 StatefulSet和Deployment的区别**
+
+**“Deployment用于部署无状态服务，StatefulSet用来部署有状态服务”。**
+
+**无状态的应用**
+
+* **pod之间没有顺序**
+* **所有pod共享存储**
+* **pod名字包含随机数字**
+* service都有`ClusterIP`,**可以负载均衡**
+
+**有状态的应用**
+
+* 部署、扩展、更新、删除都要有顺序
+* 每个pod都有自己存储，所以都用volumeClaimTemplates，为每个pod都生成一个自己的存储，保存自己的状态
+* **pod名字始终是固定的**
+* service没有ClusterIP，**是`headlessservice`，所以无法负载均衡，返回的都是pod名，所以pod名字都必须固定**，
+	* `StatefulSet`在`Headless Service`的基础上又为StatefulSet控制的每个Pod副本创建了一个DNS域名:`$(podname).(headless server name).namespace.svc.cluster.local`
+
 
 ## 拓展实践篇
 
