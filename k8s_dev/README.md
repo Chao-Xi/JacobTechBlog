@@ -17,7 +17,7 @@
 13. [Argo Project](argo/README.md)
 14. [Open Policy Agent(Gatekeeper)](OPA/README.md)
 15. [在 `Kubernetes` 集群上部署 `VSCode`](vscode/vscode.md)
-16. [`sealed-secrets` 使用以及作用域 ](sealed-secrets/README.md)
+16. [**Gitops secret and Sealed secret**](sealed-secrets/README.md)
 17. [`Vault on K8S`](vault/README.md)
 18. [`Run Vitess on Kubernetes`](k8s_vitess/README.md)
 19. [`Envoy by lift`](envoy/README.md)
