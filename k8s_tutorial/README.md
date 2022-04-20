@@ -66,6 +66,7 @@
 
 1. [**<mark>kubernetes interview questions (Keep Updating)</mark>**](k8s_adv33_interview.md)
 2. [**<mark>23个Kubernetes高频面试题汇总</mark>**](k8s_adv129_interview2.md)
+3. [Kubernetes 网络模型基础面试](k8s_adv131_network_interview.md)
 3. [Kubernetes的11大基本概念及重要概念性理解](k8s_adv52_Common_knowledge.md)
 3. [Kubernetes 2018 年度简史](k8s_adv42_dev2018.md)
 4. [Kubernetes 1.14 正式发布，Windows节点生产级支持！](k8s_adv46_114.md)
