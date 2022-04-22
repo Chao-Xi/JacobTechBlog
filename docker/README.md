@@ -15,6 +15,10 @@
 * `AUFS`
 * 其他存储驱动
 
+**[24 个常见的 Docker 疑难杂症处理技巧](23docker_24_issues.md)**
+
+
+
 ## Docker技术与开发 (Docker technology and development[mandarin])
 
 1. [Docker的基本概念与优势(Docker basic concept and advantage)](1docker_basic_concept.md)
