@@ -63,6 +63,7 @@
 17. [通过Prometheus来做SLI/SLO监控展示](49Prometheus_SLI_SLO.md)
 18. [Prometheus 中使用 PrometheusAlert 进行聚合报警](50PrometheusAlert.md)
 19. [Prometheus 使用 missing-container-metrics 监控 Pod oomkill](51missing-container-metrics.md)
+20. [使用 Node Exporter 监控 Linux 主机](59node_exporter.md)
 
 ### Jam prometheus Monitor
 
