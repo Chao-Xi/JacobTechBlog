@@ -29,11 +29,11 @@ containers:
       limits:
         cpu: 100m
         memory: 100Mi
- ```
+```
  
  pod 中的所有容器都设置了 `requests` 和 `limits`，且单个容器内的`requests==limits`：
  
- ```
+```
  containers:
   name: foo
     resources:
@@ -52,7 +52,7 @@ containers:
       requests:
         cpu: 100m
         memory: 100Mi
- ```
+```
  
  容器`foo`和`bar`内`resources`的`requests`和`limits`均相等，该`pod`的`QoS`级别属于`Guaranteed`。
  
@@ -111,7 +111,7 @@ containers:
 
 ## 根据QoS进行资源回收策略
 
-**`Kubernetes` 通过`cgroup`给`pod`设置`QoS`级别,** 当资源不足时先`kill`优先级低的 `pod`，在实际使用过程中，通过`OOM`分数值来实现，`OOM`分数值范围为`0-1000`。`OOM` 分数值根据`OOM_ADJ`参数计算得出。
+**`Kubernetes` 通过`cgroup`给`pod`设置`QoS`级别，**当资源不足时先`kill`优先级低的 `pod`，在实际使用过程中，通过`OOM`分数值来实现，`OOM`分数值范围为`0-1000`。`OOM` 分数值根据`OOM_ADJ`参数计算得出。
 
 * 对于`Guaranteed`级别的 `Pod`，`OOM_ADJ`参数设置成了`-998`，
 * 对于`Best-Effort`级别的 `Pod`，`OOM_ADJ`参数设置成了`1000`，

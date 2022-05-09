@@ -148,7 +148,7 @@ metadata:
   resourceVersion: "1122714"
   selfLink: /api/v1/namespaces/default/configmaps/app-env-config
   uid: f0b993bd-dec1-4928-ab81-2e7bd4aa3f1d
- ```
+```
  
  通过`ConfigMap`，我们将挂载`application.properties`文件到K8s集群中，并且可以在应用程序中使用它。
  
