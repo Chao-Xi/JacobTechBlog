@@ -110,6 +110,7 @@
 4. [ `PromQL` 简单示例](4Promql_basic4.md)
 5. [在 `HTTP API` 中使用 `PromQL`](5Promql_basic5.md)
 6. [Prometheus 记录规则的使用(`Recording Rule`)](6Promql_adv1.md)
+7. [解决 Prometheus 监控 Kubernetes Job 误报的坑](60prometheus_job.md)
 
 
 ### Marvelous Prometheus Alerts
