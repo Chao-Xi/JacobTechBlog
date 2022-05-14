@@ -125,9 +125,18 @@
 * [Prometheus高可用Thanos学习-`sidercar`和`query` & Thanos部署](35Thanos_install.md)
 * [如何选择 Thanos 的 Sidecar 和 Receiver 两种模式？](61thanos_sidecar_receiver.md)
 * [使用 Thanos 查询前端优化查询性能](62thanos_query.md)
+* [Thanos Ruler 组件的使用](66thanos_ruler.md)
 * [(Thaos1) 大规模场景下 Prometheus 的优化手段](63prometheus_optimiztion.md)
 * [(Thaos2) Thanos 架构详解](64thanos_detail.md)
 * [(Thaos3) Thanos 部署与实践](65thanos_setup.md)
+
+## VictoriaMetrics
+
+* [1Prometheus 远程存储 VictoriaMetrics 简介](67vm_intro.md)
+* [2 Prometheus 长期远程存储方案 VictoriaMetrics 入门实践](68vm_setup.md)
+* [3 VictorialMetrics 集群模式的使用](69vm_cluster.md)
+* [4 使用 vmagent 代替 Prometheus 采集监控指标](70vm_vmagent.md)
+
 
 
 
