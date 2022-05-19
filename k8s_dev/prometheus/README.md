@@ -136,9 +136,5 @@
 * [2 Prometheus 长期远程存储方案 VictoriaMetrics 入门实践](68vm_setup.md)
 * [3 VictorialMetrics 集群模式的使用](69vm_cluster.md)
 * [4 使用 vmagent 代替 Prometheus 采集监控指标](70vm_vmagent.md)
-
-
-
-
-
-
+* [5 使用 Victoria Metrics Operator 管理 VM 集群](71vm_operator.md)
+* [6 使用 vmalert 代替 Prometheus 监控报警](72vm_vmalert.md)
