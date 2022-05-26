@@ -251,6 +251,8 @@
 7. [Kubernetes 中的 DNS 查询(CoreDNS)](k8s_adv94_DNS_check.md)
 8. [给 Pod 添加 DNS 记录](k8s_adv110_pod_dns.md)
 9. [理解 Linux 网络命名空间 network namespace](k8s_adv111_net_namespaces.md)
+10. [**Kubernetes网络策略 NetworkPolicy**](k8s_adv132_network_policy.md)
+11. [K8s 常用 IPs 地址类型知多少](k8s_adv133_k8s_IPs_description.md)
 
 #### (2) 外部服务发现
 
@@ -441,4 +443,4 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 #### HELM 开发技巧 
 
 1. [`HELM`开发 `YAML`技巧](k8s_helm11_chart_yaml.md)
-2. [Helm 词汇表](k8s_helm16_term.md)
+	2. [Helm 词汇表](k8s_helm16_term.md)
