@@ -131,6 +131,7 @@
 4. [Kubernetes 问题定位技巧：分析 ExitCode](k8s_skill5_exit_code.md)
 5. [Kubernetes 最佳实践：处理内存碎片化](k8s_skill6_slan_cache.md)
 6. [Kubernetes 删除卡在 `Terminating`状态的 `namespace`](k8s_skill8_clean_ns.md)
+	* [熟悉又陌生的 k8s 字段：finalizers](k8s_adv134_finalizers.md)
 7. [Kubernetes 之`Docker`容器数据写满磁盘解决方法](k8s_skill9_desc_full2.md)
 8. [一次K8s排错实战](k8s_adv121_error_check.md)
 9. [**如何用 K8S 临时容器来调试 Pods**](k8s_adv122_pods_debugging.md)
