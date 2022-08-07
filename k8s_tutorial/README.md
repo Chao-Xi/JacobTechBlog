@@ -277,6 +277,9 @@
 
 ### K8S 伸缩问题
 
+* [企业级弹性伸缩与优化建设](k8s_adv135_autoscale.md)
+
+
 1. [k8s自动伸缩那些事](k8s_adv28_hpa_vpa.md)
 2. [Pod 自动扩缩容(HPA: Horizontal Pod Autoscaling)](k8s_adv23_HPA.md)
 3. [6个与弹性伸缩、调度相关的Kubernetes附加组件](k8s_adv49_AS_plugins.md)
