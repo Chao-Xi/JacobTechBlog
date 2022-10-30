@@ -36,4 +36,4 @@
 30. [Operator List(Ansible)](operator/README.md)
 31. [Velero备份集群](velero/README.md)
 32. [Longhorn 云原生分布式块存储解决方案](longhorn/README.md)
-33. [Kubernetes DB 工具](dbtool/README.md)
+33. [HELM Dashboard](helm_board/README.md)
