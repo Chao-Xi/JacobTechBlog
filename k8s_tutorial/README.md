@@ -135,6 +135,7 @@
 7. [Kubernetes 之`Docker`容器数据写满磁盘解决方法](k8s_skill9_desc_full2.md)
 8. [一次K8s排错实战](k8s_adv121_error_check.md)
 9. [**如何用 K8S 临时容器来调试 Pods**](k8s_adv122_pods_debugging.md)
+10. [**解读Kubernetes Pod的13种异常**](k8s_adv135_13issues.md)
 
 #### 编写模板
 
