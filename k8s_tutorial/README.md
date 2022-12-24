@@ -255,6 +255,7 @@
 9. [理解 Linux 网络命名空间 network namespace](k8s_adv111_net_namespaces.md)
 10. [**Kubernetes网络策略 NetworkPolicy**](k8s_adv132_network_policy.md)
 11. [K8s 常用 IPs 地址类型知多少](k8s_adv133_k8s_IPs_description.md)
+12. [**浅谈 Kubernetes Service 2023**](k8s_adv136_svc_2023.md)
 
 #### (2) 外部服务发现
 
@@ -422,6 +423,7 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 8. [Helm Chart 模板开发技巧](k8s_helm10_Dev_Skills.md)
    * [ 使用 `tpl` 函数 / 创建 `imagePullSecret` / `ConfigMap` 或者 `Secret` 更改时自动更新/ 告诉 `Tiller` 不要删除资源 / 使用`Partials/ others`]
 9. [如何在 Helm Chart 中兼容不同的 Kubernetes 版本？](k8s_helm19_versions.md)
+10. [使用 helmfile 声明式部署 Helm Chart](k8s_helm21_helmfile.md)
 
 
 ### CHART 最佳实践
