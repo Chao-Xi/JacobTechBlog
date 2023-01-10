@@ -201,6 +201,7 @@
 6. [恢复全部清空的 Kubernetes 证书文件](k8s_adv112_recover_certificates.md)
 7. [Kubernetes 配置更新那些事](k8s_adv113_config_update.md)
 8. [10个 Kubernetes 安全上下文设置 securityContext](k8s_adv116_security.md)
+9. [K8s 原生支持的准入策略管理](k8s_adv137_adminpolicy.md)
 
 ### 持久化存储:
 
