@@ -123,6 +123,7 @@
 11. [为 Kubernetes 节点发布扩展资源](k8s_adv103_resource_expand.md)
 12. [Docker 和 Kubernetes：root 与特权](k8s_adv115_root.md)
 13. [K8s 选 cgroupfs 还是 systemd](k8s_adv134_cgroup_systemd.md)
+14. [ServiceAccount Token 在不同 K8s 版本中的使用](k8s_adv138_sa_token.md)
 
 #### 故障排除
 
