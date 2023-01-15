@@ -108,6 +108,8 @@
 #### [Kubernetes Deployment 故障排查常见方法😍](k8s_adv84_deployment_diagnostic.md) 
 #### [Kubectl 常用命令大全](k8s_adv95_commands.md)
 
+#### [Kubernetes 日常运维工作中常用的命令](k8s_adv139_operation.md)
+
 #### 使用技巧
 
 1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)  😍
