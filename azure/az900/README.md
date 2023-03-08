@@ -18,4 +18,4 @@
 
 
 * [AZ-900T01 Microsoft Azure Fundamentals](Microsoft Azure Fundamentals.pdf)
-* [Exam AZ-900: Microsoft Azure Fundamentals – Skills Measured](exam-az-900-microsoft-azure-fundamentals-skills-measured.pdf)
+* [Exam AZ-900: Microsoft Azure Fundamentals – Skills Measured](exam-az-900-microsoft-azure-fundamentals-skills-measured.pdf)![]()
