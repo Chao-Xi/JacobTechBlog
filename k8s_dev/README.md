@@ -37,3 +37,4 @@
 31. [Velero备份集群](velero/README.md)
 32. [Longhorn 云原生分布式块存储解决方案](longhorn/README.md)
 33. [HELM Dashboard](helm_board/README.md)
+34. [Cert-Manager集群中自动化管理证书](cert-manager/README.md)
