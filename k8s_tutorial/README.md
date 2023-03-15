@@ -145,6 +145,7 @@
 * [使用 `Kustomize` 配置 `Kubernetes` 应用](k8s_adv72_Kustomize.md)
 * [使用 Kustomize 定制 Helm Chart](k8s_adv104_Kustomize_helm.md)
 * [**Kubernetes 资源清单静态分析工具 - KubeLinter**](k8s_adv124_KubeLinter.md)
+* [Kustomize中模板化的正确方式(2023)](k8s_adv141_kustomize2023.md)
 
 ### 深入理解 POD
 
