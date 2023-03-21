@@ -20,6 +20,7 @@
 7. [Git技巧：修改历史(修改最新一条历史/修改指定某条历史)](git_history.md)
 8. [**动图展示 10 大 Git 命令**](git_10commands.md)
 9. [**Git 中submodule的使用**](git_submod.md)
+10. [**跟踪项目代码进度 Git Submodules 2023**](git_submodules.md)
 
 
 ### Linux Network
