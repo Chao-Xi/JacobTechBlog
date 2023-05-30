@@ -293,6 +293,7 @@
 7. [KEDA-Kubernetes 中基于事件驱动的自动伸缩](k8s_adv117_EKDA_events.md)
 8. [Kubernetes Pod垂直自动伸VPA](k8s_adv126_VPA.md)
 9. [Pod 原地垂直伸缩CRI设计](k8s_adv140_vpa.md)
+10. [使用 KEDA 自动伸缩 Kubernetes 应用](k8s_adv141_keda.md)
 
 ### K8S 深度设计理念
 
