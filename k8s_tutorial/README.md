@@ -139,6 +139,7 @@
 8. [一次K8s排错实战](k8s_adv121_error_check.md)
 9. [**如何用 K8S 临时容器来调试 Pods**](k8s_adv122_pods_debugging.md)
 10. [**解读Kubernetes Pod的13种异常**](k8s_adv135_13issues.md)
+11. [**<mark>K8s Pod 故障排查：崩溃日志分析背后的实现原理(--previous)</mark>**](k8s_adv142_pod_err.md)
 
 #### 编写模板
 
