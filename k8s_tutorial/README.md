@@ -450,6 +450,7 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 
 * [Helm Charts 开发完整示例(2022)](k8s_helm20_2022_dev.md)
 	* **[应用 / 基础模板 /  命名模板  / 版本兼容 / 持久化 / 定制 / 共享 Charts]**
+* [Helm Chart 开发 ：7个常用的Helm 函数 2023](k8s_helm22_7funcs.md)
 
 
 #### HELM 开发技巧 
