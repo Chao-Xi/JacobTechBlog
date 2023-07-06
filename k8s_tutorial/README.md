@@ -192,9 +192,10 @@
 13. [`Kubernetes Namespace`命名空间详解](k8s_adv44_namespace.md)
 14. [`Kubelet` 状态更新机制](k8s_adv58_kubelet.md)
 15. [如何在`Kubernetes`实现GPU调度及共享](k8s_adv64_GPU_share.md)
-16. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
-17. [ConfigMap三种使用方法](k8s_adv89_cm_typical_ways.md)
-18. [图解 K8S 控制器 Node 生命周期管理](k8s_adv90_node_mgm.md)
+16. [在Kubernetes集群中实现共享GPU调度(GPUshare)](k8s_adv143_gpushare.md)
+17. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
+18. [ConfigMap三种使用方法](k8s_adv89_cm_typical_ways.md)
+19. [图解 K8S 控制器 Node 生命周期管理](k8s_adv90_node_mgm.md)
 
 #### K8S授权和访问&证书
 
@@ -207,6 +208,7 @@
 7. [Kubernetes 配置更新那些事](k8s_adv113_config_update.md)
 8. [10个 Kubernetes 安全上下文设置 securityContext](k8s_adv116_security.md)
 9. [K8s 原生支持的准入策略管理](k8s_adv137_adminpolicy.md)
+10. [Kubernetes Secrets：如何创建、使用和访问Secrets(2023)](k8s_adv144_secret2023.md)
 
 ### 持久化存储:
 
