@@ -191,11 +191,18 @@
 12. [两种方法上手`ConfigMap`(环境变量/挂载文件)](k8s_adv85_two_configmaps.md)
 13. [`Kubernetes Namespace`命名空间详解](k8s_adv44_namespace.md)
 14. [`Kubelet` 状态更新机制](k8s_adv58_kubelet.md)
-15. [如何在`Kubernetes`实现GPU调度及共享](k8s_adv64_GPU_share.md)
-16. [在Kubernetes集群中实现共享GPU调度(GPUshare)](k8s_adv143_gpushare.md)
-17. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
-18. [ConfigMap三种使用方法](k8s_adv89_cm_typical_ways.md)
-19. [图解 K8S 控制器 Node 生命周期管理](k8s_adv90_node_mgm.md)
+15. [深入理解 `Kubernetes Admission Webhook`](k8s_adv65_admission_webhook.md)
+16. [ConfigMap三种使用方法](k8s_adv89_cm_typical_ways.md)
+17. [图解 K8S 控制器 Node 生命周期管理](k8s_adv90_node_mgm.md)
+
+
+#### GPU
+
+1. [如何在`Kubernetes`实现GPU调度及共享](k8s_adv64_GPU_share.md)
+2. [在Kubernetes集群中实现共享GPU调度(GPUshare)](k8s_adv143_gpushare.md)
+3. [在 Kubernetes 上调度 GPU 资源AMD/NIVIDIA](k8s_adv145_k8sGPU.md)
+4. [云原生 GPU 算力管理探索(FULL for test)](k8s_adv146_k8sGPU2.md)
+5. [在Kubernetes（k8s）中使用GPU(install)](k8s_adv147_k8sGPU3.md)
 
 #### K8S授权和访问&证书
 
@@ -208,7 +215,6 @@
 7. [Kubernetes 配置更新那些事](k8s_adv113_config_update.md)
 8. [10个 Kubernetes 安全上下文设置 securityContext](k8s_adv116_security.md)
 9. [K8s 原生支持的准入策略管理](k8s_adv137_adminpolicy.md)
-10. [Kubernetes Secrets：如何创建、使用和访问Secrets(2023)](k8s_adv144_secret2023.md)
 
 ### 持久化存储:
 
