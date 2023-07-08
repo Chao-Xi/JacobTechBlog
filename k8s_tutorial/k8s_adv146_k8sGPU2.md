@@ -243,7 +243,7 @@ cGPU、qGPU、vCUDA、gpu share、GPU 池化 等 GPU 共享技术越来越被用
 
 这些方案相互独立，没有统一标准，无法共通。这导致用户在单个集群中很难同时使用多种 GPU 后端技术，同时也没有一个全局的视角获取集群层面 GPU 信息。这为基于 Kubernetes 构建统一的GPU算力基础设施平台增加了很多难度。
 
-**Elastic GPU（https://github.com/elastic-ai/elastic-gpu）借鉴PV / PVC / StorageClass模型，定义了三种全新的 Kubernetes CRD，用于代表 GPU 资源的不同抽象**：
+**Elastic GPU（ https://github.com/elastic-ai/elastic-gpu ）借鉴PV / PVC / StorageClass模型，定义了三种全新的 Kubernetes CRD，用于代表 GPU 资源的不同抽象**：
 
 
 * **ElasticGPU：ElasticGPU 是集群中一个实际可使用的 GPU 资源，可以是一块本地 GPU 物理卡、一个 GPU 切片资源（ GPU 算力 / 显存 的组合）、一个远端 GPU 设备**。
