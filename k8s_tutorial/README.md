@@ -110,6 +110,8 @@
 
 #### [Kubernetes 日常运维工作中常用的命令](k8s_adv139_operation.md)
 
+#### [KubeLinter：如何检查K8s清单文件和Helm图表](k8s_adv148_KubeLinter.md)
+
 #### 使用技巧
 
 1. [Kubectl Cheatsheet / kubectl命令技巧大全](k8s_adv27_kubectl_Cheatsheet.md)  😍
