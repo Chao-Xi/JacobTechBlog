@@ -78,6 +78,7 @@
 
 1. [从进程说容器](k8s_container1.md)
 2. [Docker 镜像分析工具 Dive](k8s_container2_dive.md)
+3. [Maven + Docker + Jar 打包流程](k8s_adv149_docker_maven_jar.md)
 
 ### K8S 生产架构
 
@@ -466,4 +467,4 @@ $ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.ta
 #### HELM 开发技巧 
 
 1. [`HELM`开发 `YAML`技巧](k8s_helm11_chart_yaml.md)
-	2. [Helm 词汇表](k8s_helm16_term.md)
+2. [Helm 词汇表](k8s_helm16_term.md)
