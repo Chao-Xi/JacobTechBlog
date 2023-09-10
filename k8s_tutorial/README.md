@@ -314,6 +314,7 @@
 3. [微服务中的Sidecar设计模式解析 & Kubernetes日志采集Sidecar模式介绍](k8s_adv34_sidecar.md)
 4. [在 `Kubernetes` 中配置 `Container Capabilities`](k8s_adv80_container_capabilities.md)
 5. [kubelet 配置资源预留的姿势](k8s_adv128_node_resource.md)
+6. [**Kubernetes 资源管理：最大化集群性能 2023**](k8s_adv150_perf.md)
 
 
 ### K8S 安全性问题
