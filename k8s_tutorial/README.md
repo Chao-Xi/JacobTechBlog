@@ -111,6 +111,8 @@
 
 #### [Kubernetes 日常运维工作中常用的命令](k8s_adv139_operation.md)
 
+#### [kubectl命令之隐藏的高级操作 2023](k8s_adv151_opt2023.md)
+
 #### [KubeLinter：如何检查K8s清单文件和Helm图表](k8s_adv148_KubeLinter.md)
 
 #### 使用技巧
