@@ -39,3 +39,4 @@
 33. [HELM Dashboard](helm_board/README.md)
 34. [Cert-Manager集群中自动化管理证书](cert-manager/README.md)
 35. [Play with ChatGPT](chatgpt/README.md)
+36. [在 Kubernetes 中使用 Locust 进行性能测试](loadtest/1locust.md)
