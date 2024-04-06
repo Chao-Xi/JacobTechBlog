@@ -73,6 +73,7 @@
 5. [CKAD 模拟考试](k8s_adv86_ckad.md)
 6. [CKAD Exercises](k8s_adv86_ckad2.md)
 7. [**Kubernetes 常见问题排查与解决方案大全**](k8s_adv125_debug_review.md)
+8. [Kubernetes v1.30 新特性一览](k8s_adv156_k8s130.md)
 
 ### 深入理解 容器化和 `Docker`
 
