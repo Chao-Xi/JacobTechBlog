@@ -279,6 +279,7 @@
 11. [K8s 常用 IPs 地址类型知多少](k8s_adv133_k8s_IPs_description.md)
 12. [**浅谈 Kubernetes Service 2023**](k8s_adv136_svc_2023.md)
 
+
 #### (2) 外部服务发现
 
 1. [外部服务发现之 ingress(一): traefik 的安装使用](k8s_adv17_ingress1.md)
@@ -298,6 +299,7 @@
 14. [图解 Istio](k8s_adv107_istio_scratch.md)
 15. [Kubernetes Service APIs 介绍](k8s_adv108_serviceapis.md)
 16. [云原生负载均衡和网关应用实践](k8s_adv118_lb_gateway.md)
+17. [**K8S有了Service,为什么还要Ingress？（2024）**](k8s_adv157_2024svc_ingress.md)
 
 ### K8S 伸缩问题
 
