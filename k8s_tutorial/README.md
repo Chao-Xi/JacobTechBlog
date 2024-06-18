@@ -164,6 +164,7 @@
 5. [Pod 的生命周期](k8s_adv43_podlifecycle.md)
 6. [健康检查(liveness probe & readiness probe)](k8s_adv22_health_inspect.md)
 7. [Pod Init Container 详解](k8s_adv9_pod_init_container.md)
+8. [2024 Kubernetes 基础知识：Finalizers 是什么？](k8s_adv158_2024finalizer.md)
 
 ### etcd 
 
