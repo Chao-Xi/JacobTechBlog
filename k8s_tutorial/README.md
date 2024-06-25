@@ -98,6 +98,8 @@
 
 ### K8S 操作
 
+* [**2024 DevOps工程师常用的K8s命令和技巧**](k8s_adv159_2024cmds.md)
+
 #### [提高 kubectl 使用生产力](k8s_skill7_kubectl_improve.md) 😍
 
 * 命令自动补全安装[Linux/Mac(**Upgrading Bash on macOS**)]
