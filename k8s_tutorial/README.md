@@ -64,6 +64,14 @@
 
 ## K8S进阶课程(K8S Adv. Tutorial)
 
+### 复习and考试
+
+#### 2025
+
+1. [**描述K8S创建pod的全过程 - 2025**](k8s_adv163_pod_creation.md)
+
+#### 2024 and before 
+
 1. [**<mark>kubernetes interview questions (Keep Updating)</mark>**](k8s_adv33_interview.md)
 2. [**<mark>23个Kubernetes高频面试题汇总</mark>**](k8s_adv129_interview2.md)
 3. [Kubernetes 网络模型基础面试](k8s_adv131_network_interview.md)
@@ -97,6 +105,8 @@
 4. [使用 Flux+Flagger+Istio+Kubernetes 实战 GitOps 云原生渐进式(金丝雀)交付](k8s_adv120_flux_flagger_istio.md)
 
 ### K8S 操作
+
+#### 2024
 
 * [**2024 DevOps工程师常用的K8s命令和技巧**](k8s_adv159_2024cmds.md)
 
