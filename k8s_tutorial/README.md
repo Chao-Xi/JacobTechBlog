@@ -69,6 +69,7 @@
 #### 2025
 
 1. [**描述K8S创建pod的全过程 - 2025**](k8s_adv163_pod_creation.md)
+2. [**Kubernetes 面试题精解：从入门到进阶(2025) - 必看**](k8s_adv164_scenario_interview.md)
 
 #### 2024 and before 
 
