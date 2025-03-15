@@ -72,6 +72,11 @@
 2. [**Kubernetes 面试题精解：从入门到进阶(2025) - 必看**](k8s_adv164_scenario_interview.md)
 3. [**Karpenter vs. Cluster Autoscaler — Kubernetes 节点自动扩展工具**](k8s_adv167_autoscale.md)
 4. [**面试题精选：深度剖析 Istio (2025**)](k8s_adv165_istio_interview.md)
+5. [**Kubernetes 秘密技巧 2025**](k8s_adv166_tricks.md)
+6. [**Karpenter vs. Cluster Autoscaler — Kubernetes 节点自动扩展工具 2025**](k8s_adv167_autoscale.md)
+7. [面试题精选：深度剖析 Istio (2025)](k8s_adv168_istio_interview.md)
+8. [如何设计永不宕机的 K8s 集群(2025)](k8s_adv166_cluster_design.md)
+9. [K8s 悬案：当 Pod 集体 “自杀” 而日志却说一切正常(2025)](k8s_adv167_pod_crash_troubleshooting.md)
 
 #### 2024 and before 
 
